@@ -14,11 +14,12 @@ import math
 import sys
 import time
 import os
-
 import numpy as np
+sys.path.append('/home/rcduan/fairseq/TTTMMMPPP')
 
 import torch
 
+from drc_utils import dprint
 from fairseq import checkpoint_utils, distributed_utils, options, tasks, utils
 from fairseq.data import encoders
 from fairseq.token_generation_constraints import pack_constraints, unpack_constraints
@@ -30,15 +31,20 @@ logging.basicConfig(
     level=os.environ.get('LOGLEVEL', 'INFO').upper(),
     stream=sys.stdout,
 )
+# 第一步，创建一个logger
 logger = logging.getLogger('fairseq_cli.interactive')
 
-
+# 产生一个tuple，但是这个tuple有名字，而且里边的每个值都有名字
 Batch = namedtuple('Batch', 'ids src_tokens src_lengths constraints')
 Translation = namedtuple('Translation', 'src_str hypos pos_scores alignments')
 
 
+# fileinput模块可以对一个或多个文件中的内容进行迭代、遍历等操作。
+# 该模块的input()函数有点类似文件readlines()方法，区别在于:
+# 前者是一个迭代对象，即每次只生成一行，需要用for循环迭代。
 def buffered_read(input, buffer_size):
     buffer = []
+    #该钩子用于控制打开的所有文件，比如说编码方式等; 
     with fileinput.input(files=[input], openhook=fileinput.hook_encoded("utf-8")) as h:
         for src_str in h:
             buffer.append(src_str.strip())
@@ -51,6 +57,16 @@ def buffered_read(input, buffer_size):
 
 
 def make_batches(lines, args, task, max_positions, encode_fn):
+    """"
+    Args:
+        lines(list):
+            the list of translation
+        args:
+            all of args
+        task:
+            the object of task
+        
+    """
     def encode_fn_target(x):
         return encode_fn(x)
 
@@ -71,6 +87,7 @@ def make_batches(lines, args, task, max_positions, encode_fn):
             ) for constraint in constraint_list]
 
     tokens = [
+        #编码每句话
         task.source_dictionary.encode_line(
             encode_fn(src_str), add_if_not_exist=False
         ).long()
@@ -83,8 +100,10 @@ def make_batches(lines, args, task, max_positions, encode_fn):
         constraints_tensor = None
 
     lengths = [t.numel() for t in tokens]
+    #得到iterator
     itr = task.get_batch_iterator(
-        dataset=task.build_dataset_for_inference(tokens, lengths, constraints=constraints_tensor),
+        dataset=task.build_dataset_for_inference(
+            tokens, lengths, constraints=constraints_tensor),
         max_tokens=args.max_tokens,
         max_sentences=args.max_sentences,
         max_positions=max_positions,
@@ -92,10 +111,11 @@ def make_batches(lines, args, task, max_positions, encode_fn):
     ).next_epoch_itr(shuffle=False)
     for batch in itr:
         ids = batch['id']
+        #输入句子
         src_tokens = batch['net_input']['src_tokens']
+        #输入句子长度
         src_lengths = batch['net_input']['src_lengths']
         constraints = batch.get("constraints", None)
-
         yield Batch(
             ids=ids,
             src_tokens=src_tokens,
@@ -108,6 +128,7 @@ def main(args):
     start_time = time.time()
     total_translate_time = 0
 
+    #使用args.user_dir
     utils.import_user_module(args)
 
     if args.buffer_size < 1:
@@ -184,7 +205,8 @@ def main(args):
     )
 
     if args.constraints:
-        logger.warning("NOTE: Constrained decoding currently assumes a shared subword vocabulary.")
+        logger.warning(
+            "NOTE: Constrained decoding currently assumes a shared subword vocabulary.")
 
     if args.buffer_size > 1:
         logger.info('Sentence buffer size: %s', args.buffer_size)
@@ -211,20 +233,22 @@ def main(args):
                 },
             }
             translate_start_time = time.time()
-            translations = task.inference_step(generator, models, sample, constraints=constraints)
+            #翻译
+            translations = task.inference_step(
+                generator, models, sample, constraints=constraints)
             translate_time = time.time() - translate_start_time
             total_translate_time += translate_time
             list_constraints = [[] for _ in range(bsz)]
             if args.constraints:
                 list_constraints = [unpack_constraints(c) for c in constraints]
+            #处理resource数据
             for i, (id, hypos) in enumerate(zip(batch.ids.tolist(), translations)):
                 src_tokens_i = utils.strip_pad(src_tokens[i], tgt_dict.pad())
                 constraints = list_constraints[i]
                 results.append((start_id + id, src_tokens_i, hypos,
-                                { "constraints": constraints,
-                                  "time": translate_time / len(translations) }
-                            ))
-
+                                {"constraints": constraints,
+                                 "time": translate_time / len(translations)}
+                                ))
         # sort output to match input order
         for id_, src_tokens, hypos, info in sorted(results, key=lambda x: x[0]):
             if src_dict is not None:
@@ -232,10 +256,14 @@ def main(args):
                 print('S-{}\t{}'.format(id_, src_str))
                 print("W-{}\t{:.3f}\tseconds".format(id_, info["time"]))
                 for constraint in info["constraints"]:
-                    print("C-{}\t{}".format(id_, tgt_dict.string(constraint, args.remove_bpe)))
+                    print("C-{}\t{}".format(id_,
+                                            tgt_dict.string(constraint, args.remove_bpe)))
 
             # Process top predictions
+
             for hypo in hypos[:min(len(hypos), args.nbest)]:
+                #hypo_str 翻译的话
+                #hypotokens 翻译的词的索引
                 hypo_tokens, hypo_str, alignment = utils.post_process_prediction(
                     hypo_tokens=hypo['tokens'].int().cpu(),
                     src_str=src_str,
@@ -243,7 +271,8 @@ def main(args):
                     align_dict=align_dict,
                     tgt_dict=tgt_dict,
                     remove_bpe=args.remove_bpe,
-                    extra_symbols_to_ignore=get_symbols_to_strip_from_output(generator),
+                    extra_symbols_to_ignore=get_symbols_to_strip_from_output(
+                        generator),
                 )
                 detok_hypo_str = decode_fn(hypo_str)
                 score = hypo['score'] / math.log(2)  # convert to base 2
@@ -260,7 +289,8 @@ def main(args):
                     ))
                 ))
                 if args.print_alignment:
-                    alignment_str = " ".join(["{}-{}".format(src, tgt) for src, tgt in alignment])
+                    alignment_str = " ".join(
+                        ["{}-{}".format(src, tgt) for src, tgt in alignment])
                     print('A-{}\t{}'.format(
                         id_,
                         alignment_str
@@ -269,7 +299,9 @@ def main(args):
         # update running id_ counter
         start_id += len(inputs)
 
-    logger.info("Total time: {:.3f} seconds; translation time: {:.3f}".format(time.time() - start_time, total_translate_time))
+    logger.info("Total time: {:.3f} seconds; translation time: {:.3f}".format(
+        time.time() - start_time, total_translate_time))
+
 
 def cli_main():
     parser = options.get_interactive_generation_parser()

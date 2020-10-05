@@ -14,6 +14,9 @@ import os
 import random
 import sys
 
+sys.path.append('/home/rcduan/fairseq/TTTMMMPPP')
+from drc_utils import dprint
+
 import numpy as np
 import torch
 from fairseq import (
@@ -48,6 +51,7 @@ def main(args):
 
     metrics.reset()
 
+    #初始化随机种子
     np.random.seed(args.seed)
     utils.set_torch_seed(args.seed)
 
@@ -80,6 +84,7 @@ def main(args):
         )
     )
 
+    #这是啥
     # (optionally) Configure quantization
     if args.quantization_config_path is not None:
         quantizer = quantization_utils.Quantizer(
@@ -119,7 +124,7 @@ def main(args):
     lr = trainer.get_lr()
     train_meter = meters.StopwatchMeter()
     train_meter.start()
-
+    dprint(idx = epoch_itr.next_epoch_idx)
     while lr > args.min_lr and epoch_itr.next_epoch_idx <= max_epoch:
         # train for one epoch
         valid_losses, should_stop = train(args, trainer, task, epoch_itr)
