@@ -9,6 +9,10 @@ import math
 
 import torch
 
+import sys
+
+sys.path.append('/home/rcduan/fairseq/TTTMMMPPP')
+from drc_utils import dprint
 
 class Search(object):
 
@@ -175,7 +179,7 @@ class Sampling(Search):
     def step(self, step, lprobs, scores):
         super()._init_buffers(lprobs)
         bsz, beam_size, vocab_size = lprobs.size()
-
+        
         if step == 0:
             # at the first step all hypotheses are equally likely, so use
             # only the first beam
@@ -229,11 +233,12 @@ class Sampling(Search):
 
         # remap indices since we excluded the first two vocab items
         self.indices_buf.add_(2)
-
+        # dprint(beam_buf = self.beams_buf)
         if step == 0:
             self.beams_buf = self.indices_buf.new_zeros(bsz, beam_size)
         else:
-            self.beams_buf = torch.arange(0, beam_size, out=self.beams_buf).repeat(bsz, 1)
+            self.beams_buf = torch.arange(0, beam_size,device=self.beams_buf.device).repeat(bsz, 1)
+            # self.beams_buf = torch.arange(0, beam_size, out=self.beams_buf).repeat(bsz, 1)
             # make scores cumulative
             self.scores_buf.add_(
                 torch.gather(

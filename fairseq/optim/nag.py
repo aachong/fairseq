@@ -86,10 +86,11 @@ class NAG(Optimizer):
 
                 if weight_decay != 0:
                     p_data_fp32.mul_(1 - lr * weight_decay)
-                p_data_fp32.add_(momentum * momentum * lr_correct, buf)
-                p_data_fp32.add_(-(1 + momentum) * lr, d_p)
+                p_data_fp32:torch.tensor
+                p_data_fp32.add_(alpha=momentum * momentum * lr_correct,other=buf)
+                p_data_fp32.add_(alpha=-(1 + momentum) * lr, other=d_p)
 
-                buf.mul_(momentum * lr_correct).add_(-lr, d_p)
+                buf.mul_(momentum * lr_correct).add_(alpha=-lr, other=d_p)
 
                 p.data.copy_(p_data_fp32)
 
