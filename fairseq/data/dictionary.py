@@ -17,6 +17,7 @@ from fairseq.tokenizer import tokenize_line
 
 class Dictionary(object):
     """A mapping from symbols to consecutive integers"""
+    """添加的时候通过add symbol一个一个扫描所有文档的单词进行添加"""
 
     def __init__(
         self,
@@ -73,6 +74,7 @@ class Dictionary(object):
         """Helper for converting a tensor of token indices to a string.
 
         Can optionally remove BPE symbols or escape <unk> words.
+        输入二位数组，输出一维的字符串，不同句子用回车换行
         """
         if torch.is_tensor(tensor) and tensor.dim() == 2:
             return "\n".join(
@@ -299,6 +301,7 @@ class Dictionary(object):
         append_eos=True,
         reverse_order=False,
     ):
+    """输入一行文本，将文本转化为索引"""
         words = line_tokenizer(line)
         if reverse_order:
             words = list(reversed(words))

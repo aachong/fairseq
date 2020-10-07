@@ -162,6 +162,15 @@ class SequenceGenerator(nn.Module):
                 the list of constraints
             bos_token (int, optional): beginning of sentence token
                 (default: self.eos)
+
+        Return:
+            返回值为batch size*beam size*一个字典
+            这个字典为
+                'tokens': seq_len,
+                'score': 句子的score,
+                'attention': hypo_attn,  # src_len x tgt_len
+                'alignment': alignment,
+                'positional_scores': 每个位置的score,
         """
         return self._generate(sample, **kwargs)
 
