@@ -14,7 +14,7 @@ import os
 import random
 import sys
 
-sys.path.append('/home/rcduan/fairseq/TTTMMMPPP')
+sys.path.append('/home/rcduan/utils')
 from drc_utils import dprint
 
 import numpy as np

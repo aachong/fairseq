@@ -117,3 +117,6 @@ class LegacyFairseqCriterion(FairseqCriterion):
     def build_criterion(cls, args, task):
         """Construct a criterion from command-line args."""
         return cls(args, task)
+
+class FairseqSequenceCriterion(FairseqCriterion):
+    pass

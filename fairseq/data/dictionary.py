@@ -301,7 +301,7 @@ class Dictionary(object):
         append_eos=True,
         reverse_order=False,
     ):
-    """输入一行文本，将文本转化为索引"""
+        """输入一行文本，将文本转化为索引"""
         words = line_tokenizer(line)
         if reverse_order:
             words = list(reversed(words))

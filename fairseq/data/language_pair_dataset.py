@@ -68,6 +68,8 @@ def collate(
     ])
     src_lengths, sort_order = src_lengths.sort(descending=True)
     id = id.index_select(0, sort_order)
+    sort_order = sort_order.to(src_tokens.device)
+    # print(src_tokens.device,sort_order.device)
     src_tokens = src_tokens.index_select(0, sort_order)
 
     prev_output_tokens = None
@@ -80,7 +82,8 @@ def collate(
         target = target.index_select(0, sort_order)
         tgt_lengths = torch.LongTensor([
             s['target'].ne(pad_idx).long().sum() for s in samples
-        ]).index_select(0, sort_order)
+        ]).to(sort_order.device).index_select(0, sort_order)
+        #gaiguo
         ntokens = tgt_lengths.sum().item()
 
         if samples[0].get('prev_output_tokens', None) is not None:
