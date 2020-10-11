@@ -13,7 +13,8 @@ from fairseq import utils,metrics
 from fairseq.criterions import register_criterion
 from fairseq.criterions.fairseq_criterion import FairseqSequenceCriterion
 # from ..tasks.translation_struct import TranslationStructuredPredictionTask
-
+from fairseq.drc_utils import dprint
+from fairseq import drc_utils
 
 @register_criterion('sequence_risk')
 class SequenceRiskCriterion(FairseqSequenceCriterion):
@@ -88,7 +89,7 @@ class SequenceRiskCriterion(FairseqSequenceCriterion):
 
         bsz = len(sample['hypos'])
         nhypos = len(sample['hypos'][0])
-
+ 
         sample: dict
 
 
@@ -110,22 +111,27 @@ class SequenceRiskCriterion(FairseqSequenceCriterion):
         # generate a new sample from the given hypotheses
         # 把每个源句子翻译的多个句子b，n 差分成一维b*n
         new_sample = self.task.get_new_sample_for_hypotheses(sample)
-        hypotheses = new_sample['target'].view(bsz, nhypos, -1, 1)
-        hypolen = hypotheses.size(2)
-        pad_mask = hypotheses.ne(self.task.target_dictionary.pad())
-        lengths = pad_mask.sum(dim=2).float()
 
+
+        hypotheses = new_sample['target'].view(bsz, nhypos, -1, 1)#bsz,hpsz,seq_len,1
+        hypolen = hypotheses.size(2)
+        pad_mask = hypotheses.ne(self.task.target_dictionary.pad()) #bsz,hpsz,seq_len,1
+        lengths = pad_mask.sum(dim=2).float() #bsz,hpsz,1
+
+        #maxtokens 被乘以12了？设置为1000，现在有12000个，不算pad
+        #dprint(lengths=lengths,end_is_stop=True,shape=lengths.shape,sum=lengths.sum())
 
         net_output = model(**new_sample['net_input'])
         lprobs = model.get_normalized_probs(net_output, log_probs=True)
         lprobs = lprobs.view(bsz, nhypos, hypolen, -1)
 
-        scores = lprobs.gather(3, hypotheses)
+        scores = lprobs.gather(3, hypotheses) #bsz,hpsz,seq_len,1
         scores *= pad_mask.float()
+
         avg_scores = scores.sum(dim=2) / lengths
         probs = F.softmax(avg_scores, dim=1).squeeze(-1)
         #porbs.shape=batch size,beam size
-
+ 
         loss = (probs * costs).sum()
 
         sample_size = bsz
@@ -136,6 +142,7 @@ class SequenceRiskCriterion(FairseqSequenceCriterion):
             'ntokens': sample['ntokens'],
             'nsentences': bsz,
             'sample_size': sample_size,
+            'htokens':lengths.sum()
         }
 
         def add_cost_stats(costs, prefix=''):
@@ -148,6 +155,7 @@ class SequenceRiskCriterion(FairseqSequenceCriterion):
         add_cost_stats(costs)
         if unnormalized_costs is not None:
             add_cost_stats(unnormalized_costs, 'unnormalized_')
+
 
         return loss, sample_size, logging_output
 
@@ -163,7 +171,8 @@ class SequenceRiskCriterion(FairseqSequenceCriterion):
             'ntokens': ntokens,
             'nsentences': nsentences,
         }
-        metrics.log_scalar('loss', sum(log.get('loss', 0) for log in logging_outputs), sample_size, round=3)
+        all_loss = sum(log.get('loss', 0) for log in logging_outputs)
+        metrics.log_scalar('loss', all_loss/sample_size , sample_size, round=3)
 
         def add_cost_stats(prefix=''):
             agg_outputs.update({

@@ -15,11 +15,11 @@ import sys
 import time
 import os
 import numpy as np
-sys.path.append('/home/rcduan/fairseq/TTTMMMPPP')
+
 
 import torch
 
-from drc_utils import dprint
+from fairseq.drc_utils import dprint
 from fairseq import checkpoint_utils, distributed_utils, options, tasks, utils
 from fairseq.data import encoders
 from fairseq.token_generation_constraints import pack_constraints, unpack_constraints
@@ -136,6 +136,7 @@ def main(args):
     if args.max_tokens is None and args.max_sentences is None:
         args.max_sentences = 1
 
+ 
     assert not args.sampling or args.nbest == args.beam, \
         '--sampling requires --nbest to be equal to --beam'
     assert not args.max_sentences or args.max_sentences <= args.buffer_size, \
@@ -197,6 +198,7 @@ def main(args):
 
     # Load alignment dictionary for unknown word replacement
     # (None if no unknown word replacement, empty if no path to align dictionary)
+    # replace_unk默认值为None
     align_dict = utils.load_align_dict(args.replace_unk)
 
     max_positions = utils.resolve_max_positions(
@@ -236,6 +238,7 @@ def main(args):
             #翻译
             translations = task.inference_step(
                 generator, models, sample, constraints=constraints)
+            # dprint(translation=translations)
             translate_time = time.time() - translate_start_time
             total_translate_time += translate_time
             list_constraints = [[] for _ in range(bsz)]

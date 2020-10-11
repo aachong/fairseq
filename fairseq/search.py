@@ -574,6 +574,8 @@ class Sampling(Search):
             # dummy data to be consistent with true branch for type check
             top_indices = torch.empty(0).to(probs)
         # sample
+        # 从下个位置的所有单词中，第一轮根据分布随机sample beamSize个单词
+        # 后边则在每个sample中sample一个单词即可
         if step == 0:
             indices_buf = torch.multinomial(
                 probs.view(bsz, -1), beam_size, replacement=True,

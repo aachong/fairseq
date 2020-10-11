@@ -11,15 +11,14 @@ import os
 import numpy as np
 import torch
 
+from fairseq.drc_utils import dprint
+from fairseq import drc_utils
 from fairseq.scoring import bleu
 from fairseq import utils,search
 from fairseq.data import Dictionary, language_pair_dataset
 from fairseq.sequence_generator import SequenceGenerator
 from fairseq.tasks import register_task, translation
 
-import sys
-sys.path.append('/home/rcduan/utils/')
-from drc_utils import dprint
 
 
 class BleuScorer(object):
@@ -175,6 +174,8 @@ class TranslationStructuredPredictionTask(translation.TranslationTask):
 
     def _generate_hypotheses(self, model, sample):
         # initialize generator
+
+        search_strategy = search.Sampling(self.target_dictionary)
         if self._generator is None:
             self._generator = SequenceGenerator(
                 tgt_dict=self.target_dictionary,
@@ -183,7 +184,7 @@ class TranslationStructuredPredictionTask(translation.TranslationTask):
                 max_len_a=self.args.seq_max_len_a,
                 max_len_b=self.args.seq_max_len_b,
                 unk_penalty=self.args.seq_unkpen,
-                search_strategy=search.Sampling(self.target_dictionary)
+                search_strategy=search_strategy
             )
 
         # generate hypotheses
@@ -191,7 +192,7 @@ class TranslationStructuredPredictionTask(translation.TranslationTask):
             [model],
             sample,
         )
-        
+
         # add reference to the set of hypotheses
         if self.args.seq_keep_reference:
             self.add_reference_to_hypotheses(sample)
@@ -229,6 +230,7 @@ class TranslationStructuredPredictionTask(translation.TranslationTask):
             for i, hypos_i in enumerate(orig_sample['hypos'])
             for hypo in hypos_i
         ]
+
         return language_pair_dataset.collate(
             samples, pad_idx=pad_idx, eos_idx=self.source_dictionary.eos(),
             left_pad_source=self.args.left_pad_source, left_pad_target=self.args.left_pad_target

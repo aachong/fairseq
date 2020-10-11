@@ -13,7 +13,7 @@ from fairseq.dataclass.data_class import DDP_BACKEND_CHOICES
 from dataclasses import dataclass
 from fairseq.dataclass.utils import FairseqDataclass
 from omegaconf import II
-
+from fairseq.drc_utils import dprint
 
 @dataclass
 class CrossEntropyCriterionConfig(FairseqDataclass):
@@ -45,6 +45,8 @@ class CrossEntropyCriterion(FairseqCriterion):
             'nsentences': sample['target'].size(0),
             'sample_size': sample_size,
         }
+        dprint(end_is_stop=True,split_all=False
+            ,loss=loss, sample_size=sample_size, logging_output=logging_output)
         return loss, sample_size, logging_output
 
     def compute_loss(self, model, net_output, sample, reduce=True):
@@ -67,6 +69,7 @@ class CrossEntropyCriterion(FairseqCriterion):
         sample_size = sum(log.get('sample_size', 0) for log in logging_outputs)
 
         metrics.log_scalar('loss', loss_sum / sample_size / math.log(2), sample_size, round=3)
+
         if sample_size != ntokens:
             metrics.log_scalar('nll_loss', loss_sum / ntokens / math.log(2), ntokens, round=3)
             metrics.log_derived('ppl', lambda meters: utils.get_perplexity(meters['nll_loss'].avg))
