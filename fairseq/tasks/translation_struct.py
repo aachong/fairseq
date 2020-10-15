@@ -233,7 +233,8 @@ class TranslationStructuredPredictionTask(translation.TranslationTask):
 
         return language_pair_dataset.collate(
             samples, pad_idx=pad_idx, eos_idx=self.source_dictionary.eos(),
-            left_pad_source=self.args.left_pad_source, left_pad_target=self.args.left_pad_target
+            left_pad_source=self.args.left_pad_source, left_pad_target=self.args.left_pad_target,
+            drc_seq_task=True
         )
 
     def get_sequence_scorer(self, scorer):

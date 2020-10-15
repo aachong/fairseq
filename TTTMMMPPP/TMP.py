@@ -1,3 +1,10 @@
-import math
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
+import torch.optim as optim
 
-print(5/math.sqrt(2))
+x = torch.tensor([1,2,3]).float()
+print(x)
+x = x.norm(2,0,keepdim=True)
+
+print(x)

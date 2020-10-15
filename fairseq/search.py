@@ -604,8 +604,7 @@ class Sampling(Search):
                 dim=2,
                 index=indices_buf.unsqueeze(-1),
             ).squeeze(2)
-        if not isinstance(indices_buf,torch.Tensor):
-            print(indices_buf)
+
         if step == 0:
             beams_buf = indices_buf.new_zeros(bsz, beam_size)
         else:

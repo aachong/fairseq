@@ -23,6 +23,7 @@ def collate(
     input_feeding=True,
     pad_to_length=None,
     pad_to_multiple=1,
+    drc_seq_task=False,
 ):
     if len(samples) == 0:
         return {}
@@ -31,8 +32,8 @@ def collate(
         return data_utils.collate_tokens(
             [s[key] for s in samples],
             pad_idx, eos_idx, left_pad, move_eos_to_beginning,
-            pad_to_length=pad_to_length,
-            pad_to_multiple=pad_to_multiple,
+            # pad_to_length=pad_to_length,
+            # pad_to_multiple=pad_to_multiple,
         )
 
     def check_alignment(alignment, src_len, tgt_len):
@@ -44,7 +45,7 @@ def collate(
         return True
 
     def compute_alignment_weights(alignments):
-        """
+        """ 
         Given a tensor of shape [:, 2] containing the source-target indices
         corresponding to the alignments, a weight vector containing the
         inverse frequency of each target index is computed.
@@ -57,19 +58,26 @@ def collate(
         align_weights = align_tgt_c[align_tgt_i[np.arange(len(align_tgt))]]
         return 1. / align_weights.float()
 
-    id = torch.LongTensor([s['id'] for s in samples])
-    src_tokens = merge(
-        'source', left_pad=left_pad_source,
-        pad_to_length=pad_to_length['source'] if pad_to_length is not None else None
-    )
-    # sort by descending source length
-    src_lengths = torch.LongTensor([
-        s['source'].ne(pad_idx).long().sum() for s in samples
-    ])
+
+    if drc_seq_task:
+        src_tokens = merge('source', left_pad = left_pad_source)
+        id = src_tokens.new([s['id'] for s in samples])
+        src_lengths = src_tokens.new([s['source'].numel() for s in samples])
+    else :
+        id = torch.LongTensor([s['id'] for s in samples])
+        src_tokens = merge(
+            'source', left_pad=left_pad_source,
+            pad_to_length=pad_to_length['source'] if pad_to_length is not None else None
+        )
+         # sort by descending source length
+        src_lengths = torch.LongTensor([
+            s['source'].ne(pad_idx).long().sum() for s in samples
+        ])
+
+    
     src_lengths, sort_order = src_lengths.sort(descending=True)
+
     id = id.index_select(0, sort_order)
-    sort_order = sort_order.to(src_tokens.device)
-    # print(src_tokens.device,sort_order.device)
     src_tokens = src_tokens.index_select(0, sort_order)
 
     prev_output_tokens = None
@@ -80,11 +88,14 @@ def collate(
             pad_to_length=pad_to_length['target'] if pad_to_length is not None else None,
         )
         target = target.index_select(0, sort_order)
-        tgt_lengths = torch.LongTensor([
-            s['target'].ne(pad_idx).long().sum() for s in samples
-        ]).to(sort_order.device).index_select(0, sort_order)
-        #gaiguo
-        ntokens = tgt_lengths.sum().item()
+
+        if drc_seq_task:
+            ntokens = sum(len(s['target']) for s in samples)
+        else:
+            tgt_lengths = torch.LongTensor([
+                s['target'].ne(pad_idx).long().sum() for s in samples
+            ]).index_select(0, sort_order)
+            ntokens = tgt_lengths.sum().item()
 
         if samples[0].get('prev_output_tokens', None) is not None:
             prev_output_tokens = merge('prev_output_tokens', left_pad=left_pad_target)

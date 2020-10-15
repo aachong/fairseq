@@ -96,9 +96,10 @@ class SequenceRiskCriterion(FairseqSequenceCriterion):
         # get costs for hypotheses using --seq-scorer (defaults to 1. - BLEU)
         #计算每个句子中每个预测的cost   batch size * beam size
         costs = self.task.get_costs(sample)
+        # costs = costs*0.1
 
         #读取不到这个参数，所以直接设置为True，我也不知道它读取参数是个什么机制
-        self.normalize_costs = True
+        self.normalize_costs = False
         if self.normalize_costs:
             unnormalized_costs = costs.clone()
             max_costs = costs.max(dim=1, keepdim=True)[0]
@@ -111,9 +112,8 @@ class SequenceRiskCriterion(FairseqSequenceCriterion):
         # generate a new sample from the given hypotheses
         # 把每个源句子翻译的多个句子b，n 差分成一维b*n
         new_sample = self.task.get_new_sample_for_hypotheses(sample)
-
-
         hypotheses = new_sample['target'].view(bsz, nhypos, -1, 1)#bsz,hpsz,seq_len,1
+        
         hypolen = hypotheses.size(2)
         pad_mask = hypotheses.ne(self.task.target_dictionary.pad()) #bsz,hpsz,seq_len,1
         lengths = pad_mask.sum(dim=2).float() #bsz,hpsz,1
@@ -129,6 +129,7 @@ class SequenceRiskCriterion(FairseqSequenceCriterion):
         scores *= pad_mask.float()
 
         avg_scores = scores.sum(dim=2) / lengths
+        # avg_scores = avg_scores*0.005
         probs = F.softmax(avg_scores, dim=1).squeeze(-1)
         #porbs.shape=batch size,beam size
  

@@ -45,8 +45,7 @@ class CrossEntropyCriterion(FairseqCriterion):
             'nsentences': sample['target'].size(0),
             'sample_size': sample_size,
         }
-        dprint(end_is_stop=True,split_all=False
-            ,loss=loss, sample_size=sample_size, logging_output=logging_output)
+
         return loss, sample_size, logging_output
 
     def compute_loss(self, model, net_output, sample, reduce=True):
