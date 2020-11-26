@@ -118,7 +118,8 @@ ENV/
 
 # data
 data-bin/
-corpus/
+# corpus/
+nist/
 # reranking
 /examples/reranking/rerank_data
 
