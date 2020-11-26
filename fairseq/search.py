@@ -9,6 +9,7 @@ from typing import Optional, List
 import torch
 import torch.nn as nn
 from torch import Tensor
+from fairseq.drc_utils import dprint
 
 from fairseq.token_generation_constraints import ConstraintState, UnorderedConstraintState, OrderedConstraintState
 
@@ -96,6 +97,11 @@ class BeamSearch(Search):
     @torch.jit.export
     def step(self, step: int, lprobs, scores: Optional[Tensor]):
         bsz, beam_size, vocab_size = lprobs.size()
+        #scores : bsz, beam_size, step
+        # if step!=0:
+        #     dprint(lprob = lprobs.shape,score=scores.shape)
+        # index_lprobs = lprobs.topk(1,-1)
+        # lprobs.scatter_add_(-1,index_lprobs[1],torch.ones_like(index_lprobs[1])*0.05)
 
         if step == 0:
             # at the first step all hypotheses are equally likely, so use
@@ -105,7 +111,7 @@ class BeamSearch(Search):
             # make probs contain cumulative scores for each hypothesis
             assert scores is not None
             lprobs = lprobs + scores[:, :, step - 1].unsqueeze(-1)
-
+        
         top_prediction = torch.topk(
             lprobs.view(bsz, -1),
             k=min(
@@ -116,7 +122,10 @@ class BeamSearch(Search):
             ),
         )
         scores_buf = top_prediction[0]
+        # scores_buf[:,0] += 0.2
         indices_buf = top_prediction[1]
+        # print(scores_buf.shape)
+        # print(scores_buf)
         # Project back into relative indices and beams
         beams_buf = indices_buf // vocab_size
         indices_buf = indices_buf.fmod(vocab_size)

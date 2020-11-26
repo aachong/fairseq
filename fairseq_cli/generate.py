@@ -142,6 +142,10 @@ def _main(args, output_file):
     num_sentences = 0
     has_target = True
     wps_meter = TimeMeter()
+
+    num_all = 0
+    correct_num = 0
+
     for sample in progress:
         sample = utils.move_to_cuda(sample) if use_cuda else sample
         if 'net_input' not in sample:
@@ -194,6 +198,10 @@ def _main(args, output_file):
             if has_target:
                 target_str = decode_fn(target_str)
 
+            head_word = ''
+            head_word = target_str.split(' ')[0]
+            num_all+=1
+
             if not args.quiet:
                 if src_dict is not None:
                     print('S-{}\t{}'.format(sample_id, src_str), file=output_file)
@@ -212,6 +220,11 @@ def _main(args, output_file):
                     extra_symbols_to_ignore=get_symbols_to_strip_from_output(generator),
                 )
                 detok_hypo_str = decode_fn(hypo_str)
+                
+                h_word = hypo_str.split(' ')[0]
+                if h_word==head_word:
+                    correct_num+=1
+
                 if not args.quiet:
                     score = hypo['score'] / math.log(2)  # convert to base 2
                     # original hypothesis (after tokenization and BPE)
@@ -277,6 +290,7 @@ def _main(args, output_file):
             'Generate {} with beam={}: {}'.format(args.gen_subset, args.beam, scorer.result_string()),
             file=output_file)
 
+        print(correct_num,num_all)
     return scorer
 
 

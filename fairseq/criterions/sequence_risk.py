@@ -89,7 +89,7 @@ class SequenceRiskCriterion(FairseqSequenceCriterion):
 
         bsz = len(sample['hypos'])
         nhypos = len(sample['hypos'][0])
- 
+
         sample: dict
 
 
@@ -117,11 +117,12 @@ class SequenceRiskCriterion(FairseqSequenceCriterion):
         hypolen = hypotheses.size(2)
         pad_mask = hypotheses.ne(self.task.target_dictionary.pad()) #bsz,hpsz,seq_len,1
         lengths = pad_mask.sum(dim=2).float() #bsz,hpsz,1
-
-        #maxtokens 被乘以12了？设置为1000，现在有12000个，不算pad
+ 
+        #maxtokens 被乘以12了,设置为1000，现在有12000个，不算pad
         #dprint(lengths=lengths,end_is_stop=True,shape=lengths.shape,sum=lengths.sum())
 
         net_output = model(**new_sample['net_input'])
+
         lprobs = model.get_normalized_probs(net_output, log_probs=True)
         lprobs = lprobs.view(bsz, nhypos, hypolen, -1)
 

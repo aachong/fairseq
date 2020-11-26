@@ -25,4 +25,3 @@ def dprint(*args, **kwargs):
         log += f' {i[0]} = {i[1]} |'
     logger.info(log)
 
-

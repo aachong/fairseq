@@ -24,6 +24,7 @@ from fairseq import checkpoint_utils, distributed_utils, options, tasks, utils
 from fairseq.data import encoders
 from fairseq.token_generation_constraints import pack_constraints, unpack_constraints
 from .generate import get_symbols_to_strip_from_output
+from fairseq.data_process import preprocess, postprocess
 
 logging.basicConfig(
     format='%(asctime)s | %(levelname)s | %(name)s | %(message)s',
@@ -44,7 +45,7 @@ Translation = namedtuple('Translation', 'src_str hypos pos_scores alignments')
 # 前者是一个迭代对象，即每次只生成一行，需要用for循环迭代。
 def buffered_read(input, buffer_size):
     buffer = []
-    #该钩子用于控制打开的所有文件，比如说编码方式等; 
+    # 该钩子用于控制打开的所有文件，比如说编码方式等;
     with fileinput.input(files=[input], openhook=fileinput.hook_encoded("utf-8")) as h:
         for src_str in h:
             buffer.append(src_str.strip())
@@ -65,7 +66,7 @@ def make_batches(lines, args, task, max_positions, encode_fn):
             all of args
         task:
             the object of task
-        
+
     """
     def encode_fn_target(x):
         return encode_fn(x)
@@ -87,7 +88,7 @@ def make_batches(lines, args, task, max_positions, encode_fn):
             ) for constraint in constraint_list]
 
     tokens = [
-        #编码每句话
+        # 编码每句话
         task.source_dictionary.encode_line(
             encode_fn(src_str), add_if_not_exist=False
         ).long()
@@ -100,7 +101,7 @@ def make_batches(lines, args, task, max_positions, encode_fn):
         constraints_tensor = None
 
     lengths = [t.numel() for t in tokens]
-    #得到iterator
+    # 得到iterator
     itr = task.get_batch_iterator(
         dataset=task.build_dataset_for_inference(
             tokens, lengths, constraints=constraints_tensor),
@@ -111,9 +112,9 @@ def make_batches(lines, args, task, max_positions, encode_fn):
     ).next_epoch_itr(shuffle=False)
     for batch in itr:
         ids = batch['id']
-        #输入句子
+        # 输入句子
         src_tokens = batch['net_input']['src_tokens']
-        #输入句子长度
+        # 输入句子长度
         src_lengths = batch['net_input']['src_lengths']
         constraints = batch.get("constraints", None)
         yield Batch(
@@ -128,7 +129,7 @@ def main(args):
     start_time = time.time()
     total_translate_time = 0
 
-    #使用args.user_dir
+    # 使用args.user_dir
     utils.import_user_module(args)
 
     if args.buffer_size < 1:
@@ -136,7 +137,6 @@ def main(args):
     if args.max_tokens is None and args.max_sentences is None:
         args.max_sentences = 1
 
- 
     assert not args.sampling or args.nbest == args.beam, \
         '--sampling requires --nbest to be equal to --beam'
     assert not args.max_sentences or args.max_sentences <= args.buffer_size, \
@@ -217,6 +217,8 @@ def main(args):
     start_id = 0
     for inputs in buffered_read(args.input, args.buffer_size):
         results = []
+        if args.transformer_big_zhen:
+            inputs = preprocess(inputs)
         for batch in make_batches(inputs, args, task, max_positions, encode_fn):
             bsz = batch.src_tokens.size(0)
             src_tokens = batch.src_tokens
@@ -235,7 +237,7 @@ def main(args):
                 },
             }
             translate_start_time = time.time()
-            #翻译
+            # 翻译
             translations = task.inference_step(
                 generator, models, sample, constraints=constraints)
             # dprint(translation=translations)
@@ -244,7 +246,7 @@ def main(args):
             list_constraints = [[] for _ in range(bsz)]
             if args.constraints:
                 list_constraints = [unpack_constraints(c) for c in constraints]
-            #处理resource数据
+            # 处理resource数据
             for i, (id, hypos) in enumerate(zip(batch.ids.tolist(), translations)):
                 src_tokens_i = utils.strip_pad(src_tokens[i], tgt_dict.pad())
                 constraints = list_constraints[i]
@@ -265,8 +267,8 @@ def main(args):
             # Process top predictions
 
             for hypo in hypos[:min(len(hypos), args.nbest)]:
-                #hypo_str 翻译的话
-                #hypotokens 翻译的词的索引
+                # hypo_str 翻译的话
+                # hypotokens 翻译的词的索引
                 hypo_tokens, hypo_str, alignment = utils.post_process_prediction(
                     hypo_tokens=hypo['tokens'].int().cpu(),
                     src_str=src_str,
@@ -308,6 +310,7 @@ def main(args):
 
 def cli_main():
     parser = options.get_interactive_generation_parser()
+    parser.add_argument('--transformer-big-zhen', action='store_true')
     args = options.parse_args_and_arch(parser)
     distributed_utils.call_main(args, main)
 

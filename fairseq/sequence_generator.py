@@ -301,6 +301,8 @@ class SequenceGenerator(nn.Module):
                 incremental_states,
                 self.temperature,
             )
+            
+
             lprobs[lprobs != lprobs] = torch.tensor(-math.inf).to(lprobs)
 
             lprobs[:, self.pad] = -math.inf  # never select pad
@@ -504,6 +506,12 @@ class SequenceGenerator(nn.Module):
             _, sorted_scores_indices = torch.sort(scores, descending=True)
             finalized[sent] = [finalized[sent][ssi] for ssi in sorted_scores_indices]
             finalized[sent] = torch.jit.annotate(List[Dict[str, Tensor]], finalized[sent])
+
+        # List[ bsz
+        #     List[ beam_size
+        #         {'tokens','score','attetnion','alignment','positional_scores'}
+        #         ]
+        #     ]
         return finalized
 
     def _prefix_tokens(

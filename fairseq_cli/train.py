@@ -14,8 +14,8 @@ import os
 import random
 import sys
 
-sys.path.append('/home/rcduan/utils')
-from drc_utils import dprint
+
+from fairseq.drc_utils import dprint
 
 import numpy as np
 import torch
@@ -125,6 +125,7 @@ def main(args):
     train_meter = meters.StopwatchMeter()
     train_meter.start()
     while lr > args.min_lr and epoch_itr.next_epoch_idx <= max_epoch:
+        print(111)
         # train for one epoch
         valid_losses, should_stop = train(args, trainer, task, epoch_itr)
         if should_stop:

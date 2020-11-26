@@ -174,8 +174,10 @@ class TranslationStructuredPredictionTask(translation.TranslationTask):
 
     def _generate_hypotheses(self, model, sample):
         # initialize generator
-
-        search_strategy = search.Sampling(self.target_dictionary)
+        if self.args.seq_sampling:
+            search_strategy = search.Sampling(self.target_dictionary)
+        else :
+            search_strategy = search.BeamSearch(self.target_dictionary)
         if self._generator is None:
             self._generator = SequenceGenerator(
                 tgt_dict=self.target_dictionary,
