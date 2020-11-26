@@ -1,0 +1,20 @@
+checkpoint is ./examples/_transformer_base/checkpoints/checkpoint_best.pt
+BLEU = 28.15, 65.7/36.8/21.0/12.3 (BP=1.000, ratio=1.084, hyp_len=30439, ref_len=28081)
+BLEU = 26.41, 64.0/34.8/19.5/11.2 (BP=1.000, ratio=1.086, hyp_len=32390, ref_len=29817)
+BLEU = 28.61, 65.5/36.7/21.5/13.0 (BP=1.000, ratio=1.078, hyp_len=66063, ref_len=61306)
+BLEU = 25.40, 60.8/32.9/18.7/11.1 (BP=1.000, ratio=1.098, hyp_len=39934, ref_len=36366)
+BLEU = 22.08, 61.3/29.9/15.5/8.4 (BP=1.000, ratio=1.023, hyp_len=42320, ref_len=41383)
+
+checkpoint is ./examples/_transformer_base/checkpoints/checkpoint_last.pt
+BLEU = 31.05, 68.8/40.0/23.7/14.2 (BP=1.000, ratio=1.055, hyp_len=29383, ref_len=27857)
+BLEU = 29.59, 67.3/38.0/22.3/13.4 (BP=1.000, ratio=1.054, hyp_len=31282, ref_len=29689)
+BLEU = 30.51, 68.0/39.2/23.3/14.0 (BP=1.000, ratio=1.056, hyp_len=64344, ref_len=60951)
+BLEU = 28.95, 65.0/36.9/21.9/13.4 (BP=1.000, ratio=1.063, hyp_len=38475, ref_len=36195)
+BLEU = 25.27, 64.5/33.3/18.3/10.4 (BP=1.000, ratio=1.015, hyp_len=41804, ref_len=41203)
+
+checkpoint is ./examples/_transformer_base/checkpoints/checkpoint99.pt
+BLEU = 30.09, 67.9/39.1/22.8/13.6 (BP=1.000, ratio=1.072, hyp_len=30307, ref_len=28276)
+BLEU = 28.74, 66.3/37.2/21.5/12.8 (BP=1.000, ratio=1.073, hyp_len=32242, ref_len=30041)
+BLEU = 29.68, 66.9/38.1/22.5/13.5 (BP=1.000, ratio=1.074, hyp_len=66018, ref_len=61463)
+BLEU = 27.61, 63.4/35.5/20.7/12.5 (BP=1.000, ratio=1.093, hyp_len=39819, ref_len=36438)
+BLEU = 24.27, 63.3/32.4/17.4/9.7 (BP=1.000, ratio=1.019, hyp_len=42194, ref_len=41406)

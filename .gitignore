@@ -30,7 +30,8 @@ wheels/
 *.egg-info/
 .installed.cfg
 *.egg
-examples/
+
+
 
 # Checkpoints
 checkpoints
@@ -117,7 +118,7 @@ ENV/
 
 # data
 data-bin/
-
+corpus/
 # reranking
 /examples/reranking/rerank_data
 
