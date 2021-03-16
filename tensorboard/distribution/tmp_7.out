@@ -1,0 +1,1740 @@
+save_dir=./examples/entr/bash/../checkpoints/closer-all
+在最后一层正则化之前输出，模型是baseline_continue
+criterion=label_smoothed_cross_entropy_r3f_noised_input
+label_smoothing=0.1
+dropout=0.3
+lr=0.00004
+lrscheduler=inverse_sqrt
+warmup_updates=3000
+max_epoch=201
+r3f_lambda=1
+extr='--warmup-init-lr 1e-07 --reset-optimizer'
+2021-01-31 10:47:30 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2021-01-31 10:47:32 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2021-01-31 10:47:36 | INFO | fairseq_cli.train | Namespace(activation_dropout=0.0, activation_fn='relu', adam_betas='(0.9, 0.98)', adam_eps=1e-08, adaptive_input=False, adaptive_softmax_cutoff=None, adaptive_softmax_dropout=0, all_gather_list_size=16384, arch='transformer', attention_dropout=0.0, best_checkpoint_metric='bleu', bf16=False, bpe=None, broadcast_buffers=False, bucket_cap_mb=25, checkpoint_activations=False, checkpoint_suffix='', clip_norm=0.0, cpu=False, criterion='label_smoothed_cross_entropy_r3f_noised_input', cross_self_attention=False, curriculum=0, cv_lambda=0.0, data='./examples/entr/bash/../data-bin', data_buffer_size=10, dataset_impl=None, ddp_backend='c10d', decoder_attention_heads=8, decoder_embed_dim=512, decoder_embed_path=None, decoder_ffn_embed_dim=2048, decoder_input_dim=512, decoder_layerdrop=0, decoder_layers=6, decoder_layers_to_keep=None, decoder_learned_pos=False, decoder_normalize_before=False, decoder_output_dim=512, device_id=0, disable_validation=False, distributed_backend='nccl', distributed_init_method=None, distributed_no_spawn=False, distributed_num_procs=1, distributed_port=-1, distributed_rank=0, distributed_world_size=1, distributed_wrapper='DDP', dropout=0.3, empty_cache_freq=0, encoder_attention_heads=8, encoder_embed_dim=512, encoder_embed_path=None, encoder_ffn_embed_dim=2048, encoder_layerdrop=0, encoder_layers=6, encoder_layers_to_keep=None, encoder_learned_pos=False, encoder_normalize_before=False, eps=1e-06, eval_bleu=True, eval_bleu_args='{"beam": 5, "max_len_a": 1.2, "max_len_b": 10}', eval_bleu_detok='space', eval_bleu_detok_args=None, eval_bleu_print_samples=False, eval_bleu_remove_bpe='sentencepiece', eval_tokenized_bleu=False, fast_stat_sync=False, find_unused_parameters=False, finetune_from_model=None, fix_batches_to_gpus=False, fixed_validation_seed=None, fp16=False, fp16_init_scale=128, fp16_no_flatten_grads=False, fp16_scale_tolerance=0.0, fp16_scale_window=None, keep_best_checkpoints=-1, keep_interval_updates=-1, keep_last_epochs=-1, label_smoothing=0.1, layernorm_embedding=False, left_pad_source='True', left_pad_target='False', load_alignments=False, localsgd_frequency=3, log_format=None, log_interval=100, lr=[4e-05], lr_scheduler='inverse_sqrt', max_epoch=201, max_sentences=None, max_sentences_valid=None, max_source_positions=1024, max_target_positions=1024, max_tokens=4000, max_tokens_valid=4000, max_update=0, maximize_best_checkpoint_metric=True, memory_efficient_bf16=False, memory_efficient_fp16=False, min_loss_scale=0.0001, min_lr=1e-09, model_parallel_size=1, no_cross_attention=False, no_epoch_checkpoints=True, no_last_checkpoints=False, no_progress_bar=False, no_save=False, no_save_optimizer_state=False, no_scale_embedding=False, no_seed_provided=True, no_token_positional_embeddings=False, noise_type='normal', noised_eval_model=False, noised_no_grad=False, nprocs_per_node=1, num_batch_buckets=0, num_workers=1, optimizer='adam', optimizer_overrides='{}', patience=-1, pipeline_balance=None, pipeline_checkpoint='never', pipeline_chunks=None, pipeline_devices=None, pipeline_model_parallel=False, profile=False, quant_noise_pq=0, quant_noise_pq_block_size=8, quant_noise_scalar=0, quantization_config_path=None, r3f_lambda=1.0, required_batch_size_multiple=8, required_seq_len_multiple=1, reset_dataloader=False, reset_lr_scheduler=False, reset_meters=False, reset_optimizer=True, restore_file='checkpoint_last.pt', save_dir='./examples/entr/bash/../checkpoints/closer-all', save_interval=1, save_interval_updates=0, scoring='bleu', seed=1, self_training_drc=False, sentence_avg=False, share_all_embeddings=True, share_decoder_input_output_embed=False, skip_invalid_size_inputs_valid_test=False, slowmo_algorithm='LocalSGD', slowmo_momentum=None, source_lang='en', stop_time_hours=0, target_lang='tr', task='translation', tensorboard_logdir='', threshold_loss_scale=None, tie_adaptive_weights=False, tokenizer=None, tpu=False, train_subset='train', truncate_source=False, update_freq=[1], upsample_primary=1, use_bmuf=False, use_old_adam=False, user_dir=None, valid_subset='valid', validate_after_updates=0, validate_interval=1, validate_interval_updates=0, warmup_init_lr=1e-07, warmup_updates=3000, weight_decay=0.0, zero_sharding='none')
+2021-01-31 10:47:36 | INFO | fairseq.tasks.translation | [en] dictionary: 19784 types
+2021-01-31 10:47:36 | INFO | fairseq.tasks.translation | [tr] dictionary: 19784 types
+2021-01-31 10:47:36 | INFO | fairseq.data.data_utils | loaded 3000 examples from: ./examples/entr/bash/../data-bin/valid.en-tr.en
+2021-01-31 10:47:36 | INFO | fairseq.data.data_utils | loaded 3000 examples from: ./examples/entr/bash/../data-bin/valid.en-tr.tr
+2021-01-31 10:47:36 | INFO | fairseq.tasks.translation | ./examples/entr/bash/../data-bin valid en-tr 3000 examples
+2021-01-31 10:47:37 | INFO | fairseq_cli.train | TransformerModel(
+  (encoder): TransformerEncoder(
+    (dropout_module): FairseqDropout()
+    (embed_tokens): Embedding(19784, 512, padding_idx=1)
+    (embed_positions): SinusoidalPositionalEmbedding()
+    (layers): ModuleList(
+      (0): TransformerEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (self_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (dropout_module): FairseqDropout()
+        (activation_dropout_module): FairseqDropout()
+        (fc1): Linear(in_features=512, out_features=2048, bias=True)
+        (fc2): Linear(in_features=2048, out_features=512, bias=True)
+        (final_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+      )
+      (1): TransformerEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (self_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (dropout_module): FairseqDropout()
+        (activation_dropout_module): FairseqDropout()
+        (fc1): Linear(in_features=512, out_features=2048, bias=True)
+        (fc2): Linear(in_features=2048, out_features=512, bias=True)
+        (final_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+      )
+      (2): TransformerEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (self_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (dropout_module): FairseqDropout()
+        (activation_dropout_module): FairseqDropout()
+        (fc1): Linear(in_features=512, out_features=2048, bias=True)
+        (fc2): Linear(in_features=2048, out_features=512, bias=True)
+        (final_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+      )
+      (3): TransformerEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (self_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (dropout_module): FairseqDropout()
+        (activation_dropout_module): FairseqDropout()
+        (fc1): Linear(in_features=512, out_features=2048, bias=True)
+        (fc2): Linear(in_features=2048, out_features=512, bias=True)
+        (final_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+      )
+      (4): TransformerEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (self_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (dropout_module): FairseqDropout()
+        (activation_dropout_module): FairseqDropout()
+        (fc1): Linear(in_features=512, out_features=2048, bias=True)
+        (fc2): Linear(in_features=2048, out_features=512, bias=True)
+        (final_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+      )
+      (5): TransformerEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (self_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (dropout_module): FairseqDropout()
+        (activation_dropout_module): FairseqDropout()
+        (fc1): Linear(in_features=512, out_features=2048, bias=True)
+        (fc2): Linear(in_features=2048, out_features=512, bias=True)
+        (final_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+      )
+    )
+  )
+  (decoder): TransformerDecoder(
+    (dropout_module): FairseqDropout()
+    (embed_tokens): Embedding(19784, 512, padding_idx=1)
+    (embed_positions): SinusoidalPositionalEmbedding()
+    (layers): ModuleList(
+      (0): TransformerDecoderLayer(
+        (dropout_module): FairseqDropout()
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (activation_dropout_module): FairseqDropout()
+        (self_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (encoder_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (encoder_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (fc1): Linear(in_features=512, out_features=2048, bias=True)
+        (fc2): Linear(in_features=2048, out_features=512, bias=True)
+        (final_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+      )
+      (1): TransformerDecoderLayer(
+        (dropout_module): FairseqDropout()
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (activation_dropout_module): FairseqDropout()
+        (self_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (encoder_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (encoder_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (fc1): Linear(in_features=512, out_features=2048, bias=True)
+        (fc2): Linear(in_features=2048, out_features=512, bias=True)
+        (final_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+      )
+      (2): TransformerDecoderLayer(
+        (dropout_module): FairseqDropout()
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (activation_dropout_module): FairseqDropout()
+        (self_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (encoder_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (encoder_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (fc1): Linear(in_features=512, out_features=2048, bias=True)
+        (fc2): Linear(in_features=2048, out_features=512, bias=True)
+        (final_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+      )
+      (3): TransformerDecoderLayer(
+        (dropout_module): FairseqDropout()
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (activation_dropout_module): FairseqDropout()
+        (self_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (encoder_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (encoder_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (fc1): Linear(in_features=512, out_features=2048, bias=True)
+        (fc2): Linear(in_features=2048, out_features=512, bias=True)
+        (final_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+      )
+      (4): TransformerDecoderLayer(
+        (dropout_module): FairseqDropout()
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (activation_dropout_module): FairseqDropout()
+        (self_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (encoder_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (encoder_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (fc1): Linear(in_features=512, out_features=2048, bias=True)
+        (fc2): Linear(in_features=2048, out_features=512, bias=True)
+        (final_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+      )
+      (5): TransformerDecoderLayer(
+        (dropout_module): FairseqDropout()
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (activation_dropout_module): FairseqDropout()
+        (self_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (encoder_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (encoder_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (fc1): Linear(in_features=512, out_features=2048, bias=True)
+        (fc2): Linear(in_features=2048, out_features=512, bias=True)
+        (final_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+      )
+    )
+    (output_projection): Linear(in_features=512, out_features=19784, bias=False)
+  )
+)
+2021-01-31 10:47:37 | INFO | fairseq_cli.train | task: translation (TranslationTask)
+2021-01-31 10:47:37 | INFO | fairseq_cli.train | model: transformer (TransformerModel)
+2021-01-31 10:47:37 | INFO | fairseq_cli.train | criterion: label_smoothed_cross_entropy_r3f_noised_input (NoisedInputCriterion)
+2021-01-31 10:47:37 | INFO | fairseq_cli.train | num. model params: 54267904 (num. trained: 54267904)
+2021-01-31 10:47:40 | INFO | fairseq.trainer | detected shared parameter: encoder.embed_tokens.weight <- decoder.embed_tokens.weight
+2021-01-31 10:47:40 | INFO | fairseq.trainer | detected shared parameter: encoder.embed_tokens.weight <- decoder.output_projection.weight
+2021-01-31 10:47:40 | INFO | fairseq.utils | ***********************CUDA enviroments for all 1 workers***********************
+2021-01-31 10:47:40 | INFO | fairseq.utils | rank   0: capabilities =  6.1  ; total memory = 10.917 GB ; name = GeForce GTX 1080 Ti                     
+2021-01-31 10:47:40 | INFO | fairseq.utils | ***********************CUDA enviroments for all 1 workers***********************
+2021-01-31 10:47:40 | INFO | fairseq_cli.train | training on 1 devices (GPUs/TPUs)
+2021-01-31 10:47:40 | INFO | fairseq_cli.train | max tokens per GPU = 4000 and max sentences per GPU = None
+2021-01-31 10:47:40 | INFO | fairseq.trainer | loaded checkpoint ./examples/entr/bash/../checkpoints/closer-all/checkpoint_last.pt (epoch 201 @ 0 updates)
+2021-01-31 10:47:40 | INFO | fairseq.optim.adam | using FusedAdam
+2021-01-31 10:47:40 | INFO | fairseq.trainer | loading train data for epoch 201
+2021-01-31 10:47:40 | INFO | fairseq.data.data_utils | loaded 207373 examples from: ./examples/entr/bash/../data-bin/train.en-tr.en
+2021-01-31 10:47:40 | INFO | fairseq.data.data_utils | loaded 207373 examples from: ./examples/entr/bash/../data-bin/train.en-tr.tr
+2021-01-31 10:47:40 | INFO | fairseq.tasks.translation | ./examples/entr/bash/../data-bin train en-tr 207373 examples
+2021-01-31 10:47:41 | INFO | fairseq.trainer | begin training epoch 201
+1.495  -0.008 
+1.495  -0.008 
+1.490  -0.008 
+1.476  -0.008 
+1.477  -0.008 
+1.470  -0.008 
+1.496  -0.008 
+1.496  -0.008 
+1.492  -0.008 
+1.491  -0.008 
+1.491  -0.008 
+1.485  -0.008 
+1.508  -0.008 
+1.509  -0.008 
+1.504  -0.008 
+1.396  -0.009 
+1.394  -0.009 
+1.376  -0.008 
+1.506  -0.008 
+1.507  -0.008 
+1.500  -0.008 
+1.517  -0.008 
+1.516  -0.008 
+1.512  -0.008 
+1.494  -0.008 
+1.495  -0.008 
+1.488  -0.008 
+1.496  -0.008 
+1.496  -0.008 
+1.492  -0.008 
+1.515  -0.008 
+1.515  -0.008 
+1.508  -0.008 
+1.515  -0.008 
+1.513  -0.008 
+1.508  -0.009 
+1.513  -0.009 
+1.513  -0.009 
+1.508  -0.008 
+1.413  -0.008 
+1.413  -0.008 
+1.397  -0.008 
+1.514  -0.008 
+1.515  -0.008 
+1.510  -0.008 
+1.306  -0.011 
+1.302  -0.011 
+1.262  -0.007 
+1.481  -0.008 
+1.482  -0.008 
+1.475  -0.008 
+1.502  -0.008 
+1.503  -0.008 
+1.496  -0.008 
+1.466  -0.008 
+1.466  -0.008 
+1.457  -0.008 
+1.635  -0.009 
+1.634  -0.009 
+1.631  -0.009 
+1.562  -0.009 
+1.561  -0.009 
+1.556  -0.009 
+1.481  -0.008 
+1.481  -0.008 
+1.472  -0.008 
+1.500  -0.008 
+1.500  -0.009 
+1.497  -0.008 
+1.480  -0.008 
+1.481  -0.008 
+1.472  -0.008 
+1.463  -0.008 
+1.464  -0.008 
+1.455  -0.008 
+1.472  -0.008 
+1.473  -0.008 
+1.464  -0.008 
+1.466  -0.008 
+1.465  -0.008 
+1.455  -0.008 
+1.519  -0.009 
+1.519  -0.009 
+1.514  -0.009 
+1.469  -0.008 
+1.468  -0.008 
+1.460  -0.008 
+1.502  -0.008 
+1.502  -0.008 
+1.496  -0.008 
+1.517  -0.008 
+1.518  -0.008 
+1.512  -0.008 
+1.511  -0.008 
+1.512  -0.008 
+1.508  -0.008 
+1.491  -0.008 
+1.492  -0.008 
+1.485  -0.008 
+1.494  -0.008 
+1.496  -0.008 
+1.489  -0.008 
+1.497  -0.009 
+1.496  -0.009 
+1.492  -0.009 
+1.510  -0.008 
+1.509  -0.008 
+1.502  -0.008 
+1.490  -0.008 
+1.487  -0.008 
+1.484  -0.008 
+1.518  -0.008 
+1.520  -0.008 
+1.514  -0.008 
+1.469  -0.008 
+1.468  -0.008 
+1.462  -0.008 
+1.335  -0.011 
+1.335  -0.011 
+1.300  -0.008 
+1.513  -0.009 
+1.512  -0.009 
+1.508  -0.008 
+1.491  -0.008 
+1.491  -0.008 
+1.486  -0.008 
+1.449  -0.008 
+1.450  -0.008 
+1.439  -0.008 
+1.490  -0.008 
+1.492  -0.008 
+1.487  -0.007 
+1.485  -0.008 
+1.483  -0.008 
+1.478  -0.008 
+1.500  -0.008 
+1.500  -0.008 
+1.493  -0.008 
+1.452  -0.011 
+1.452  -0.010 
+1.423  -0.010 
+1.492  -0.009 
+1.489  -0.009 
+1.484  -0.009 
+1.478  -0.008 
+1.479  -0.008 
+1.470  -0.008 
+1.499  -0.008 
+1.498  -0.008 
+1.492  -0.008 
+1.499  -0.008 
+1.498  -0.008 
+1.493  -0.008 
+1.505  -0.008 
+1.506  -0.008 
+1.499  -0.008 
+1.514  -0.008 
+1.513  -0.008 
+1.509  -0.008 
+1.506  -0.008 
+1.506  -0.008 
+1.502  -0.009 
+1.487  -0.008 
+1.486  -0.008 
+1.482  -0.008 
+1.510  -0.008 
+1.507  -0.008 
+1.505  -0.008 
+1.495  -0.008 
+1.499  -0.008 
+1.490  -0.008 
+1.505  -0.010 
+1.504  -0.009 
+1.497  -0.009 
+1.452  -0.008 
+1.453  -0.008 
+1.441  -0.008 
+1.483  -0.008 
+1.486  -0.008 
+1.477  -0.008 
+1.462  -0.009 
+1.461  -0.009 
+1.455  -0.008 
+1.444  -0.008 
+1.444  -0.008 
+1.432  -0.007 
+1.473  -0.008 
+1.474  -0.008 
+1.466  -0.007 
+1.511  -0.008 
+1.511  -0.008 
+1.506  -0.008 
+1.356  -0.009 
+1.357  -0.009 
+1.329  -0.007 
+1.471  -0.008 
+1.470  -0.008 
+1.464  -0.008 
+1.486  -0.008 
+1.487  -0.008 
+1.482  -0.008 
+1.507  -0.008 
+1.507  -0.008 
+1.501  -0.008 
+1.502  -0.008 
+1.500  -0.008 
+1.494  -0.008 
+1.511  -0.008 
+1.512  -0.008 
+1.505  -0.008 
+1.498  -0.008 
+1.499  -0.008 
+1.491  -0.008 
+1.493  -0.008 
+1.493  -0.008 
+1.487  -0.008 
+1.492  -0.007 
+1.493  -0.007 
+1.488  -0.007 
+1.734  -0.010 
+1.733  -0.010 
+1.732  -0.010 
+1.477  -0.008 
+1.477  -0.008 
+1.473  -0.008 
+1.428  -0.008 
+1.428  -0.008 
+1.416  -0.008 
+1.517  -0.009 
+1.518  -0.009 
+1.511  -0.009 
+1.493  -0.008 
+1.495  -0.008 
+1.487  -0.008 
+1.521  -0.008 
+1.521  -0.008 
+1.516  -0.008 
+1.356  -0.010 
+1.356  -0.011 
+1.325  -0.008 
+1.491  -0.008 
+1.490  -0.008 
+1.483  -0.008 
+1.466  -0.008 
+1.469  -0.008 
+1.460  -0.008 
+1.487  -0.008 
+1.487  -0.008 
+1.480  -0.008 
+1.507  -0.008 
+1.509  -0.008 
+1.503  -0.008 
+1.528  -0.009 
+1.525  -0.009 
+1.523  -0.009 
+1.494  -0.009 
+1.495  -0.009 
+1.487  -0.009 
+1.407  -0.008 
+1.407  -0.008 
+1.392  -0.007 
+1.487  -0.007 
+1.487  -0.007 
+1.480  -0.007 
+1.516  -0.008 
+1.516  -0.008 
+1.512  -0.008 
+1.519  -0.008 
+1.520  -0.008 
+1.516  -0.008 
+1.510  -0.008 
+1.510  -0.009 
+1.506  -0.008 
+1.475  -0.007 
+1.475  -0.007 
+1.468  -0.007 
+1.262  -0.011 
+1.260  -0.011 
+1.213  -0.008 
+1.477  -0.008 
+1.479  -0.008 
+1.471  -0.007 
+1.495  -0.007 
+1.496  -0.007 
+1.492  -0.007 
+1.499  -0.008 
+1.499  -0.008 
+1.493  -0.008 
+1.521  -0.008 
+1.521  -0.008 
+1.517  -0.008 
+1.457  -0.007 
+1.455  -0.008 
+1.444  -0.007 
+1.488  -0.008 
+1.488  -0.008 
+1.479  -0.007 
+1.485  -0.008 
+1.485  -0.008 
+1.479  -0.007 
+1.490  -0.007 
+1.491  -0.008 
+1.483  -0.007 
+1.373  -0.013 
+1.371  -0.013 
+1.326  -0.011 
+1.484  -0.007 
+1.485  -0.007 
+1.479  -0.007 
+1.497  -0.008 
+1.498  -0.008 
+1.494  -0.008 
+1.488  -0.007 
+1.487  -0.007 
+1.482  -0.007 
+1.521  -0.007 
+1.519  -0.007 
+1.513  -0.008 
+1.491  -0.008 
+1.490  -0.007 
+1.482  -0.007 
+1.505  -0.007 
+1.503  -0.008 
+1.496  -0.007 
+1.514  -0.008 
+1.514  -0.008 
+1.506  -0.007 
+1.466  -0.008 
+1.463  -0.008 
+1.455  -0.008 
+1.385  -0.011 
+1.382  -0.011 
+1.359  -0.010 
+1.470  -0.008 
+1.471  -0.008 
+1.463  -0.008 
+1.523  -0.009 
+1.524  -0.009 
+1.518  -0.009 
+1.519  -0.009 
+1.517  -0.008 
+1.514  -0.008 
+1.339  -0.011 
+1.337  -0.011 
+1.308  -0.009 
+1.433  -0.008 
+1.432  -0.008 
+1.423  -0.007 
+1.487  -0.007 
+1.483  -0.007 
+1.476  -0.007 
+1.471  -0.008 
+1.467  -0.007 
+1.460  -0.007 
+1.454  -0.008 
+1.453  -0.007 
+1.446  -0.007 
+1.476  -0.007 
+1.474  -0.008 
+1.468  -0.007 
+1.501  -0.007 
+1.501  -0.008 
+1.494  -0.007 
+1.504  -0.007 
+1.505  -0.007 
+1.499  -0.007 
+1.517  -0.008 
+1.517  -0.008 
+1.510  -0.007 
+1.496  -0.008 
+1.498  -0.008 
+1.490  -0.007 
+1.460  -0.008 
+1.460  -0.009 
+1.450  -0.008 
+1.395  -0.008 
+1.395  -0.008 
+1.374  -0.007 
+1.508  -0.008 
+1.507  -0.008 
+1.501  -0.008 
+1.269  -0.013 
+1.267  -0.013 
+1.220  -0.009 
+1.478  -0.007 
+1.478  -0.008 
+1.469  -0.007 
+1.462  -0.008 
+1.462  -0.008 
+1.453  -0.008 
+1.435  -0.008 
+1.433  -0.008 
+1.422  -0.007 
+1.467  -0.007 
+1.466  -0.007 
+1.458  -0.007 
+1.371  -0.009 
+1.372  -0.009 
+1.345  -0.008 
+1.524  -0.008 
+1.524  -0.008 
+1.519  -0.008 
+1.495  -0.007 
+1.495  -0.007 
+1.489  -0.007 
+1.485  -0.008 
+1.484  -0.007 
+1.479  -0.007 
+1.462  -0.007 
+1.462  -0.007 
+1.453  -0.007 
+1.275  -0.012 
+1.276  -0.012 
+1.224  -0.008 
+1.490  -0.007 
+1.491  -0.007 
+1.483  -0.007 
+1.462  -0.007 
+1.463  -0.007 
+1.456  -0.007 
+1.512  -0.008 
+1.511  -0.008 
+1.505  -0.007 
+1.482  -0.008 
+1.479  -0.008 
+1.473  -0.008 
+1.473  -0.007 
+1.477  -0.007 
+1.468  -0.007 
+1.459  -0.007 
+1.462  -0.007 
+1.452  -0.007 
+1.470  -0.007 
+1.468  -0.007 
+1.461  -0.007 
+1.508  -0.007 
+1.509  -0.007 
+1.503  -0.007 
+1.488  -0.007 
+1.489  -0.007 
+1.484  -0.007 
+1.486  -0.007 
+1.486  -0.007 
+1.479  -0.007 
+1.505  -0.008 
+1.505  -0.008 
+1.501  -0.008 
+1.440  -0.008 
+1.441  -0.008 
+1.429  -0.008 
+1.474  -0.007 
+1.473  -0.007 
+1.467  -0.007 
+1.476  -0.007 
+1.475  -0.007 
+1.467  -0.007 
+1.502  -0.007 
+1.502  -0.007 
+1.497  -0.007 
+1.500  -0.007 
+1.500  -0.007 
+1.493  -0.007 
+1.320  -0.011 
+1.320  -0.010 
+1.279  -0.007 
+1.498  -0.007 
+1.499  -0.007 
+1.491  -0.007 
+1.447  -0.007 
+1.448  -0.007 
+1.438  -0.007 
+1.500  -0.007 
+1.502  -0.007 
+1.493  -0.007 
+1.476  -0.008 
+1.474  -0.007 
+1.466  -0.008 
+1.466  -0.007 
+1.463  -0.007 
+1.458  -0.007 
+1.527  -0.008 
+1.527  -0.008 
+1.523  -0.008 
+1.476  -0.007 
+1.478  -0.007 
+1.471  -0.007 
+1.486  -0.008 
+1.485  -0.008 
+1.477  -0.008 
+1.486  -0.007 
+1.485  -0.007 
+1.479  -0.007 
+1.531  -0.008 
+1.530  -0.008 
+1.524  -0.008 
+1.495  -0.007 
+1.495  -0.007 
+1.487  -0.007 
+1.425  -0.008 
+1.427  -0.008 
+1.413  -0.007 
+1.479  -0.007 
+1.479  -0.007 
+1.471  -0.007 
+1.477  -0.007 
+1.477  -0.007 
+1.469  -0.007 
+1.474  -0.007 
+1.473  -0.007 
+1.463  -0.007 
+1.480  -0.007 
+1.481  -0.007 
+1.475  -0.007 
+1.484  -0.007 
+1.484  -0.007 
+1.478  -0.007 
+1.534  -0.008 
+1.533  -0.008 
+1.528  -0.008 
+1.697  -0.008 
+1.697  -0.008 
+1.695  -0.008 
+1.473  -0.007 
+1.473  -0.007 
+1.464  -0.007 
+1.475  -0.008 
+1.476  -0.008 
+1.463  -0.008 
+1.517  -0.007 
+1.517  -0.007 
+1.512  -0.007 
+1.532  -0.007 
+1.532  -0.007 
+1.527  -0.007 
+1.520  -0.008 
+1.519  -0.008 
+1.514  -0.007 
+1.494  -0.007 
+1.493  -0.007 
+1.487  -0.007 
+1.510  -0.007 
+1.511  -0.007 
+1.506  -0.007 
+1.504  -0.007 
+1.503  -0.007 
+1.497  -0.007 
+1.464  -0.007 
+1.463  -0.007 
+1.455  -0.007 
+1.503  -0.007 
+1.505  -0.007 
+1.498  -0.007 
+1.746  -0.010 
+1.747  -0.010 
+1.745  -0.010 
+1.409  -0.008 
+1.409  -0.008 
+1.393  -0.007 
+1.499  -0.007 
+1.499  -0.007 
+1.493  -0.007 
+1.448  -0.008 
+1.447  -0.008 
+1.437  -0.007 
+1.511  -0.008 
+1.510  -0.008 
+1.505  -0.008 
+1.509  -0.007 
+1.507  -0.007 
+1.502  -0.007 
+1.441  -0.007 
+1.441  -0.007 
+1.431  -0.007 
+1.495  -0.007 
+1.493  -0.007 
+1.489  -0.007 
+1.516  -0.007 
+1.515  -0.007 
+1.510  -0.007 
+1.491  -0.007 
+1.491  -0.007 
+1.485  -0.007 
+1.447  -0.007 
+1.447  -0.007 
+1.437  -0.007 
+1.479  -0.007 
+1.477  -0.007 
+1.469  -0.007 
+1.507  -0.007 
+1.505  -0.007 
+1.500  -0.007 
+1.439  -0.007 
+1.441  -0.007 
+1.427  -0.007 
+1.515  -0.008 
+1.515  -0.008 
+1.509  -0.008 
+1.448  -0.007 
+1.448  -0.007 
+1.438  -0.007 
+1.503  -0.007 
+1.504  -0.007 
+1.498  -0.007 
+1.471  -0.007 
+1.470  -0.007 
+1.463  -0.007 
+1.472  -0.007 
+1.471  -0.007 
+1.463  -0.006 
+1.461  -0.007 
+1.460  -0.007 
+1.450  -0.007 
+1.472  -0.007 
+1.473  -0.007 
+1.464  -0.007 
+1.530  -0.008 
+1.529  -0.008 
+1.525  -0.007 
+1.527  -0.007 
+1.528  -0.007 
+1.523  -0.007 
+1.754  -0.010 
+1.753  -0.010 
+1.751  -0.010 
+1.458  -0.007 
+1.460  -0.007 
+1.450  -0.006 
+1.436  -0.007 
+1.436  -0.006 
+1.424  -0.006 
+1.525  -0.007 
+1.525  -0.007 
+1.520  -0.007 
+1.434  -0.008 
+1.435  -0.008 
+1.419  -0.008 
+1.517  -0.007 
+1.516  -0.007 
+1.510  -0.007 
+1.514  -0.007 
+1.516  -0.007 
+1.508  -0.007 
+1.467  -0.007 
+1.466  -0.007 
+1.456  -0.007 
+1.478  -0.006 
+1.480  -0.007 
+1.470  -0.006 
+1.410  -0.007 
+1.409  -0.007 
+1.396  -0.007 
+1.513  -0.007 
+1.511  -0.006 
+1.508  -0.006 
+1.494  -0.007 
+1.495  -0.007 
+1.486  -0.007 
+1.494  -0.007 
+1.495  -0.007 
+1.488  -0.007 
+1.473  -0.007 
+1.476  -0.007 
+1.467  -0.007 
+1.342  -0.006 
+1.340  -0.006 
+1.315  -0.005 
+1.478  -0.006 
+1.478  -0.007 
+1.469  -0.006 
+1.506  -0.008 
+1.505  -0.008 
+1.496  -0.008 
+1.489  -0.007 
+1.488  -0.007 
+1.482  -0.006 
+1.483  -0.006 
+1.483  -0.007 
+1.477  -0.006 
+1.415  -0.007 
+1.415  -0.007 
+1.399  -0.007 
+1.508  -0.007 
+1.506  -0.007 
+1.501  -0.007 
+1.434  -0.007 
+1.432  -0.007 
+1.420  -0.007 
+1.321  -0.010 
+1.323  -0.010 
+1.283  -0.007 
+1.490  -0.007 
+1.490  -0.007 
+1.484  -0.007 
+1.488  -0.008 
+1.488  -0.008 
+1.479  -0.007 
+1.416  -0.007 
+1.415  -0.007 
+1.397  -0.007 
+1.490  -0.007 
+1.489  -0.007 
+1.482  -0.007 
+1.499  -0.007 
+1.498  -0.007 
+1.492  -0.007 
+1.475  -0.007 
+1.473  -0.007 
+1.463  -0.007 
+1.444  -0.007 
+1.445  -0.007 
+1.435  -0.006 
+1.512  -0.007 
+1.513  -0.007 
+1.506  -0.007 
+1.483  -0.007 
+1.484  -0.007 
+1.473  -0.007 
+1.458  -0.007 
+1.456  -0.007 
+1.446  -0.007 
+1.492  -0.007 
+1.493  -0.007 
+1.485  -0.007 
+1.750  -0.010 
+1.749  -0.009 
+1.749  -0.009 
+1.275  -0.013 
+1.270  -0.013 
+1.228  -0.011 
+1.450  -0.007 
+1.451  -0.007 
+1.442  -0.006 
+1.509  -0.007 
+1.509  -0.007 
+1.501  -0.007 
+1.433  -0.007 
+1.432  -0.007 
+1.419  -0.006 
+1.423  -0.007 
+1.422  -0.007 
+1.406  -0.007 
+1.480  -0.006 
+1.478  -0.006 
+1.469  -0.006 
+1.498  -0.007 
+1.497  -0.007 
+1.491  -0.007 
+1.486  -0.006 
+1.486  -0.006 
+1.479  -0.006 
+1.493  -0.007 
+1.494  -0.007 
+1.487  -0.007 
+1.494  -0.007 
+1.494  -0.007 
+1.489  -0.007 
+1.474  -0.006 
+1.474  -0.007 
+1.465  -0.007 
+1.504  -0.007 
+1.503  -0.007 
+1.497  -0.007 
+1.507  -0.007 
+1.507  -0.007 
+1.500  -0.007 
+1.514  -0.007 
+1.513  -0.006 
+1.507  -0.006 
+1.503  -0.007 
+1.504  -0.007 
+1.497  -0.007 
+1.266  -0.011 
+1.268  -0.011 
+1.217  -0.007 
+1.523  -0.007 
+1.522  -0.007 
+1.517  -0.007 
+1.428  -0.008 
+1.428  -0.008 
+1.416  -0.007 
+1.498  -0.007 
+1.497  -0.007 
+1.490  -0.007 
+1.477  -0.006 
+1.479  -0.006 
+1.469  -0.006 
+1.452  -0.006 
+1.450  -0.006 
+1.440  -0.006 
+1.506  -0.007 
+1.507  -0.007 
+1.499  -0.007 
+1.292  -0.011 
+1.293  -0.011 
+1.250  -0.009 
+1.431  -0.007 
+1.432  -0.007 
+1.419  -0.007 
+1.487  -0.007 
+1.486  -0.006 
+1.477  -0.006 
+1.450  -0.007 
+1.453  -0.007 
+1.441  -0.006 
+1.337  -0.009 
+1.337  -0.009 
+1.307  -0.007 
+1.490  -0.007 
+1.489  -0.007 
+1.485  -0.007 
+1.498  -0.007 
+1.501  -0.007 
+1.492  -0.007 
+1.489  -0.007 
+1.489  -0.007 
+1.482  -0.007 
+1.568  -0.008 
+1.567  -0.008 
+1.560  -0.008 
+1.534  -0.007 
+1.536  -0.008 
+1.529  -0.008 
+1.457  -0.006 
+1.458  -0.007 
+1.448  -0.006 
+1.522  -0.007 
+1.521  -0.007 
+1.517  -0.007 
+1.591  -0.008 
+1.594  -0.008 
+1.586  -0.008 
+1.490  -0.007 
+1.489  -0.007 
+1.481  -0.007 
+1.472  -0.007 
+1.472  -0.007 
+1.465  -0.007 
+1.574  -0.008 
+1.574  -0.008 
+1.566  -0.007 
+1.456  -0.006 
+1.458  -0.006 
+1.449  -0.006 
+1.482  -0.007 
+1.483  -0.006 
+1.477  -0.007 
+1.458  -0.006 
+1.461  -0.006 
+1.448  -0.006 
+1.447  -0.007 
+1.449  -0.007 
+1.439  -0.007 
+1.466  -0.006 
+1.466  -0.006 
+1.458  -0.006 
+1.491  -0.007 
+1.492  -0.007 
+1.486  -0.007 
+1.463  -0.007 
+1.463  -0.007 
+1.454  -0.007 
+1.498  -0.007 
+1.497  -0.007 
+1.489  -0.007 
+1.512  -0.007 
+1.511  -0.007 
+1.507  -0.007 
+1.494  -0.006 
+1.492  -0.007 
+1.486  -0.007 
+1.509  -0.007 
+1.511  -0.007 
+1.505  -0.006 
+1.458  -0.008 
+1.459  -0.008 
+1.446  -0.007 
+1.341  -0.009 
+1.340  -0.009 
+1.312  -0.007 
+1.512  -0.007 
+1.513  -0.007 
+1.508  -0.007 
+1.399  -0.006 
+1.398  -0.007 
+1.383  -0.006 
+1.525  -0.008 
+1.524  -0.007 
+1.518  -0.008 
+1.493  -0.007 
+1.493  -0.006 
+1.485  -0.006 
+1.435  -0.007 
+1.436  -0.007 
+1.422  -0.007 
+1.484  -0.007 
+1.483  -0.007 
+1.476  -0.007 
+1.431  -0.007 
+1.429  -0.007 
+1.418  -0.007 
+1.496  -0.006 
+1.495  -0.006 
+1.489  -0.006 
+1.463  -0.006 
+1.465  -0.006 
+1.460  -0.006 
+1.507  -0.007 
+1.505  -0.007 
+1.499  -0.007 
+1.501  -0.007 
+1.502  -0.007 
+1.494  -0.007 
+1.431  -0.007 
+1.432  -0.007 
+1.417  -0.006 
+1.446  -0.006 
+1.446  -0.007 
+1.436  -0.006 
+1.493  -0.007 
+1.494  -0.007 
+1.483  -0.007 
+1.476  -0.007 
+1.475  -0.007 
+1.466  -0.007 
+1.530  -0.007 
+1.528  -0.007 
+1.522  -0.007 
+1.499  -0.006 
+1.499  -0.006 
+1.495  -0.006 
+1.481  -0.007 
+1.479  -0.007 
+1.473  -0.007 
+1.486  -0.007 
+1.486  -0.007 
+1.478  -0.006 
+1.472  -0.006 
+1.471  -0.006 
+1.461  -0.006 
+1.297  -0.011 
+1.297  -0.011 
+1.259  -0.008 
+1.501  -0.007 
+1.501  -0.007 
+1.495  -0.007 
+1.703  -0.007 
+1.703  -0.007 
+1.699  -0.007 
+1.515  -0.007 
+1.513  -0.007 
+1.508  -0.007 
+1.478  -0.007 
+1.478  -0.007 
+1.468  -0.006 
+1.507  -0.008 
+1.509  -0.009 
+1.499  -0.008 
+1.475  -0.007 
+1.475  -0.007 
+1.469  -0.006 
+1.485  -0.007 
+1.487  -0.007 
+1.480  -0.007 
+1.491  -0.007 
+1.489  -0.007 
+1.481  -0.007 
+1.453  -0.007 
+1.454  -0.007 
+1.441  -0.007 
+1.316  -0.010 
+1.314  -0.010 
+1.279  -0.007 
+1.469  -0.006 
+1.468  -0.007 
+1.461  -0.007 
+1.492  -0.007 
+1.492  -0.007 
+1.485  -0.006 
+1.494  -0.006 
+1.493  -0.006 
+1.485  -0.006 
+1.249  -0.012 
+1.243  -0.012 
+1.193  -0.007 
+1.474  -0.006 
+1.473  -0.007 
+1.466  -0.006 
+1.278  -0.010 
+1.279  -0.010 
+1.240  -0.007 
+1.363  -0.008 
+1.361  -0.007 
+1.338  -0.007 
+1.492  -0.007 
+1.493  -0.006 
+1.485  -0.006 
+1.507  -0.007 
+1.506  -0.007 
+1.501  -0.007 
+1.468  -0.007 
+1.469  -0.007 
+1.459  -0.006 
+1.498  -0.007 
+1.498  -0.007 
+1.491  -0.007 
+1.470  -0.007 
+1.473  -0.007 
+1.463  -0.007 
+1.486  -0.007 
+1.484  -0.007 
+1.476  -0.006 
+1.471  -0.006 
+1.471  -0.007 
+1.464  -0.006 
+1.495  -0.007 
+1.495  -0.007 
+1.486  -0.007 
+1.484  -0.007 
+1.482  -0.007 
+1.473  -0.006 
+1.518  -0.007 
+1.519  -0.007 
+1.511  -0.007 
+1.496  -0.008 
+1.498  -0.008 
+1.487  -0.007 
+1.657  -0.008 
+1.656  -0.008 
+1.654  -0.008 
+1.512  -0.008 
+1.511  -0.007 
+1.507  -0.007 
+1.532  -0.007 
+1.531  -0.007 
+1.525  -0.007 
+1.433  -0.007 
+1.432  -0.006 
+1.421  -0.006 
+1.506  -0.006 
+1.507  -0.007 
+1.500  -0.006 
+1.489  -0.006 
+1.489  -0.006 
+1.481  -0.006 
+1.358  -0.009 
+1.360  -0.009 
+1.326  -0.007 
+1.347  -0.009 
+1.348  -0.008 
+1.320  -0.007 
+1.511  -0.007 
+1.510  -0.006 
+1.504  -0.006 
+1.463  -0.006 
+1.463  -0.006 
+1.455  -0.007 
+1.476  -0.006 
+1.480  -0.006 
+1.470  -0.006 
+1.758  -0.009 
+1.758  -0.009 
+1.756  -0.009 
+1.574  -0.007 
+1.574  -0.007 
+1.568  -0.007 
+1.474  -0.006 
+1.473  -0.006 
+1.466  -0.006 
+1.510  -0.007 
+1.511  -0.007 
+1.503  -0.007 
+1.340  -0.009 
+1.339  -0.009 
+1.308  -0.007 
+1.514  -0.008 
+1.514  -0.008 
+1.505  -0.008 
+1.530  -0.007 
+1.529  -0.007 
+1.524  -0.007 
+1.715  -0.007 
+1.716  -0.007 
+1.715  -0.007 
+1.503  -0.007 
+1.501  -0.007 
+1.497  -0.006 
+1.484  -0.006 
+1.483  -0.006 
+1.473  -0.006 
+1.506  -0.007 
+1.505  -0.007 
+1.499  -0.007 
+1.443  -0.006 
+1.444  -0.007 
+1.431  -0.006 
+1.537  -0.007 
+1.534  -0.007 
+1.529  -0.006 
+1.492  -0.007 
+1.494  -0.007 
+1.486  -0.007 
+1.446  -0.007 
+1.447  -0.007 
+1.439  -0.006 
+1.520  -0.006 
+1.519  -0.006 
+1.513  -0.006 
+1.498  -0.006 
+1.495  -0.007 
+1.490  -0.006 
+1.495  -0.007 
+1.493  -0.006 
+1.487  -0.006 
+1.504  -0.008 
+1.507  -0.008 
+1.499  -0.007 
+1.401  -0.007 
+1.401  -0.007 
+1.385  -0.006 
+1.516  -0.007 
+1.516  -0.007 
+1.509  -0.007 
+1.467  -0.006 
+1.468  -0.006 
+1.458  -0.006 
+1.452  -0.008 
+1.454  -0.008 
+1.438  -0.007 
+1.498  -0.006 
+1.497  -0.006 
+1.491  -0.006 
+1.445  -0.007 
+1.445  -0.007 
+1.432  -0.007 
+1.496  -0.007 
+1.495  -0.007 
+1.488  -0.007 
+1.470  -0.006 
+1.470  -0.006 
+1.460  -0.006 
+1.464  -0.006 
+1.462  -0.006 
+1.452  -0.006 
+1.474  -0.007 
+1.475  -0.007 
+1.465  -0.006 
+1.430  -0.007 
+1.430  -0.007 
+1.417  -0.007 
+1.474  -0.007 
+1.474  -0.007 
+1.463  -0.006 
+1.506  -0.007 
+1.503  -0.007 
+1.494  -0.007 
+1.482  -0.007 
+1.484  -0.006 
+1.475  -0.006 
+1.466  -0.007 
+1.463  -0.007 
+1.454  -0.007 
+1.477  -0.007 
+1.478  -0.006 
+1.471  -0.006 
+1.473  -0.008 
+1.472  -0.007 
+1.462  -0.007 
+1.502  -0.007 
+1.501  -0.006 
+1.495  -0.006 
+1.526  -0.007 
+1.529  -0.007 
+1.522  -0.007 
+1.494  -0.007 
+1.495  -0.007 
+1.487  -0.007 
+1.494  -0.007 
+1.493  -0.007 
+1.487  -0.007 
+1.482  -0.006 
+1.479  -0.006 
+1.473  -0.006 
+1.483  -0.007 
+1.485  -0.007 
+1.478  -0.006 
+1.486  -0.007 
+1.485  -0.007 
+1.478  -0.006 
+1.511  -0.007 
+1.511  -0.006 
+1.504  -0.007 
+1.333  -0.009 
+1.332  -0.009 
+1.302  -0.007 
+1.468  -0.007 
+1.470  -0.006 
+1.461  -0.006 
+1.471  -0.007 
+1.471  -0.007 
+1.459  -0.007 
+1.449  -0.009 
+1.448  -0.010 
+1.431  -0.009 
+1.460  -0.007 
+1.460  -0.007 
+1.451  -0.007 
+1.493  -0.007 
+1.494  -0.007 
+1.482  -0.006 
+1.506  -0.007 
+1.506  -0.006 
+1.500  -0.006 
+1.493  -0.007 
+1.490  -0.007 
+1.483  -0.006 
+1.470  -0.007 
+1.472  -0.006 
+1.464  -0.006 
+1.570  -0.007 
+1.568  -0.007 
+1.565  -0.007 
+1.538  -0.006 
+1.539  -0.007 
+1.533  -0.007 
+1.465  -0.007 
+1.467  -0.007 
+1.453  -0.006 
+1.472  -0.007 
+1.472  -0.007 
+1.464  -0.007 
+1.459  -0.006 
+1.459  -0.006 
+1.451  -0.006 
+1.481  -0.006 
+1.482  -0.006 
+1.471  -0.006 
+1.506  -0.007 
+1.506  -0.007 
+1.498  -0.007 
+1.492  -0.009 
+1.494  -0.008 
+1.486  -0.008 
+1.505  -0.006 
+1.505  -0.006 
+1.498  -0.006 
+1.520  -0.007 
+1.521  -0.007 
+1.517  -0.006 
+1.494  -0.006 
+1.495  -0.006 
+1.489  -0.006 
+1.507  -0.006 
+1.506  -0.006 
+1.501  -0.006 
+1.514  -0.007 
+1.516  -0.008 
+1.508  -0.007 
+1.509  -0.007 
+1.508  -0.007 
+1.503  -0.006 
+1.487  -0.007 
+1.487  -0.007 
+1.477  -0.007 
+1.461  -0.006 
+1.461  -0.006 
+1.452  -0.006 
+1.371  -0.008 
+1.374  -0.007 
+1.349  -0.007 
+1.482  -0.006 
+1.482  -0.007 
+1.473  -0.006 
+1.466  -0.006 
+1.466  -0.006 
+1.455  -0.006 
+1.522  -0.008 
+1.521  -0.008 
+1.514  -0.007 
+1.464  -0.007 
+1.465  -0.007 
+1.453  -0.007 
+1.440  -0.006 
+1.439  -0.006 
+1.427  -0.006 
+1.528  -0.007 
+1.527  -0.006 
+1.522  -0.006 
+1.498  -0.006 
+1.499  -0.006 
+1.492  -0.006 
+1.471  -0.007 
+1.475  -0.007 
+1.465  -0.007 
+1.321  -0.010 
+1.323  -0.010 
+1.290  -0.007 
+1.481  -0.007 
+1.481  -0.007 
+1.472  -0.006 
+1.474  -0.006 
+1.474  -0.006 
+1.467  -0.006 
+1.704  -0.008 
+1.704  -0.008 
+1.701  -0.008 
+1.454  -0.006 
+1.454  -0.006 
+1.444  -0.006 
+1.427  -0.006 
+1.426  -0.006 
+1.413  -0.006 
+1.432  -0.007 
+1.430  -0.006 
+1.417  -0.006 
+1.505  -0.006 
+1.504  -0.006 
+1.498  -0.006 
+1.586  -0.008 
+1.586  -0.008 
+1.580  -0.008 
+1.493  -0.006 
+1.491  -0.006 
+1.484  -0.006 
+1.464  -0.007 
+1.461  -0.007 
+1.453  -0.006 
+1.484  -0.006 
+1.485  -0.006 
+1.478  -0.006 
+1.516  -0.007 
+1.515  -0.007 
+1.509  -0.007 
+1.488  -0.006 
+1.486  -0.006 
+1.480  -0.006 
+1.467  -0.006 
+1.466  -0.006 
+1.459  -0.006 
+1.490  -0.008 
+1.491  -0.008 
+1.481  -0.008 
+1.499  -0.006 
+1.498  -0.006 
+1.492  -0.006 
+1.477  -0.006 
+1.473  -0.006 
+1.469  -0.006 
+1.515  -0.006 
+1.513  -0.006 
+1.508  -0.006 
+1.495  -0.007 
+1.492  -0.007 
+1.485  -0.007 
+1.479  -0.006 
+1.477  -0.006 
+1.469  -0.006 
+1.507  -0.007 
+1.509  -0.008 
+1.499  -0.007 
+1.513  -0.007 
+1.514  -0.007 
+1.506  -0.007 
+1.467  -0.007 
+1.465  -0.006 
+1.458  -0.006 
+1.509  -0.006 
+1.509  -0.007 
+1.502  -0.006 
+1.461  -0.006 
+1.464  -0.006 
+1.456  -0.006 
+1.483  -0.006 
+1.482  -0.006 
+1.476  -0.006 
+1.503  -0.007 
+1.503  -0.007 
+1.496  -0.007 
+1.347  -0.008 
+1.351  -0.008 
+1.323  -0.007 
+1.497  -0.007 
+1.496  -0.007 
+1.487  -0.007 
+1.511  -0.007 
+1.511  -0.007 
+1.503  -0.006 
+1.750  -0.009 
+1.750  -0.009 
+1.748  -0.009 
+1.465  -0.006 
+1.466  -0.006 
+1.456  -0.006 
+1.522  -0.007 
+1.521  -0.007 
+1.516  -0.007 
+1.471  -0.006 
+1.470  -0.006 
+1.462  -0.006 
+1.455  -0.006 
+1.457  -0.006 
+1.447  -0.006 
+1.540  -0.007 
+1.541  -0.007 
+1.533  -0.007 
+1.456  -0.006 
+1.456  -0.006 
+1.447  -0.006 
+1.505  -0.007 
+1.505  -0.007 
+1.499  -0.007 
+1.474  -0.006 
+1.473  -0.006 
+1.464  -0.006 
+1.489  -0.007 
+1.490  -0.006 
+1.481  -0.006 
+1.517  -0.006 
+1.517  -0.006 
+1.510  -0.006 
+1.505  -0.007 
+1.504  -0.007 
+1.499  -0.006 
+1.470  -0.006 
+1.470  -0.006 
+1.461  -0.006 
+1.500  -0.007 
+1.497  -0.007 
+1.493  -0.006 
+1.482  -0.007 
+1.477  -0.006 
+1.470  -0.006 
+1.328  -0.013 
+1.329  -0.013 
+1.290  -0.011 
+1.473  -0.006 
+1.471  -0.006 
+1.462  -0.006 
+1.466  -0.006 
+1.466  -0.006 
+1.459  -0.006 
+1.490  -0.007 
+1.490  -0.007 
+1.485  -0.007 
+1.353  -0.010 
+1.353  -0.010 
+1.324  -0.009 
+1.445  -0.007 
+1.449  -0.006 
+1.437  -0.006 
+1.488  -0.006 
+1.486  -0.007 
+1.477  -0.006 
+1.504  -0.007 
+1.504  -0.007 
+1.495  -0.007 
+1.478  -0.006 
+1.478  -0.007 
+1.468  -0.006 

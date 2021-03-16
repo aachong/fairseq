@@ -1,0 +1,1299 @@
+save_dir=./examples/entr/bash/../checkpoints/closer-all
+在最后一层正则化之前输出，模型是r3f，不过昨天把模型弄没了
+criterion=label_smoothed_cross_entropy_r3f_noised_input
+label_smoothing=0.1
+dropout=0.3
+lr=0.00004
+lrscheduler=inverse_sqrt
+warmup_updates=3000
+max_epoch=200
+r3f_lambda=1
+extr='--warmup-init-lr 1e-07 --reset-optimizer'
+2021-01-28 10:43:17 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2021-01-28 10:43:18 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2021-01-28 10:43:19 | INFO | fairseq_cli.train | Namespace(activation_dropout=0.0, activation_fn='relu', adam_betas='(0.9, 0.98)', adam_eps=1e-08, adaptive_input=False, adaptive_softmax_cutoff=None, adaptive_softmax_dropout=0, all_gather_list_size=16384, arch='transformer', attention_dropout=0.0, best_checkpoint_metric='bleu', bf16=False, bpe=None, broadcast_buffers=False, bucket_cap_mb=25, checkpoint_activations=False, checkpoint_suffix='', clip_norm=0.0, cpu=False, criterion='label_smoothed_cross_entropy_r3f_noised_input', cross_self_attention=False, curriculum=0, cv_lambda=0.0, data='./examples/entr/bash/../data-bin', data_buffer_size=10, dataset_impl=None, ddp_backend='c10d', decoder_attention_heads=8, decoder_embed_dim=512, decoder_embed_path=None, decoder_ffn_embed_dim=2048, decoder_input_dim=512, decoder_layerdrop=0, decoder_layers=6, decoder_layers_to_keep=None, decoder_learned_pos=False, decoder_normalize_before=False, decoder_output_dim=512, device_id=0, disable_validation=False, distributed_backend='nccl', distributed_init_method=None, distributed_no_spawn=False, distributed_num_procs=1, distributed_port=-1, distributed_rank=0, distributed_world_size=1, distributed_wrapper='DDP', dropout=0.3, empty_cache_freq=0, encoder_attention_heads=8, encoder_embed_dim=512, encoder_embed_path=None, encoder_ffn_embed_dim=2048, encoder_layerdrop=0, encoder_layers=6, encoder_layers_to_keep=None, encoder_learned_pos=False, encoder_normalize_before=False, eps=1e-06, eval_bleu=True, eval_bleu_args='{"beam": 5, "max_len_a": 1.2, "max_len_b": 10}', eval_bleu_detok='space', eval_bleu_detok_args=None, eval_bleu_print_samples=False, eval_bleu_remove_bpe='sentencepiece', eval_tokenized_bleu=False, fast_stat_sync=False, find_unused_parameters=False, finetune_from_model=None, fix_batches_to_gpus=False, fixed_validation_seed=None, fp16=False, fp16_init_scale=128, fp16_no_flatten_grads=False, fp16_scale_tolerance=0.0, fp16_scale_window=None, keep_best_checkpoints=-1, keep_interval_updates=-1, keep_last_epochs=-1, label_smoothing=0.1, layernorm_embedding=False, left_pad_source='True', left_pad_target='False', load_alignments=False, localsgd_frequency=3, log_format=None, log_interval=100, lr=[4e-05], lr_scheduler='inverse_sqrt', max_epoch=200, max_sentences=None, max_sentences_valid=None, max_source_positions=1024, max_target_positions=1024, max_tokens=6000, max_tokens_valid=6000, max_update=0, maximize_best_checkpoint_metric=True, memory_efficient_bf16=False, memory_efficient_fp16=False, min_loss_scale=0.0001, min_lr=1e-09, model_parallel_size=1, no_cross_attention=False, no_epoch_checkpoints=True, no_last_checkpoints=False, no_progress_bar=False, no_save=False, no_save_optimizer_state=False, no_scale_embedding=False, no_seed_provided=True, no_token_positional_embeddings=False, noise_type='normal', noised_eval_model=False, noised_no_grad=False, nprocs_per_node=1, num_batch_buckets=0, num_workers=1, optimizer='adam', optimizer_overrides='{}', patience=-1, pipeline_balance=None, pipeline_checkpoint='never', pipeline_chunks=None, pipeline_devices=None, pipeline_model_parallel=False, profile=False, quant_noise_pq=0, quant_noise_pq_block_size=8, quant_noise_scalar=0, quantization_config_path=None, r3f_lambda=1.0, required_batch_size_multiple=8, required_seq_len_multiple=1, reset_dataloader=False, reset_lr_scheduler=False, reset_meters=False, reset_optimizer=True, restore_file='checkpoint_last.pt', save_dir='./examples/entr/bash/../checkpoints/closer-all', save_interval=1, save_interval_updates=0, scoring='bleu', seed=1, self_training_drc=False, sentence_avg=False, share_all_embeddings=True, share_decoder_input_output_embed=False, skip_invalid_size_inputs_valid_test=False, slowmo_algorithm='LocalSGD', slowmo_momentum=None, source_lang='en', stop_time_hours=0, target_lang='tr', task='translation', tensorboard_logdir='', threshold_loss_scale=None, tie_adaptive_weights=False, tokenizer=None, tpu=False, train_subset='train', truncate_source=False, update_freq=[1], upsample_primary=1, use_bmuf=False, use_old_adam=False, user_dir=None, valid_subset='valid', validate_after_updates=0, validate_interval=1, validate_interval_updates=0, warmup_init_lr=1e-07, warmup_updates=3000, weight_decay=0.0, zero_sharding='none')
+2021-01-28 10:43:19 | INFO | fairseq.tasks.translation | [en] dictionary: 19784 types
+2021-01-28 10:43:19 | INFO | fairseq.tasks.translation | [tr] dictionary: 19784 types
+2021-01-28 10:43:19 | INFO | fairseq.data.data_utils | loaded 3000 examples from: ./examples/entr/bash/../data-bin/valid.en-tr.en
+2021-01-28 10:43:19 | INFO | fairseq.data.data_utils | loaded 3000 examples from: ./examples/entr/bash/../data-bin/valid.en-tr.tr
+2021-01-28 10:43:19 | INFO | fairseq.tasks.translation | ./examples/entr/bash/../data-bin valid en-tr 3000 examples
+2021-01-28 10:43:20 | INFO | fairseq_cli.train | TransformerModel(
+  (encoder): TransformerEncoder(
+    (dropout_module): FairseqDropout()
+    (embed_tokens): Embedding(19784, 512, padding_idx=1)
+    (embed_positions): SinusoidalPositionalEmbedding()
+    (layers): ModuleList(
+      (0): TransformerEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (self_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (dropout_module): FairseqDropout()
+        (activation_dropout_module): FairseqDropout()
+        (fc1): Linear(in_features=512, out_features=2048, bias=True)
+        (fc2): Linear(in_features=2048, out_features=512, bias=True)
+        (final_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+      )
+      (1): TransformerEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (self_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (dropout_module): FairseqDropout()
+        (activation_dropout_module): FairseqDropout()
+        (fc1): Linear(in_features=512, out_features=2048, bias=True)
+        (fc2): Linear(in_features=2048, out_features=512, bias=True)
+        (final_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+      )
+      (2): TransformerEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (self_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (dropout_module): FairseqDropout()
+        (activation_dropout_module): FairseqDropout()
+        (fc1): Linear(in_features=512, out_features=2048, bias=True)
+        (fc2): Linear(in_features=2048, out_features=512, bias=True)
+        (final_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+      )
+      (3): TransformerEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (self_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (dropout_module): FairseqDropout()
+        (activation_dropout_module): FairseqDropout()
+        (fc1): Linear(in_features=512, out_features=2048, bias=True)
+        (fc2): Linear(in_features=2048, out_features=512, bias=True)
+        (final_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+      )
+      (4): TransformerEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (self_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (dropout_module): FairseqDropout()
+        (activation_dropout_module): FairseqDropout()
+        (fc1): Linear(in_features=512, out_features=2048, bias=True)
+        (fc2): Linear(in_features=2048, out_features=512, bias=True)
+        (final_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+      )
+      (5): TransformerEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (self_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (dropout_module): FairseqDropout()
+        (activation_dropout_module): FairseqDropout()
+        (fc1): Linear(in_features=512, out_features=2048, bias=True)
+        (fc2): Linear(in_features=2048, out_features=512, bias=True)
+        (final_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+      )
+    )
+  )
+  (decoder): TransformerDecoder(
+    (dropout_module): FairseqDropout()
+    (embed_tokens): Embedding(19784, 512, padding_idx=1)
+    (embed_positions): SinusoidalPositionalEmbedding()
+    (layers): ModuleList(
+      (0): TransformerDecoderLayer(
+        (dropout_module): FairseqDropout()
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (activation_dropout_module): FairseqDropout()
+        (self_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (encoder_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (encoder_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (fc1): Linear(in_features=512, out_features=2048, bias=True)
+        (fc2): Linear(in_features=2048, out_features=512, bias=True)
+        (final_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+      )
+      (1): TransformerDecoderLayer(
+        (dropout_module): FairseqDropout()
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (activation_dropout_module): FairseqDropout()
+        (self_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (encoder_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (encoder_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (fc1): Linear(in_features=512, out_features=2048, bias=True)
+        (fc2): Linear(in_features=2048, out_features=512, bias=True)
+        (final_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+      )
+      (2): TransformerDecoderLayer(
+        (dropout_module): FairseqDropout()
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (activation_dropout_module): FairseqDropout()
+        (self_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (encoder_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (encoder_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (fc1): Linear(in_features=512, out_features=2048, bias=True)
+        (fc2): Linear(in_features=2048, out_features=512, bias=True)
+        (final_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+      )
+      (3): TransformerDecoderLayer(
+        (dropout_module): FairseqDropout()
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (activation_dropout_module): FairseqDropout()
+        (self_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (encoder_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (encoder_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (fc1): Linear(in_features=512, out_features=2048, bias=True)
+        (fc2): Linear(in_features=2048, out_features=512, bias=True)
+        (final_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+      )
+      (4): TransformerDecoderLayer(
+        (dropout_module): FairseqDropout()
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (activation_dropout_module): FairseqDropout()
+        (self_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (encoder_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (encoder_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (fc1): Linear(in_features=512, out_features=2048, bias=True)
+        (fc2): Linear(in_features=2048, out_features=512, bias=True)
+        (final_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+      )
+      (5): TransformerDecoderLayer(
+        (dropout_module): FairseqDropout()
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (activation_dropout_module): FairseqDropout()
+        (self_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (encoder_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (encoder_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (fc1): Linear(in_features=512, out_features=2048, bias=True)
+        (fc2): Linear(in_features=2048, out_features=512, bias=True)
+        (final_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+      )
+    )
+    (output_projection): Linear(in_features=512, out_features=19784, bias=False)
+  )
+)
+2021-01-28 10:43:20 | INFO | fairseq_cli.train | task: translation (TranslationTask)
+2021-01-28 10:43:20 | INFO | fairseq_cli.train | model: transformer (TransformerModel)
+2021-01-28 10:43:20 | INFO | fairseq_cli.train | criterion: label_smoothed_cross_entropy_r3f_noised_input (NoisedInputCriterion)
+2021-01-28 10:43:20 | INFO | fairseq_cli.train | num. model params: 54267904 (num. trained: 54267904)
+2021-01-28 10:43:23 | INFO | fairseq.trainer | detected shared parameter: encoder.embed_tokens.weight <- decoder.embed_tokens.weight
+2021-01-28 10:43:23 | INFO | fairseq.trainer | detected shared parameter: encoder.embed_tokens.weight <- decoder.output_projection.weight
+2021-01-28 10:43:23 | INFO | fairseq.utils | ***********************CUDA enviroments for all 1 workers***********************
+2021-01-28 10:43:23 | INFO | fairseq.utils | rank   0: capabilities =  6.1  ; total memory = 10.917 GB ; name = GeForce GTX 1080 Ti                     
+2021-01-28 10:43:23 | INFO | fairseq.utils | ***********************CUDA enviroments for all 1 workers***********************
+2021-01-28 10:43:23 | INFO | fairseq_cli.train | training on 1 devices (GPUs/TPUs)
+2021-01-28 10:43:23 | INFO | fairseq_cli.train | max tokens per GPU = 6000 and max sentences per GPU = None
+2021-01-28 10:43:23 | INFO | fairseq.trainer | loaded checkpoint ./examples/entr/bash/../checkpoints/closer-all/checkpoint_last.pt (epoch 128 @ 0 updates)
+2021-01-28 10:43:23 | INFO | fairseq.optim.adam | using FusedAdam
+2021-01-28 10:43:23 | INFO | fairseq.trainer | loading train data for epoch 128
+2021-01-28 10:43:23 | INFO | fairseq.data.data_utils | loaded 207373 examples from: ./examples/entr/bash/../data-bin/train.en-tr.en
+2021-01-28 10:43:23 | INFO | fairseq.data.data_utils | loaded 207373 examples from: ./examples/entr/bash/../data-bin/train.en-tr.tr
+2021-01-28 10:43:23 | INFO | fairseq.tasks.translation | ./examples/entr/bash/../data-bin train en-tr 207373 examples
+2021-01-28 10:43:24 | INFO | fairseq.trainer | begin training epoch 128
+0.027  0.044  0.629  1.491  1.519  1.372 
+0.027  0.050  0.628  1.489  1.517  1.372 
+0.028  0.051  0.626  1.486  1.511  1.369 
+0.022  0.055  0.630  1.491  1.511  1.374 
+0.025  0.053  0.632  1.494  1.516  1.375 
+0.023  0.058  0.627  1.489  1.509  1.371 
+0.048  0.102  0.737  1.555  1.554  1.418 
+0.048  0.105  0.738  1.554  1.555  1.418 
+0.047  0.107  0.733  1.551  1.549  1.415 
+0.029  0.067  0.606  1.481  1.477  1.362 
+0.029  0.066  0.607  1.481  1.473  1.362 
+0.028  0.068  0.601  1.477  1.468  1.359 
+0.026  0.072  0.574  1.462  1.464  1.348 
+0.024  0.067  0.574  1.460  1.464  1.347 
+0.028  0.074  0.567  1.454  1.452  1.342 
+0.030  0.071  0.621  1.484  1.486  1.372 
+0.030  0.069  0.622  1.483  1.483  1.371 
+0.030  0.079  0.616  1.479  1.471  1.367 
+0.029  0.103  0.632  1.487  1.507  1.371 
+0.028  0.100  0.628  1.484  1.504  1.370 
+0.029  0.102  0.625  1.482  1.499  1.367 
+0.033  0.059  0.580  1.454  1.456  1.356 
+0.032  0.061  0.580  1.455  1.456  1.356 
+0.031  0.065  0.571  1.452  1.442  1.348 
+0.028  0.066  0.539  1.441  1.422  1.334 
+0.028  0.059  0.539  1.442  1.428  1.336 
+0.027  0.062  0.523  1.434  1.410  1.321 
+0.043  0.058  0.603  1.479  1.476  1.359 
+0.037  0.060  0.604  1.483  1.478  1.360 
+0.037  0.060  0.598  1.477  1.468  1.356 
+0.129  0.069  0.657  1.514  1.508  1.382 
+0.130  0.076  0.657  1.514  1.502  1.382 
+0.132  0.078  0.651  1.509  1.504  1.379 
+0.029  0.074  0.624  1.475  1.494  1.368 
+0.026  0.077  0.623  1.474  1.495  1.368 
+0.029  0.072  0.618  1.473  1.490  1.366 
+0.031  0.066  0.634  1.490  1.475  1.374 
+0.029  0.067  0.632  1.487  1.471  1.372 
+0.030  0.071  0.629  1.483  1.470  1.370 
+0.021  0.081  0.643  1.491  1.511  1.377 
+0.022  0.076  0.641  1.490  1.511  1.376 
+0.021  0.079  0.637  1.487  1.504  1.374 
+0.035  0.059  0.579  1.462  1.464  1.349 
+0.041  0.059  0.580  1.467  1.464  1.350 
+0.039  0.061  0.571  1.457  1.456  1.343 
+0.033  0.048  0.434  1.444  1.326  1.260 
+0.030  0.043  0.434  1.447  1.324  1.261 
+0.031  0.044  0.380  1.435  1.270  1.233 
+0.021  0.042  0.453  1.432  1.312  1.283 
+0.021  0.038  0.454  1.435  1.314  1.283 
+0.023  0.043  0.406  1.427  1.243  1.256 
+0.025  0.074  0.651  1.497  1.526  1.381 
+0.026  0.068  0.650  1.498  1.526  1.381 
+0.024  0.068  0.643  1.492  1.519  1.377 
+0.031  0.072  0.565  1.463  1.465  1.343 
+0.026  0.075  0.569  1.467  1.465  1.344 
+0.025  0.073  0.561  1.459  1.462  1.336 
+0.087  0.139  0.800  1.623  1.665  1.441 
+0.086  0.143  0.798  1.621  1.655  1.440 
+0.086  0.135  0.795  1.620  1.663  1.439 
+0.091  0.134  0.824  1.637  1.619  1.449 
+0.090  0.135  0.824  1.637  1.616  1.449 
+0.090  0.140  0.822  1.634  1.617  1.447 
+0.025  0.069  0.667  1.509  1.495  1.389 
+0.025  0.069  0.671  1.511  1.494  1.390 
+0.025  0.072  0.665  1.504  1.490  1.386 
+0.113  0.081  0.675  1.532  1.540  1.392 
+0.114  0.080  0.675  1.533  1.545  1.393 
+0.114  0.086  0.671  1.528  1.534  1.390 
+0.107  0.095  0.675  1.533  1.555  1.393 
+0.107  0.095  0.674  1.531  1.561  1.392 
+0.107  0.105  0.670  1.528  1.554  1.390 
+0.031  0.063  0.595  1.472  1.466  1.360 
+0.033  0.066  0.595  1.470  1.465  1.359 
+0.031  0.064  0.587  1.466  1.462  1.354 
+0.024  0.039  0.625  1.497  1.505  1.370 
+0.023  0.039  0.625  1.496  1.506  1.370 
+0.021  0.044  0.620  1.496  1.503  1.368 
+0.025  0.084  0.623  1.501  1.491  1.369 
+0.025  0.081  0.621  1.495  1.488  1.368 
+0.025  0.083  0.619  1.495  1.487  1.366 
+0.029  0.060  0.613  1.484  1.499  1.365 
+0.028  0.059  0.613  1.487  1.500  1.365 
+0.028  0.064  0.607  1.482  1.490  1.361 
+0.022  0.099  0.637  1.501  1.524  1.375 
+0.020  0.104  0.639  1.504  1.524  1.376 
+0.022  0.106  0.631  1.497  1.514  1.371 
+0.025  0.084  0.647  1.471  1.531  1.378 
+0.023  0.080  0.646  1.470  1.528  1.378 
+0.024  0.076  0.642  1.467  1.527  1.376 
+0.019  0.121  0.699  1.543  1.571  1.400 
+0.020  0.121  0.697  1.542  1.566  1.399 
+0.020  0.125  0.694  1.540  1.566  1.398 
+0.024  0.083  0.668  1.509  1.518  1.387 
+0.023  0.091  0.667  1.508  1.512  1.387 
+0.024  0.087  0.666  1.507  1.516  1.386 
+0.025  0.058  0.654  1.502  1.503  1.382 
+0.027  0.059  0.653  1.501  1.503  1.382 
+0.024  0.063  0.651  1.500  1.500  1.381 
+0.022  0.070  0.665  1.527  1.529  1.387 
+0.023  0.073  0.664  1.525  1.529  1.387 
+0.023  0.074  0.660  1.519  1.522  1.384 
+0.026  0.061  0.651  1.491  1.516  1.383 
+0.028  0.062  0.653  1.493  1.516  1.383 
+0.024  0.064  0.647  1.488  1.515  1.380 
+0.025  0.095  0.618  1.481  1.482  1.369 
+0.025  0.093  0.620  1.481  1.486  1.368 
+0.025  0.094  0.614  1.478  1.478  1.366 
+0.027  0.061  0.641  1.488  1.502  1.378 
+0.026  0.064  0.644  1.493  1.506  1.380 
+0.026  0.068  0.637  1.487  1.496  1.376 
+0.024  0.069  0.598  1.450  1.474  1.362 
+0.024  0.069  0.597  1.448  1.470  1.361 
+0.024  0.072  0.590  1.444  1.463  1.355 
+0.026  0.082  0.618  1.467  1.479  1.367 
+0.027  0.079  0.618  1.468  1.481  1.367 
+0.026  0.079  0.613  1.464  1.471  1.363 
+0.026  0.065  0.587  1.443  1.464  1.355 
+0.023  0.068  0.584  1.441  1.466  1.353 
+0.022  0.063  0.580  1.436  1.461  1.349 
+0.122  0.048  0.633  1.508  1.487  1.376 
+0.122  0.052  0.634  1.510  1.488  1.377 
+0.124  0.053  0.628  1.505  1.481  1.371 
+0.021  0.084  0.681  1.538  1.532  1.393 
+0.022  0.083  0.680  1.536  1.528  1.392 
+0.024  0.089  0.676  1.533  1.524  1.390 
+0.025  0.082  0.600  1.478  1.502  1.357 
+0.026  0.082  0.601  1.479  1.503  1.358 
+0.028  0.083  0.594  1.477  1.500  1.354 
+0.104  0.090  0.641  1.508  1.515  1.381 
+0.104  0.084  0.640  1.507  1.510  1.379 
+0.108  0.096  0.635  1.502  1.509  1.376 
+0.084  0.078  0.645  1.514  1.530  1.383 
+0.082  0.070  0.644  1.513  1.529  1.383 
+0.082  0.076  0.638  1.506  1.533  1.378 
+0.027  0.051  0.620  1.487  1.483  1.368 
+0.028  0.052  0.620  1.486  1.489  1.368 
+0.027  0.052  0.616  1.483  1.483  1.364 
+0.095  0.079  0.619  1.488  1.480  1.367 
+0.093  0.084  0.617  1.487  1.478  1.367 
+0.092  0.078  0.612  1.479  1.471  1.361 
+0.108  0.127  0.730  1.574  1.572  1.413 
+0.110  0.123  0.729  1.573  1.573  1.413 
+0.108  0.129  0.727  1.570  1.569  1.411 
+0.025  0.065  0.620  1.492  1.510  1.370 
+0.025  0.065  0.620  1.492  1.506  1.369 
+0.025  0.071  0.615  1.490  1.507  1.367 
+0.024  0.067  0.648  1.490  1.516  1.381 
+0.026  0.065  0.650  1.493  1.519  1.382 
+0.025  0.070  0.644  1.489  1.513  1.379 
+0.023  0.081  0.643  1.476  1.473  1.379 
+0.021  0.085  0.643  1.476  1.474  1.379 
+0.020  0.084  0.638  1.470  1.464  1.375 
+0.094  0.060  0.481  1.368  1.354  1.238 
+0.094  0.047  0.484  1.369  1.351  1.239 
+0.114  0.062  0.414  1.333  1.304  1.217 
+0.024  0.065  0.654  1.478  1.535  1.382 
+0.023  0.068  0.657  1.481  1.536  1.383 
+0.023  0.072  0.652  1.476  1.531  1.380 
+0.027  0.062  0.659  1.487  1.545  1.385 
+0.028  0.061  0.658  1.486  1.547  1.384 
+0.026  0.064  0.653  1.480  1.539  1.381 
+0.087  0.073  0.661  1.504  1.508  1.386 
+0.088  0.076  0.662  1.504  1.503  1.386 
+0.087  0.082  0.659  1.502  1.503  1.386 
+0.032  0.059  0.467  1.423  1.340  1.297 
+0.033  0.057  0.470  1.422  1.341  1.297 
+0.033  0.067  0.436  1.414  1.297  1.274 
+0.027  0.062  0.629  1.497  1.485  1.371 
+0.026  0.059  0.629  1.499  1.489  1.372 
+0.026  0.060  0.621  1.493  1.484  1.368 
+0.020  0.057  0.661  1.492  1.544  1.385 
+0.022  0.053  0.663  1.495  1.549  1.386 
+0.022  0.059  0.657  1.490  1.540  1.383 
+0.024  0.049  0.632  1.477  1.519  1.376 
+0.023  0.048  0.633  1.476  1.516  1.375 
+0.023  0.048  0.628  1.472  1.513  1.371 
+0.021  0.072  0.641  1.470  1.511  1.378 
+0.021  0.076  0.641  1.469  1.509  1.377 
+0.022  0.072  0.635  1.466  1.505  1.375 
+0.027  0.075  0.608  1.484  1.470  1.362 
+0.027  0.076  0.608  1.485  1.466  1.362 
+0.027  0.078  0.601  1.480  1.458  1.358 
+0.033  0.059  0.602  1.469  1.468  1.359 
+0.031  0.056  0.601  1.469  1.469  1.358 
+0.030  0.059  0.596  1.464  1.464  1.355 
+0.026  0.058  0.620  1.490  1.494  1.369 
+0.026  0.060  0.621  1.489  1.496  1.368 
+0.024  0.062  0.616  1.488  1.492  1.366 
+0.027  0.059  0.634  1.498  1.504  1.374 
+0.027  0.061  0.634  1.497  1.502  1.374 
+0.026  0.060  0.629  1.494  1.506  1.373 
+0.021  0.052  0.604  1.467  1.502  1.363 
+0.020  0.053  0.604  1.467  1.507  1.362 
+0.016  0.057  0.597  1.461  1.494  1.358 
+0.026  0.067  0.654  1.500  1.514  1.382 
+0.029  0.067  0.655  1.500  1.518  1.382 
+0.027  0.066  0.651  1.497  1.510  1.380 
+0.026  0.064  0.611  1.472  1.503  1.365 
+0.026  0.069  0.611  1.472  1.503  1.364 
+0.024  0.065  0.606  1.467  1.500  1.360 
+0.022  0.076  0.640  1.492  1.527  1.379 
+0.021  0.071  0.641  1.491  1.529  1.378 
+0.020  0.076  0.635  1.489  1.522  1.375 
+0.026  0.070  0.642  1.504  1.504  1.379 
+0.027  0.067  0.640  1.501  1.501  1.378 
+0.029  0.074  0.635  1.499  1.500  1.375 
+0.099  0.053  0.678  1.535  1.560  1.394 
+0.098  0.061  0.676  1.534  1.558  1.393 
+0.096  0.056  0.673  1.531  1.558  1.391 
+0.022  0.071  0.642  1.486  1.527  1.378 
+0.021  0.072  0.643  1.486  1.525  1.379 
+0.021  0.075  0.638  1.482  1.523  1.376 
+0.041  0.053  0.485  1.415  1.374  1.303 
+0.036  0.050  0.481  1.416  1.371  1.301 
+0.036  0.053  0.465  1.404  1.351  1.287 
+0.024  0.087  0.636  1.483  1.508  1.376 
+0.024  0.088  0.636  1.483  1.511  1.376 
+0.023  0.085  0.632  1.480  1.504  1.374 
+0.026  0.049  0.649  1.488  1.497  1.381 
+0.025  0.052  0.648  1.488  1.498  1.381 
+0.024  0.055  0.644  1.482  1.494  1.377 
+0.138  0.079  0.664  1.519  1.528  1.386 
+0.138  0.075  0.665  1.521  1.525  1.387 
+0.139  0.083  0.660  1.515  1.522  1.383 
+0.025  0.058  0.660  1.483  1.513  1.385 
+0.025  0.058  0.662  1.486  1.514  1.387 
+0.024  0.058  0.656  1.480  1.508  1.383 
+0.024  0.063  0.635  1.485  1.518  1.375 
+0.024  0.066  0.633  1.483  1.516  1.374 
+0.024  0.065  0.629  1.480  1.511  1.371 
+0.026  0.044  0.598  1.473  1.483  1.355 
+0.027  0.046  0.599  1.473  1.487  1.357 
+0.027  0.045  0.593  1.467  1.480  1.352 
+0.031  0.105  0.653  1.480  1.513  1.383 
+0.031  0.104  0.655  1.481  1.513  1.383 
+0.028  0.107  0.650  1.477  1.508  1.381 
+0.032  0.061  0.626  1.493  1.471  1.373 
+0.032  0.059  0.626  1.493  1.476  1.372 
+0.033  0.065  0.621  1.490  1.465  1.369 
+0.128  0.060  0.673  1.527  1.538  1.389 
+0.128  0.060  0.674  1.528  1.548  1.390 
+0.129  0.063  0.670  1.524  1.545  1.388 
+0.108  0.114  0.671  1.529  1.509  1.391 
+0.108  0.116  0.672  1.530  1.508  1.392 
+0.107  0.112  0.668  1.527  1.513  1.389 
+0.032  0.062  0.620  1.496  1.460  1.368 
+0.029  0.061  0.621  1.495  1.463  1.368 
+0.030  0.062  0.612  1.491  1.454  1.363 
+0.124  0.082  0.646  1.509  1.509  1.380 
+0.124  0.085  0.645  1.509  1.503  1.380 
+0.126  0.087  0.643  1.505  1.503  1.378 
+0.022  0.095  0.683  1.524  1.515  1.393 
+0.021  0.097  0.682  1.524  1.520  1.393 
+0.022  0.097  0.677  1.521  1.512  1.391 
+0.029  0.068  0.633  1.488  1.511  1.373 
+0.029  0.067  0.631  1.491  1.512  1.374 
+0.030  0.066  0.629  1.487  1.513  1.371 
+0.022  0.071  0.651  1.481  1.530  1.382 
+0.021  0.070  0.650  1.480  1.526  1.382 
+0.022  0.070  0.646  1.476  1.519  1.379 
+0.027  0.063  0.639  1.494  1.493  1.375 
+0.026  0.065  0.638  1.493  1.494  1.375 
+0.026  0.067  0.634  1.489  1.493  1.373 
+0.043  0.036  0.487  1.391  1.391  1.309 
+0.042  0.038  0.488  1.389  1.392  1.309 
+0.042  0.036  0.464  1.382  1.364  1.290 
+0.115  0.064  0.681  1.535  1.534  1.393 
+0.115  0.073  0.679  1.534  1.529  1.393 
+0.116  0.070  0.676  1.531  1.526  1.391 
+0.032  0.050  0.590  1.462  1.491  1.354 
+0.035  0.053  0.591  1.464  1.491  1.354 
+0.032  0.051  0.581  1.455  1.487  1.348 
+0.022  0.059  0.644  1.486  1.521  1.380 
+0.023  0.057  0.644  1.485  1.518  1.379 
+0.024  0.056  0.639  1.481  1.514  1.376 
+0.023  0.069  0.631  1.493  1.511  1.372 
+0.024  0.065  0.630  1.493  1.511  1.372 
+0.022  0.067  0.626  1.489  1.506  1.368 
+0.024  0.084  0.672  1.508  1.552  1.389 
+0.024  0.083  0.671  1.509  1.549  1.390 
+0.025  0.085  0.668  1.504  1.549  1.387 
+0.033  0.059  0.596  1.469  1.461  1.356 
+0.034  0.054  0.597  1.469  1.461  1.357 
+0.030  0.063  0.590  1.464  1.454  1.352 
+0.027  0.057  0.640  1.499  1.508  1.378 
+0.029  0.057  0.640  1.500  1.508  1.378 
+0.027  0.062  0.637  1.496  1.512  1.375 
+0.109  0.138  0.709  1.557  1.562  1.405 
+0.109  0.144  0.707  1.555  1.553  1.403 
+0.109  0.144  0.704  1.552  1.559  1.402 
+0.031  0.069  0.595  1.484  1.482  1.358 
+0.030  0.068  0.594  1.483  1.478  1.357 
+0.031  0.074  0.586  1.478  1.471  1.353 
+0.028  0.085  0.636  1.506  1.484  1.374 
+0.027  0.088  0.637  1.507  1.488  1.376 
+0.030  0.087  0.632  1.503  1.482  1.372 
+0.028  0.040  0.437  1.428  1.327  1.258 
+0.027  0.036  0.431  1.425  1.317  1.255 
+0.030  0.043  0.378  1.419  1.270  1.232 
+0.087  0.067  0.579  1.462  1.450  1.354 
+0.087  0.061  0.578  1.460  1.446  1.353 
+0.092  0.068  0.570  1.450  1.436  1.345 
+0.023  0.061  0.650  1.480  1.521  1.381 
+0.023  0.057  0.653  1.482  1.518  1.381 
+0.023  0.062  0.649  1.479  1.513  1.380 
+0.021  0.063  0.646  1.495  1.498  1.380 
+0.021  0.065  0.645  1.496  1.499  1.381 
+0.022  0.068  0.641  1.493  1.494  1.377 
+0.027  0.060  0.645  1.491  1.506  1.378 
+0.028  0.061  0.646  1.493  1.509  1.379 
+0.026  0.057  0.644  1.487  1.507  1.376 
+0.021  0.060  0.515  1.420  1.402  1.323 
+0.023  0.063  0.514  1.421  1.406  1.324 
+0.021  0.061  0.500  1.415  1.388  1.311 
+0.028  0.058  0.649  1.483  1.512  1.381 
+0.024  0.055  0.649  1.483  1.509  1.381 
+0.025  0.052  0.644  1.478  1.504  1.377 
+0.069  0.050  0.415  1.377  1.292  1.202 
+0.072  0.041  0.421  1.379  1.298  1.204 
+0.084  0.055  0.336  1.355  1.242  1.181 
+0.023  0.067  0.599  1.461  1.490  1.361 
+0.023  0.064  0.599  1.461  1.494  1.362 
+0.022  0.068  0.592  1.455  1.487  1.355 
+0.029  0.072  0.622  1.475  1.483  1.369 
+0.031  0.068  0.621  1.474  1.482  1.367 
+0.027  0.074  0.616  1.471  1.481  1.365 
+0.025  0.069  0.649  1.506  1.523  1.381 
+0.024  0.069  0.648  1.506  1.520  1.380 
+0.023  0.066  0.645  1.502  1.522  1.378 
+0.025  0.054  0.638  1.473  1.505  1.374 
+0.025  0.052  0.637  1.472  1.505  1.374 
+0.024  0.059  0.632  1.467  1.498  1.371 
+0.102  0.100  0.697  1.550  1.628  1.403 
+0.104  0.094  0.695  1.548  1.620  1.401 
+0.101  0.101  0.690  1.544  1.619  1.399 
+0.031  0.055  0.455  1.444  1.360  1.278 
+0.030  0.057  0.455  1.442  1.364  1.279 
+0.030  0.051  0.402  1.440  1.313  1.250 
+0.024  0.104  0.672  1.502  1.541  1.391 
+0.026  0.102  0.673  1.502  1.540  1.391 
+0.025  0.104  0.667  1.498  1.534  1.388 
+0.081  0.065  0.631  1.484  1.487  1.374 
+0.082  0.065  0.632  1.485  1.484  1.374 
+0.082  0.066  0.627  1.483  1.480  1.371 
+0.024  0.075  0.642  1.493  1.515  1.378 
+0.024  0.075  0.642  1.492  1.518  1.378 
+0.020  0.078  0.637  1.487  1.508  1.375 
+0.030  0.093  0.571  1.468  1.463  1.347 
+0.029  0.092  0.573  1.468  1.466  1.348 
+0.030  0.096  0.563  1.463  1.453  1.340 
+0.125  0.073  0.676  1.532  1.543  1.392 
+0.125  0.071  0.678  1.532  1.544  1.393 
+0.126  0.067  0.673  1.529  1.540  1.391 
+0.034  0.076  0.543  1.467  1.440  1.335 
+0.036  0.077  0.547  1.468  1.445  1.337 
+0.034  0.080  0.534  1.463  1.431  1.325 
+0.074  0.165  0.904  1.707  1.720  1.473 
+0.074  0.163  0.904  1.707  1.721  1.473 
+0.073  0.164  0.903  1.707  1.720  1.473 
+0.117  0.077  0.648  1.510  1.513  1.381 
+0.117  0.069  0.648  1.511  1.522  1.382 
+0.117  0.079  0.642  1.504  1.513  1.377 
+0.036  0.054  0.566  1.452  1.441  1.343 
+0.035  0.057  0.566  1.453  1.441  1.344 
+0.034  0.061  0.556  1.445  1.432  1.336 
+0.019  0.058  0.654  1.507  1.529  1.384 
+0.019  0.059  0.653  1.507  1.533  1.383 
+0.019  0.061  0.649  1.503  1.528  1.380 
+0.028  0.071  0.663  1.525  1.471  1.386 
+0.027  0.074  0.662  1.524  1.473  1.386 
+0.027  0.071  0.657  1.520  1.467  1.384 
+0.026  0.065  0.574  1.461  1.488  1.349 
+0.025  0.069  0.573  1.460  1.487  1.348 
+0.024  0.067  0.566  1.455  1.480  1.342 
+0.023  0.082  0.656  1.520  1.479  1.381 
+0.023  0.082  0.654  1.516  1.476  1.380 
+0.021  0.084  0.649  1.515  1.469  1.377 
+0.028  0.046  0.618  1.487  1.495  1.369 
+0.027  0.049  0.619  1.490  1.494  1.370 
+0.026  0.047  0.613  1.485  1.489  1.367 
+0.020  0.054  0.656  1.504  1.508  1.384 
+0.021  0.055  0.656  1.503  1.511  1.383 
+0.019  0.060  0.649  1.498  1.506  1.381 
+0.018  0.062  0.656  1.491  1.514  1.386 
+0.019  0.060  0.656  1.490  1.512  1.385 
+0.018  0.056  0.651  1.486  1.508  1.383 
+0.022  0.064  0.624  1.472  1.500  1.371 
+0.022  0.067  0.622  1.470  1.495  1.370 
+0.022  0.070  0.616  1.466  1.492  1.366 
+0.021  0.081  0.628  1.482  1.473  1.371 
+0.023  0.076  0.629  1.482  1.482  1.372 
+0.021  0.075  0.624  1.478  1.479  1.369 
+0.053  0.081  0.656  1.497  1.518  1.386 
+0.053  0.077  0.655  1.496  1.511  1.385 
+0.052  0.078  0.653  1.495  1.519  1.384 
+0.088  0.075  0.592  1.471  1.455  1.359 
+0.089  0.074  0.594  1.472  1.457  1.359 
+0.093  0.078  0.587  1.463  1.453  1.353 
+0.113  0.139  0.960  1.753  1.743  1.495 
+0.113  0.135  0.960  1.752  1.738  1.495 
+0.113  0.142  0.958  1.750  1.740  1.494 
+0.023  0.061  0.654  1.484  1.534  1.383 
+0.022  0.061  0.654  1.485  1.531  1.383 
+0.020  0.061  0.650  1.481  1.527  1.381 
+0.026  0.069  0.565  1.459  1.453  1.342 
+0.026  0.067  0.564  1.457  1.454  1.341 
+0.027  0.070  0.552  1.450  1.439  1.332 
+0.027  0.071  0.620  1.476  1.494  1.368 
+0.027  0.071  0.623  1.478  1.497  1.369 
+0.024  0.070  0.617  1.472  1.490  1.364 
+0.024  0.088  0.664  1.492  1.534  1.388 
+0.023  0.090  0.663  1.491  1.534  1.387 
+0.022  0.090  0.659  1.486  1.528  1.384 
+0.108  0.153  0.731  1.573  1.569  1.412 
+0.107  0.153  0.732  1.574  1.568  1.413 
+0.107  0.149  0.728  1.571  1.567  1.411 
+0.024  0.057  0.640  1.492  1.493  1.377 
+0.024  0.052  0.638  1.491  1.494  1.377 
+0.023  0.059  0.633  1.485  1.490  1.374 
+0.031  0.053  0.618  1.484  1.508  1.367 
+0.031  0.053  0.619  1.486  1.508  1.369 
+0.031  0.052  0.616  1.482  1.506  1.364 
+0.021  0.080  0.667  1.494  1.498  1.389 
+0.022  0.083  0.665  1.491  1.498  1.388 
+0.021  0.086  0.663  1.490  1.490  1.387 
+0.039  0.066  0.590  1.481  1.469  1.354 
+0.038  0.066  0.589  1.478  1.467  1.354 
+0.037  0.067  0.584  1.476  1.463  1.350 
+0.102  0.034  0.533  1.387  1.360  1.244 
+0.107  0.037  0.528  1.385  1.349  1.244 
+0.131  0.057  0.453  1.334  1.314  1.222 
+0.114  0.067  0.621  1.490  1.485  1.370 
+0.114  0.065  0.622  1.490  1.481  1.370 
+0.116  0.069  0.616  1.484  1.478  1.366 
+0.023  0.092  0.663  1.519  1.516  1.387 
+0.024  0.090  0.662  1.519  1.515  1.386 
+0.020  0.091  0.657  1.516  1.512  1.383 
+0.023  0.077  0.660  1.502  1.549  1.387 
+0.025  0.071  0.660  1.501  1.546  1.386 
+0.023  0.074  0.656  1.499  1.546  1.384 
+0.033  0.054  0.607  1.476  1.479  1.361 
+0.034  0.053  0.605  1.475  1.475  1.360 
+0.031  0.053  0.600  1.473  1.470  1.357 
+0.033  0.052  0.625  1.477  1.516  1.372 
+0.033  0.059  0.625  1.477  1.513  1.371 
+0.030  0.052  0.619  1.472  1.511  1.366 
+0.030  0.053  0.592  1.482  1.466  1.355 
+0.031  0.052  0.591  1.480  1.466  1.355 
+0.028  0.055  0.583  1.477  1.464  1.350 
+0.031  0.055  0.636  1.498  1.503  1.374 
+0.034  0.060  0.636  1.497  1.504  1.373 
+0.029  0.057  0.634  1.496  1.501  1.373 
+0.027  0.067  0.646  1.493  1.503  1.379 
+0.028  0.065  0.645  1.493  1.500  1.377 
+0.030  0.070  0.642  1.490  1.499  1.376 
+0.026  0.052  0.633  1.476  1.473  1.375 
+0.027  0.059  0.633  1.475  1.468  1.375 
+0.028  0.059  0.626  1.470  1.469  1.370 
+0.035  0.050  0.476  1.456  1.358  1.301 
+0.041  0.055  0.477  1.459  1.359  1.302 
+0.039  0.048  0.445  1.453  1.316  1.279 
+0.075  0.044  0.441  1.413  1.337  1.236 
+0.075  0.033  0.443  1.413  1.339  1.236 
+0.090  0.036  0.372  1.392  1.275  1.211 
+0.030  0.096  0.696  1.518  1.559  1.401 
+0.029  0.099  0.696  1.517  1.558  1.400 
+0.029  0.103  0.692  1.513  1.548  1.398 
+0.028  0.100  0.637  1.503  1.558  1.376 
+0.029  0.100  0.637  1.502  1.560  1.376 
+0.027  0.105  0.631  1.499  1.554  1.372 
+0.031  0.073  0.602  1.480  1.497  1.360 
+0.031  0.069  0.601  1.478  1.498  1.359 
+0.033  0.076  0.596  1.475  1.489  1.355 
+0.052  0.067  0.509  1.405  1.423  1.319 
+0.052  0.068  0.507  1.403  1.418  1.318 
+0.050  0.077  0.486  1.395  1.398  1.302 
+0.022  0.054  0.623  1.474  1.500  1.369 
+0.022  0.056  0.623  1.475  1.498  1.369 
+0.022  0.063  0.618  1.471  1.492  1.365 
+0.022  0.059  0.651  1.479  1.529  1.382 
+0.023  0.055  0.652  1.479  1.525  1.382 
+0.022  0.061  0.647  1.475  1.522  1.380 
+0.026  0.057  0.620  1.490  1.506  1.369 
+0.026  0.052  0.620  1.492  1.507  1.369 
+0.025  0.052  0.615  1.487  1.504  1.364 
+0.029  0.054  0.642  1.485  1.507  1.376 
+0.030  0.054  0.640  1.485  1.498  1.376 
+0.029  0.058  0.639  1.484  1.499  1.375 
+0.113  0.075  0.964  1.755  1.775  1.495 
+0.114  0.073  0.964  1.755  1.773  1.496 
+0.114  0.071  0.962  1.753  1.772  1.495 
+0.024  0.065  0.596  1.463  1.498  1.359 
+0.023  0.065  0.596  1.465  1.496  1.359 
+0.025  0.071  0.591  1.460  1.487  1.355 
+0.024  0.098  0.652  1.514  1.513  1.383 
+0.026  0.097  0.651  1.512  1.509  1.382 
+0.025  0.096  0.647  1.510  1.510  1.380 
+0.033  0.062  0.589  1.476  1.478  1.355 
+0.033  0.068  0.587  1.473  1.474  1.353 
+0.032  0.069  0.581  1.470  1.467  1.347 
+0.026  0.065  0.641  1.478  1.479  1.376 
+0.027  0.064  0.641  1.480  1.480  1.377 
+0.025  0.064  0.638  1.476  1.474  1.374 
+0.024  0.058  0.570  1.439  1.487  1.347 
+0.023  0.058  0.571  1.439  1.486  1.348 
+0.021  0.061  0.563  1.432  1.477  1.338 
+0.028  0.075  0.654  1.497  1.504  1.382 
+0.029  0.072  0.654  1.498  1.505  1.381 
+0.025  0.077  0.651  1.495  1.502  1.379 
+0.025  0.069  0.596  1.466  1.471  1.358 
+0.025  0.071  0.598  1.470  1.476  1.360 
+0.023  0.075  0.593  1.466  1.471  1.355 
+0.113  0.052  0.625  1.491  1.503  1.369 
+0.113  0.060  0.624  1.491  1.500  1.369 
+0.111  0.059  0.622  1.489  1.499  1.368 
+0.094  0.049  0.484  1.368  1.364  1.240 
+0.093  0.045  0.487  1.371  1.365  1.241 
+0.117  0.053  0.411  1.327  1.303  1.216 
+0.024  0.064  0.644  1.486  1.500  1.378 
+0.023  0.058  0.645  1.486  1.500  1.379 
+0.023  0.057  0.639  1.479  1.499  1.375 
+0.121  0.065  0.648  1.510  1.517  1.381 
+0.121  0.071  0.647  1.509  1.511  1.380 
+0.120  0.075  0.644  1.506  1.511  1.378 
+0.022  0.072  0.584  1.456  1.462  1.354 
+0.024  0.075  0.582  1.457  1.460  1.354 
+0.022  0.076  0.575  1.450  1.450  1.349 
+0.024  0.077  0.625  1.490  1.500  1.371 
+0.024  0.074  0.624  1.489  1.503  1.370 
+0.023  0.078  0.620  1.487  1.498  1.367 
+0.115  0.065  0.676  1.532  1.562  1.393 
+0.115  0.058  0.676  1.532  1.559  1.392 
+0.117  0.066  0.672  1.528  1.553  1.390 
+0.101  0.118  0.727  1.575  1.593  1.416 
+0.101  0.117  0.726  1.574  1.587  1.415 
+0.105  0.114  0.722  1.568  1.590  1.411 
+0.026  0.089  0.657  1.486  1.518  1.385 
+0.023  0.095  0.658  1.486  1.521  1.385 
+0.024  0.096  0.653  1.483  1.521  1.383 
+0.023  0.056  0.655  1.480  1.525  1.383 
+0.025  0.059  0.654  1.479  1.518  1.383 
+0.023  0.056  0.651  1.477  1.514  1.382 
+0.118  0.083  0.667  1.525  1.529  1.389 
+0.115  0.086  0.668  1.527  1.532  1.390 
+0.116  0.085  0.665  1.524  1.527  1.388 
+0.140  0.067  0.635  1.498  1.480  1.376 
+0.141  0.065  0.636  1.499  1.479  1.376 
+0.148  0.077  0.629  1.490  1.469  1.370 
+0.026  0.048  0.623  1.488  1.497  1.370 
+0.024  0.046  0.623  1.489  1.497  1.370 
+0.026  0.054  0.616  1.484  1.490  1.366 
+0.028  0.060  0.604  1.481  1.466  1.363 
+0.029  0.062  0.602  1.478  1.468  1.363 
+0.027  0.064  0.598  1.477  1.457  1.358 
+0.124  0.070  0.684  1.538  1.515  1.396 
+0.125  0.076  0.683  1.537  1.516  1.395 
+0.125  0.071  0.682  1.535  1.511  1.394 
+0.028  0.048  0.628  1.466  1.502  1.371 
+0.028  0.059  0.627  1.464  1.500  1.370 
+0.026  0.057  0.621  1.459  1.494  1.367 
+0.028  0.066  0.664  1.493  1.549  1.388 
+0.028  0.062  0.664  1.492  1.555  1.387 
+0.027  0.066  0.659  1.488  1.544  1.384 
+0.024  0.055  0.645  1.484  1.526  1.381 
+0.026  0.056  0.647  1.485  1.526  1.382 
+0.026  0.059  0.641  1.480  1.519  1.377 
+0.025  0.052  0.584  1.478  1.489  1.355 
+0.027  0.055  0.582  1.477  1.484  1.355 
+0.024  0.056  0.574  1.473  1.480  1.349 
+0.036  0.075  0.630  1.492  1.475  1.373 
+0.035  0.076  0.629  1.493  1.473  1.372 
+0.033  0.083  0.624  1.490  1.466  1.369 
+0.021  0.052  0.635  1.472  1.497  1.377 
+0.023  0.054  0.633  1.468  1.491  1.375 
+0.020  0.048  0.629  1.466  1.497  1.372 
+0.023  0.075  0.642  1.494  1.507  1.377 
+0.021  0.074  0.644  1.496  1.510  1.378 
+0.021  0.073  0.640  1.491  1.506  1.375 
+0.030  0.058  0.632  1.484  1.512  1.373 
+0.028  0.057  0.632  1.485  1.510  1.374 
+0.033  0.057  0.627  1.481  1.504  1.370 
+0.117  0.115  0.965  1.756  1.756  1.497 
+0.117  0.109  0.965  1.756  1.757  1.496 
+0.118  0.112  0.965  1.756  1.757  1.496 
+0.030  0.070  0.643  1.489  1.479  1.379 
+0.029  0.073  0.643  1.488  1.479  1.379 
+0.029  0.076  0.637  1.483  1.473  1.376 
+0.024  0.092  0.664  1.514  1.503  1.390 
+0.023  0.095  0.664  1.514  1.507  1.390 
+0.022  0.097  0.658  1.511  1.497  1.386 
+0.027  0.056  0.628  1.484  1.502  1.372 
+0.027  0.054  0.629  1.485  1.507  1.373 
+0.026  0.053  0.624  1.482  1.498  1.370 
+0.022  0.082  0.621  1.459  1.512  1.368 
+0.023  0.081  0.622  1.460  1.514  1.369 
+0.022  0.079  0.617  1.457  1.513  1.366 
+0.109  0.079  0.646  1.512  1.522  1.383 
+0.108  0.091  0.645  1.512  1.519  1.383 
+0.114  0.086  0.640  1.505  1.515  1.378 
+0.058  0.055  0.483  1.414  1.377  1.283 
+0.059  0.059  0.482  1.414  1.373  1.283 
+0.069  0.069  0.445  1.393  1.347  1.263 
+0.030  0.058  0.632  1.492  1.501  1.375 
+0.029  0.053  0.632  1.491  1.502  1.375 
+0.030  0.054  0.625  1.486  1.497  1.371 
+0.028  0.056  0.616  1.473  1.470  1.368 
+0.030  0.059  0.615  1.471  1.469  1.367 
+0.029  0.059  0.610  1.469  1.468  1.364 
+0.034  0.054  0.545  1.474  1.427  1.339 
+0.034  0.056  0.548  1.477  1.432  1.340 
+0.034  0.055  0.533  1.471  1.411  1.327 
+0.099  0.041  0.541  1.393  1.391  1.271 
+0.097  0.064  0.546  1.396  1.395  1.272 
+0.123  0.052  0.486  1.349  1.340  1.253 
+0.026  0.051  0.589  1.474  1.504  1.356 
+0.027  0.050  0.590  1.475  1.500  1.356 
+0.027  0.050  0.581  1.468  1.493  1.350 
+0.037  0.093  0.546  1.459  1.449  1.336 
+0.037  0.094  0.548  1.461  1.452  1.337 
+0.037  0.098  0.535  1.452  1.441  1.327 
+0.029  0.080  0.549  1.438  1.434  1.336 
+0.032  0.079  0.548  1.439  1.434  1.336 
+0.030  0.086  0.536  1.432  1.424  1.326 
+0.033  0.055  0.623  1.493  1.485  1.369 
+0.032  0.053  0.622  1.492  1.489  1.369 
+0.034  0.053  0.617  1.489  1.479  1.366 
+0.034  0.058  0.587  1.468  1.462  1.354 
+0.035  0.059  0.586  1.469  1.462  1.353 
+0.034  0.061  0.579  1.467  1.454  1.348 
+0.026  0.077  0.626  1.473  1.487  1.373 
+0.030  0.070  0.625  1.473  1.488  1.373 
+0.027  0.075  0.619  1.468  1.483  1.369 
+0.093  0.134  0.825  1.637  1.619  1.449 
+0.093  0.131  0.824  1.637  1.620  1.449 
+0.093  0.133  0.820  1.633  1.616  1.447 
+0.021  0.093  0.692  1.525  1.563  1.397 
+0.021  0.091  0.692  1.525  1.568  1.396 
+0.019  0.096  0.689  1.521  1.564  1.395 
+0.029  0.069  0.623  1.493  1.470  1.370 
+0.032  0.071  0.623  1.493  1.470  1.370 
+0.031  0.073  0.617  1.488  1.463  1.366 
+0.021  0.071  0.620  1.484  1.469  1.366 
+0.024  0.071  0.619  1.483  1.466  1.366 
+0.024  0.078  0.617  1.479  1.459  1.364 
+0.131  0.072  0.658  1.516  1.526  1.385 
+0.132  0.062  0.657  1.515  1.525  1.384 
+0.134  0.066  0.653  1.511  1.521  1.381 
+0.034  0.061  0.591  1.462  1.466  1.355 
+0.033  0.067  0.589  1.462  1.467  1.354 
+0.031  0.070  0.580  1.456  1.456  1.348 
+0.027  0.064  0.640  1.486  1.477  1.379 
+0.028  0.061  0.640  1.486  1.481  1.380 
+0.029  0.068  0.635  1.483  1.475  1.376 
+0.028  0.086  0.637  1.488  1.500  1.376 
+0.028  0.085  0.638  1.488  1.501  1.375 
+0.027  0.087  0.634  1.486  1.503  1.374 
+0.025  0.067  0.622  1.490  1.511  1.370 
+0.023  0.064  0.621  1.490  1.507  1.369 
+0.023  0.069  0.617  1.487  1.507  1.366 
+0.036  0.062  0.610  1.475  1.475  1.363 
+0.035  0.066  0.609  1.474  1.474  1.362 
+0.038  0.066  0.604  1.471  1.472  1.359 
+0.029  0.059  0.622  1.497  1.469  1.369 
+0.032  0.059  0.624  1.497  1.474  1.371 
+0.031  0.060  0.617  1.491  1.467  1.366 
+0.024  0.066  0.640  1.488  1.504  1.376 
+0.027  0.070  0.638  1.485  1.507  1.374 
+0.026  0.073  0.635  1.485  1.504  1.373 
+0.026  0.073  0.641  1.492  1.509  1.378 
+0.026  0.073  0.641  1.492  1.510  1.379 
+0.023  0.080  0.635  1.486  1.502  1.375 
+0.026  0.067  0.637  1.487  1.516  1.376 
+0.026  0.060  0.637  1.487  1.514  1.376 
+0.024  0.065  0.634  1.485  1.510  1.374 
+0.025  0.046  0.478  1.431  1.340  1.303 
+0.023  0.043  0.481  1.433  1.339  1.304 
+0.022  0.051  0.450  1.425  1.292  1.282 
+0.028  0.073  0.513  1.444  1.398  1.321 
+0.027  0.072  0.513  1.446  1.402  1.321 
+0.024  0.086  0.494  1.441  1.369  1.304 
+0.029  0.070  0.608  1.471  1.479  1.362 
+0.029  0.069  0.607  1.471  1.478  1.363 
+0.028  0.071  0.603  1.468  1.472  1.360 
+0.029  0.063  0.615  1.485  1.492  1.366 
+0.028  0.061  0.615  1.487  1.494  1.366 
+0.029  0.064  0.609  1.481  1.487  1.362 
+0.025  0.070  0.654  1.489  1.480  1.382 
+0.023  0.075  0.654  1.488  1.482  1.381 
+0.023  0.074  0.651  1.486  1.474  1.380 
+0.020  0.118  0.665  1.517  1.590  1.390 
+0.022  0.120  0.666  1.518  1.589  1.390 
+0.021  0.124  0.661  1.513  1.583  1.386 
+0.129  0.072  0.660  1.516  1.550  1.383 
+0.128  0.067  0.658  1.515  1.547  1.383 
+0.128  0.069  0.654  1.509  1.543  1.378 
+0.029  0.073  0.654  1.491  1.515  1.385 
+0.028  0.076  0.652  1.489  1.508  1.384 
+0.026  0.074  0.648  1.487  1.509  1.382 
+0.035  0.056  0.529  1.440  1.420  1.329 
+0.035  0.057  0.530  1.441  1.420  1.328 
+0.035  0.057  0.515  1.434  1.403  1.315 
+0.029  0.063  0.624  1.477  1.494  1.369 
+0.028  0.065  0.623  1.477  1.499  1.369 
+0.029  0.068  0.618  1.473  1.493  1.366 
+0.089  0.152  0.730  1.577  1.571  1.416 
+0.090  0.151  0.729  1.576  1.578  1.415 
+0.091  0.156  0.727  1.573  1.570  1.413 
+0.027  0.052  0.647  1.487  1.477  1.381 
+0.025  0.048  0.647  1.487  1.474  1.381 
+0.024  0.054  0.641  1.481  1.469  1.378 
+0.023  0.079  0.631  1.502  1.472  1.371 
+0.023  0.074  0.631  1.502  1.473  1.372 
+0.024  0.077  0.628  1.498  1.467  1.369 
+0.031  0.043  0.625  1.481  1.501  1.369 
+0.031  0.048  0.624  1.481  1.499  1.370 
+0.030  0.049  0.620  1.479  1.498  1.367 
+0.027  0.090  0.639  1.477  1.502  1.377 
+0.028  0.086  0.643  1.480  1.505  1.379 
+0.029  0.087  0.637  1.474  1.501  1.375 
+0.020  0.098  0.651  1.492  1.530  1.382 
+0.020  0.098  0.651  1.492  1.524  1.382 
+0.019  0.101  0.647  1.491  1.521  1.379 
+0.025  0.055  0.614  1.494  1.491  1.366 
+0.028  0.056  0.617  1.495  1.492  1.367 
+0.026  0.057  0.608  1.490  1.484  1.362 
+0.024  0.067  0.656  1.487  1.512  1.384 
+0.025  0.066  0.655  1.486  1.505  1.384 
+0.024  0.066  0.653  1.484  1.503  1.382 
+0.020  0.069  0.620  1.484  1.519  1.369 
+0.019  0.065  0.621  1.485  1.517  1.369 
+0.019  0.066  0.615  1.480  1.515  1.367 
+0.024  0.058  0.665  1.496  1.532  1.390 
+0.022  0.064  0.663  1.493  1.530  1.389 
+0.022  0.064  0.660  1.491  1.526  1.387 
+0.033  0.058  0.569  1.470  1.466  1.346 
+0.034  0.063  0.568  1.470  1.466  1.346 
+0.034  0.063  0.560  1.466  1.458  1.339 
+0.023  0.049  0.600  1.482  1.463  1.358 
+0.024  0.050  0.601  1.483  1.462  1.359 
+0.020  0.049  0.596  1.480  1.463  1.355 
+0.024  0.060  0.641  1.495  1.507  1.380 
+0.025  0.060  0.644  1.498  1.506  1.380 
+0.023  0.065  0.638  1.494  1.502  1.377 
+0.030  0.072  0.615  1.479  1.486  1.365 
+0.031  0.078  0.614  1.478  1.483  1.364 
+0.028  0.075  0.608  1.473  1.478  1.360 
+0.024  0.074  0.665  1.493  1.533  1.388 
+0.025  0.069  0.664  1.492  1.531  1.388 
+0.023  0.075  0.662  1.491  1.529  1.387 
+0.024  0.081  0.640  1.475  1.511  1.377 
+0.023  0.081  0.639  1.474  1.509  1.377 
+0.023  0.083  0.634  1.471  1.509  1.374 
+0.031  0.069  0.630  1.464  1.503  1.371 
+0.028  0.069  0.630  1.465  1.502  1.372 
+0.030  0.075  0.626  1.460  1.496  1.368 
+0.029  0.054  0.637  1.492  1.496  1.376 
+0.027  0.058  0.637  1.492  1.494  1.376 
+0.030  0.060  0.633  1.487  1.489  1.373 
+0.028  0.080  0.643  1.497  1.528  1.379 
+0.028  0.073  0.643  1.497  1.527  1.379 
+0.025  0.074  0.636  1.491  1.525  1.376 
+0.108  0.098  0.732  1.575  1.526  1.414 
+0.108  0.098  0.730  1.573  1.523  1.413 
+0.108  0.100  0.727  1.571  1.518  1.412 
+0.026  0.071  0.590  1.465  1.473  1.356 
+0.027  0.073  0.587  1.462  1.470  1.354 
+0.025  0.073  0.581  1.458  1.464  1.350 
+0.027  0.067  0.627  1.482  1.480  1.371 
+0.026  0.064  0.629  1.483  1.480  1.372 
+0.027  0.064  0.625  1.478  1.472  1.370 
+0.081  0.064  0.593  1.473  1.491  1.359 
+0.081  0.066  0.593  1.473  1.495  1.359 
+0.090  0.064  0.585  1.462  1.486  1.351 
+0.119  0.088  0.650  1.510  1.526  1.380 
+0.119  0.084  0.651  1.510  1.532  1.380 
+0.117  0.080  0.646  1.505  1.521  1.376 
+0.027  0.050  0.643  1.484  1.502  1.380 
+0.029  0.060  0.644  1.485  1.502  1.380 
+0.030  0.056  0.637  1.479  1.495  1.376 
+0.027  0.085  0.635  1.493  1.514  1.373 
+0.026  0.087  0.633  1.490  1.514  1.372 
+0.026  0.087  0.629  1.490  1.512  1.370 
+0.037  0.046  0.606  1.485  1.494  1.362 
+0.035  0.043  0.604  1.483  1.492  1.361 
+0.034  0.043  0.599  1.479  1.486  1.357 
+0.026  0.081  0.646  1.497  1.501  1.380 
+0.025  0.076  0.647  1.499  1.499  1.380 
+0.024  0.075  0.641  1.493  1.499  1.376 
+0.020  0.058  0.576  1.453  1.487  1.353 
+0.022  0.059  0.576  1.452  1.482  1.352 
+0.022  0.059  0.568  1.447  1.477  1.346 
+0.024  0.054  0.621  1.477  1.480  1.368 
+0.025  0.056  0.623  1.478  1.481  1.369 
+0.025  0.058  0.618  1.473  1.478  1.366 
+0.031  0.046  0.612  1.473  1.507  1.367 
+0.031  0.047  0.612  1.474  1.508  1.367 
+0.032  0.048  0.605  1.469  1.508  1.362 
+0.031  0.081  0.631  1.482  1.525  1.370 
+0.030  0.083  0.631  1.483  1.530  1.372 
+0.029  0.084  0.626  1.480  1.524  1.368 
+0.071  0.125  0.904  1.707  1.751  1.473 
+0.071  0.123  0.903  1.706  1.749  1.472 
+0.070  0.123  0.902  1.705  1.749  1.471 
+0.112  0.043  0.629  1.495  1.512  1.373 
+0.113  0.044  0.629  1.495  1.511  1.372 
+0.115  0.041  0.621  1.487  1.509  1.367 
+0.023  0.109  0.655  1.509  1.534  1.385 
+0.021  0.112  0.655  1.508  1.532  1.385 
+0.024  0.117  0.649  1.504  1.526  1.381 
+0.029  0.067  0.622  1.491  1.463  1.370 
+0.031  0.068  0.622  1.493  1.465  1.370 
+0.031  0.072  0.617  1.487  1.457  1.366 
+0.027  0.061  0.625  1.472  1.490  1.371 
+0.026  0.064  0.627  1.474  1.491  1.374 
+0.026  0.063  0.621  1.469  1.487  1.369 
+0.024  0.054  0.608  1.470  1.497  1.364 
+0.021  0.062  0.606  1.463  1.493  1.362 
+0.023  0.058  0.600  1.460  1.485  1.358 
+0.019  0.067  0.644  1.486  1.502  1.377 
+0.019  0.069  0.642  1.485  1.503  1.376 
+0.019  0.067  0.638  1.481  1.500  1.374 
+0.029  0.072  0.603  1.477  1.480  1.363 
+0.027  0.069  0.600  1.475  1.478  1.362 
+0.028  0.076  0.596  1.473  1.472  1.358 
+0.032  0.059  0.512  1.413  1.403  1.323 
+0.032  0.060  0.511  1.415  1.405  1.323 
+0.034  0.070  0.494  1.406  1.389  1.308 
+0.023  0.070  0.599  1.465  1.502  1.363 
+0.024  0.074  0.600  1.465  1.503  1.362 
+0.023  0.071  0.592  1.460  1.496  1.358 
+0.086  0.057  0.616  1.487  1.496  1.367 
+0.086  0.060  0.619  1.489  1.495  1.368 
+0.084  0.054  0.611  1.480  1.497  1.362 
+0.032  0.052  0.573  1.465  1.454  1.347 
+0.032  0.053  0.575  1.467  1.453  1.348 
+0.033  0.054  0.567  1.462  1.448  1.343 
+0.033  0.093  0.622  1.497  1.499  1.370 
+0.030  0.096  0.621  1.498  1.496  1.370 
+0.029  0.098  0.616  1.494  1.492  1.366 
+0.115  0.065  0.646  1.510  1.531  1.382 
+0.117  0.066  0.648  1.511  1.528  1.383 
+0.120  0.065  0.641  1.504  1.527  1.378 
+0.034  0.069  0.526  1.458  1.380  1.328 
+0.032  0.067  0.524  1.456  1.375  1.327 
+0.031  0.074  0.509  1.456  1.349  1.313 
+0.026  0.057  0.652  1.503  1.505  1.382 
+0.026  0.056  0.653  1.503  1.506  1.382 
+0.026  0.055  0.648  1.500  1.500  1.380 
+0.022  0.083  0.610  1.473  1.479  1.366 
+0.021  0.080  0.609  1.472  1.481  1.365 
+0.019  0.084  0.602  1.465  1.479  1.361 
+0.032  0.044  0.602  1.478  1.493  1.360 
+0.030  0.047  0.605  1.479  1.495  1.363 
+0.027  0.047  0.598  1.475  1.488  1.357 
+0.088  0.072  0.666  1.506  1.544  1.387 
+0.089  0.070  0.665  1.506  1.544  1.388 
+0.089  0.067  0.662  1.504  1.547  1.386 
+0.023  0.069  0.646  1.493  1.484  1.380 
+0.023  0.068  0.649  1.494  1.485  1.381 
+0.022  0.066  0.644  1.490  1.477  1.378 
+0.104  0.101  0.655  1.518  1.529  1.386 
+0.104  0.099  0.656  1.519  1.525  1.386 
+0.104  0.095  0.651  1.512  1.521  1.381 
+0.074  0.164  0.904  1.705  1.659  1.471 
+0.074  0.157  0.906  1.708  1.671  1.472 
+0.074  0.161  0.903  1.704  1.659  1.470 
+0.031  0.065  0.582  1.475  1.435  1.353 
+0.033  0.064  0.583  1.475  1.439  1.353 
+0.030  0.064  0.577  1.471  1.426  1.348 
+0.112  0.111  0.734  1.577  1.562  1.415 
+0.112  0.111  0.736  1.578  1.557  1.416 
+0.112  0.112  0.732  1.575  1.564  1.414 
+0.097  0.136  0.678  1.536  1.549  1.395 
+0.096  0.136  0.677  1.535  1.546  1.394 
+0.098  0.144  0.672  1.529  1.541  1.390 
+0.110  0.072  0.624  1.495  1.499  1.374 
+0.110  0.079  0.622  1.494  1.508  1.374 
+0.116  0.076  0.617  1.487  1.496  1.368 
+0.024  0.047  0.602  1.487  1.461  1.360 
+0.024  0.048  0.600  1.486  1.459  1.360 
+0.024  0.049  0.594  1.483  1.452  1.355 
+0.104  0.122  0.706  1.557  1.565  1.405 
+0.104  0.120  0.706  1.556  1.565  1.405 
+0.105  0.116  0.702  1.553  1.569  1.403 
+0.114  0.069  0.669  1.527  1.499  1.390 
+0.114  0.073  0.667  1.525  1.498  1.389 
+0.114  0.075  0.665  1.523  1.501  1.388 
+0.024  0.097  0.659  1.486  1.504  1.387 
+0.024  0.098  0.657  1.483  1.500  1.385 
+0.024  0.101  0.652  1.479  1.500  1.383 
+0.025  0.082  0.659  1.511  1.527  1.384 
+0.024  0.082  0.658  1.513  1.530  1.385 
+0.023  0.083  0.654  1.508  1.527  1.382 
+0.126  0.097  0.660  1.518  1.502  1.385 
+0.125  0.086  0.659  1.518  1.504  1.385 
+0.127  0.088  0.653  1.513  1.497  1.382 
+0.023  0.045  0.613  1.483  1.504  1.365 
+0.022  0.043  0.615  1.485  1.505  1.366 
+0.021  0.044  0.609  1.479  1.498  1.362 
+0.032  0.077  0.605  1.480  1.477  1.361 
+0.030  0.072  0.605  1.482  1.479  1.362 
+0.028  0.074  0.597  1.475  1.473  1.357 
+0.116  0.075  0.647  1.509  1.505  1.379 
+0.115  0.079  0.646  1.508  1.499  1.379 
+0.116  0.075  0.643  1.505  1.503  1.377 
+0.026  0.068  0.600  1.445  1.451  1.363 
+0.026  0.066  0.601  1.446  1.462  1.364 
+0.027  0.065  0.594  1.442  1.454  1.358 
+0.020  0.069  0.620  1.493  1.484  1.369 
+0.021  0.071  0.620  1.492  1.486  1.369 
+0.019  0.072  0.613  1.488  1.479  1.365 
+0.030  0.056  0.617  1.482  1.487  1.365 
+0.033  0.058  0.616  1.481  1.489  1.366 
+0.031  0.058  0.611  1.477  1.483  1.362 
+0.025  0.073  0.617  1.488  1.456  1.367 
+0.027  0.075  0.616  1.489  1.453  1.366 
+0.026  0.081  0.611  1.484  1.448  1.363 
+0.034  0.067  0.639  1.485  1.482  1.377 
+0.031  0.069  0.640  1.487  1.482  1.377 
+0.029  0.066  0.636  1.483  1.480  1.375 
+0.030  0.071  0.594  1.479  1.472  1.357 
+0.029  0.071  0.593  1.476  1.477  1.356 
+0.030  0.071  0.585  1.472  1.465  1.350 
+0.024  0.084  0.648  1.475  1.512  1.379 
+0.024  0.082  0.647  1.475  1.512  1.379 
+0.022  0.083  0.643  1.473  1.508  1.378 
+0.025  0.066  0.638  1.500  1.513  1.376 
+0.025  0.068  0.637  1.499  1.508  1.376 
+0.025  0.066  0.632  1.496  1.503  1.373 
+0.021  0.046  0.657  1.485  1.525  1.383 
+0.022  0.048  0.657  1.484  1.521  1.382 
+0.024  0.054  0.653  1.481  1.519  1.381 
+0.102  0.086  0.656  1.516  1.528  1.383 
+0.102  0.085  0.655  1.516  1.528  1.383 
+0.102  0.087  0.648  1.509  1.519  1.378 
+0.026  0.063  0.635  1.501  1.495  1.375 
+0.027  0.063  0.634  1.499  1.488  1.374 
+0.022  0.061  0.629  1.493  1.489  1.371 
+0.025  0.067  0.622  1.476  1.500  1.367 
+0.027  0.070  0.623  1.476  1.500  1.368 
+0.027  0.075  0.620  1.474  1.493  1.366 
+0.031  0.042  0.463  1.444  1.385  1.292 
+0.031  0.038  0.466  1.447  1.382  1.294 
+0.032  0.043  0.433  1.443  1.338  1.271 
+0.023  0.060  0.668  1.497  1.510  1.389 
+0.023  0.061  0.668  1.498  1.508  1.389 
+0.023  0.062  0.664  1.494  1.502  1.387 
+0.031  0.062  0.519  1.444  1.402  1.325 
+0.032  0.061  0.520  1.442  1.404  1.326 
+0.031  0.064  0.500  1.437  1.370  1.309 
+0.025  0.086  0.668  1.501  1.538  1.389 
+0.026  0.088  0.669  1.504  1.543  1.391 
+0.025  0.087  0.664  1.499  1.537  1.388 
+0.022  0.079  0.673  1.498  1.521  1.391 
+0.021  0.074  0.671  1.497  1.525  1.391 
+0.022  0.077  0.668  1.494  1.521  1.389 
+0.021  0.080  0.639  1.497  1.502  1.378 
+0.022  0.080  0.636  1.494  1.504  1.377 
+0.021  0.077  0.632  1.493  1.500  1.374 
+0.096  0.056  0.459  1.380  1.325  1.234 
+0.093  0.045  0.466  1.384  1.328  1.236 
+0.117  0.045  0.386  1.350  1.267  1.210 
+0.023  0.054  0.654  1.511  1.502  1.383 
+0.020  0.049  0.654  1.512  1.504  1.383 
+0.021  0.052  0.648  1.507  1.494  1.379 
+0.029  0.055  0.525  1.409  1.413  1.329 
+0.030  0.055  0.524  1.410  1.414  1.329 
+0.028  0.057  0.509  1.403  1.397  1.316 
+0.028  0.062  0.641  1.493  1.496  1.376 
+0.030  0.068  0.640  1.495  1.498  1.376 
+0.027  0.067  0.638  1.491  1.492  1.374 
+0.029  0.095  0.668  1.495  1.548  1.390 
+0.027  0.094  0.668  1.495  1.546  1.390 
+0.029  0.099  0.663  1.491  1.540  1.387 
+0.098  0.077  0.637  1.506  1.494  1.379 
+0.098  0.079  0.638  1.506  1.502  1.379 
+0.101  0.080  0.630  1.498  1.497  1.373 
+0.031  0.059  0.631  1.494  1.470  1.372 
+0.031  0.060  0.631  1.494  1.469  1.372 
+0.031  0.060  0.625  1.491  1.468  1.369 
+0.066  0.058  0.534  1.438  1.408  1.329 
+0.066  0.058  0.533  1.438  1.411  1.329 
+0.076  0.056  0.516  1.423  1.391  1.315 
+0.031  0.044  0.612  1.485  1.498  1.365 
+0.029  0.043  0.612  1.487  1.501  1.366 
+0.029  0.046  0.605  1.482  1.501  1.362 
+0.027  0.063  0.599  1.485  1.475  1.360 
+0.025  0.063  0.601  1.487  1.476  1.361 
+0.027  0.061  0.592  1.479  1.468  1.355 
+0.088  0.064  0.665  1.506  1.525  1.387 
+0.089  0.063  0.667  1.507  1.526  1.388 
+0.089  0.065  0.661  1.501  1.519  1.384 
+0.024  0.074  0.645  1.476  1.527  1.380 
+0.024  0.069  0.644  1.476  1.529  1.380 
+0.025  0.077  0.638  1.471  1.526  1.377 
+0.027  0.069  0.578  1.468  1.455  1.350 
+0.024  0.063  0.578  1.465  1.452  1.350 
+0.027  0.066  0.568  1.462  1.441  1.343 
+0.026  0.058  0.612  1.484  1.487  1.366 
+0.027  0.055  0.611  1.485  1.491  1.365 
+0.027  0.063  0.607  1.481  1.479  1.362 
+0.037  0.053  0.460  1.407  1.354  1.294 
+0.038  0.054  0.460  1.403  1.354  1.293 
+0.037  0.054  0.441  1.398  1.326  1.275 
+0.024  0.069  0.658  1.517  1.484  1.385 
+0.022  0.072  0.658  1.521  1.487  1.385 
+0.022  0.076  0.652  1.514  1.477  1.381 
+0.024  0.070  0.639  1.487  1.493  1.376 
+0.025  0.069  0.638  1.487  1.494  1.376 
+0.025  0.068  0.636  1.484  1.492  1.373 
+0.031  0.043  0.605  1.493  1.472  1.362 
+0.032  0.042  0.607  1.495  1.472  1.363 
+0.033  0.044  0.602  1.489  1.471  1.359 
+0.038  0.057  0.423  1.422  1.317  1.224 
+0.035  0.051  0.418  1.422  1.312  1.221 
+0.035  0.047  0.344  1.409  1.250  1.197 

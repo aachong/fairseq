@@ -6,7 +6,8 @@
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-
+from fairseq.modules.drc_fused_layernorm import HeadFusedLayerNorm as _HeadFusedLayerNorm
+from fairseq.modules.drc_fused_layernorm import ResidualFusedLayerNorm as _ResidualFusedLayerNorm
 
 try:
     from apex.normalization import FusedLayerNorm as _FusedLayerNorm
@@ -26,10 +27,38 @@ except ImportError:
     has_fused_layernorm = False
 
 
-def LayerNorm(normalized_shape, eps=1e-5, elementwise_affine=True, export=False):
+class ResidualFusedLayerNorm(_ResidualFusedLayerNorm):
+    @torch.jit.unused
+    def forward(self, x):
+        if not x.is_cuda:
+            return super().forward(x)
+        else:
+            with torch.cuda.device(x.device):
+                return super().forward(x)
+
+
+class HeadFusedLayerNorm(_HeadFusedLayerNorm):
+    @torch.jit.unused
+    def forward(self, x):
+        if not x.is_cuda:
+            return super().forward(x)
+        else:
+            with torch.cuda.device(x.device):
+                return super().forward(x)
+
+
+def LayerNorm(normalized_shape, eps=1e-5,
+              elementwise_affine=True,
+              export=False, 
+              need_drc_head=False, 
+              need_drc_residual=False):
     if torch.jit.is_scripting():
         export = True
     if not export and torch.cuda.is_available() and has_fused_layernorm:
+        if need_drc_head:
+            return HeadFusedLayerNorm(normalized_shape, eps, elementwise_affine)
+        if need_drc_residual:
+            return ResidualFusedLayerNorm(normalized_shape, eps, elementwise_affine)
         return FusedLayerNorm(normalized_shape, eps, elementwise_affine)
     return torch.nn.LayerNorm(normalized_shape, eps, elementwise_affine)
 

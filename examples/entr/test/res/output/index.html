@@ -1,0 +1,225 @@
+<html>
+<head>
+<link rel="stylesheet" href="compare_mt.css">
+</head>
+<script>
+
+function showhide(elem) {
+  var x = document.getElementById(elem);
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+
+</script>
+<body>
+<h1>compare-mt Analysis Report</h1>
+ <h2>Aggregate Scores</h2>
+<table border="1">
+<caption> BLEU </caption><tr> <th>  </th>
+  <th> sys1 </th> </tr><tr> <th> BLEU </th>
+  <td> 19.2706 </td> </tr>
+</table>
+ <br/><button onclick="showhide('001_latex')">Show/Hide LaTeX</button> <br/><pre id="001_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||c}
+ & sys1 \\ \hline \hline
+BLEU & 19.2706 \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table001}
+\end{table}</pre><img src="001-score-bleu.png" alt="Score Comparison"> <br/><button onclick="showhide('001-score-bleu_latex')">Show/Hide LaTeX</button> <br/><pre id="001-score-bleu_latex" style="display:none">\begin{figure}[h]
+  \centering
+  \includegraphics{001-score-bleu.pdf}
+  \caption{Score Comparison}
+  \label{fig:001-score-bleu}
+\end{figure}</pre>
+<table border="1">
+<caption> length ratio </caption><tr> <th>  </th>
+  <th> sys1 </th> </tr><tr> <th> length ratio </th>
+  <td> 1.0010 (ref=55527, out=55584) </td> </tr>
+</table>
+ <br/><button onclick="showhide('002_latex')">Show/Hide LaTeX</button> <br/><pre id="002_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||c}
+ & sys1 \\ \hline \hline
+length ratio & 1.0010 (ref=55527, out=55584) \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table002}
+\end{table}</pre><img src="002-score-lengthrat.png" alt="Score Comparison"> <br/><button onclick="showhide('002-score-lengthrat_latex')">Show/Hide LaTeX</button> <br/><pre id="002-score-lengthrat_latex" style="display:none">\begin{figure}[h]
+  \centering
+  \includegraphics{002-score-lengthrat.pdf}
+  \caption{Score Comparison}
+  \label{fig:002-score-lengthrat}
+\end{figure}</pre>
+<h2>Word Accuracies</h2>
+<table border="1">
+<caption> word fmeas by frequency bucket </caption><tr> <th> frequency </th>
+  <th> sys1 </th>
+  <th> Examples </th> </tr><tr> <th> <1 </th>
+  <td> 0.0000 </td>
+  <td> <a href="003-wordacc-frequency.html#bucket0">Examples</a> </td> </tr><tr> <th> 1 </th>
+  <td> 0.3596 </td>
+  <td> <a href="003-wordacc-frequency.html#bucket1">Examples</a> </td> </tr><tr> <th> 2 </th>
+  <td> 0.4160 </td>
+  <td> <a href="003-wordacc-frequency.html#bucket2">Examples</a> </td> </tr><tr> <th> 3 </th>
+  <td> 0.4618 </td>
+  <td> <a href="003-wordacc-frequency.html#bucket3">Examples</a> </td> </tr><tr> <th> 4 </th>
+  <td> 0.5130 </td>
+  <td> <a href="003-wordacc-frequency.html#bucket4">Examples</a> </td> </tr><tr> <th> [5,10) </th>
+  <td> 0.5311 </td>
+  <td> <a href="003-wordacc-frequency.html#bucket5">Examples</a> </td> </tr><tr> <th> [10,100) </th>
+  <td> 0.5324 </td>
+  <td> <a href="003-wordacc-frequency.html#bucket6">Examples</a> </td> </tr><tr> <th> [100,1000) </th>
+  <td> 0.5933 </td>
+  <td> <a href="003-wordacc-frequency.html#bucket7">Examples</a> </td> </tr><tr> <th> >=1000 </th>
+  <td> 0.8023 </td>
+  <td> <a href="003-wordacc-frequency.html#bucket8">Examples</a> </td> </tr>
+</table>
+ <br/><button onclick="showhide('083_latex')">Show/Hide LaTeX</button> <br/><pre id="083_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||cc}
+frequency & sys1 & Examples \\ \hline \hline
+\textless1 & 0.0000 & \textlessa href="003-wordacc-frequency.html#bucket0"\textgreaterExamples\textless/a\textgreater \\
+1 & 0.3596 & \textlessa href="003-wordacc-frequency.html#bucket1"\textgreaterExamples\textless/a\textgreater \\
+2 & 0.4160 & \textlessa href="003-wordacc-frequency.html#bucket2"\textgreaterExamples\textless/a\textgreater \\
+3 & 0.4618 & \textlessa href="003-wordacc-frequency.html#bucket3"\textgreaterExamples\textless/a\textgreater \\
+4 & 0.5130 & \textlessa href="003-wordacc-frequency.html#bucket4"\textgreaterExamples\textless/a\textgreater \\
+{[}5,10) & 0.5311 & \textlessa href="003-wordacc-frequency.html#bucket5"\textgreaterExamples\textless/a\textgreater \\
+{[}10,100) & 0.5324 & \textlessa href="003-wordacc-frequency.html#bucket6"\textgreaterExamples\textless/a\textgreater \\
+{[}100,1000) & 0.5933 & \textlessa href="003-wordacc-frequency.html#bucket7"\textgreaterExamples\textless/a\textgreater \\
+\textgreater=1000 & 0.8023 & \textlessa href="003-wordacc-frequency.html#bucket8"\textgreaterExamples\textless/a\textgreater \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table083}
+\end{table}</pre><img src="003-wordacc-frequency-fmeas.png" alt="Word Accuracy Analysis"> <br/><button onclick="showhide('003-wordacc-frequency-fmeas_latex')">Show/Hide LaTeX</button> <br/><pre id="003-wordacc-frequency-fmeas_latex" style="display:none">\begin{figure}[h]
+  \centering
+  \includegraphics{003-wordacc-frequency-fmeas.pdf}
+  \caption{Word Accuracy Analysis}
+  \label{fig:003-wordacc-frequency-fmeas}
+\end{figure}</pre>
+<h2>Sentence Buckets</h2>
+<table border="1">
+<caption> bucket type: length, statistic type: BLEU </caption><tr> <th> length </th>
+  <th> sys1 </th> </tr><tr> <th> <10 </th>
+  <td> 16.7279 </td> </tr><tr> <th> [10,20) </th>
+  <td> 16.6719 </td> </tr><tr> <th> [20,30) </th>
+  <td> 19.5229 </td> </tr><tr> <th> [30,40) </th>
+  <td> 20.7383 </td> </tr><tr> <th> [40,50) </th>
+  <td> 22.7558 </td> </tr><tr> <th> [50,60) </th>
+  <td> 23.5763 </td> </tr><tr> <th> >=60 </th>
+  <td> 13.9690 </td> </tr>
+</table>
+ <br/><button onclick="showhide('084_latex')">Show/Hide LaTeX</button> <br/><pre id="084_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||c}
+length & sys1 \\ \hline \hline
+\textless10 & 16.7279 \\
+{[}10,20) & 16.6719 \\
+{[}20,30) & 19.5229 \\
+{[}30,40) & 20.7383 \\
+{[}40,50) & 22.7558 \\
+{[}50,60) & 23.5763 \\
+\textgreater=60 & 13.9690 \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table084}
+\end{table}</pre><img src="004-sent-length-bleu.png" alt="Sentence Bucket Analysis"> <br/><button onclick="showhide('004-sent-length-bleu_latex')">Show/Hide LaTeX</button> <br/><pre id="004-sent-length-bleu_latex" style="display:none">\begin{figure}[h]
+  \centering
+  \includegraphics{004-sent-length-bleu.pdf}
+  \caption{Sentence Bucket Analysis}
+  \label{fig:004-sent-length-bleu}
+\end{figure}</pre>
+<table border="1">
+<caption> bucket type: len(output)-len(reference), statistic type: count </caption><tr> <th> lengthdiff </th>
+  <th> sys1 </th> </tr><tr> <th> <-20 </th>
+  <td> 3 </td> </tr><tr> <th> [-20,-10) </th>
+  <td> 13 </td> </tr><tr> <th> [-10,-5) </th>
+  <td> 91 </td> </tr><tr> <th> -5 </th>
+  <td> 76 </td> </tr><tr> <th> -4 </th>
+  <td> 94 </td> </tr><tr> <th> -3 </th>
+  <td> 169 </td> </tr><tr> <th> -2 </th>
+  <td> 307 </td> </tr><tr> <th> -1 </th>
+  <td> 433 </td> </tr><tr> <th> 0 </th>
+  <td> 566 </td> </tr><tr> <th> 1 </th>
+  <td> 421 </td> </tr><tr> <th> 2 </th>
+  <td> 309 </td> </tr><tr> <th> 3 </th>
+  <td> 202 </td> </tr><tr> <th> 4 </th>
+  <td> 126 </td> </tr><tr> <th> 5 </th>
+  <td> 86 </td> </tr><tr> <th> [6,11) </th>
+  <td> 105 </td> </tr><tr> <th> [11,21) </th>
+  <td> 6 </td> </tr><tr> <th> >=21 </th>
+  <td> 0 </td> </tr>
+</table>
+ <br/><button onclick="showhide('085_latex')">Show/Hide LaTeX</button> <br/><pre id="085_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||c}
+lengthdiff & sys1 \\ \hline \hline
+\textless-20 & 3 \\
+{[}-20,-10) & 13 \\
+{[}-10,-5) & 91 \\
+-5 & 76 \\
+-4 & 94 \\
+-3 & 169 \\
+-2 & 307 \\
+-1 & 433 \\
+0 & 566 \\
+1 & 421 \\
+2 & 309 \\
+3 & 202 \\
+4 & 126 \\
+5 & 86 \\
+{[}6,11) & 105 \\
+{[}11,21) & 6 \\
+\textgreater=21 & 0 \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table085}
+\end{table}</pre><img src="005-sent-lengthdiff-count.png" alt="Sentence Bucket Analysis"> <br/><button onclick="showhide('005-sent-lengthdiff-count_latex')">Show/Hide LaTeX</button> <br/><pre id="005-sent-lengthdiff-count_latex" style="display:none">\begin{figure}[h]
+  \centering
+  \includegraphics{005-sent-lengthdiff-count.pdf}
+  \caption{Sentence Bucket Analysis}
+  \label{fig:005-sent-lengthdiff-count}
+\end{figure}</pre>
+<table border="1">
+<caption> bucket type: sentence-level BLEU, statistic type: count </caption><tr> <th> sentbleu </th>
+  <th> sys1 </th> </tr><tr> <th> <10.0 </th>
+  <td> 247 </td> </tr><tr> <th> [10.0,20.0) </th>
+  <td> 1170 </td> </tr><tr> <th> [20.0,30.0) </th>
+  <td> 782 </td> </tr><tr> <th> [30.0,40.0) </th>
+  <td> 449 </td> </tr><tr> <th> [40.0,50.0) </th>
+  <td> 173 </td> </tr><tr> <th> [50.0,60.0) </th>
+  <td> 102 </td> </tr><tr> <th> [60.0,70.0) </th>
+  <td> 38 </td> </tr><tr> <th> [70.0,80.0) </th>
+  <td> 18 </td> </tr><tr> <th> [80.0,90.0) </th>
+  <td> 15 </td> </tr><tr> <th> >=90.0 </th>
+  <td> 13 </td> </tr>
+</table>
+ <br/><button onclick="showhide('086_latex')">Show/Hide LaTeX</button> <br/><pre id="086_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||c}
+sentbleu & sys1 \\ \hline \hline
+\textless10.0 & 247 \\
+{[}10.0,20.0) & 1170 \\
+{[}20.0,30.0) & 782 \\
+{[}30.0,40.0) & 449 \\
+{[}40.0,50.0) & 173 \\
+{[}50.0,60.0) & 102 \\
+{[}60.0,70.0) & 38 \\
+{[}70.0,80.0) & 18 \\
+{[}80.0,90.0) & 15 \\
+\textgreater=90.0 & 13 \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table086}
+\end{table}</pre><img src="006-sent-sentbleu-count.png" alt="Sentence Bucket Analysis"> <br/><button onclick="showhide('006-sent-sentbleu-count_latex')">Show/Hide LaTeX</button> <br/><pre id="006-sent-sentbleu-count_latex" style="display:none">\begin{figure}[h]
+  \centering
+  \includegraphics{006-sent-sentbleu-count.pdf}
+  \caption{Sentence Bucket Analysis}
+  \label{fig:006-sent-sentbleu-count}
+\end{figure}</pre> 
+</body>
+</html>

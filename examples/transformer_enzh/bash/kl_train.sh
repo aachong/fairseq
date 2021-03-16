@@ -1,20 +1,20 @@
 #使用js散度加载后边训练
 
-base_dir=./examples/_transformer_base
-num=0
+base_dir=./$(dirname $0)/..
+num=1,2,3
 dropout=0.3
 arch=transformer
-max_tokens=2000
+max_tokens=3024
 criterion=label_smoothed_cross_entropy_r3f
 label_smoothing=0.1
 lrscheduler=inverse_sqrt
-save_dir=$base_dir/checkpoints
+save_dir=$base_dir/checkpoints/r3f
 data_bin=$base_dir/data-bin
 train() {
     CUDA_VISIBLE_DEVICES=$num python train.py $data_bin \
         --optimizer adam \
         --min-lr 1e-09 \
-        --lr 0.0005 --clip-norm 0.0 \
+        --lr 0.0001 --clip-norm 0.0 \
         --criterion $criterion \
         --label-smoothing $label_smoothing \
         --lr-scheduler $lrscheduler \
@@ -28,15 +28,12 @@ train() {
         --max-tokens $max_tokens \
         --save-dir $save_dir \
         --max-epoch 100 \
-        --no-epoch-checkpoints \
+        \
         --eval-bleu \
         --eval-bleu-args '{"beam": 5, "max_len_a": 1.2, "max_len_b": 10}' \
-        --eval-bleu-detok moses \
         --eval-bleu-remove-bpe \
-        --reset-optimizer \
-        --r3f-lambda 0.05 --train-subset test
-    #cp out $save_dir
+        --r3f-lambda 0.05 --reset-optimizer
 }
 
-#process
+
 train

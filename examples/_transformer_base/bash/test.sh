@@ -1,21 +1,19 @@
-base_dir=./examples/_transformer_base
+base_dir=./$(dirname $0)/..
+result=$base_dir/test/closer_all/closer_all.0.bleu
+MODEL_PATH=$base_dir/checkpoints/closer_all/checkpoint_best.pt
+task_name=170
+
+num=1,3
 tmp=$base_dir/test/tmp
-MODEL_PATH=$base_dir/checkpoints/tmp/checkpoint_last.pt
 bleu=multi-bleu.perl
 data_dir=$base_dir/data-bin
 nist=./corpus/nist
-num=3
-beam=5
+beam=8
 buffer=1024
-tokens=3000
+tokens=8000
 
 
 for i in 02 03 04 05 08; do
-    # CUDA_VISIBLE_DEVICES=$num fairseq-interactive $data_dir \
-    #     --path $MODEL_PATH --beam $beam --buffer-size $buffer --max-tokens $tokens \
-    #     --remove-bpe -s ch -t en  \
-    #     <$nist/nist$i.bpe.in >$base_dir/test/tmp/nist_$i
-    #上边这个之所以下降的原因是bpe的文件应该不是和学长一样的，就是说这个就不是学长的bpe文件
 
     CUDA_VISIBLE_DEVICES=$num fairseq-interactive $data_dir \
         --path $MODEL_PATH --beam $beam --buffer-size $buffer --max-tokens $tokens \
@@ -28,5 +26,14 @@ for i in 02 03 04 05 08; do
     echo "nist$i is over"
 done
 
-echo "checkpoint is $MODEL_PATH"
-cat $tmp/nist0*.score
+show(){
+    echo "----------------------------------------------------------------"
+    echo "results are from $task_name" 
+    cat $tmp/../$task_name | grep 'end of epoch ...' -o | tail -n 1
+    echo "checkpoint is $MODEL_PATH" 
+    cat $tmp/nist0*.score 
+    cat $tmp/nist0*.score | grep 'BLEU = .....' -o | awk '{sum+=$3} END {print "Avg =", sum/NR}'
+}
+
+show >>$result
+cat $tmp/nist0*.score 

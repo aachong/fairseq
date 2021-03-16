@@ -24,7 +24,7 @@ from fairseq import checkpoint_utils, distributed_utils, options, tasks, utils
 from fairseq.data import encoders
 from fairseq.token_generation_constraints import pack_constraints, unpack_constraints
 from .generate import get_symbols_to_strip_from_output
-from fairseq.data_process import preprocess, postprocess
+# from fairseq.data_process import preprocess, postprocess
 
 logging.basicConfig(
     format='%(asctime)s | %(levelname)s | %(name)s | %(message)s',
@@ -217,8 +217,8 @@ def main(args):
     start_id = 0
     for inputs in buffered_read(args.input, args.buffer_size):
         results = []
-        if args.transformer_big_zhen:
-            inputs = preprocess(inputs)
+        # if args.transformer_big_zhen:
+        #     inputs = preprocess(inputs)
         for batch in make_batches(inputs, args, task, max_positions, encode_fn):
             bsz = batch.src_tokens.size(0)
             src_tokens = batch.src_tokens

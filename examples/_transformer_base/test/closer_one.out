@@ -1,0 +1,806 @@
+nohup: ignoring input
+nohup: failed to run command 'examples/_transformer_base/bash/closer_dropout_one.sh': Permission denied
+nohup: ignoring input
+2020-12-07 15:53:25 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-07 15:53:26 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-07 15:53:28 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-07 15:53:28 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-07 15:53:28 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-07 15:53:29 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-07 15:53:29 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-07 15:53:29 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-07 15:53:30 | INFO | fairseq.distributed_utils | distributed init (rank 2): tcp://localhost:18752
+2020-12-07 15:53:30 | INFO | fairseq.distributed_utils | distributed init (rank 1): tcp://localhost:18752
+2020-12-07 15:53:30 | INFO | fairseq.distributed_utils | distributed init (rank 0): tcp://localhost:18752
+2020-12-07 15:53:31 | INFO | fairseq.distributed_utils | initialized host inspur129 as rank 2
+2020-12-07 15:53:31 | INFO | fairseq.distributed_utils | initialized host inspur129 as rank 1
+2020-12-07 15:53:31 | INFO | fairseq.distributed_utils | initialized host inspur129 as rank 0
+2020-12-07 15:53:34 | INFO | fairseq_cli.train | Namespace(activation_dropout=0.0, activation_fn='relu', adam_betas='(0.9, 0.98)', adam_eps=1e-08, adaptive_input=False, adaptive_softmax_cutoff=None, adaptive_softmax_dropout=0, all_gather_list_size=16384, arch='closer_dropout', attention_dropout=0.0, best_checkpoint_metric='bleu', bf16=False, bpe=None, broadcast_buffers=False, bucket_cap_mb=25, checkpoint_suffix='', clip_norm=0.0, cpu=False, criterion='r3f_closer_dropout_all', cross_self_attention=False, curriculum=0, data='./examples/_transformer_base/bash/../data-bin', data_buffer_size=10, dataset_impl=None, ddp_backend='c10d', decoder_attention_heads=8, decoder_embed_dim=512, decoder_embed_path=None, decoder_ffn_embed_dim=2048, decoder_input_dim=512, decoder_layerdrop=0, decoder_layers=6, decoder_layers_to_keep=None, decoder_learned_pos=False, decoder_normalize_before=False, decoder_output_dim=512, device_id=0, disable_validation=False, distributed_backend='nccl', distributed_init_method='tcp://localhost:18752', distributed_no_spawn=False, distributed_num_procs=3, distributed_port=-1, distributed_rank=0, distributed_world_size=3, distributed_wrapper='DDP', dropout=0.3, empty_cache_freq=0, encoder_attention_heads=8, encoder_embed_dim=512, encoder_embed_path=None, encoder_ffn_embed_dim=2048, encoder_layerdrop=0, encoder_layers=6, encoder_layers_to_keep=None, encoder_learned_pos=False, encoder_normalize_before=False, eps=1e-05, eval_bleu=True, eval_bleu_args='{"beam": 5, "max_len_a": 1.2, "max_len_b": 10}', eval_bleu_detok='space', eval_bleu_detok_args=None, eval_bleu_print_samples=False, eval_bleu_remove_bpe='@@ ', eval_tokenized_bleu=False, fast_stat_sync=False, find_unused_parameters=False, finetune_from_model=None, fix_batches_to_gpus=False, fixed_validation_seed=None, fp16=False, fp16_init_scale=128, fp16_no_flatten_grads=False, fp16_scale_tolerance=0.0, fp16_scale_window=None, keep_best_checkpoints=-1, keep_interval_updates=-1, keep_last_epochs=-1, label_smoothing=0.1, layer_choice='allone', layernorm_embedding=False, left_pad_source='True', left_pad_target='False', load_alignments=False, localsgd_frequency=3, log_format=None, log_interval=100, lr=[0.0005], lr_scheduler='inverse_sqrt', max_epoch=200, max_sentences=None, max_sentences_valid=None, max_source_positions=1024, max_target_positions=1024, max_tokens=3024, max_tokens_valid=3024, max_update=0, maximize_best_checkpoint_metric=True, memory_efficient_bf16=False, memory_efficient_fp16=False, min_loss_scale=0.0001, min_lr=1e-09, model_parallel_size=1, no_cross_attention=False, no_epoch_checkpoints=True, no_last_checkpoints=False, no_progress_bar=False, no_save=False, no_save_optimizer_state=False, no_scale_embedding=False, no_seed_provided=True, no_token_positional_embeddings=False, noise_type='normal', nprocs_per_node=3, num_batch_buckets=0, num_workers=1, optimizer='adam', optimizer_overrides='{}', patience=-1, pipeline_balance=None, pipeline_checkpoint='never', pipeline_chunks=None, pipeline_devices=None, pipeline_model_parallel=False, profile=False, quant_noise_pq=0, quant_noise_pq_block_size=8, quant_noise_scalar=0, quantization_config_path=None, r3f_lambda=0.05, required_batch_size_multiple=8, required_seq_len_multiple=1, reset_dataloader=False, reset_lr_scheduler=False, reset_meters=False, reset_optimizer=True, restore_file='checkpoint_last.pt', save_dir='./examples/_transformer_base/bash/../checkpoints/closer_one', save_interval=1, save_interval_updates=0, scoring='bleu', seed=1, sentence_avg=False, share_all_embeddings=False, share_decoder_input_output_embed=False, skip_invalid_size_inputs_valid_test=False, slowmo_algorithm='LocalSGD', slowmo_momentum=None, source_lang='ch', stop_time_hours=0, target_lang='en', task='translation', tensorboard_logdir='', threshold_loss_scale=None, tie_adaptive_weights=False, tokenizer=None, tpu=False, train_subset='train', truncate_source=False, update_freq=[1], upsample_primary=1, use_bmuf=False, use_old_adam=False, user_dir=None, valid_subset='valid', validate_after_updates=0, validate_interval=1, validate_interval_updates=0, warmup_init_lr=1e-07, warmup_updates=4000, weight_decay=0.0, zero_sharding='none')
+2020-12-07 15:53:35 | INFO | fairseq.tasks.translation | [ch] dictionary: 41952 types
+2020-12-07 15:53:35 | INFO | fairseq.tasks.translation | [en] dictionary: 31264 types
+2020-12-07 15:53:35 | INFO | fairseq.data.data_utils | loaded 1664 examples from: ./examples/_transformer_base/bash/../data-bin/valid.ch-en.ch
+2020-12-07 15:53:35 | INFO | fairseq.data.data_utils | loaded 1664 examples from: ./examples/_transformer_base/bash/../data-bin/valid.ch-en.en
+2020-12-07 15:53:35 | INFO | fairseq.tasks.translation | ./examples/_transformer_base/bash/../data-bin valid ch-en 1664 examples
+2020-12-07 15:53:37 | INFO | fairseq_cli.train | TransformerModel(
+  (encoder): TransformerEncoder(
+    (dropout_module): FairseqDropout()
+    (embed_tokens): Embedding(41952, 512, padding_idx=1)
+    (embed_positions): SinusoidalPositionalEmbedding()
+    (layers): ModuleList(
+      (0): TransformerEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (self_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (dropout_module): FairseqDropout()
+        (activation_dropout_module): FairseqDropout()
+        (fc1): Linear(in_features=512, out_features=2048, bias=True)
+        (fc2): Linear(in_features=2048, out_features=512, bias=True)
+        (final_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+      )
+      (1): TransformerEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (self_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (dropout_module): FairseqDropout()
+        (activation_dropout_module): FairseqDropout()
+        (fc1): Linear(in_features=512, out_features=2048, bias=True)
+        (fc2): Linear(in_features=2048, out_features=512, bias=True)
+        (final_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+      )
+      (2): TransformerEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (self_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (dropout_module): FairseqDropout()
+        (activation_dropout_module): FairseqDropout()
+        (fc1): Linear(in_features=512, out_features=2048, bias=True)
+        (fc2): Linear(in_features=2048, out_features=512, bias=True)
+        (final_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+      )
+      (3): TransformerEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (self_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (dropout_module): FairseqDropout()
+        (activation_dropout_module): FairseqDropout()
+        (fc1): Linear(in_features=512, out_features=2048, bias=True)
+        (fc2): Linear(in_features=2048, out_features=512, bias=True)
+        (final_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+      )
+      (4): TransformerEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (self_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (dropout_module): FairseqDropout()
+        (activation_dropout_module): FairseqDropout()
+        (fc1): Linear(in_features=512, out_features=2048, bias=True)
+        (fc2): Linear(in_features=2048, out_features=512, bias=True)
+        (final_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+      )
+      (5): TransformerEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (self_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (dropout_module): FairseqDropout()
+        (activation_dropout_module): FairseqDropout()
+        (fc1): Linear(in_features=512, out_features=2048, bias=True)
+        (fc2): Linear(in_features=2048, out_features=512, bias=True)
+        (final_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+      )
+    )
+  )
+  (decoder): TransformerDecoder(
+    (dropout_module): FairseqDropout()
+    (embed_tokens): Embedding(31264, 512, padding_idx=1)
+    (embed_positions): SinusoidalPositionalEmbedding()
+    (layers): ModuleList(
+      (0): TransformerDecoderLayer(
+        (dropout_module): FairseqDropout()
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (activation_dropout_module): FairseqDropout()
+        (self_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (encoder_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (encoder_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (fc1): Linear(in_features=512, out_features=2048, bias=True)
+        (fc2): Linear(in_features=2048, out_features=512, bias=True)
+        (final_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+      )
+      (1): TransformerDecoderLayer(
+        (dropout_module): FairseqDropout()
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (activation_dropout_module): FairseqDropout()
+        (self_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (encoder_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (encoder_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (fc1): Linear(in_features=512, out_features=2048, bias=True)
+        (fc2): Linear(in_features=2048, out_features=512, bias=True)
+        (final_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+      )
+      (2): TransformerDecoderLayer(
+        (dropout_module): FairseqDropout()
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (activation_dropout_module): FairseqDropout()
+        (self_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (encoder_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (encoder_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (fc1): Linear(in_features=512, out_features=2048, bias=True)
+        (fc2): Linear(in_features=2048, out_features=512, bias=True)
+        (final_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+      )
+      (3): TransformerDecoderLayer(
+        (dropout_module): FairseqDropout()
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (activation_dropout_module): FairseqDropout()
+        (self_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (encoder_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (encoder_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (fc1): Linear(in_features=512, out_features=2048, bias=True)
+        (fc2): Linear(in_features=2048, out_features=512, bias=True)
+        (final_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+      )
+      (4): TransformerDecoderLayer(
+        (dropout_module): FairseqDropout()
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (activation_dropout_module): FairseqDropout()
+        (self_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (encoder_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (encoder_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (fc1): Linear(in_features=512, out_features=2048, bias=True)
+        (fc2): Linear(in_features=2048, out_features=512, bias=True)
+        (final_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+      )
+      (5): TransformerDecoderLayer(
+        (dropout_module): FairseqDropout()
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (activation_dropout_module): FairseqDropout()
+        (self_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (encoder_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (encoder_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (fc1): Linear(in_features=512, out_features=2048, bias=True)
+        (fc2): Linear(in_features=2048, out_features=512, bias=True)
+        (final_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+      )
+    )
+    (output_projection): Linear(in_features=512, out_features=31264, bias=False)
+  )
+)
+2020-12-07 15:53:37 | INFO | fairseq_cli.train | task: translation (TranslationTask)
+2020-12-07 15:53:37 | INFO | fairseq_cli.train | model: closer_dropout (TransformerModel)
+2020-12-07 15:53:37 | INFO | fairseq_cli.train | criterion: r3f_closer_dropout_all (R3fCloserDropoutAll)
+2020-12-07 15:53:37 | INFO | fairseq_cli.train | num. model params: 97632256 (num. trained: 97632256)
+2020-12-07 15:53:37 | INFO | fairseq.utils | ***********************CUDA enviroments for all 3 workers***********************
+2020-12-07 15:53:37 | INFO | fairseq.utils | rank   0: capabilities =  6.1  ; total memory = 10.917 GB ; name = GeForce GTX 1080 Ti                     
+2020-12-07 15:53:37 | INFO | fairseq.utils | rank   1: capabilities =  6.1  ; total memory = 10.917 GB ; name = GeForce GTX 1080 Ti                     
+2020-12-07 15:53:37 | INFO | fairseq.utils | rank   2: capabilities =  6.1  ; total memory = 10.917 GB ; name = GeForce GTX 1080 Ti                     
+2020-12-07 15:53:37 | INFO | fairseq.utils | ***********************CUDA enviroments for all 3 workers***********************
+2020-12-07 15:53:37 | INFO | fairseq_cli.train | training on 3 devices (GPUs/TPUs)
+2020-12-07 15:53:37 | INFO | fairseq_cli.train | max tokens per GPU = 3024 and max sentences per GPU = None
+2020-12-07 15:53:39 | INFO | fairseq.trainer | loaded checkpoint ./examples/_transformer_base/bash/../checkpoints/closer_one/checkpoint_last.pt (epoch 80 @ 0 updates)
+2020-12-07 15:53:39 | INFO | fairseq.optim.adam | using FusedAdam
+2020-12-07 15:53:39 | INFO | fairseq.trainer | loading train data for epoch 80
+2020-12-07 15:53:39 | INFO | fairseq.data.data_utils | loaded 1252977 examples from: ./examples/_transformer_base/bash/../data-bin/train.ch-en.ch
+2020-12-07 15:53:39 | INFO | fairseq.data.data_utils | loaded 1252977 examples from: ./examples/_transformer_base/bash/../data-bin/train.ch-en.en
+2020-12-07 15:53:39 | INFO | fairseq.tasks.translation | ./examples/_transformer_base/bash/../data-bin train ch-en 1252977 examples
+2020-12-07 15:53:46 | INFO | fairseq.trainer | begin training epoch 80
+2020-12-07 15:53:50 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-07 15:53:50 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-07 15:53:50 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-07 15:53:52 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-07 15:53:52 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-07 15:53:52 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+Traceback (most recent call last):
+  File "train.py", line 14, in <module>
+    cli_main()
+  File "/home/rcduan/fairseq/fairseq/fairseq_cli/train.py", line 354, in cli_main
+    distributed_utils.call_main(args, main)
+  File "/home/rcduan/fairseq/fairseq/fairseq/distributed_utils.py", line 237, in call_main
+    torch.multiprocessing.spawn(
+  File "/home/rcduan/miniconda3/lib/python3.8/site-packages/torch/multiprocessing/spawn.py", line 200, in spawn
+    return start_processes(fn, args, nprocs, join, daemon, start_method='spawn')
+  File "/home/rcduan/miniconda3/lib/python3.8/site-packages/torch/multiprocessing/spawn.py", line 158, in start_processes
+    while not context.join():
+  File "/home/rcduan/miniconda3/lib/python3.8/site-packages/torch/multiprocessing/spawn.py", line 119, in join
+    raise Exception(msg)
+Exception: 
+
+-- Process 0 terminated with the following error:
+Traceback (most recent call last):
+  File "/home/rcduan/miniconda3/lib/python3.8/site-packages/torch/multiprocessing/spawn.py", line 20, in _wrap
+    fn(i, *args)
+  File "/home/rcduan/fairseq/fairseq/fairseq/distributed_utils.py", line 224, in distributed_main
+    main(args, **kwargs)
+  File "/home/rcduan/fairseq/fairseq/fairseq_cli/train.py", line 129, in main
+    valid_losses, should_stop = train(args, trainer, task, epoch_itr)
+  File "/home/rcduan/miniconda3/lib/python3.8/contextlib.py", line 75, in inner
+    return func(*args, **kwds)
+  File "/home/rcduan/fairseq/fairseq/fairseq_cli/train.py", line 211, in train
+    log_output = trainer.train_step(samples)
+  File "/home/rcduan/miniconda3/lib/python3.8/contextlib.py", line 75, in inner
+    return func(*args, **kwds)
+  File "/home/rcduan/fairseq/fairseq/fairseq/trainer.py", line 461, in train_step
+    loss, sample_size_i, logging_output = self.task.train_step(
+  File "/home/rcduan/fairseq/fairseq/fairseq/tasks/fairseq_task.py", line 408, in train_step
+    loss, sample_size, logging_output = criterion(model, sample)
+  File "/home/rcduan/miniconda3/lib/python3.8/site-packages/torch/nn/modules/module.py", line 722, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/home/rcduan/fairseq/fairseq/fairseq/criterions/r3f_closer_dropout_all.py", line 98, in forward
+    if self.layer_choice == 'allone':
+  File "/home/rcduan/miniconda3/lib/python3.8/site-packages/torch/nn/modules/module.py", line 771, in __getattr__
+    raise ModuleAttributeError("'{}' object has no attribute '{}'".format(
+torch.nn.modules.module.ModuleAttributeError: 'R3fCloserDropoutAll' object has no attribute 'layer_choice'
+
+/home/rcduan/miniconda3/lib/python3.8/multiprocessing/resource_tracker.py:216: UserWarning: resource_tracker: There appear to be 3 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+nohup: ignoring input
+2020-12-07 16:08:35 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-07 16:08:37 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-07 16:08:38 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-07 16:08:38 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-07 16:08:38 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-07 16:08:40 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-07 16:08:40 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-07 16:08:40 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-07 16:08:41 | INFO | fairseq.distributed_utils | distributed init (rank 0): tcp://localhost:16347
+2020-12-07 16:08:41 | INFO | fairseq.distributed_utils | distributed init (rank 2): tcp://localhost:16347
+2020-12-07 16:08:41 | INFO | fairseq.distributed_utils | initialized host inspur129 as rank 2
+2020-12-07 16:08:41 | INFO | fairseq.distributed_utils | distributed init (rank 1): tcp://localhost:16347
+2020-12-07 16:08:41 | INFO | fairseq.distributed_utils | initialized host inspur129 as rank 1
+2020-12-07 16:08:41 | INFO | fairseq.distributed_utils | initialized host inspur129 as rank 0
+2020-12-07 16:08:44 | INFO | fairseq_cli.train | Namespace(activation_dropout=0.0, activation_fn='relu', adam_betas='(0.9, 0.98)', adam_eps=1e-08, adaptive_input=False, adaptive_softmax_cutoff=None, adaptive_softmax_dropout=0, all_gather_list_size=16384, arch='closer_dropout', attention_dropout=0.0, best_checkpoint_metric='bleu', bf16=False, bpe=None, broadcast_buffers=False, bucket_cap_mb=25, checkpoint_suffix='', clip_norm=0.0, cpu=False, criterion='r3f_closer_dropout_all', cross_self_attention=False, curriculum=0, data='./examples/_transformer_base/bash/../data-bin', data_buffer_size=10, dataset_impl=None, ddp_backend='c10d', decoder_attention_heads=8, decoder_embed_dim=512, decoder_embed_path=None, decoder_ffn_embed_dim=2048, decoder_input_dim=512, decoder_layerdrop=0, decoder_layers=6, decoder_layers_to_keep=None, decoder_learned_pos=False, decoder_normalize_before=False, decoder_output_dim=512, device_id=0, disable_validation=False, distributed_backend='nccl', distributed_init_method='tcp://localhost:16347', distributed_no_spawn=False, distributed_num_procs=3, distributed_port=-1, distributed_rank=0, distributed_world_size=3, distributed_wrapper='DDP', dropout=0.3, empty_cache_freq=0, encoder_attention_heads=8, encoder_embed_dim=512, encoder_embed_path=None, encoder_ffn_embed_dim=2048, encoder_layerdrop=0, encoder_layers=6, encoder_layers_to_keep=None, encoder_learned_pos=False, encoder_normalize_before=False, eps=1e-05, eval_bleu=True, eval_bleu_args='{"beam": 5, "max_len_a": 1.2, "max_len_b": 10}', eval_bleu_detok='space', eval_bleu_detok_args=None, eval_bleu_print_samples=False, eval_bleu_remove_bpe='@@ ', eval_tokenized_bleu=False, fast_stat_sync=False, find_unused_parameters=False, finetune_from_model=None, fix_batches_to_gpus=False, fixed_validation_seed=None, fp16=False, fp16_init_scale=128, fp16_no_flatten_grads=False, fp16_scale_tolerance=0.0, fp16_scale_window=None, keep_best_checkpoints=-1, keep_interval_updates=-1, keep_last_epochs=-1, label_smoothing=0.1, layer_choice='allone', layernorm_embedding=False, left_pad_source='True', left_pad_target='False', load_alignments=False, localsgd_frequency=3, log_format=None, log_interval=100, lr=[0.0005], lr_scheduler='inverse_sqrt', max_epoch=200, max_sentences=None, max_sentences_valid=None, max_source_positions=1024, max_target_positions=1024, max_tokens=3024, max_tokens_valid=3024, max_update=0, maximize_best_checkpoint_metric=True, memory_efficient_bf16=False, memory_efficient_fp16=False, min_loss_scale=0.0001, min_lr=1e-09, model_parallel_size=1, no_cross_attention=False, no_epoch_checkpoints=True, no_last_checkpoints=False, no_progress_bar=False, no_save=False, no_save_optimizer_state=False, no_scale_embedding=False, no_seed_provided=True, no_token_positional_embeddings=False, noise_type='normal', nprocs_per_node=3, num_batch_buckets=0, num_workers=1, optimizer='adam', optimizer_overrides='{}', patience=-1, pipeline_balance=None, pipeline_checkpoint='never', pipeline_chunks=None, pipeline_devices=None, pipeline_model_parallel=False, profile=False, quant_noise_pq=0, quant_noise_pq_block_size=8, quant_noise_scalar=0, quantization_config_path=None, r3f_lambda=0.05, required_batch_size_multiple=8, required_seq_len_multiple=1, reset_dataloader=False, reset_lr_scheduler=False, reset_meters=False, reset_optimizer=True, restore_file='checkpoint_last.pt', save_dir='./examples/_transformer_base/bash/../checkpoints/closer_one', save_interval=1, save_interval_updates=0, scoring='bleu', seed=1, sentence_avg=False, share_all_embeddings=False, share_decoder_input_output_embed=False, skip_invalid_size_inputs_valid_test=False, slowmo_algorithm='LocalSGD', slowmo_momentum=None, source_lang='ch', stop_time_hours=0, target_lang='en', task='translation', tensorboard_logdir='', threshold_loss_scale=None, tie_adaptive_weights=False, tokenizer=None, tpu=False, train_subset='train', truncate_source=False, update_freq=[1], upsample_primary=1, use_bmuf=False, use_old_adam=False, user_dir=None, valid_subset='valid', validate_after_updates=0, validate_interval=1, validate_interval_updates=0, warmup_init_lr=1e-07, warmup_updates=4000, weight_decay=0.0, zero_sharding='none')
+2020-12-07 16:08:44 | INFO | fairseq.tasks.translation | [ch] dictionary: 41952 types
+2020-12-07 16:08:44 | INFO | fairseq.tasks.translation | [en] dictionary: 31264 types
+2020-12-07 16:08:44 | INFO | fairseq.data.data_utils | loaded 1664 examples from: ./examples/_transformer_base/bash/../data-bin/valid.ch-en.ch
+2020-12-07 16:08:44 | INFO | fairseq.data.data_utils | loaded 1664 examples from: ./examples/_transformer_base/bash/../data-bin/valid.ch-en.en
+2020-12-07 16:08:44 | INFO | fairseq.tasks.translation | ./examples/_transformer_base/bash/../data-bin valid ch-en 1664 examples
+2020-12-07 16:08:47 | INFO | fairseq_cli.train | TransformerModel(
+  (encoder): TransformerEncoder(
+    (dropout_module): FairseqDropout()
+    (embed_tokens): Embedding(41952, 512, padding_idx=1)
+    (embed_positions): SinusoidalPositionalEmbedding()
+    (layers): ModuleList(
+      (0): TransformerEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (self_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (dropout_module): FairseqDropout()
+        (activation_dropout_module): FairseqDropout()
+        (fc1): Linear(in_features=512, out_features=2048, bias=True)
+        (fc2): Linear(in_features=2048, out_features=512, bias=True)
+        (final_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+      )
+      (1): TransformerEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (self_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (dropout_module): FairseqDropout()
+        (activation_dropout_module): FairseqDropout()
+        (fc1): Linear(in_features=512, out_features=2048, bias=True)
+        (fc2): Linear(in_features=2048, out_features=512, bias=True)
+        (final_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+      )
+      (2): TransformerEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (self_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (dropout_module): FairseqDropout()
+        (activation_dropout_module): FairseqDropout()
+        (fc1): Linear(in_features=512, out_features=2048, bias=True)
+        (fc2): Linear(in_features=2048, out_features=512, bias=True)
+        (final_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+      )
+      (3): TransformerEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (self_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (dropout_module): FairseqDropout()
+        (activation_dropout_module): FairseqDropout()
+        (fc1): Linear(in_features=512, out_features=2048, bias=True)
+        (fc2): Linear(in_features=2048, out_features=512, bias=True)
+        (final_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+      )
+      (4): TransformerEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (self_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (dropout_module): FairseqDropout()
+        (activation_dropout_module): FairseqDropout()
+        (fc1): Linear(in_features=512, out_features=2048, bias=True)
+        (fc2): Linear(in_features=2048, out_features=512, bias=True)
+        (final_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+      )
+      (5): TransformerEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (self_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (dropout_module): FairseqDropout()
+        (activation_dropout_module): FairseqDropout()
+        (fc1): Linear(in_features=512, out_features=2048, bias=True)
+        (fc2): Linear(in_features=2048, out_features=512, bias=True)
+        (final_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+      )
+    )
+  )
+  (decoder): TransformerDecoder(
+    (dropout_module): FairseqDropout()
+    (embed_tokens): Embedding(31264, 512, padding_idx=1)
+    (embed_positions): SinusoidalPositionalEmbedding()
+    (layers): ModuleList(
+      (0): TransformerDecoderLayer(
+        (dropout_module): FairseqDropout()
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (activation_dropout_module): FairseqDropout()
+        (self_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (encoder_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (encoder_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (fc1): Linear(in_features=512, out_features=2048, bias=True)
+        (fc2): Linear(in_features=2048, out_features=512, bias=True)
+        (final_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+      )
+      (1): TransformerDecoderLayer(
+        (dropout_module): FairseqDropout()
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (activation_dropout_module): FairseqDropout()
+        (self_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (encoder_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (encoder_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (fc1): Linear(in_features=512, out_features=2048, bias=True)
+        (fc2): Linear(in_features=2048, out_features=512, bias=True)
+        (final_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+      )
+      (2): TransformerDecoderLayer(
+        (dropout_module): FairseqDropout()
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (activation_dropout_module): FairseqDropout()
+        (self_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (encoder_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (encoder_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (fc1): Linear(in_features=512, out_features=2048, bias=True)
+        (fc2): Linear(in_features=2048, out_features=512, bias=True)
+        (final_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+      )
+      (3): TransformerDecoderLayer(
+        (dropout_module): FairseqDropout()
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (activation_dropout_module): FairseqDropout()
+        (self_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (encoder_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (encoder_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (fc1): Linear(in_features=512, out_features=2048, bias=True)
+        (fc2): Linear(in_features=2048, out_features=512, bias=True)
+        (final_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+      )
+      (4): TransformerDecoderLayer(
+        (dropout_module): FairseqDropout()
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (activation_dropout_module): FairseqDropout()
+        (self_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (encoder_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (encoder_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (fc1): Linear(in_features=512, out_features=2048, bias=True)
+        (fc2): Linear(in_features=2048, out_features=512, bias=True)
+        (final_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+      )
+      (5): TransformerDecoderLayer(
+        (dropout_module): FairseqDropout()
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (activation_dropout_module): FairseqDropout()
+        (self_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (encoder_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (encoder_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (fc1): Linear(in_features=512, out_features=2048, bias=True)
+        (fc2): Linear(in_features=2048, out_features=512, bias=True)
+        (final_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+      )
+    )
+    (output_projection): Linear(in_features=512, out_features=31264, bias=False)
+  )
+)
+2020-12-07 16:08:47 | INFO | fairseq_cli.train | task: translation (TranslationTask)
+2020-12-07 16:08:47 | INFO | fairseq_cli.train | model: closer_dropout (TransformerModel)
+2020-12-07 16:08:47 | INFO | fairseq_cli.train | criterion: r3f_closer_dropout_all (R3fCloserDropoutAll)
+2020-12-07 16:08:47 | INFO | fairseq_cli.train | num. model params: 97632256 (num. trained: 97632256)
+2020-12-07 16:08:47 | INFO | fairseq.utils | ***********************CUDA enviroments for all 3 workers***********************
+2020-12-07 16:08:47 | INFO | fairseq.utils | rank   0: capabilities =  6.1  ; total memory = 10.917 GB ; name = GeForce GTX 1080 Ti                     
+2020-12-07 16:08:47 | INFO | fairseq.utils | rank   1: capabilities =  6.1  ; total memory = 10.917 GB ; name = GeForce GTX 1080 Ti                     
+2020-12-07 16:08:47 | INFO | fairseq.utils | rank   2: capabilities =  6.1  ; total memory = 10.917 GB ; name = GeForce GTX 1080 Ti                     
+2020-12-07 16:08:47 | INFO | fairseq.utils | ***********************CUDA enviroments for all 3 workers***********************
+2020-12-07 16:08:47 | INFO | fairseq_cli.train | training on 3 devices (GPUs/TPUs)
+2020-12-07 16:08:47 | INFO | fairseq_cli.train | max tokens per GPU = 3024 and max sentences per GPU = None
+2020-12-07 16:08:48 | INFO | fairseq.trainer | loaded checkpoint ./examples/_transformer_base/bash/../checkpoints/closer_one/checkpoint_last.pt (epoch 80 @ 0 updates)
+2020-12-07 16:08:49 | INFO | fairseq.optim.adam | using FusedAdam
+2020-12-07 16:08:49 | INFO | fairseq.trainer | loading train data for epoch 80
+2020-12-07 16:08:49 | INFO | fairseq.data.data_utils | loaded 1252977 examples from: ./examples/_transformer_base/bash/../data-bin/train.ch-en.ch
+2020-12-07 16:08:49 | INFO | fairseq.data.data_utils | loaded 1252977 examples from: ./examples/_transformer_base/bash/../data-bin/train.ch-en.en
+2020-12-07 16:08:49 | INFO | fairseq.tasks.translation | ./examples/_transformer_base/bash/../data-bin train ch-en 1252977 examples
+2020-12-07 16:08:55 | INFO | fairseq.trainer | begin training epoch 80
+2020-12-07 16:09:00 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-07 16:09:00 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-07 16:09:00 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-07 16:09:02 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-07 16:09:02 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-07 16:09:02 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-07 16:09:59 | INFO | train_inner | epoch 080:   2661 / 4329 loss=4.775, nll_loss=1.692, symm_mse=38.28, ppl=3.23, wps=20686.3, ups=1.97, wpb=10495.1, bsz=369.2, num_updates=100, lr=1.25975e-05, gnorm=3.531, loss_scale=16, train_wall=63, wall=0
+2020-12-07 16:10:55 | INFO | train_inner | epoch 080:   2761 / 4329 loss=5.465, nll_loss=2.175, symm_mse=24.508, ppl=4.52, wps=15074.8, ups=1.79, wpb=8404.6, bsz=286.7, num_updates=200, lr=2.5095e-05, gnorm=2.25, loss_scale=None, train_wall=56, wall=0
+2020-12-07 16:11:52 | INFO | train_inner | epoch 080:   2861 / 4329 loss=5.32, nll_loss=2.342, symm_mse=20.66, ppl=5.07, wps=14762.7, ups=1.76, wpb=8379.5, bsz=279.9, num_updates=300, lr=3.75925e-05, gnorm=1.839, loss_scale=None, train_wall=57, wall=0
+2020-12-07 16:12:49 | INFO | train_inner | epoch 080:   2961 / 4329 loss=5.083, nll_loss=2.29, symm_mse=17.85, ppl=4.89, wps=14623.7, ups=1.74, wpb=8383.6, bsz=303.8, num_updates=400, lr=5.009e-05, gnorm=1.545, loss_scale=None, train_wall=57, wall=0
+2020-12-07 16:13:47 | INFO | train_inner | epoch 080:   3061 / 4329 loss=5.024, nll_loss=2.296, symm_mse=16.882, ppl=4.91, wps=14742.4, ups=1.74, wpb=8457.6, bsz=287.3, num_updates=500, lr=6.25875e-05, gnorm=1.403, loss_scale=None, train_wall=57, wall=0
+2020-12-07 16:14:44 | INFO | train_inner | epoch 080:   3161 / 4329 loss=4.993, nll_loss=2.34, symm_mse=15.856, ppl=5.06, wps=14581.8, ups=1.73, wpb=8419.3, bsz=298.7, num_updates=600, lr=7.5085e-05, gnorm=1.381, loss_scale=None, train_wall=58, wall=0
+2020-12-07 16:15:42 | INFO | train_inner | epoch 080:   3261 / 4329 loss=4.918, nll_loss=2.314, symm_mse=15.05, ppl=4.97, wps=14637.7, ups=1.74, wpb=8435.7, bsz=302.4, num_updates=700, lr=8.75825e-05, gnorm=1.328, loss_scale=None, train_wall=57, wall=0
+2020-12-07 16:16:39 | INFO | train_inner | epoch 080:   3361 / 4329 loss=4.948, nll_loss=2.367, symm_mse=14.829, ppl=5.16, wps=14623.2, ups=1.74, wpb=8384.6, bsz=286.6, num_updates=800, lr=0.00010008, gnorm=1.322, loss_scale=None, train_wall=57, wall=0
+2020-12-07 16:17:37 | INFO | train_inner | epoch 080:   3461 / 4329 loss=4.975, nll_loss=2.424, symm_mse=14.495, ppl=5.37, wps=14595.6, ups=1.75, wpb=8350.4, bsz=270.9, num_updates=900, lr=0.000112578, gnorm=1.336, loss_scale=None, train_wall=57, wall=0
+2020-12-07 16:18:34 | INFO | train_inner | epoch 080:   3561 / 4329 loss=4.963, nll_loss=2.441, symm_mse=14.088, ppl=5.43, wps=14470.3, ups=1.75, wpb=8283.5, bsz=266.4, num_updates=1000, lr=0.000125075, gnorm=1.327, loss_scale=None, train_wall=57, wall=0
+2020-12-07 16:19:31 | INFO | train_inner | epoch 080:   3661 / 4329 loss=4.824, nll_loss=2.351, symm_mse=13.155, ppl=5.1, wps=14740.3, ups=1.75, wpb=8418.4, bsz=293.9, num_updates=1100, lr=0.000137573, gnorm=1.246, loss_scale=None, train_wall=57, wall=0
+2020-12-07 16:20:28 | INFO | train_inner | epoch 080:   3761 / 4329 loss=4.803, nll_loss=2.362, symm_mse=12.672, ppl=5.14, wps=14582.2, ups=1.74, wpb=8364.5, bsz=305.6, num_updates=1200, lr=0.00015007, gnorm=1.233, loss_scale=None, train_wall=57, wall=0
+2020-12-07 16:21:26 | INFO | train_inner | epoch 080:   3861 / 4329 loss=4.799, nll_loss=2.366, symm_mse=12.567, ppl=5.16, wps=14626.4, ups=1.74, wpb=8395.5, bsz=280.2, num_updates=1300, lr=0.000162568, gnorm=1.204, loss_scale=None, train_wall=57, wall=0
+2020-12-07 16:22:23 | INFO | train_inner | epoch 080:   3961 / 4329 loss=4.793, nll_loss=2.382, symm_mse=12.276, ppl=5.21, wps=14668.7, ups=1.75, wpb=8394.2, bsz=301.6, num_updates=1400, lr=0.000175065, gnorm=1.268, loss_scale=None, train_wall=57, wall=0
+2020-12-07 16:23:21 | INFO | train_inner | epoch 080:   4061 / 4329 loss=4.787, nll_loss=2.385, symm_mse=12.142, ppl=5.22, wps=14514.7, ups=1.73, wpb=8379.6, bsz=286.1, num_updates=1500, lr=0.000187563, gnorm=1.239, loss_scale=None, train_wall=58, wall=0
+2020-12-07 16:24:20 | INFO | train_inner | epoch 080:   4161 / 4329 loss=4.802, nll_loss=2.408, symm_mse=12.051, ppl=5.31, wps=14338.9, ups=1.7, wpb=8440.2, bsz=282.3, num_updates=1600, lr=0.00020006, gnorm=1.261, loss_scale=None, train_wall=59, wall=0
+2020-12-07 16:25:18 | INFO | train_inner | epoch 080:   4261 / 4329 loss=4.757, nll_loss=2.399, symm_mse=11.462, ppl=5.28, wps=14398.3, ups=1.71, wpb=8441.6, bsz=299.8, num_updates=1700, lr=0.000212558, gnorm=1.187, loss_scale=None, train_wall=58, wall=0
+2020-12-07 16:25:57 | INFO | fairseq_cli.train | begin validation on "valid" subset
+2020-12-07 16:25:58 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-07 16:25:58 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-07 16:25:58 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-07 16:26:00 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-07 16:26:00 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-07 16:26:00 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-07 16:26:17 | INFO | valid | epoch 080 | valid on 'valid' subset | symm_mse 0 | loss 8.646 | nll_loss 7.694 | ppl 207.12 | bleu 15.47 | wps 3797 | wpb 4531.6 | bsz 118.9 | num_updates 1768
+2020-12-07 16:26:17 | INFO | fairseq_cli.train | begin save checkpoint
+2020-12-07 16:26:23 | INFO | fairseq.checkpoint_utils | saved checkpoint ./examples/_transformer_base/bash/../checkpoints/closer_one/checkpoint_best.pt (epoch 80 @ 1768 updates, score 15.47) (writing took 6.0786698162555695 seconds)
+2020-12-07 16:26:23 | INFO | fairseq_cli.train | end of epoch 80 (average epoch stats below)
+2020-12-07 16:26:23 | INFO | train | epoch 080 | loss 5.015 | nll_loss 2.32 | symm_mse 16.212 | ppl 4.99 | wps 14047.6 | ups 1.67 | wpb 8389.3 | bsz 289.7 | num_updates 1768 | lr 0.000221056 | gnorm 1.604 | loss_scale None | train_wall 1010 | wall 0
+2020-12-07 16:26:27 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-07 16:26:27 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-07 16:26:28 | INFO | fairseq.trainer | begin training epoch 81
+2020-12-07 16:26:28 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-07 16:26:28 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-07 16:26:33 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-07 16:26:34 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-07 16:26:53 | INFO | train_inner | epoch 081:     32 / 4329 loss=4.793, nll_loss=2.436, symm_mse=11.547, ppl=5.41, wps=8782.5, ups=1.05, wpb=8358.4, bsz=286.6, num_updates=1800, lr=0.000225055, gnorm=1.258, loss_scale=None, train_wall=56, wall=0
+2020-12-07 16:27:52 | INFO | train_inner | epoch 081:    132 / 4329 loss=4.803, nll_loss=2.446, symm_mse=11.554, ppl=5.45, wps=14135.8, ups=1.7, wpb=8333.3, bsz=288.3, num_updates=1900, lr=0.000237553, gnorm=1.263, loss_scale=None, train_wall=59, wall=0
+2020-12-07 16:28:50 | INFO | train_inner | epoch 081:    232 / 4329 loss=4.757, nll_loss=2.429, symm_mse=11.078, ppl=5.38, wps=14512.5, ups=1.73, wpb=8368.7, bsz=298.5, num_updates=2000, lr=0.00025005, gnorm=1.192, loss_scale=None, train_wall=57, wall=0
+2020-12-07 16:29:48 | INFO | train_inner | epoch 081:    332 / 4329 loss=4.706, nll_loss=2.396, symm_mse=10.731, ppl=5.26, wps=14533.9, ups=1.72, wpb=8432.1, bsz=314.9, num_updates=2100, lr=0.000262548, gnorm=1.156, loss_scale=None, train_wall=58, wall=0
+2020-12-07 16:30:46 | INFO | train_inner | epoch 081:    432 / 4329 loss=4.767, nll_loss=2.456, symm_mse=10.857, ppl=5.49, wps=14570.1, ups=1.73, wpb=8427.6, bsz=301.8, num_updates=2200, lr=0.000275045, gnorm=1.18, loss_scale=None, train_wall=58, wall=0
+2020-12-07 16:31:45 | INFO | train_inner | epoch 081:    532 / 4329 loss=4.77, nll_loss=2.462, symm_mse=10.82, ppl=5.51, wps=14078.3, ups=1.68, wpb=8381.5, bsz=287.1, num_updates=2300, lr=0.000287543, gnorm=1.178, loss_scale=None, train_wall=59, wall=0
+2020-12-07 16:32:43 | INFO | train_inner | epoch 081:    632 / 4329 loss=4.812, nll_loss=2.514, symm_mse=10.758, ppl=5.71, wps=14497.3, ups=1.73, wpb=8377.8, bsz=283.5, num_updates=2400, lr=0.00030004, gnorm=1.176, loss_scale=None, train_wall=58, wall=0
+2020-12-07 16:33:41 | INFO | train_inner | epoch 081:    732 / 4329 loss=4.767, nll_loss=2.495, symm_mse=10.329, ppl=5.64, wps=14550.9, ups=1.73, wpb=8393.7, bsz=299.2, num_updates=2500, lr=0.000312538, gnorm=1.142, loss_scale=None, train_wall=57, wall=0
+2020-12-07 16:34:39 | INFO | train_inner | epoch 081:    832 / 4329 loss=4.81, nll_loss=2.517, symm_mse=10.682, ppl=5.72, wps=14407.2, ups=1.73, wpb=8332.5, bsz=268.9, num_updates=2600, lr=0.000325035, gnorm=1.215, loss_scale=None, train_wall=58, wall=0
+2020-12-07 16:35:37 | INFO | train_inner | epoch 081:    932 / 4329 loss=4.797, nll_loss=2.528, symm_mse=10.34, ppl=5.77, wps=14494.3, ups=1.72, wpb=8405.3, bsz=284.6, num_updates=2700, lr=0.000337533, gnorm=1.155, loss_scale=None, train_wall=58, wall=0
+2020-12-07 16:36:34 | INFO | train_inner | epoch 081:   1032 / 4329 loss=4.79, nll_loss=2.537, symm_mse=10.101, ppl=5.8, wps=14561.5, ups=1.74, wpb=8392.7, bsz=314.2, num_updates=2800, lr=0.00035003, gnorm=1.193, loss_scale=None, train_wall=57, wall=0
+2020-12-07 16:37:32 | INFO | train_inner | epoch 081:   1132 / 4329 loss=4.833, nll_loss=2.58, symm_mse=10.191, ppl=5.98, wps=14373.6, ups=1.73, wpb=8292.9, bsz=285.7, num_updates=2900, lr=0.000362528, gnorm=1.226, loss_scale=None, train_wall=58, wall=0
+2020-12-07 16:38:30 | INFO | train_inner | epoch 081:   1232 / 4329 loss=4.798, nll_loss=2.557, symm_mse=9.938, ppl=5.89, wps=14412.6, ups=1.73, wpb=8343.2, bsz=300.1, num_updates=3000, lr=0.000375025, gnorm=1.183, loss_scale=None, train_wall=58, wall=0
+2020-12-07 16:39:28 | INFO | train_inner | epoch 081:   1332 / 4329 loss=4.809, nll_loss=2.563, symm_mse=10.037, ppl=5.91, wps=14529.8, ups=1.73, wpb=8403.5, bsz=286.1, num_updates=3100, lr=0.000387523, gnorm=1.153, loss_scale=None, train_wall=58, wall=0
+2020-12-07 16:40:26 | INFO | train_inner | epoch 081:   1432 / 4329 loss=4.805, nll_loss=2.569, symm_mse=9.88, ppl=5.93, wps=14522.3, ups=1.72, wpb=8435.3, bsz=301.6, num_updates=3200, lr=0.00040002, gnorm=1.216, loss_scale=None, train_wall=58, wall=0
+2020-12-07 16:41:24 | INFO | train_inner | epoch 081:   1532 / 4329 loss=4.838, nll_loss=2.606, symm_mse=9.893, ppl=6.09, wps=14420.5, ups=1.72, wpb=8380.3, bsz=286.9, num_updates=3300, lr=0.000412518, gnorm=1.171, loss_scale=None, train_wall=58, wall=0
+2020-12-07 16:42:22 | INFO | train_inner | epoch 081:   1632 / 4329 loss=4.928, nll_loss=2.699, symm_mse=10.021, ppl=6.49, wps=14352.3, ups=1.72, wpb=8330.6, bsz=274.4, num_updates=3400, lr=0.000425015, gnorm=1.223, loss_scale=None, train_wall=58, wall=0
+2020-12-07 16:43:21 | INFO | train_inner | epoch 081:   1732 / 4329 loss=4.81, nll_loss=2.605, symm_mse=9.446, ppl=6.08, wps=14261.1, ups=1.7, wpb=8382, bsz=300.2, num_updates=3500, lr=0.000437513, gnorm=1.132, loss_scale=None, train_wall=59, wall=0
+2020-12-07 16:44:20 | INFO | train_inner | epoch 081:   1832 / 4329 loss=4.873, nll_loss=2.657, symm_mse=9.714, ppl=6.31, wps=14103.1, ups=1.68, wpb=8405.3, bsz=274.2, num_updates=3600, lr=0.00045001, gnorm=1.178, loss_scale=None, train_wall=59, wall=0
+2020-12-07 16:45:18 | INFO | train_inner | epoch 081:   1932 / 4329 loss=4.814, nll_loss=2.621, symm_mse=9.286, ppl=6.15, wps=14532.3, ups=1.73, wpb=8399.6, bsz=316.6, num_updates=3700, lr=0.000462508, gnorm=1.158, loss_scale=None, train_wall=58, wall=0
+2020-12-07 16:46:16 | INFO | train_inner | epoch 081:   2032 / 4329 loss=4.897, nll_loss=2.689, symm_mse=9.645, ppl=6.45, wps=14468.1, ups=1.74, wpb=8337.9, bsz=284.1, num_updates=3800, lr=0.000475005, gnorm=1.149, loss_scale=None, train_wall=57, wall=0
+2020-12-07 16:47:15 | INFO | train_inner | epoch 081:   2132 / 4329 loss=4.879, nll_loss=2.677, symm_mse=9.54, ppl=6.4, wps=14262.6, ups=1.7, wpb=8393.8, bsz=292.9, num_updates=3900, lr=0.000487503, gnorm=1.148, loss_scale=None, train_wall=59, wall=0
+2020-12-07 16:48:13 | INFO | train_inner | epoch 081:   2232 / 4329 loss=4.914, nll_loss=2.718, symm_mse=9.518, ppl=6.58, wps=14252.5, ups=1.71, wpb=8353.5, bsz=278, num_updates=4000, lr=0.0005, gnorm=1.158, loss_scale=None, train_wall=58, wall=0
+2020-12-07 16:49:11 | INFO | train_inner | epoch 081:   2332 / 4329 loss=4.918, nll_loss=2.725, symm_mse=9.475, ppl=6.61, wps=14379.7, ups=1.73, wpb=8312.9, bsz=268.6, num_updates=4100, lr=0.000493865, gnorm=1.169, loss_scale=None, train_wall=58, wall=0
+2020-12-07 16:50:11 | INFO | train_inner | epoch 081:   2432 / 4329 loss=4.859, nll_loss=2.681, symm_mse=9.159, ppl=6.41, wps=14039.8, ups=1.68, wpb=8365.7, bsz=313.7, num_updates=4200, lr=0.00048795, gnorm=1.13, loss_scale=None, train_wall=59, wall=0
+2020-12-07 16:51:09 | INFO | train_inner | epoch 081:   2532 / 4329 loss=4.867, nll_loss=2.692, symm_mse=9.11, ppl=6.46, wps=14359.2, ups=1.72, wpb=8354.1, bsz=305.4, num_updates=4300, lr=0.000482243, gnorm=1.183, loss_scale=None, train_wall=58, wall=0
+2020-12-07 16:52:07 | INFO | train_inner | epoch 081:   2632 / 4329 loss=4.857, nll_loss=2.681, symm_mse=9.125, ppl=6.41, wps=14380.1, ups=1.72, wpb=8354.4, bsz=282.9, num_updates=4400, lr=0.000476731, gnorm=1.113, loss_scale=None, train_wall=58, wall=0
+2020-12-07 16:53:06 | INFO | train_inner | epoch 081:   2732 / 4329 loss=4.885, nll_loss=2.701, symm_mse=9.296, ppl=6.5, wps=14309.5, ups=1.69, wpb=8443.7, bsz=271.6, num_updates=4500, lr=0.000471405, gnorm=1.141, loss_scale=None, train_wall=59, wall=0
+2020-12-07 16:54:05 | INFO | train_inner | epoch 081:   2832 / 4329 loss=4.921, nll_loss=2.75, symm_mse=9.185, ppl=6.73, wps=14202.2, ups=1.69, wpb=8394.2, bsz=284.7, num_updates=4600, lr=0.000466252, gnorm=1.175, loss_scale=None, train_wall=59, wall=0
+2020-12-07 16:55:03 | INFO | train_inner | epoch 081:   2932 / 4329 loss=4.835, nll_loss=2.67, symm_mse=8.938, ppl=6.37, wps=14460.4, ups=1.72, wpb=8407, bsz=279.5, num_updates=4700, lr=0.000461266, gnorm=1.105, loss_scale=None, train_wall=58, wall=0
+2020-12-07 16:56:01 | INFO | train_inner | epoch 081:   3032 / 4329 loss=4.841, nll_loss=2.673, symm_mse=8.987, ppl=6.38, wps=14494.2, ups=1.73, wpb=8391.5, bsz=288.6, num_updates=4800, lr=0.000456435, gnorm=1.119, loss_scale=None, train_wall=58, wall=0
+2020-12-07 16:57:00 | INFO | train_inner | epoch 081:   3132 / 4329 loss=4.848, nll_loss=2.687, symm_mse=8.918, ppl=6.44, wps=14329.8, ups=1.71, wpb=8391.1, bsz=290, num_updates=4900, lr=0.000451754, gnorm=1.096, loss_scale=None, train_wall=58, wall=0
+2020-12-07 16:57:58 | INFO | train_inner | epoch 081:   3232 / 4329 loss=4.885, nll_loss=2.728, symm_mse=8.94, ppl=6.63, wps=14121.1, ups=1.71, wpb=8280.9, bsz=270.7, num_updates=5000, lr=0.000447214, gnorm=1.111, loss_scale=None, train_wall=58, wall=0
+2020-12-07 16:58:57 | INFO | train_inner | epoch 081:   3332 / 4329 loss=4.817, nll_loss=2.667, symm_mse=8.704, ppl=6.35, wps=14275.2, ups=1.71, wpb=8350.7, bsz=292.2, num_updates=5100, lr=0.000442807, gnorm=1.129, loss_scale=None, train_wall=58, wall=0
+2020-12-07 16:59:55 | INFO | train_inner | epoch 081:   3432 / 4329 loss=4.796, nll_loss=2.651, symm_mse=8.605, ppl=6.28, wps=14518.7, ups=1.72, wpb=8445.9, bsz=295, num_updates=5200, lr=0.000438529, gnorm=1.085, loss_scale=None, train_wall=58, wall=0
+2020-12-07 17:00:53 | INFO | train_inner | epoch 081:   3532 / 4329 loss=4.792, nll_loss=2.654, symm_mse=8.501, ppl=6.3, wps=14590.8, ups=1.74, wpb=8408.2, bsz=291.9, num_updates=5300, lr=0.000434372, gnorm=1.073, loss_scale=None, train_wall=57, wall=0
+2020-12-07 17:01:50 | INFO | train_inner | epoch 081:   3632 / 4329 loss=4.803, nll_loss=2.65, symm_mse=8.716, ppl=6.28, wps=14485.9, ups=1.73, wpb=8377, bsz=260.6, num_updates=5400, lr=0.000430331, gnorm=1.045, loss_scale=None, train_wall=58, wall=0
+2020-12-07 17:02:48 | INFO | train_inner | epoch 081:   3732 / 4329 loss=4.796, nll_loss=2.656, symm_mse=8.542, ppl=6.3, wps=14499.3, ups=1.73, wpb=8384.2, bsz=297.5, num_updates=5500, lr=0.000426401, gnorm=1.081, loss_scale=None, train_wall=58, wall=0
+2020-12-07 17:03:46 | INFO | train_inner | epoch 081:   3832 / 4329 loss=4.816, nll_loss=2.687, symm_mse=8.425, ppl=6.44, wps=14460.3, ups=1.73, wpb=8368.1, bsz=284.6, num_updates=5600, lr=0.000422577, gnorm=1.064, loss_scale=None, train_wall=58, wall=0
+2020-12-07 17:04:44 | INFO | train_inner | epoch 081:   3932 / 4329 loss=4.791, nll_loss=2.66, symm_mse=8.411, ppl=6.32, wps=14456.7, ups=1.71, wpb=8431, bsz=281.8, num_updates=5700, lr=0.000418854, gnorm=1.049, loss_scale=None, train_wall=58, wall=0
+2020-12-07 17:05:42 | INFO | train_inner | epoch 081:   4032 / 4329 loss=4.806, nll_loss=2.676, symm_mse=8.42, ppl=6.39, wps=14438.4, ups=1.73, wpb=8352.8, bsz=297.6, num_updates=5800, lr=0.000415227, gnorm=1.093, loss_scale=None, train_wall=58, wall=0
+2020-12-07 17:06:41 | INFO | train_inner | epoch 081:   4132 / 4329 loss=4.8, nll_loss=2.67, symm_mse=8.417, ppl=6.37, wps=14304.6, ups=1.71, wpb=8361.5, bsz=281, num_updates=5900, lr=0.000411693, gnorm=1.059, loss_scale=None, train_wall=58, wall=0
+2020-12-07 17:07:38 | INFO | train_inner | epoch 081:   4232 / 4329 loss=4.799, nll_loss=2.671, symm_mse=8.382, ppl=6.37, wps=14430.9, ups=1.73, wpb=8324.6, bsz=297.6, num_updates=6000, lr=0.000408248, gnorm=1.105, loss_scale=None, train_wall=57, wall=0
+2020-12-07 17:08:35 | INFO | fairseq_cli.train | begin validation on "valid" subset
+2020-12-07 17:08:36 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-07 17:08:36 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-07 17:08:36 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-07 17:08:38 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-07 17:08:38 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-07 17:08:38 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-07 17:09:00 | INFO | valid | epoch 081 | valid on 'valid' subset | symm_mse 0 | loss 8.627 | nll_loss 7.66 | ppl 202.28 | bleu 14.36 | wps 2986.3 | wpb 4531.6 | bsz 118.9 | num_updates 6097 | best_bleu 15.47
+2020-12-07 17:09:00 | INFO | fairseq_cli.train | begin save checkpoint
+2020-12-07 17:09:05 | INFO | fairseq.checkpoint_utils | saved checkpoint ./examples/_transformer_base/bash/../checkpoints/closer_one/checkpoint_last.pt (epoch 81 @ 6097 updates, score 14.36) (writing took 4.926926642656326 seconds)
+2020-12-07 17:09:05 | INFO | fairseq_cli.train | end of epoch 81 (average epoch stats below)
+2020-12-07 17:09:05 | INFO | train | epoch 081 | loss 4.824 | nll_loss 2.616 | symm_mse 9.518 | ppl 6.13 | wps 14151.5 | ups 1.69 | wpb 8375.1 | bsz 289.4 | num_updates 6097 | lr 0.000404988 | gnorm 1.144 | loss_scale None | train_wall 2510 | wall 0
+2020-12-07 17:09:10 | INFO | fairseq.trainer | begin training epoch 82
+2020-12-07 17:09:10 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-07 17:09:10 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-07 17:09:12 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-07 17:09:12 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-07 17:09:14 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-07 17:09:16 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-07 17:09:19 | INFO | train_inner | epoch 082:      3 / 4329 loss=4.713, nll_loss=2.605, symm_mse=7.945, ppl=6.09, wps=8243.5, ups=0.99, wpb=8289.1, bsz=292.6, num_updates=6100, lr=0.000404888, gnorm=1.121, loss_scale=None, train_wall=58, wall=0
+2020-12-07 17:10:15 | INFO | train_inner | epoch 082:    103 / 4329 loss=4.705, nll_loss=2.566, symm_mse=8.327, ppl=5.92, wps=14852.7, ups=1.77, wpb=8376.8, bsz=282, num_updates=6200, lr=0.00040161, gnorm=1.067, loss_scale=None, train_wall=56, wall=0
+2020-12-07 17:11:13 | INFO | train_inner | epoch 082:    203 / 4329 loss=4.708, nll_loss=2.574, symm_mse=8.28, ppl=5.96, wps=14463.6, ups=1.73, wpb=8351.2, bsz=294.1, num_updates=6300, lr=0.00039841, gnorm=1.074, loss_scale=None, train_wall=58, wall=0
+2020-12-07 17:12:10 | INFO | train_inner | epoch 082:    303 / 4329 loss=4.645, nll_loss=2.529, symm_mse=7.911, ppl=5.77, wps=14514.1, ups=1.74, wpb=8328.9, bsz=315.9, num_updates=6400, lr=0.000395285, gnorm=1.068, loss_scale=None, train_wall=57, wall=0
+2020-12-07 17:13:09 | INFO | train_inner | epoch 082:    403 / 4329 loss=4.691, nll_loss=2.562, symm_mse=8.178, ppl=5.9, wps=14390.7, ups=1.71, wpb=8404.1, bsz=281.3, num_updates=6500, lr=0.000392232, gnorm=1.019, loss_scale=None, train_wall=58, wall=0
+2020-12-07 17:14:07 | INFO | train_inner | epoch 082:    503 / 4329 loss=4.693, nll_loss=2.568, symm_mse=8.124, ppl=5.93, wps=14329.2, ups=1.72, wpb=8353.7, bsz=285.8, num_updates=6600, lr=0.000389249, gnorm=1.077, loss_scale=None, train_wall=58, wall=0
+2020-12-07 17:15:05 | INFO | train_inner | epoch 082:    603 / 4329 loss=4.71, nll_loss=2.585, symm_mse=8.154, ppl=6, wps=14429.1, ups=1.72, wpb=8375.5, bsz=279.1, num_updates=6700, lr=0.000386334, gnorm=1.019, loss_scale=None, train_wall=58, wall=0
+2020-12-07 17:16:04 | INFO | train_inner | epoch 082:    703 / 4329 loss=4.672, nll_loss=2.554, symm_mse=8.003, ppl=5.87, wps=14304.6, ups=1.71, wpb=8367.2, bsz=300.3, num_updates=6800, lr=0.000383482, gnorm=1.054, loss_scale=None, train_wall=58, wall=0
+2020-12-07 17:17:02 | INFO | train_inner | epoch 082:    803 / 4329 loss=4.655, nll_loss=2.534, symm_mse=8.006, ppl=5.79, wps=14483.2, ups=1.72, wpb=8399.4, bsz=296.5, num_updates=6900, lr=0.000380693, gnorm=1.087, loss_scale=None, train_wall=58, wall=0
+2020-12-07 17:18:00 | INFO | train_inner | epoch 082:    903 / 4329 loss=4.707, nll_loss=2.587, symm_mse=8.096, ppl=6.01, wps=14280.6, ups=1.71, wpb=8358.6, bsz=281.3, num_updates=7000, lr=0.000377964, gnorm=1.028, loss_scale=None, train_wall=58, wall=0
+2020-12-07 17:18:58 | INFO | train_inner | epoch 082:   1003 / 4329 loss=4.71, nll_loss=2.577, symm_mse=8.282, ppl=5.97, wps=14496.3, ups=1.73, wpb=8382.8, bsz=286.9, num_updates=7100, lr=0.000375293, gnorm=1.081, loss_scale=None, train_wall=58, wall=0
+2020-12-07 17:19:56 | INFO | train_inner | epoch 082:   1103 / 4329 loss=4.687, nll_loss=2.574, symm_mse=7.955, ppl=5.95, wps=14534, ups=1.74, wpb=8357.5, bsz=281.5, num_updates=7200, lr=0.000372678, gnorm=1.02, loss_scale=None, train_wall=57, wall=0
+2020-12-07 17:20:54 | INFO | train_inner | epoch 082:   1203 / 4329 loss=4.693, nll_loss=2.582, symm_mse=7.959, ppl=5.99, wps=14489.5, ups=1.72, wpb=8419.8, bsz=287.5, num_updates=7300, lr=0.000370117, gnorm=1.018, loss_scale=None, train_wall=58, wall=0
+2020-12-07 17:21:52 | INFO | train_inner | epoch 082:   1303 / 4329 loss=4.639, nll_loss=2.519, symm_mse=7.989, ppl=5.73, wps=14437.1, ups=1.72, wpb=8373.4, bsz=291.8, num_updates=7400, lr=0.000367607, gnorm=1.022, loss_scale=None, train_wall=58, wall=0
+2020-12-07 17:22:49 | INFO | train_inner | epoch 082:   1403 / 4329 loss=4.658, nll_loss=2.543, symm_mse=7.951, ppl=5.83, wps=14547.6, ups=1.73, wpb=8391.8, bsz=288.1, num_updates=7500, lr=0.000365148, gnorm=1.082, loss_scale=None, train_wall=57, wall=0
+2020-12-07 17:23:48 | INFO | train_inner | epoch 082:   1503 / 4329 loss=4.69, nll_loss=2.575, symm_mse=7.999, ppl=5.96, wps=14460.3, ups=1.72, wpb=8419.1, bsz=283.3, num_updates=7600, lr=0.000362738, gnorm=1.071, loss_scale=None, train_wall=58, wall=0
+2020-12-07 17:24:46 | INFO | train_inner | epoch 082:   1603 / 4329 loss=4.706, nll_loss=2.594, symm_mse=7.992, ppl=6.04, wps=14220.2, ups=1.7, wpb=8340.4, bsz=287.5, num_updates=7700, lr=0.000360375, gnorm=1.061, loss_scale=None, train_wall=58, wall=0
+2020-12-07 17:25:45 | INFO | train_inner | epoch 082:   1703 / 4329 loss=4.594, nll_loss=2.497, symm_mse=7.577, ppl=5.65, wps=14279.4, ups=1.69, wpb=8454.7, bsz=320.4, num_updates=7800, lr=0.000358057, gnorm=0.994, loss_scale=None, train_wall=59, wall=0
+2020-12-07 17:26:43 | INFO | train_inner | epoch 082:   1803 / 4329 loss=4.652, nll_loss=2.544, symm_mse=7.847, ppl=5.83, wps=14440.7, ups=1.73, wpb=8364.9, bsz=293.5, num_updates=7900, lr=0.000355784, gnorm=1.071, loss_scale=None, train_wall=58, wall=0
+2020-12-07 17:27:41 | INFO | train_inner | epoch 082:   1903 / 4329 loss=4.708, nll_loss=2.586, symm_mse=8.135, ppl=6, wps=14439.4, ups=1.73, wpb=8368.5, bsz=261.3, num_updates=8000, lr=0.000353553, gnorm=1.03, loss_scale=None, train_wall=58, wall=0
+2020-12-07 17:28:40 | INFO | train_inner | epoch 082:   2003 / 4329 loss=4.608, nll_loss=2.507, symm_mse=7.658, ppl=5.69, wps=14380.3, ups=1.71, wpb=8391.3, bsz=305.9, num_updates=8100, lr=0.000351364, gnorm=0.976, loss_scale=None, train_wall=58, wall=0
+2020-12-07 17:29:38 | INFO | train_inner | epoch 082:   2103 / 4329 loss=4.701, nll_loss=2.592, symm_mse=7.94, ppl=6.03, wps=14386.4, ups=1.73, wpb=8335.1, bsz=283, num_updates=8200, lr=0.000349215, gnorm=1.067, loss_scale=None, train_wall=58, wall=0
+2020-12-07 17:30:35 | INFO | train_inner | epoch 082:   2203 / 4329 loss=4.739, nll_loss=2.621, symm_mse=8.156, ppl=6.15, wps=14337, ups=1.73, wpb=8288, bsz=277.4, num_updates=8300, lr=0.000347105, gnorm=1.126, loss_scale=None, train_wall=58, wall=0
+2020-12-07 17:31:33 | INFO | train_inner | epoch 082:   2303 / 4329 loss=4.657, nll_loss=2.561, symm_mse=7.68, ppl=5.9, wps=14605.1, ups=1.74, wpb=8378.5, bsz=285.9, num_updates=8400, lr=0.000345033, gnorm=0.969, loss_scale=None, train_wall=57, wall=0
+2020-12-07 17:32:31 | INFO | train_inner | epoch 082:   2403 / 4329 loss=4.68, nll_loss=2.574, symm_mse=7.869, ppl=5.96, wps=14382.8, ups=1.72, wpb=8376.3, bsz=291, num_updates=8500, lr=0.000342997, gnorm=1.017, loss_scale=None, train_wall=58, wall=0
+2020-12-07 17:33:29 | INFO | train_inner | epoch 082:   2503 / 4329 loss=4.651, nll_loss=2.549, symm_mse=7.756, ppl=5.85, wps=14467, ups=1.73, wpb=8374.3, bsz=289.6, num_updates=8600, lr=0.000340997, gnorm=1.048, loss_scale=None, train_wall=58, wall=0
+2020-12-07 17:34:26 | INFO | train_inner | epoch 082:   2603 / 4329 loss=4.683, nll_loss=2.583, symm_mse=7.801, ppl=5.99, wps=14589.6, ups=1.75, wpb=8353.3, bsz=275.4, num_updates=8700, lr=0.000339032, gnorm=1.05, loss_scale=None, train_wall=57, wall=0
+2020-12-07 17:35:24 | INFO | train_inner | epoch 082:   2703 / 4329 loss=4.634, nll_loss=2.539, symm_mse=7.63, ppl=5.81, wps=14421.3, ups=1.73, wpb=8345.5, bsz=284.1, num_updates=8800, lr=0.0003371, gnorm=1.012, loss_scale=None, train_wall=58, wall=0
+2020-12-07 17:36:22 | INFO | train_inner | epoch 082:   2803 / 4329 loss=4.585, nll_loss=2.497, symm_mse=7.456, ppl=5.65, wps=14580.6, ups=1.72, wpb=8456.2, bsz=293.2, num_updates=8900, lr=0.000335201, gnorm=1.05, loss_scale=None, train_wall=58, wall=0
+2020-12-07 17:37:20 | INFO | train_inner | epoch 082:   2903 / 4329 loss=4.68, nll_loss=2.566, symm_mse=7.983, ppl=5.92, wps=14524.8, ups=1.73, wpb=8409.1, bsz=264.2, num_updates=9000, lr=0.000333333, gnorm=1.031, loss_scale=None, train_wall=58, wall=0
+2020-12-07 17:38:18 | INFO | train_inner | epoch 082:   3003 / 4329 loss=4.61, nll_loss=2.535, symm_mse=7.334, ppl=5.79, wps=14429.1, ups=1.71, wpb=8433.1, bsz=301.2, num_updates=9100, lr=0.000331497, gnorm=1.002, loss_scale=None, train_wall=58, wall=0
+2020-12-07 17:39:17 | INFO | train_inner | epoch 082:   3103 / 4329 loss=4.639, nll_loss=2.547, symm_mse=7.588, ppl=5.85, wps=14432, ups=1.72, wpb=8399.9, bsz=274.2, num_updates=9200, lr=0.00032969, gnorm=0.974, loss_scale=None, train_wall=58, wall=0
+2020-12-07 17:40:15 | INFO | train_inner | epoch 082:   3203 / 4329 loss=4.662, nll_loss=2.566, symm_mse=7.712, ppl=5.92, wps=14363, ups=1.72, wpb=8337.8, bsz=277.4, num_updates=9300, lr=0.000327913, gnorm=1.012, loss_scale=None, train_wall=58, wall=0
+2020-12-07 17:41:12 | INFO | train_inner | epoch 082:   3303 / 4329 loss=4.662, nll_loss=2.567, symm_mse=7.704, ppl=5.93, wps=14555.4, ups=1.73, wpb=8415.5, bsz=275.7, num_updates=9400, lr=0.000326164, gnorm=1.021, loss_scale=None, train_wall=58, wall=0
+2020-12-07 17:42:11 | INFO | train_inner | epoch 082:   3403 / 4329 loss=4.574, nll_loss=2.494, symm_mse=7.325, ppl=5.63, wps=14484.6, ups=1.72, wpb=8435.3, bsz=308.1, num_updates=9500, lr=0.000324443, gnorm=1.335, loss_scale=None, train_wall=58, wall=0
+2020-12-07 17:43:09 | INFO | train_inner | epoch 082:   3503 / 4329 loss=4.606, nll_loss=2.516, symm_mse=7.504, ppl=5.72, wps=14446, ups=1.72, wpb=8380.4, bsz=278.2, num_updates=9600, lr=0.000322749, gnorm=1, loss_scale=None, train_wall=58, wall=0
+2020-12-07 17:44:07 | INFO | train_inner | epoch 082:   3603 / 4329 loss=4.608, nll_loss=2.516, symm_mse=7.554, ppl=5.72, wps=14477.2, ups=1.73, wpb=8389.4, bsz=304.8, num_updates=9700, lr=0.000321081, gnorm=0.999, loss_scale=None, train_wall=58, wall=0
+2020-12-07 17:45:05 | INFO | train_inner | epoch 082:   3703 / 4329 loss=4.594, nll_loss=2.514, symm_mse=7.378, ppl=5.71, wps=14543.1, ups=1.72, wpb=8467, bsz=293, num_updates=9800, lr=0.000319438, gnorm=1.03, loss_scale=None, train_wall=58, wall=0
+2020-12-07 17:46:03 | INFO | train_inner | epoch 082:   3803 / 4329 loss=4.648, nll_loss=2.552, symm_mse=7.688, ppl=5.86, wps=14342.9, ups=1.72, wpb=8332.8, bsz=281.5, num_updates=9900, lr=0.000317821, gnorm=1.022, loss_scale=None, train_wall=58, wall=0
+2020-12-07 17:47:01 | INFO | train_inner | epoch 082:   3903 / 4329 loss=4.646, nll_loss=2.552, symm_mse=7.649, ppl=5.86, wps=14264, ups=1.74, wpb=8218.9, bsz=272.3, num_updates=10000, lr=0.000316228, gnorm=1.036, loss_scale=None, train_wall=57, wall=0
+2020-12-07 17:47:59 | INFO | train_inner | epoch 082:   4003 / 4329 loss=4.645, nll_loss=2.559, symm_mse=7.548, ppl=5.89, wps=14285.3, ups=1.72, wpb=8289.6, bsz=280.3, num_updates=10100, lr=0.000314658, gnorm=1.06, loss_scale=None, train_wall=58, wall=0
+2020-12-07 17:48:58 | INFO | train_inner | epoch 082:   4103 / 4329 loss=4.588, nll_loss=2.511, symm_mse=7.314, ppl=5.7, wps=14233.5, ups=1.7, wpb=8380.6, bsz=319.4, num_updates=10200, lr=0.000313112, gnorm=0.99, loss_scale=None, train_wall=59, wall=0
+2020-12-07 17:49:56 | INFO | train_inner | epoch 082:   4203 / 4329 loss=4.585, nll_loss=2.507, symm_mse=7.343, ppl=5.68, wps=14440.8, ups=1.72, wpb=8392, bsz=311.8, num_updates=10300, lr=0.000311588, gnorm=1.02, loss_scale=None, train_wall=58, wall=0
+2020-12-07 17:50:54 | INFO | train_inner | epoch 082:   4303 / 4329 loss=4.52, nll_loss=2.455, symm_mse=7.01, ppl=5.48, wps=14394.4, ups=1.71, wpb=8405.6, bsz=321.8, num_updates=10400, lr=0.000310087, gnorm=0.932, loss_scale=None, train_wall=58, wall=0
+2020-12-07 17:51:09 | INFO | fairseq_cli.train | begin validation on "valid" subset
+2020-12-07 17:51:10 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-07 17:51:10 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-07 17:51:10 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-07 17:51:12 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-07 17:51:12 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-07 17:51:12 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-07 17:51:29 | INFO | valid | epoch 082 | valid on 'valid' subset | symm_mse 0 | loss 8.617 | nll_loss 7.636 | ppl 198.89 | bleu 14.74 | wps 3668.6 | wpb 4531.6 | bsz 118.9 | num_updates 10426 | best_bleu 15.47
+2020-12-07 17:51:29 | INFO | fairseq_cli.train | begin save checkpoint
+2020-12-07 17:51:34 | INFO | fairseq.checkpoint_utils | saved checkpoint ./examples/_transformer_base/bash/../checkpoints/closer_one/checkpoint_last.pt (epoch 82 @ 10426 updates, score 14.74) (writing took 5.06015713326633 seconds)
+2020-12-07 17:51:34 | INFO | fairseq_cli.train | end of epoch 82 (average epoch stats below)
+2020-12-07 17:51:34 | INFO | train | epoch 082 | loss 4.654 | nll_loss 2.549 | symm_mse 7.796 | ppl 5.85 | wps 14220.4 | ups 1.7 | wpb 8375.1 | bsz 289.4 | num_updates 10426 | lr 0.0003097 | gnorm 1.04 | loss_scale None | train_wall 2503 | wall 0
+2020-12-07 17:51:39 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-07 17:51:39 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-07 17:51:40 | INFO | fairseq.trainer | begin training epoch 83
+2020-12-07 17:51:41 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-07 17:51:41 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-07 17:51:44 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-07 17:51:46 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-07 17:52:29 | INFO | train_inner | epoch 083:     74 / 4329 loss=4.601, nll_loss=2.504, symm_mse=7.602, ppl=5.67, wps=8783.6, ups=1.06, wpb=8304.7, bsz=275.3, num_updates=10500, lr=0.000308607, gnorm=0.999, loss_scale=None, train_wall=56, wall=0
+2020-12-07 17:53:27 | INFO | train_inner | epoch 083:    174 / 4329 loss=4.523, nll_loss=2.437, symm_mse=7.314, ppl=5.41, wps=14411.3, ups=1.72, wpb=8384.4, bsz=298.9, num_updates=10600, lr=0.000307148, gnorm=0.993, loss_scale=None, train_wall=58, wall=0
+2020-12-07 17:54:25 | INFO | train_inner | epoch 083:    274 / 4329 loss=4.526, nll_loss=2.434, symm_mse=7.394, ppl=5.4, wps=14507.5, ups=1.73, wpb=8404.1, bsz=298.5, num_updates=10700, lr=0.000305709, gnorm=1.004, loss_scale=None, train_wall=58, wall=0
+2020-12-07 17:55:23 | INFO | train_inner | epoch 083:    374 / 4329 loss=4.542, nll_loss=2.451, symm_mse=7.396, ppl=5.47, wps=14529, ups=1.72, wpb=8464.1, bsz=289.4, num_updates=10800, lr=0.00030429, gnorm=1.034, loss_scale=None, train_wall=58, wall=0
+Traceback (most recent call last):
+  File "train.py", line 14, in <module>
+    cli_main()
+  File "/home/rcduan/fairseq/fairseq/fairseq_cli/train.py", line 354, in cli_main
+    distributed_utils.call_main(args, main)
+  File "/home/rcduan/fairseq/fairseq/fairseq/distributed_utils.py", line 237, in call_main
+    torch.multiprocessing.spawn(
+  File "/home/rcduan/miniconda3/lib/python3.8/site-packages/torch/multiprocessing/spawn.py", line 200, in spawn
+    return start_processes(fn, args, nprocs, join, daemon, start_method='spawn')
+  File "/home/rcduan/miniconda3/lib/python3.8/site-packages/torch/multiprocessing/spawn.py", line 158, in start_processes
+    while not context.join():
+  File "/home/rcduan/miniconda3/lib/python3.8/site-packages/torch/multiprocessing/spawn.py", line 106, in join
+    raise Exception(
+Exception: process 0 terminated with signal SIGKILL
+/home/rcduan/miniconda3/lib/python3.8/multiprocessing/resource_tracker.py:216: UserWarning: resource_tracker: There appear to be 54 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '

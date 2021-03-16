@@ -1,0 +1,6 @@
+checkpoint is ./examples/_transformer_base/bash/../checkpoints/cv/checkpoint_last.pt
+BLEU = 46.46, 82.1/56.7/38.4/26.1 (BP=1.000, ratio=1.009, hyp_len=27504, ref_len=27255)
+BLEU = 46.16, 80.6/55.7/38.4/26.4 (BP=1.000, ratio=1.013, hyp_len=29350, ref_len=28968)
+BLEU = 46.72, 80.9/56.4/38.9/26.8 (BP=1.000, ratio=1.023, hyp_len=61264, ref_len=59905)
+BLEU = 46.66, 79.7/55.7/39.0/27.4 (BP=1.000, ratio=1.022, hyp_len=36332, ref_len=35553)
+BLEU = 37.31, 75.8/46.9/29.4/18.5 (BP=1.000, ratio=1.000, hyp_len=40708, ref_len=40692)

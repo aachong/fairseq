@@ -1,0 +1,9 @@
+----------------------------------------------------------------
+results are from 170
+checkpoint is ./examples/_transformer_base/bash/../checkpoints/closer_all/checkpoint_best.pt
+BLEU = 48.80, 82.5/59.1/41.0/28.4 (BP=1.000, ratio=1.031, hyp_len=28455, ref_len=27607)
+BLEU = 48.05, 81.1/57.9/40.5/28.0 (BP=1.000, ratio=1.033, hyp_len=30634, ref_len=29646)
+BLEU = 49.22, 81.9/58.9/41.7/29.2 (BP=1.000, ratio=1.032, hyp_len=62793, ref_len=60847)
+BLEU = 48.05, 79.2/56.8/40.6/29.2 (BP=1.000, ratio=1.045, hyp_len=37856, ref_len=36243)
+BLEU = 40.08, 77.1/49.7/32.2/20.9 (BP=1.000, ratio=1.007, hyp_len=41274, ref_len=40996)
+Avg = 46.84

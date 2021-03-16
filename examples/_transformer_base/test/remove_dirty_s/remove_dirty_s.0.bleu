@@ -1,0 +1,9 @@
+----------------------------------------------------------------
+results are from 
+checkpoint is ./examples/_transformer_base/bash/../checkpoints/remove_dirty_s/checkpoint_last.pt
+BLEU = 47.57, 82.1/57.5/39.8/27.2 (BP=1.000, ratio=1.011, hyp_len=27452, ref_len=27161)
+BLEU = 46.00, 80.2/55.5/38.3/26.3 (BP=1.000, ratio=1.015, hyp_len=29282, ref_len=28842)
+BLEU = 47.25, 81.1/56.8/39.5/27.4 (BP=1.000, ratio=1.016, hyp_len=60708, ref_len=59760)
+BLEU = 46.69, 79.9/55.8/38.9/27.4 (BP=1.000, ratio=1.022, hyp_len=36212, ref_len=35421)
+BLEU = 37.66, 76.7/47.9/30.3/19.3 (BP=0.985, ratio=0.985, hyp_len=39427, ref_len=40035)
+Avg = 45.034

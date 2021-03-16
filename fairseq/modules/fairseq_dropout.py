@@ -6,6 +6,7 @@
 import logging
 from typing import List, Optional
 
+import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
@@ -27,6 +28,9 @@ class FairseqDropout(nn.Module):
         else:
             return x
 
+    def change_p(self, p):
+        self.p = p
+
     def make_generation_fast_(
         self,
         name: str,
@@ -45,7 +49,8 @@ class FairseqDropout(nn.Module):
                 or self.module_name in retain_dropout_modules
             ):
                 logger.info(
-                    'Enabling dropout during inference for module: {}'.format(name)
+                    'Enabling dropout during inference for module: {}'.format(
+                        name)
                 )
                 self.apply_during_inference = True
             else:

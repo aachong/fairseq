@@ -1,7 +1,7 @@
 #正常训练文件
 
 base_dir=./examples/_transformer_base
-num=5,6
+num=2,3
 dropout=0.3
 arch=transformer
 max_tokens=4000

@@ -1,0 +1,842 @@
+2020-12-02 20:03:09 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 20:03:11 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 20:03:13 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 20:03:13 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 20:03:13 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 20:03:14 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 20:03:14 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 20:03:14 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 20:03:15 | INFO | fairseq.distributed_utils | distributed init (rank 2): tcp://localhost:19381
+2020-12-02 20:03:15 | INFO | fairseq.distributed_utils | distributed init (rank 0): tcp://localhost:19381
+2020-12-02 20:03:15 | INFO | fairseq.distributed_utils | distributed init (rank 1): tcp://localhost:19381
+2020-12-02 20:03:15 | INFO | fairseq.distributed_utils | initialized host inspur129 as rank 1
+2020-12-02 20:03:16 | INFO | fairseq.distributed_utils | initialized host inspur129 as rank 2
+2020-12-02 20:03:16 | INFO | fairseq.distributed_utils | initialized host inspur129 as rank 0
+2020-12-02 20:03:20 | INFO | fairseq_cli.train | Namespace(activation_dropout=0.0, activation_fn='relu', adam_betas='(0.9, 0.98)', adam_eps=1e-08, adaptive_input=False, adaptive_softmax_cutoff=None, adaptive_softmax_dropout=0, all_gather_list_size=16384, arch='closer_dropout', attention_dropout=0.0, best_checkpoint_metric='bleu', bf16=False, bpe=None, broadcast_buffers=False, bucket_cap_mb=25, checkpoint_suffix='', clip_norm=0.0, cpu=False, criterion='r3f_closer_dropout', cross_self_attention=False, curriculum=0, data='./examples/transformer_enzh/bash/../data-bin', data_buffer_size=10, dataset_impl=None, ddp_backend='c10d', decoder_attention_heads=8, decoder_embed_dim=512, decoder_embed_path=None, decoder_ffn_embed_dim=2048, decoder_input_dim=512, decoder_layerdrop=0, decoder_layers=6, decoder_layers_to_keep=None, decoder_learned_pos=False, decoder_normalize_before=False, decoder_output_dim=512, device_id=0, disable_validation=False, distributed_backend='nccl', distributed_init_method='tcp://localhost:19381', distributed_no_spawn=False, distributed_num_procs=3, distributed_port=-1, distributed_rank=0, distributed_world_size=3, distributed_wrapper='DDP', dropout=0.3, empty_cache_freq=0, encoder_attention_heads=8, encoder_embed_dim=512, encoder_embed_path=None, encoder_ffn_embed_dim=2048, encoder_layerdrop=0, encoder_layers=6, encoder_layers_to_keep=None, encoder_learned_pos=False, encoder_normalize_before=False, eps=1e-05, eval_bleu=True, eval_bleu_args='{"beam": 5, "max_len_a": 1.2, "max_len_b": 10}', eval_bleu_detok='space', eval_bleu_detok_args=None, eval_bleu_print_samples=False, eval_bleu_remove_bpe='@@ ', eval_tokenized_bleu=False, fast_stat_sync=False, find_unused_parameters=False, finetune_from_model=None, fix_batches_to_gpus=False, fixed_validation_seed=None, fp16=False, fp16_init_scale=128, fp16_no_flatten_grads=False, fp16_scale_tolerance=0.0, fp16_scale_window=None, keep_best_checkpoints=-1, keep_interval_updates=-1, keep_last_epochs=-1, label_smoothing=0.1, layernorm_embedding=False, left_pad_source='True', left_pad_target='False', load_alignments=False, localsgd_frequency=3, log_format=None, log_interval=100, lr=[0.0001], lr_scheduler='inverse_sqrt', max_epoch=100, max_sentences=None, max_sentences_valid=None, max_source_positions=1024, max_target_positions=1024, max_tokens=3024, max_tokens_valid=3024, max_update=0, maximize_best_checkpoint_metric=True, memory_efficient_bf16=False, memory_efficient_fp16=False, min_loss_scale=0.0001, min_lr=1e-09, model_parallel_size=1, no_cross_attention=False, no_epoch_checkpoints=True, no_last_checkpoints=False, no_progress_bar=False, no_save=False, no_save_optimizer_state=False, no_scale_embedding=False, no_seed_provided=True, no_token_positional_embeddings=False, noise_type='normal', nprocs_per_node=3, num_batch_buckets=0, num_workers=1, optimizer='adam', optimizer_overrides='{}', patience=-1, pipeline_balance=None, pipeline_checkpoint='never', pipeline_chunks=None, pipeline_devices=None, pipeline_model_parallel=False, profile=False, quant_noise_pq=0, quant_noise_pq_block_size=8, quant_noise_scalar=0, quantization_config_path=None, r3f_lambda=0.05, required_batch_size_multiple=8, required_seq_len_multiple=1, reset_dataloader=False, reset_lr_scheduler=False, reset_meters=False, reset_optimizer=True, restore_file='checkpoint_last.pt', save_dir='./examples/transformer_enzh/bash/../checkpoints/closer1', save_interval=1, save_interval_updates=0, scoring='bleu', seed=1, sentence_avg=False, share_all_embeddings=False, share_decoder_input_output_embed=False, skip_invalid_size_inputs_valid_test=False, slowmo_algorithm='LocalSGD', slowmo_momentum=None, source_lang='ch', stop_time_hours=0, target_lang='en', task='translation', tensorboard_logdir='', threshold_loss_scale=None, tie_adaptive_weights=False, tokenizer=None, tpu=False, train_subset='train', truncate_source=False, update_freq=[1], upsample_primary=1, use_bmuf=False, use_old_adam=False, user_dir=None, valid_subset='valid', validate_after_updates=0, validate_interval=1, validate_interval_updates=0, warmup_init_lr=1e-07, warmup_updates=4000, weight_decay=0.0, zero_sharding='none')
+2020-12-02 20:03:20 | INFO | fairseq.tasks.translation | [ch] dictionary: 27920 types
+2020-12-02 20:03:20 | INFO | fairseq.tasks.translation | [en] dictionary: 19376 types
+2020-12-02 20:03:20 | INFO | fairseq.data.data_utils | loaded 1664 examples from: ./examples/transformer_enzh/bash/../data-bin/valid.ch-en.ch
+2020-12-02 20:03:20 | INFO | fairseq.data.data_utils | loaded 1664 examples from: ./examples/transformer_enzh/bash/../data-bin/valid.ch-en.en
+2020-12-02 20:03:20 | INFO | fairseq.tasks.translation | ./examples/transformer_enzh/bash/../data-bin valid ch-en 1664 examples
+2020-12-02 20:03:22 | INFO | fairseq_cli.train | TransformerModel(
+  (encoder): TransformerEncoder(
+    (dropout_module): FairseqDropout()
+    (embed_tokens): Embedding(27920, 512, padding_idx=1)
+    (embed_positions): SinusoidalPositionalEmbedding()
+    (layers): ModuleList(
+      (0): TransformerEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (self_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (dropout_module): FairseqDropout()
+        (activation_dropout_module): FairseqDropout()
+        (fc1): Linear(in_features=512, out_features=2048, bias=True)
+        (fc2): Linear(in_features=2048, out_features=512, bias=True)
+        (final_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+      )
+      (1): TransformerEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (self_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (dropout_module): FairseqDropout()
+        (activation_dropout_module): FairseqDropout()
+        (fc1): Linear(in_features=512, out_features=2048, bias=True)
+        (fc2): Linear(in_features=2048, out_features=512, bias=True)
+        (final_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+      )
+      (2): TransformerEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (self_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (dropout_module): FairseqDropout()
+        (activation_dropout_module): FairseqDropout()
+        (fc1): Linear(in_features=512, out_features=2048, bias=True)
+        (fc2): Linear(in_features=2048, out_features=512, bias=True)
+        (final_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+      )
+      (3): TransformerEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (self_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (dropout_module): FairseqDropout()
+        (activation_dropout_module): FairseqDropout()
+        (fc1): Linear(in_features=512, out_features=2048, bias=True)
+        (fc2): Linear(in_features=2048, out_features=512, bias=True)
+        (final_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+      )
+      (4): TransformerEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (self_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (dropout_module): FairseqDropout()
+        (activation_dropout_module): FairseqDropout()
+        (fc1): Linear(in_features=512, out_features=2048, bias=True)
+        (fc2): Linear(in_features=2048, out_features=512, bias=True)
+        (final_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+      )
+      (5): TransformerEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (self_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (dropout_module): FairseqDropout()
+        (activation_dropout_module): FairseqDropout()
+        (fc1): Linear(in_features=512, out_features=2048, bias=True)
+        (fc2): Linear(in_features=2048, out_features=512, bias=True)
+        (final_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+      )
+    )
+  )
+  (decoder): TransformerDecoder(
+    (dropout_module): FairseqDropout()
+    (embed_tokens): Embedding(19376, 512, padding_idx=1)
+    (embed_positions): SinusoidalPositionalEmbedding()
+    (layers): ModuleList(
+      (0): TransformerDecoderLayer(
+        (dropout_module): FairseqDropout()
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (activation_dropout_module): FairseqDropout()
+        (self_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (encoder_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (encoder_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (fc1): Linear(in_features=512, out_features=2048, bias=True)
+        (fc2): Linear(in_features=2048, out_features=512, bias=True)
+        (final_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+      )
+      (1): TransformerDecoderLayer(
+        (dropout_module): FairseqDropout()
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (activation_dropout_module): FairseqDropout()
+        (self_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (encoder_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (encoder_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (fc1): Linear(in_features=512, out_features=2048, bias=True)
+        (fc2): Linear(in_features=2048, out_features=512, bias=True)
+        (final_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+      )
+      (2): TransformerDecoderLayer(
+        (dropout_module): FairseqDropout()
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (activation_dropout_module): FairseqDropout()
+        (self_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (encoder_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (encoder_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (fc1): Linear(in_features=512, out_features=2048, bias=True)
+        (fc2): Linear(in_features=2048, out_features=512, bias=True)
+        (final_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+      )
+      (3): TransformerDecoderLayer(
+        (dropout_module): FairseqDropout()
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (activation_dropout_module): FairseqDropout()
+        (self_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (encoder_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (encoder_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (fc1): Linear(in_features=512, out_features=2048, bias=True)
+        (fc2): Linear(in_features=2048, out_features=512, bias=True)
+        (final_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+      )
+      (4): TransformerDecoderLayer(
+        (dropout_module): FairseqDropout()
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (activation_dropout_module): FairseqDropout()
+        (self_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (encoder_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (encoder_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (fc1): Linear(in_features=512, out_features=2048, bias=True)
+        (fc2): Linear(in_features=2048, out_features=512, bias=True)
+        (final_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+      )
+      (5): TransformerDecoderLayer(
+        (dropout_module): FairseqDropout()
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (activation_dropout_module): FairseqDropout()
+        (self_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (encoder_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (encoder_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (fc1): Linear(in_features=512, out_features=2048, bias=True)
+        (fc2): Linear(in_features=2048, out_features=512, bias=True)
+        (final_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+      )
+    )
+    (output_projection): Linear(in_features=512, out_features=19376, bias=False)
+  )
+)
+2020-12-02 20:03:22 | INFO | fairseq_cli.train | task: translation (TranslationTask)
+2020-12-02 20:03:22 | INFO | fairseq_cli.train | model: closer_dropout (TransformerModel)
+2020-12-02 20:03:22 | INFO | fairseq_cli.train | criterion: r3f_closer_dropout (R3fCloserDropout)
+2020-12-02 20:03:22 | INFO | fairseq_cli.train | num. model params: 78274560 (num. trained: 78274560)
+2020-12-02 20:03:22 | INFO | fairseq.utils | ***********************CUDA enviroments for all 3 workers***********************
+2020-12-02 20:03:22 | INFO | fairseq.utils | rank   0: capabilities =  6.1  ; total memory = 10.917 GB ; name = GeForce GTX 1080 Ti                     
+2020-12-02 20:03:22 | INFO | fairseq.utils | rank   1: capabilities =  6.1  ; total memory = 10.917 GB ; name = GeForce GTX 1080 Ti                     
+2020-12-02 20:03:22 | INFO | fairseq.utils | rank   2: capabilities =  6.1  ; total memory = 10.917 GB ; name = GeForce GTX 1080 Ti                     
+2020-12-02 20:03:22 | INFO | fairseq.utils | ***********************CUDA enviroments for all 3 workers***********************
+2020-12-02 20:03:22 | INFO | fairseq_cli.train | training on 3 devices (GPUs/TPUs)
+2020-12-02 20:03:22 | INFO | fairseq_cli.train | max tokens per GPU = 3024 and max sentences per GPU = None
+2020-12-02 20:03:23 | INFO | fairseq.trainer | loaded checkpoint ./examples/transformer_enzh/bash/../checkpoints/closer1/checkpoint_last.pt (epoch 39 @ 0 updates)
+2020-12-02 20:03:23 | INFO | fairseq.optim.adam | using FusedAdam
+2020-12-02 20:03:23 | INFO | fairseq.trainer | loading train data for epoch 39
+2020-12-02 20:03:23 | INFO | fairseq.data.data_utils | loaded 200000 examples from: ./examples/transformer_enzh/bash/../data-bin/train.ch-en.ch
+2020-12-02 20:03:23 | INFO | fairseq.data.data_utils | loaded 200000 examples from: ./examples/transformer_enzh/bash/../data-bin/train.ch-en.en
+2020-12-02 20:03:23 | INFO | fairseq.tasks.translation | ./examples/transformer_enzh/bash/../data-bin train ch-en 200000 examples
+111
+2020-12-02 20:03:24 | INFO | fairseq.trainer | begin training epoch 39
+111
+111
+2020-12-02 20:03:24 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 20:03:24 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 20:03:24 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 20:03:26 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 20:03:26 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 20:03:26 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 20:08:21 | INFO | fairseq_cli.train | begin validation on "valid" subset
+2020-12-02 20:08:22 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 20:08:22 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 20:08:22 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 20:08:24 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 20:08:24 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 20:08:24 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 20:08:43 | INFO | valid | epoch 039 | valid on 'valid' subset | symm_mse 0 | loss 9.018 | nll_loss 8.095 | ppl 273.38 | bleu 12 | wps 3488.5 | wpb 4629 | bsz 118.9 | num_updates 719
+2020-12-02 20:08:43 | INFO | fairseq_cli.train | begin save checkpoint
+111
+111
+2020-12-02 20:08:44 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 20:08:44 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 20:08:46 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 20:08:46 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 20:08:48 | INFO | fairseq.checkpoint_utils | saved checkpoint ./examples/transformer_enzh/bash/../checkpoints/closer1/checkpoint_best.pt (epoch 39 @ 719 updates, score 12.0) (writing took 5.192265743389726 seconds)
+2020-12-02 20:08:48 | INFO | fairseq_cli.train | end of epoch 39 (average epoch stats below)
+2020-12-02 20:08:48 | INFO | train | epoch 039 | loss 4.019 | nll_loss 1.907 | symm_mse 13.205 | ppl 3.75 | wps 24747.3 | ups 2.39 | wpb 10365.7 | bsz 353.4 | num_updates 719 | lr 1.8057e-05 | gnorm 2.677 | train_wall 428 | wall 0
+111
+2020-12-02 20:08:48 | INFO | fairseq.trainer | begin training epoch 40
+2020-12-02 20:08:49 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 20:08:51 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 20:13:47 | INFO | fairseq_cli.train | begin validation on "valid" subset
+2020-12-02 20:13:48 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 20:13:48 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 20:13:48 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 20:13:50 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 20:13:50 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 20:13:50 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 20:14:08 | INFO | valid | epoch 040 | valid on 'valid' subset | symm_mse 0 | loss 9.119 | nll_loss 8.162 | ppl 286.47 | bleu 12.07 | wps 3560.5 | wpb 4629 | bsz 118.9 | num_updates 1438 | best_bleu 12.07
+2020-12-02 20:14:08 | INFO | fairseq_cli.train | begin save checkpoint
+111
+111
+2020-12-02 20:14:09 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 20:14:09 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 20:14:11 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 20:14:11 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 20:14:15 | INFO | fairseq.checkpoint_utils | saved checkpoint ./examples/transformer_enzh/bash/../checkpoints/closer1/checkpoint_best.pt (epoch 40 @ 1438 updates, score 12.07) (writing took 6.840173337608576 seconds)
+2020-12-02 20:14:15 | INFO | fairseq_cli.train | end of epoch 40 (average epoch stats below)
+2020-12-02 20:14:15 | INFO | train | epoch 040 | loss 3.634 | nll_loss 1.917 | symm_mse 1.691 | ppl 3.78 | wps 17944.4 | ups 2.2 | wpb 8159.9 | bsz 278.2 | num_updates 1438 | lr 3.60141e-05 | gnorm 1.403 | train_wall 293 | wall 0
+111
+2020-12-02 20:14:15 | INFO | fairseq.trainer | begin training epoch 41
+2020-12-02 20:14:16 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 20:14:18 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 20:19:13 | INFO | fairseq_cli.train | begin validation on "valid" subset
+2020-12-02 20:19:14 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 20:19:14 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 20:19:14 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 20:19:16 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 20:19:16 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 20:19:16 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 20:19:35 | INFO | valid | epoch 041 | valid on 'valid' subset | symm_mse 0 | loss 9.203 | nll_loss 8.228 | ppl 299.77 | bleu 12.13 | wps 3554.6 | wpb 4629 | bsz 118.9 | num_updates 2157 | best_bleu 12.13
+2020-12-02 20:19:35 | INFO | fairseq_cli.train | begin save checkpoint
+111
+111
+2020-12-02 20:19:35 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 20:19:35 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 20:19:37 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 20:19:38 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 20:19:42 | INFO | fairseq.checkpoint_utils | saved checkpoint ./examples/transformer_enzh/bash/../checkpoints/closer1/checkpoint_best.pt (epoch 41 @ 2157 updates, score 12.13) (writing took 6.950935849919915 seconds)
+2020-12-02 20:19:42 | INFO | fairseq_cli.train | end of epoch 41 (average epoch stats below)
+2020-12-02 20:19:42 | INFO | train | epoch 041 | loss 3.501 | nll_loss 1.795 | symm_mse 1.054 | ppl 3.47 | wps 17982 | ups 2.2 | wpb 8159.9 | bsz 278.2 | num_updates 2157 | lr 5.39711e-05 | gnorm 1.083 | train_wall 293 | wall 0
+111
+2020-12-02 20:19:42 | INFO | fairseq.trainer | begin training epoch 42
+2020-12-02 20:19:42 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 20:19:44 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 20:24:40 | INFO | fairseq_cli.train | begin validation on "valid" subset
+2020-12-02 20:24:41 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 20:24:41 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 20:24:41 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 20:24:43 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 20:24:43 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 20:24:43 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 20:25:01 | INFO | valid | epoch 042 | valid on 'valid' subset | symm_mse 0 | loss 9.302 | nll_loss 8.318 | ppl 319.07 | bleu 12.31 | wps 3563.4 | wpb 4629 | bsz 118.9 | num_updates 2876 | best_bleu 12.31
+2020-12-02 20:25:01 | INFO | fairseq_cli.train | begin save checkpoint
+111
+111
+2020-12-02 20:25:02 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 20:25:02 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 20:25:04 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 20:25:04 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 20:25:08 | INFO | fairseq.checkpoint_utils | saved checkpoint ./examples/transformer_enzh/bash/../checkpoints/closer1/checkpoint_best.pt (epoch 42 @ 2876 updates, score 12.31) (writing took 6.78154262714088 seconds)
+2020-12-02 20:25:08 | INFO | fairseq_cli.train | end of epoch 42 (average epoch stats below)
+2020-12-02 20:25:08 | INFO | train | epoch 042 | loss 3.42 | nll_loss 1.716 | symm_mse 0.669 | ppl 3.28 | wps 17967.1 | ups 2.2 | wpb 8159.9 | bsz 278.2 | num_updates 2876 | lr 7.19281e-05 | gnorm 0.913 | train_wall 293 | wall 0
+111
+2020-12-02 20:25:08 | INFO | fairseq.trainer | begin training epoch 43
+2020-12-02 20:25:09 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 20:25:11 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 20:30:06 | INFO | fairseq_cli.train | begin validation on "valid" subset
+2020-12-02 20:30:07 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 20:30:07 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 20:30:07 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 20:30:09 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 20:30:09 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 20:30:09 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 20:30:29 | INFO | valid | epoch 043 | valid on 'valid' subset | symm_mse 0 | loss 9.425 | nll_loss 8.423 | ppl 343.32 | bleu 12.13 | wps 3303.5 | wpb 4629 | bsz 118.9 | num_updates 3595 | best_bleu 12.31
+2020-12-02 20:30:29 | INFO | fairseq_cli.train | begin save checkpoint
+111
+111
+2020-12-02 20:30:30 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 20:30:30 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 20:30:32 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 20:30:32 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 20:30:33 | INFO | fairseq.checkpoint_utils | saved checkpoint ./examples/transformer_enzh/bash/../checkpoints/closer1/checkpoint_last.pt (epoch 43 @ 3595 updates, score 12.13) (writing took 4.019859885796905 seconds)
+2020-12-02 20:30:33 | INFO | fairseq_cli.train | end of epoch 43 (average epoch stats below)
+2020-12-02 20:30:33 | INFO | train | epoch 043 | loss 3.366 | nll_loss 1.658 | symm_mse 0.412 | ppl 3.16 | wps 18058 | ups 2.21 | wpb 8159.9 | bsz 278.2 | num_updates 3595 | lr 8.98851e-05 | gnorm 0.841 | train_wall 293 | wall 0
+111
+2020-12-02 20:30:33 | INFO | fairseq.trainer | begin training epoch 44
+2020-12-02 20:30:34 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 20:30:36 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 20:35:32 | INFO | fairseq_cli.train | begin validation on "valid" subset
+2020-12-02 20:35:33 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 20:35:33 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 20:35:33 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 20:35:35 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 20:35:35 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 20:35:35 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 20:35:54 | INFO | valid | epoch 044 | valid on 'valid' subset | symm_mse 0 | loss 9.586 | nll_loss 8.58 | ppl 382.78 | bleu 11.77 | wps 3430.1 | wpb 4629 | bsz 118.9 | num_updates 4314 | best_bleu 12.31
+2020-12-02 20:35:54 | INFO | fairseq_cli.train | begin save checkpoint
+111
+111
+2020-12-02 20:35:55 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 20:35:55 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 20:35:57 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 20:35:57 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 20:35:58 | INFO | fairseq.checkpoint_utils | saved checkpoint ./examples/transformer_enzh/bash/../checkpoints/closer1/checkpoint_last.pt (epoch 44 @ 4314 updates, score 11.77) (writing took 4.0938814133405685 seconds)
+2020-12-02 20:35:58 | INFO | fairseq_cli.train | end of epoch 44 (average epoch stats below)
+2020-12-02 20:35:58 | INFO | train | epoch 044 | loss 3.334 | nll_loss 1.62 | symm_mse 0.246 | ppl 3.07 | wps 18042.4 | ups 2.21 | wpb 8159.9 | bsz 278.2 | num_updates 4314 | lr 9.62919e-05 | gnorm 0.822 | train_wall 293 | wall 0
+111
+2020-12-02 20:35:58 | INFO | fairseq.trainer | begin training epoch 45
+2020-12-02 20:35:59 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 20:36:01 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 20:40:57 | INFO | fairseq_cli.train | begin validation on "valid" subset
+2020-12-02 20:40:58 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 20:40:58 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 20:40:58 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 20:41:00 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 20:41:00 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 20:41:00 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 20:41:18 | INFO | valid | epoch 045 | valid on 'valid' subset | symm_mse 0 | loss 9.63 | nll_loss 8.622 | ppl 394.11 | bleu 11.92 | wps 3579.8 | wpb 4629 | bsz 118.9 | num_updates 5033 | best_bleu 12.31
+2020-12-02 20:41:18 | INFO | fairseq_cli.train | begin save checkpoint
+111
+111
+2020-12-02 20:41:19 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 20:41:19 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 20:41:21 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 20:41:21 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 20:41:23 | INFO | fairseq.checkpoint_utils | saved checkpoint ./examples/transformer_enzh/bash/../checkpoints/closer1/checkpoint_last.pt (epoch 45 @ 5033 updates, score 11.92) (writing took 4.2465732377022505 seconds)
+2020-12-02 20:41:23 | INFO | fairseq_cli.train | end of epoch 45 (average epoch stats below)
+2020-12-02 20:41:23 | INFO | train | epoch 045 | loss 3.3 | nll_loss 1.578 | symm_mse 0.153 | ppl 2.99 | wps 18076.7 | ups 2.22 | wpb 8159.9 | bsz 278.2 | num_updates 5033 | lr 8.9149e-05 | gnorm 0.819 | train_wall 293 | wall 0
+111
+2020-12-02 20:41:23 | INFO | fairseq.trainer | begin training epoch 46
+2020-12-02 20:41:24 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 20:41:25 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 20:46:21 | INFO | fairseq_cli.train | begin validation on "valid" subset
+2020-12-02 20:46:22 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 20:46:22 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 20:46:22 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 20:46:24 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 20:46:24 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 20:46:24 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 20:46:42 | INFO | valid | epoch 046 | valid on 'valid' subset | symm_mse 0 | loss 9.715 | nll_loss 8.7 | ppl 415.96 | bleu 11.98 | wps 3628.7 | wpb 4629 | bsz 118.9 | num_updates 5752 | best_bleu 12.31
+2020-12-02 20:46:42 | INFO | fairseq_cli.train | begin save checkpoint
+111
+111
+2020-12-02 20:46:43 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 20:46:43 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 20:46:45 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 20:46:45 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 20:46:46 | INFO | fairseq.checkpoint_utils | saved checkpoint ./examples/transformer_enzh/bash/../checkpoints/closer1/checkpoint_last.pt (epoch 46 @ 5752 updates, score 11.98) (writing took 4.038941966369748 seconds)
+2020-12-02 20:46:46 | INFO | fairseq_cli.train | end of epoch 46 (average epoch stats below)
+2020-12-02 20:46:46 | INFO | train | epoch 046 | loss 3.27 | nll_loss 1.542 | symm_mse 0.105 | ppl 2.91 | wps 18128.6 | ups 2.22 | wpb 8159.9 | bsz 278.2 | num_updates 5752 | lr 8.33913e-05 | gnorm 0.823 | train_wall 293 | wall 0
+111
+2020-12-02 20:46:46 | INFO | fairseq.trainer | begin training epoch 47
+2020-12-02 20:46:47 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 20:46:49 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 20:51:46 | INFO | fairseq_cli.train | begin validation on "valid" subset
+2020-12-02 20:51:46 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 20:51:47 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 20:51:47 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 20:51:48 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 20:51:49 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 20:51:49 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 20:52:09 | INFO | valid | epoch 047 | valid on 'valid' subset | symm_mse 0 | loss 9.764 | nll_loss 8.752 | ppl 431.27 | bleu 11.64 | wps 3127.8 | wpb 4629 | bsz 118.9 | num_updates 6471 | best_bleu 12.31
+2020-12-02 20:52:09 | INFO | fairseq_cli.train | begin save checkpoint
+111
+111
+2020-12-02 20:52:10 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 20:52:10 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 20:52:12 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 20:52:13 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 20:52:14 | INFO | fairseq.checkpoint_utils | saved checkpoint ./examples/transformer_enzh/bash/../checkpoints/closer1/checkpoint_last.pt (epoch 47 @ 6471 updates, score 11.64) (writing took 4.081038219854236 seconds)
+2020-12-02 20:52:14 | INFO | fairseq_cli.train | end of epoch 47 (average epoch stats below)
+2020-12-02 20:52:14 | INFO | train | epoch 047 | loss 3.247 | nll_loss 1.513 | symm_mse 0.078 | ppl 2.85 | wps 17918.9 | ups 2.2 | wpb 8159.9 | bsz 278.2 | num_updates 6471 | lr 7.8622e-05 | gnorm 0.828 | train_wall 294 | wall 0
+111
+2020-12-02 20:52:14 | INFO | fairseq.trainer | begin training epoch 48
+2020-12-02 20:52:15 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 20:52:17 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 20:57:15 | INFO | fairseq_cli.train | begin validation on "valid" subset
+2020-12-02 20:57:16 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 20:57:16 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 20:57:16 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 20:57:18 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 20:57:18 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 20:57:18 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 20:57:38 | INFO | valid | epoch 048 | valid on 'valid' subset | symm_mse 0 | loss 9.805 | nll_loss 8.792 | ppl 443.3 | bleu 11.91 | wps 3356.5 | wpb 4629 | bsz 118.9 | num_updates 7190 | best_bleu 12.31
+2020-12-02 20:57:38 | INFO | fairseq_cli.train | begin save checkpoint
+111
+111
+2020-12-02 20:57:39 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 20:57:39 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 20:57:41 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 20:57:41 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 20:57:42 | INFO | fairseq.checkpoint_utils | saved checkpoint ./examples/transformer_enzh/bash/../checkpoints/closer1/checkpoint_last.pt (epoch 48 @ 7190 updates, score 11.91) (writing took 3.983127612620592 seconds)
+2020-12-02 20:57:42 | INFO | fairseq_cli.train | end of epoch 48 (average epoch stats below)
+2020-12-02 20:57:42 | INFO | train | epoch 048 | loss 3.228 | nll_loss 1.489 | symm_mse 0.062 | ppl 2.81 | wps 17885.9 | ups 2.19 | wpb 8159.9 | bsz 278.2 | num_updates 7190 | lr 7.45874e-05 | gnorm 0.832 | train_wall 296 | wall 0
+111
+2020-12-02 20:57:42 | INFO | fairseq.trainer | begin training epoch 49
+2020-12-02 20:57:43 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 20:57:45 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 21:02:43 | INFO | fairseq_cli.train | begin validation on "valid" subset
+2020-12-02 21:02:43 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 21:02:43 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 21:02:44 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 21:02:45 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 21:02:45 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 21:02:46 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 21:03:04 | INFO | valid | epoch 049 | valid on 'valid' subset | symm_mse 0 | loss 9.846 | nll_loss 8.836 | ppl 456.95 | bleu 11.91 | wps 3570.7 | wpb 4629 | bsz 118.9 | num_updates 7909 | best_bleu 12.31
+2020-12-02 21:03:04 | INFO | fairseq_cli.train | begin save checkpoint
+111
+111
+2020-12-02 21:03:05 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 21:03:05 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 21:03:07 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 21:03:07 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 21:03:08 | INFO | fairseq.checkpoint_utils | saved checkpoint ./examples/transformer_enzh/bash/../checkpoints/closer1/checkpoint_last.pt (epoch 49 @ 7909 updates, score 11.91) (writing took 4.135194582864642 seconds)
+2020-12-02 21:03:08 | INFO | fairseq_cli.train | end of epoch 49 (average epoch stats below)
+2020-12-02 21:03:08 | INFO | train | epoch 049 | loss 3.21 | nll_loss 1.468 | symm_mse 0.051 | ppl 2.77 | wps 17960 | ups 2.2 | wpb 8159.9 | bsz 278.2 | num_updates 7909 | lr 7.11163e-05 | gnorm 0.836 | train_wall 295 | wall 0
+111
+2020-12-02 21:03:08 | INFO | fairseq.trainer | begin training epoch 50
+2020-12-02 21:03:10 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 21:03:12 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 21:08:10 | INFO | fairseq_cli.train | begin validation on "valid" subset
+2020-12-02 21:08:11 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 21:08:11 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 21:08:11 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 21:08:13 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 21:08:13 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 21:08:13 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 21:08:32 | INFO | valid | epoch 050 | valid on 'valid' subset | symm_mse 0 | loss 9.873 | nll_loss 8.865 | ppl 466.27 | bleu 11.74 | wps 3374.9 | wpb 4629 | bsz 118.9 | num_updates 8628 | best_bleu 12.31
+2020-12-02 21:08:32 | INFO | fairseq_cli.train | begin save checkpoint
+111
+111
+2020-12-02 21:08:34 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 21:08:34 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 21:08:36 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 21:08:36 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 21:08:37 | INFO | fairseq.checkpoint_utils | saved checkpoint ./examples/transformer_enzh/bash/../checkpoints/closer1/checkpoint_last.pt (epoch 50 @ 8628 updates, score 11.74) (writing took 4.361484542489052 seconds)
+2020-12-02 21:08:37 | INFO | fairseq_cli.train | end of epoch 50 (average epoch stats below)
+2020-12-02 21:08:37 | INFO | train | epoch 050 | loss 3.196 | nll_loss 1.45 | symm_mse 0.044 | ppl 2.73 | wps 17868.1 | ups 2.19 | wpb 8159.9 | bsz 278.2 | num_updates 8628 | lr 6.80887e-05 | gnorm 0.841 | train_wall 296 | wall 0
+111
+2020-12-02 21:08:37 | INFO | fairseq.trainer | begin training epoch 51
+2020-12-02 21:08:38 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 21:08:40 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 21:13:38 | INFO | fairseq_cli.train | begin validation on "valid" subset
+2020-12-02 21:13:39 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 21:13:39 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 21:13:39 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 21:13:41 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 21:13:41 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 21:13:41 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 21:14:00 | INFO | valid | epoch 051 | valid on 'valid' subset | symm_mse 0 | loss 9.924 | nll_loss 8.919 | ppl 483.99 | bleu 11.76 | wps 3488.5 | wpb 4629 | bsz 118.9 | num_updates 9347 | best_bleu 12.31
+2020-12-02 21:14:00 | INFO | fairseq_cli.train | begin save checkpoint
+111
+111
+2020-12-02 21:14:01 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 21:14:01 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 21:14:03 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 21:14:03 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 21:14:05 | INFO | fairseq.checkpoint_utils | saved checkpoint ./examples/transformer_enzh/bash/../checkpoints/closer1/checkpoint_last.pt (epoch 51 @ 9347 updates, score 11.76) (writing took 4.320517415180802 seconds)
+2020-12-02 21:14:05 | INFO | fairseq_cli.train | end of epoch 51 (average epoch stats below)
+2020-12-02 21:14:05 | INFO | train | epoch 051 | loss 3.181 | nll_loss 1.433 | symm_mse 0.039 | ppl 2.7 | wps 17893.1 | ups 2.19 | wpb 8159.9 | bsz 278.2 | num_updates 9347 | lr 6.54175e-05 | gnorm 0.843 | train_wall 296 | wall 0
+111
+2020-12-02 21:14:05 | INFO | fairseq.trainer | begin training epoch 52
+2020-12-02 21:14:06 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 21:14:08 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 21:19:06 | INFO | fairseq_cli.train | begin validation on "valid" subset
+2020-12-02 21:19:07 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 21:19:08 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 21:19:08 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 21:19:09 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 21:19:10 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 21:19:10 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 21:19:30 | INFO | valid | epoch 052 | valid on 'valid' subset | symm_mse 0 | loss 9.935 | nll_loss 8.928 | ppl 487.11 | bleu 11.97 | wps 3308.8 | wpb 4629 | bsz 118.9 | num_updates 10066 | best_bleu 12.31
+2020-12-02 21:19:30 | INFO | fairseq_cli.train | begin save checkpoint
+111
+111
+2020-12-02 21:19:30 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 21:19:31 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 21:19:32 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 21:19:33 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 21:19:34 | INFO | fairseq.checkpoint_utils | saved checkpoint ./examples/transformer_enzh/bash/../checkpoints/closer1/checkpoint_last.pt (epoch 52 @ 10066 updates, score 11.97) (writing took 4.250093709677458 seconds)
+2020-12-02 21:19:34 | INFO | fairseq_cli.train | end of epoch 52 (average epoch stats below)
+2020-12-02 21:19:34 | INFO | train | epoch 052 | loss 3.169 | nll_loss 1.418 | symm_mse 0.035 | ppl 2.67 | wps 17827.8 | ups 2.18 | wpb 8159.9 | bsz 278.2 | num_updates 10066 | lr 6.30379e-05 | gnorm 0.847 | train_wall 296 | wall 0
+111
+2020-12-02 21:19:34 | INFO | fairseq.trainer | begin training epoch 53
+2020-12-02 21:19:35 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 21:19:37 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 21:24:37 | INFO | fairseq_cli.train | begin validation on "valid" subset
+2020-12-02 21:24:38 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 21:24:38 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 21:24:38 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 21:24:40 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 21:24:40 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 21:24:40 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 21:25:01 | INFO | valid | epoch 053 | valid on 'valid' subset | symm_mse 0 | loss 9.964 | nll_loss 8.958 | ppl 497.19 | bleu 12.02 | wps 3241.4 | wpb 4629 | bsz 118.9 | num_updates 10785 | best_bleu 12.31
+2020-12-02 21:25:01 | INFO | fairseq_cli.train | begin save checkpoint
+111
+111
+2020-12-02 21:25:02 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 21:25:02 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 21:25:04 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 21:25:04 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 21:25:05 | INFO | fairseq.checkpoint_utils | saved checkpoint ./examples/transformer_enzh/bash/../checkpoints/closer1/checkpoint_last.pt (epoch 53 @ 10785 updates, score 12.02) (writing took 4.596027951687574 seconds)
+2020-12-02 21:25:05 | INFO | fairseq_cli.train | end of epoch 53 (average epoch stats below)
+2020-12-02 21:25:05 | INFO | train | epoch 053 | loss 3.158 | nll_loss 1.405 | symm_mse 0.032 | ppl 2.65 | wps 17705.6 | ups 2.17 | wpb 8159.9 | bsz 278.2 | num_updates 10785 | lr 6.09004e-05 | gnorm 0.85 | train_wall 297 | wall 0
+111
+2020-12-02 21:25:05 | INFO | fairseq.trainer | begin training epoch 54
+2020-12-02 21:25:06 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 21:25:08 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 21:30:10 | INFO | fairseq_cli.train | begin validation on "valid" subset
+2020-12-02 21:30:11 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 21:30:11 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 21:30:11 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 21:30:14 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 21:30:14 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 21:30:14 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 21:30:35 | INFO | valid | epoch 054 | valid on 'valid' subset | symm_mse 0 | loss 9.97 | nll_loss 8.964 | ppl 499.36 | bleu 11.72 | wps 3162.1 | wpb 4629 | bsz 118.9 | num_updates 11504 | best_bleu 12.31
+2020-12-02 21:30:35 | INFO | fairseq_cli.train | begin save checkpoint
+111
+111
+2020-12-02 21:30:36 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 21:30:36 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 21:30:38 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 21:30:38 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 21:30:40 | INFO | fairseq.checkpoint_utils | saved checkpoint ./examples/transformer_enzh/bash/../checkpoints/closer1/checkpoint_last.pt (epoch 54 @ 11504 updates, score 11.72) (writing took 4.418245671316981 seconds)
+2020-12-02 21:30:40 | INFO | fairseq_cli.train | end of epoch 54 (average epoch stats below)
+2020-12-02 21:30:40 | INFO | train | epoch 054 | loss 3.148 | nll_loss 1.393 | symm_mse 0.03 | ppl 2.63 | wps 17542.2 | ups 2.15 | wpb 8159.9 | bsz 278.2 | num_updates 11504 | lr 5.89665e-05 | gnorm 0.853 | train_wall 299 | wall 0
+111
+2020-12-02 21:30:40 | INFO | fairseq.trainer | begin training epoch 55
+2020-12-02 21:30:40 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 21:30:43 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 21:35:43 | INFO | fairseq_cli.train | begin validation on "valid" subset
+2020-12-02 21:35:44 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 21:35:44 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 21:35:44 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 21:35:46 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 21:35:46 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 21:35:46 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 21:36:06 | INFO | valid | epoch 055 | valid on 'valid' subset | symm_mse 0 | loss 9.991 | nll_loss 8.986 | ppl 507.22 | bleu 11.66 | wps 3221.1 | wpb 4629 | bsz 118.9 | num_updates 12223 | best_bleu 12.31
+2020-12-02 21:36:06 | INFO | fairseq_cli.train | begin save checkpoint
+111
+111
+2020-12-02 21:36:07 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 21:36:07 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 21:36:09 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 21:36:09 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 21:36:11 | INFO | fairseq.checkpoint_utils | saved checkpoint ./examples/transformer_enzh/bash/../checkpoints/closer1/checkpoint_last.pt (epoch 55 @ 12223 updates, score 11.66) (writing took 4.082617653533816 seconds)
+2020-12-02 21:36:11 | INFO | fairseq_cli.train | end of epoch 55 (average epoch stats below)
+2020-12-02 21:36:11 | INFO | train | epoch 055 | loss 3.136 | nll_loss 1.38 | symm_mse 0.028 | ppl 2.6 | wps 17729.9 | ups 2.17 | wpb 8159.9 | bsz 278.2 | num_updates 12223 | lr 5.72059e-05 | gnorm 0.855 | train_wall 297 | wall 0
+111
+2020-12-02 21:36:11 | INFO | fairseq.trainer | begin training epoch 56
+2020-12-02 21:36:11 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 21:36:13 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 21:41:11 | INFO | fairseq_cli.train | begin validation on "valid" subset
+2020-12-02 21:41:12 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 21:41:12 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 21:41:12 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 21:41:14 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 21:41:14 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 21:41:14 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 21:41:32 | INFO | valid | epoch 056 | valid on 'valid' subset | symm_mse 0 | loss 9.999 | nll_loss 8.993 | ppl 509.62 | bleu 11.66 | wps 3653.8 | wpb 4629 | bsz 118.9 | num_updates 12942 | best_bleu 12.31
+111
+111
+2020-12-02 21:41:32 | INFO | fairseq_cli.train | begin save checkpoint
+2020-12-02 21:41:33 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 21:41:33 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 21:41:35 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 21:41:35 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 21:41:37 | INFO | fairseq.checkpoint_utils | saved checkpoint ./examples/transformer_enzh/bash/../checkpoints/closer1/checkpoint_last.pt (epoch 56 @ 12942 updates, score 11.66) (writing took 4.376442616805434 seconds)
+2020-12-02 21:41:37 | INFO | fairseq_cli.train | end of epoch 56 (average epoch stats below)
+2020-12-02 21:41:37 | INFO | train | epoch 056 | loss 3.128 | nll_loss 1.37 | symm_mse 0.026 | ppl 2.58 | wps 17994.8 | ups 2.21 | wpb 8159.9 | bsz 278.2 | num_updates 12942 | lr 5.55942e-05 | gnorm 0.859 | train_wall 295 | wall 0
+111
+2020-12-02 21:41:37 | INFO | fairseq.trainer | begin training epoch 57
+2020-12-02 21:41:37 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 21:41:39 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 21:46:37 | INFO | fairseq_cli.train | begin validation on "valid" subset
+2020-12-02 21:46:38 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 21:46:38 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 21:46:38 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 21:46:40 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 21:46:40 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 21:46:40 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 21:46:59 | INFO | valid | epoch 057 | valid on 'valid' subset | symm_mse 0 | loss 10.034 | nll_loss 9.031 | ppl 523.14 | bleu 11.87 | wps 3532.1 | wpb 4629 | bsz 118.9 | num_updates 13661 | best_bleu 12.31
+2020-12-02 21:46:59 | INFO | fairseq_cli.train | begin save checkpoint
+111
+111
+2020-12-02 21:47:00 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 21:47:00 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 21:47:02 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 21:47:02 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 21:47:02 | INFO | fairseq.checkpoint_utils | saved checkpoint ./examples/transformer_enzh/bash/../checkpoints/closer1/checkpoint_last.pt (epoch 57 @ 13661 updates, score 11.87) (writing took 3.749812852591276 seconds)
+2020-12-02 21:47:02 | INFO | fairseq_cli.train | end of epoch 57 (average epoch stats below)
+2020-12-02 21:47:02 | INFO | train | epoch 057 | loss 3.119 | nll_loss 1.359 | symm_mse 0.025 | ppl 2.56 | wps 17999.5 | ups 2.21 | wpb 8159.9 | bsz 278.2 | num_updates 13661 | lr 5.41114e-05 | gnorm 0.861 | train_wall 295 | wall 0
+111
+2020-12-02 21:47:03 | INFO | fairseq.trainer | begin training epoch 58
+2020-12-02 21:47:04 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 21:47:06 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 21:52:04 | INFO | fairseq_cli.train | begin validation on "valid" subset
+2020-12-02 21:52:05 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 21:52:05 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 21:52:05 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 21:52:07 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 21:52:07 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 21:52:07 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 21:52:26 | INFO | valid | epoch 058 | valid on 'valid' subset | symm_mse 0 | loss 10.016 | nll_loss 9.013 | ppl 516.57 | bleu 11.75 | wps 3538.5 | wpb 4629 | bsz 118.9 | num_updates 14380 | best_bleu 12.31
+2020-12-02 21:52:26 | INFO | fairseq_cli.train | begin save checkpoint
+111
+111
+2020-12-02 21:52:27 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 21:52:27 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 21:52:29 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 21:52:29 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 21:52:30 | INFO | fairseq.checkpoint_utils | saved checkpoint ./examples/transformer_enzh/bash/../checkpoints/closer1/checkpoint_last.pt (epoch 58 @ 14380 updates, score 11.75) (writing took 4.156020188704133 seconds)
+2020-12-02 21:52:30 | INFO | fairseq_cli.train | end of epoch 58 (average epoch stats below)
+2020-12-02 21:52:30 | INFO | train | epoch 058 | loss 3.11 | nll_loss 1.348 | symm_mse 0.024 | ppl 2.55 | wps 17916.6 | ups 2.2 | wpb 8159.9 | bsz 278.2 | num_updates 14380 | lr 5.27413e-05 | gnorm 0.861 | train_wall 296 | wall 0
+111
+2020-12-02 21:52:30 | INFO | fairseq.trainer | begin training epoch 59
+2020-12-02 21:52:31 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 21:52:33 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 21:57:31 | INFO | fairseq_cli.train | begin validation on "valid" subset
+2020-12-02 21:57:32 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 21:57:32 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 21:57:32 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 21:57:34 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 21:57:34 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 21:57:34 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 21:57:54 | INFO | valid | epoch 059 | valid on 'valid' subset | symm_mse 0 | loss 10.067 | nll_loss 9.064 | ppl 535.3 | bleu 11.48 | wps 3305.5 | wpb 4629 | bsz 118.9 | num_updates 15099 | best_bleu 12.31
+2020-12-02 21:57:54 | INFO | fairseq_cli.train | begin save checkpoint
+111
+111
+2020-12-02 21:57:55 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 21:57:55 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 21:57:57 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 21:57:57 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 21:57:58 | INFO | fairseq.checkpoint_utils | saved checkpoint ./examples/transformer_enzh/bash/../checkpoints/closer1/checkpoint_last.pt (epoch 59 @ 15099 updates, score 11.48) (writing took 4.104727439582348 seconds)
+2020-12-02 21:57:58 | INFO | fairseq_cli.train | end of epoch 59 (average epoch stats below)
+2020-12-02 21:57:58 | INFO | train | epoch 059 | loss 3.102 | nll_loss 1.339 | symm_mse 0.023 | ppl 2.53 | wps 17887.2 | ups 2.19 | wpb 8159.9 | bsz 278.2 | num_updates 15099 | lr 5.14702e-05 | gnorm 0.863 | train_wall 295 | wall 0
+111
+2020-12-02 21:57:58 | INFO | fairseq.trainer | begin training epoch 60
+2020-12-02 21:57:59 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 21:58:01 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 22:03:00 | INFO | fairseq_cli.train | begin validation on "valid" subset
+2020-12-02 22:03:01 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 22:03:01 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 22:03:01 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 22:03:03 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 22:03:03 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 22:03:03 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 22:03:22 | INFO | valid | epoch 060 | valid on 'valid' subset | symm_mse 0 | loss 10.055 | nll_loss 9.05 | ppl 530.01 | bleu 11.76 | wps 3480.8 | wpb 4629 | bsz 118.9 | num_updates 15818 | best_bleu 12.31
+2020-12-02 22:03:22 | INFO | fairseq_cli.train | begin save checkpoint
+111
+111
+2020-12-02 22:03:23 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 22:03:23 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 22:03:25 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 22:03:25 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 22:03:26 | INFO | fairseq.checkpoint_utils | saved checkpoint ./examples/transformer_enzh/bash/../checkpoints/closer1/checkpoint_last.pt (epoch 60 @ 15818 updates, score 11.76) (writing took 4.065523084253073 seconds)
+2020-12-02 22:03:26 | INFO | fairseq_cli.train | end of epoch 60 (average epoch stats below)
+2020-12-02 22:03:26 | INFO | train | epoch 060 | loss 3.096 | nll_loss 1.332 | symm_mse 0.022 | ppl 2.52 | wps 17886 | ups 2.19 | wpb 8159.9 | bsz 278.2 | num_updates 15818 | lr 5.02868e-05 | gnorm 0.867 | train_wall 296 | wall 0
+111
+2020-12-02 22:03:26 | INFO | fairseq.trainer | begin training epoch 61
+2020-12-02 22:03:27 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 22:03:29 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 22:08:27 | INFO | fairseq_cli.train | begin validation on "valid" subset
+2020-12-02 22:08:28 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 22:08:28 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 22:08:28 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 22:08:30 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 22:08:30 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 22:08:30 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 22:08:50 | INFO | valid | epoch 061 | valid on 'valid' subset | symm_mse 0 | loss 10.078 | nll_loss 9.077 | ppl 540.13 | bleu 11.67 | wps 3357.8 | wpb 4629 | bsz 118.9 | num_updates 16537 | best_bleu 12.31
+2020-12-02 22:08:50 | INFO | fairseq_cli.train | begin save checkpoint
+111
+111
+2020-12-02 22:08:51 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 22:08:51 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 22:08:53 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 22:08:53 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 22:08:54 | INFO | fairseq.checkpoint_utils | saved checkpoint ./examples/transformer_enzh/bash/../checkpoints/closer1/checkpoint_last.pt (epoch 61 @ 16537 updates, score 11.67) (writing took 4.178388480097055 seconds)
+2020-12-02 22:08:54 | INFO | fairseq_cli.train | end of epoch 61 (average epoch stats below)
+2020-12-02 22:08:54 | INFO | train | epoch 061 | loss 3.087 | nll_loss 1.321 | symm_mse 0.021 | ppl 2.5 | wps 17885.1 | ups 2.19 | wpb 8159.9 | bsz 278.2 | num_updates 16537 | lr 4.91815e-05 | gnorm 0.868 | train_wall 295 | wall 0
+111
+2020-12-02 22:08:54 | INFO | fairseq.trainer | begin training epoch 62
+2020-12-02 22:08:55 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 22:08:57 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 22:13:55 | INFO | fairseq_cli.train | begin validation on "valid" subset
+2020-12-02 22:13:56 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 22:13:56 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 22:13:56 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 22:13:58 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 22:13:58 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 22:13:58 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 22:14:17 | INFO | valid | epoch 062 | valid on 'valid' subset | symm_mse 0 | loss 10.074 | nll_loss 9.07 | ppl 537.6 | bleu 11.87 | wps 3444.2 | wpb 4629 | bsz 118.9 | num_updates 17256 | best_bleu 12.31
+2020-12-02 22:14:17 | INFO | fairseq_cli.train | begin save checkpoint
+111
+111
+2020-12-02 22:14:18 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 22:14:18 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 22:14:20 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 22:14:20 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 22:14:22 | INFO | fairseq.checkpoint_utils | saved checkpoint ./examples/transformer_enzh/bash/../checkpoints/closer1/checkpoint_last.pt (epoch 62 @ 17256 updates, score 11.87) (writing took 4.225747581571341 seconds)
+2020-12-02 22:14:22 | INFO | fairseq_cli.train | end of epoch 62 (average epoch stats below)
+2020-12-02 22:14:22 | INFO | train | epoch 062 | loss 3.08 | nll_loss 1.314 | symm_mse 0.021 | ppl 2.49 | wps 17913.7 | ups 2.2 | wpb 8159.9 | bsz 278.2 | num_updates 17256 | lr 4.8146e-05 | gnorm 0.872 | train_wall 296 | wall 0
+111
+2020-12-02 22:14:22 | INFO | fairseq.trainer | begin training epoch 63
+2020-12-02 22:14:22 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 22:14:24 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 22:19:21 | INFO | fairseq_cli.train | begin validation on "valid" subset
+2020-12-02 22:19:21 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 22:19:21 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 22:19:21 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 22:19:23 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 22:19:23 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 22:19:23 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 22:19:42 | INFO | valid | epoch 063 | valid on 'valid' subset | symm_mse 0 | loss 10.065 | nll_loss 9.062 | ppl 534.54 | bleu 11.73 | wps 3487.1 | wpb 4629 | bsz 118.9 | num_updates 17975 | best_bleu 12.31
+2020-12-02 22:19:42 | INFO | fairseq_cli.train | begin save checkpoint
+111
+111
+2020-12-02 22:19:43 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 22:19:43 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 22:19:45 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 22:19:45 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-02 22:19:46 | INFO | fairseq.checkpoint_utils | saved checkpoint ./examples/transformer_enzh/bash/../checkpoints/closer1/checkpoint_last.pt (epoch 63 @ 17975 updates, score 11.73) (writing took 4.184580875560641 seconds)
+2020-12-02 22:19:46 | INFO | fairseq_cli.train | end of epoch 63 (average epoch stats below)
+2020-12-02 22:19:46 | INFO | train | epoch 063 | loss 3.073 | nll_loss 1.306 | symm_mse 0.02 | ppl 2.47 | wps 18064 | ups 2.21 | wpb 8159.9 | bsz 278.2 | num_updates 17975 | lr 4.71732e-05 | gnorm 0.872 | train_wall 294 | wall 0
+111
+2020-12-02 22:19:46 | INFO | fairseq.trainer | begin training epoch 64
+2020-12-02 22:19:47 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-02 22:19:49 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.

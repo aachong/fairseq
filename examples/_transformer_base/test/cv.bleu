@@ -1,0 +1,89 @@
+----------------------------------------------------------------
+results are from cv5.out
+checkpoint is ./examples/_transformer_base/bash/../checkpoints/cv1/checkpoint_best.pt
+BLEU = 48.78, 83.1/59.0/41.0/28.2 (BP=1.000, ratio=1.018, hyp_len=27760, ref_len=27281)
+BLEU = 47.37, 80.9/57.0/39.7/27.5 (BP=1.000, ratio=1.026, hyp_len=30028, ref_len=29262)
+BLEU = 48.71, 81.9/58.3/41.1/28.7 (BP=1.000, ratio=1.023, hyp_len=61457, ref_len=60095)
+BLEU = 47.73, 79.8/56.8/40.1/28.5 (BP=1.000, ratio=1.031, hyp_len=36910, ref_len=35810)
+BLEU = 38.89, 76.8/48.8/31.3/20.1 (BP=0.992, ratio=0.992, hyp_len=40264, ref_len=40573)
+Avg = 46.296
+----------------------------------------------------------------
+results are from cv5.out
+end of epoch 28 
+checkpoint is ./examples/_transformer_base/bash/../checkpoints/cv1/checkpoint_last.pt
+BLEU = 48.79, 83.2/59.2/41.0/28.1 (BP=1.000, ratio=1.015, hyp_len=27528, ref_len=27113)
+BLEU = 47.61, 81.3/57.3/39.9/27.6 (BP=1.000, ratio=1.022, hyp_len=29652, ref_len=29015)
+BLEU = 48.66, 81.9/58.3/41.0/28.7 (BP=1.000, ratio=1.019, hyp_len=61029, ref_len=59910)
+BLEU = 48.02, 80.3/57.0/40.4/28.8 (BP=1.000, ratio=1.026, hyp_len=36620, ref_len=35691)
+BLEU = 39.43, 77.3/49.4/31.8/20.5 (BP=0.992, ratio=0.992, hyp_len=39976, ref_len=40287)
+Avg = 46.502
+----------------------------------------------------------------
+results are from cv5.out
+end of epoch 46 
+checkpoint is ./examples/_transformer_base/bash/../checkpoints/cv1/checkpoint_last.pt
+BLEU = 48.88, 83.1/59.1/41.1/28.3 (BP=1.000, ratio=1.018, hyp_len=27606, ref_len=27118)
+BLEU = 47.59, 81.2/57.1/39.9/27.7 (BP=1.000, ratio=1.025, hyp_len=29886, ref_len=29152)
+BLEU = 48.84, 81.9/58.4/41.2/28.9 (BP=1.000, ratio=1.019, hyp_len=61070, ref_len=59932)
+BLEU = 48.21, 80.2/57.3/40.6/28.9 (BP=1.000, ratio=1.026, hyp_len=36653, ref_len=35721)
+BLEU = 39.06, 77.1/49.1/31.5/20.3 (BP=0.990, ratio=0.990, hyp_len=39907, ref_len=40317)
+Avg = 46.516
+----------------------------------------------------------------
+results are from cv6.out
+end of epoch 38 
+checkpoint is ./examples/_transformer_base/bash/../checkpoints/kl/checkpoint_last.pt
+BLEU = 48.88, 83.1/59.2/41.1/28.2 (BP=1.000, ratio=1.020, hyp_len=27594, ref_len=27059)
+BLEU = 47.90, 81.3/57.5/40.2/28.0 (BP=1.000, ratio=1.024, hyp_len=29831, ref_len=29137)
+BLEU = 48.47, 81.8/58.1/40.8/28.5 (BP=1.000, ratio=1.022, hyp_len=61385, ref_len=60076)
+BLEU = 47.85, 79.9/56.8/40.3/28.7 (BP=1.000, ratio=1.028, hyp_len=36780, ref_len=35768)
+BLEU = 39.42, 77.2/49.2/31.7/20.6 (BP=0.993, ratio=0.993, hyp_len=40131, ref_len=40406)
+Avg = 46.504
+----------------------------------------------------------------
+results are from cv8.out
+end of epoch 1 (
+checkpoint is ./examples/_transformer_base/bash/../checkpoints/kl/checkpoint_last.pt
+BLEU = 47.54, 82.1/57.8/39.7/27.1 (BP=1.000, ratio=1.027, hyp_len=28139, ref_len=27396)
+BLEU = 46.22, 80.3/55.8/38.5/26.5 (BP=1.000, ratio=1.029, hyp_len=30286, ref_len=29440)
+BLEU = 47.49, 81.0/57.0/39.8/27.7 (BP=1.000, ratio=1.029, hyp_len=62368, ref_len=60595)
+BLEU = 46.67, 78.8/55.7/39.1/27.6 (BP=1.000, ratio=1.038, hyp_len=37340, ref_len=35987)
+BLEU = 38.72, 76.1/48.1/30.8/19.9 (BP=1.000, ratio=1.001, hyp_len=40885, ref_len=40864)
+Avg = 45.328
+----------------------------------------------------------------
+results are from cv8.out
+end of epoch 4 (
+checkpoint is ./examples/_transformer_base/bash/../checkpoints/kl/checkpoint_last.pt
+BLEU = 47.80, 82.2/58.1/40.0/27.3 (BP=1.000, ratio=1.024, hyp_len=28030, ref_len=27365)
+BLEU = 46.63, 80.5/56.3/38.9/26.8 (BP=1.000, ratio=1.025, hyp_len=30066, ref_len=29330)
+BLEU = 47.97, 81.3/57.6/40.4/28.0 (BP=1.000, ratio=1.023, hyp_len=61755, ref_len=60343)
+BLEU = 47.02, 79.2/56.0/39.4/28.0 (BP=1.000, ratio=1.029, hyp_len=36908, ref_len=35875)
+BLEU = 38.76, 76.5/48.4/31.0/20.0 (BP=0.996, ratio=0.996, hyp_len=40572, ref_len=40731)
+Avg = 45.636
+----------------------------------------------------------------
+results are from cv8.out
+end of epoch 4 (
+checkpoint is ./examples/_transformer_base/bash/../checkpoints/kl/checkpoint_last.pt
+BLEU = 48.15, 82.4/58.3/40.4/27.7 (BP=1.000, ratio=1.027, hyp_len=28074, ref_len=27328)
+BLEU = 46.58, 80.5/56.2/38.9/26.7 (BP=1.000, ratio=1.025, hyp_len=30032, ref_len=29312)
+BLEU = 48.11, 81.3/57.7/40.5/28.2 (BP=1.000, ratio=1.023, hyp_len=61685, ref_len=60306)
+BLEU = 47.08, 79.1/56.1/39.5/28.1 (BP=1.000, ratio=1.030, hyp_len=36959, ref_len=35885)
+BLEU = 39.14, 76.6/48.8/31.3/20.4 (BP=0.996, ratio=0.996, hyp_len=40671, ref_len=40846)
+Avg = 45.812
+----------------------------------------------------------------
+results are from cv8.out
+end of epoch 6 (
+checkpoint is ./examples/_transformer_base/bash/../checkpoints/kl/checkpoint_last.pt
+BLEU = 47.69, 82.3/58.0/39.9/27.2 (BP=1.000, ratio=1.025, hyp_len=28059, ref_len=27370)
+BLEU = 46.62, 80.6/56.2/38.9/26.8 (BP=1.000, ratio=1.024, hyp_len=30030, ref_len=29319)
+BLEU = 47.93, 81.3/57.6/40.3/28.0 (BP=1.000, ratio=1.028, hyp_len=61986, ref_len=60315)
+BLEU = 46.73, 78.9/55.8/39.2/27.7 (BP=1.000, ratio=1.031, hyp_len=37037, ref_len=35914)
+BLEU = 38.79, 76.5/48.3/30.9/20.0 (BP=0.998, ratio=0.998, hyp_len=40655, ref_len=40742)
+Avg = 45.552
+----------------------------------------------------------------
+results are from cv9.out
+end of epoch 1 (
+checkpoint is ./examples/_transformer_base/bash/../checkpoints/kl/checkpoint_last.pt
+BLEU = 46.92, 81.8/57.1/39.0/26.6 (BP=1.000, ratio=1.021, hyp_len=27811, ref_len=27228)
+BLEU = 45.46, 80.0/55.0/37.7/25.7 (BP=1.000, ratio=1.023, hyp_len=29936, ref_len=29277)
+BLEU = 46.92, 80.7/56.4/39.2/27.2 (BP=1.000, ratio=1.026, hyp_len=61893, ref_len=60304)
+BLEU = 0, 0/0/0/0 (BP=0, ratio=0, hyp_len=0, ref_len=0)
+BLEU = 37.81, 76.1/47.5/30.0/19.1 (BP=0.996, ratio=0.996, hyp_len=40346, ref_len=40504)
+Avg = 35.422

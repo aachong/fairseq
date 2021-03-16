@@ -1,0 +1,894 @@
+nohup: ignoring input
+criterion=label_smoothed_cross_entropy_r3f
+label_smoothing=0.1
+dropout=0.3
+lr=0.0000125
+lrscheduler=fixed
+warmup_updates=0
+max_epoch=100
+r3f_lambda=0.05
+noised数据detach
+save_dir=./examples/entr/bash/../checkpoints/closer_gap
+2020-12-09 12:55:35 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-09 12:55:37 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-09 12:55:38 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-09 12:55:38 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-09 12:55:38 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-09 12:55:40 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-09 12:55:40 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-09 12:55:40 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-09 12:55:41 | INFO | fairseq.distributed_utils | distributed init (rank 0): tcp://localhost:10778
+2020-12-09 12:55:41 | INFO | fairseq.distributed_utils | distributed init (rank 1): tcp://localhost:10778
+2020-12-09 12:55:41 | INFO | fairseq.distributed_utils | distributed init (rank 2): tcp://localhost:10778
+2020-12-09 12:55:41 | INFO | fairseq.distributed_utils | initialized host inspur129 as rank 2
+2020-12-09 12:55:41 | INFO | fairseq.distributed_utils | initialized host inspur129 as rank 1
+2020-12-09 12:55:41 | INFO | fairseq.distributed_utils | initialized host inspur129 as rank 0
+2020-12-09 12:55:45 | INFO | fairseq_cli.train | Namespace(activation_dropout=0.0, activation_fn='relu', adam_betas='(0.9, 0.98)', adam_eps=1e-08, adaptive_input=False, adaptive_softmax_cutoff=None, adaptive_softmax_dropout=0, all_gather_list_size=16384, arch='transformer', attention_dropout=0.0, best_checkpoint_metric='bleu', bf16=False, bpe=None, broadcast_buffers=False, bucket_cap_mb=25, checkpoint_suffix='', clip_norm=0.0, cpu=False, criterion='label_smoothed_cross_entropy_r3f', cross_self_attention=False, curriculum=0, data='./examples/entr/bash/../data-bin', data_buffer_size=10, dataset_impl=None, ddp_backend='c10d', decoder_attention_heads=8, decoder_embed_dim=512, decoder_embed_path=None, decoder_ffn_embed_dim=2048, decoder_input_dim=512, decoder_layerdrop=0, decoder_layers=6, decoder_layers_to_keep=None, decoder_learned_pos=False, decoder_normalize_before=False, decoder_output_dim=512, device_id=0, disable_validation=False, distributed_backend='nccl', distributed_init_method='tcp://localhost:10778', distributed_no_spawn=False, distributed_num_procs=3, distributed_port=-1, distributed_rank=0, distributed_world_size=3, distributed_wrapper='DDP', dropout=0.3, empty_cache_freq=0, encoder_attention_heads=8, encoder_embed_dim=512, encoder_embed_path=None, encoder_ffn_embed_dim=2048, encoder_layerdrop=0, encoder_layers=6, encoder_layers_to_keep=None, encoder_learned_pos=False, encoder_normalize_before=False, eps=1e-05, eval_bleu=True, eval_bleu_args='{"beam": 5, "max_len_a": 1.2, "max_len_b": 10}', eval_bleu_detok='space', eval_bleu_detok_args=None, eval_bleu_print_samples=False, eval_bleu_remove_bpe='sentencepiece', eval_tokenized_bleu=False, fast_stat_sync=False, find_unused_parameters=False, finetune_from_model='./examples/entr/bash/../checkpoints/baseline/checkpoint_last.pt', fix_batches_to_gpus=False, fixed_validation_seed=None, force_anneal=None, fp16=False, fp16_init_scale=128, fp16_no_flatten_grads=False, fp16_scale_tolerance=0.0, fp16_scale_window=None, keep_best_checkpoints=-1, keep_interval_updates=-1, keep_last_epochs=-1, label_smoothing=0.1, layernorm_embedding=False, left_pad_source='True', left_pad_target='False', load_alignments=False, localsgd_frequency=3, log_format=None, log_interval=100, lr=[1.25e-05], lr_scheduler='fixed', lr_shrink=0.1, max_epoch=100, max_sentences=None, max_sentences_valid=None, max_source_positions=1024, max_target_positions=1024, max_tokens=4000, max_tokens_valid=4000, max_update=0, maximize_best_checkpoint_metric=True, memory_efficient_bf16=False, memory_efficient_fp16=False, min_loss_scale=0.0001, min_lr=1e-09, model_parallel_size=1, no_cross_attention=False, no_epoch_checkpoints=True, no_last_checkpoints=False, no_progress_bar=False, no_save=False, no_save_optimizer_state=False, no_scale_embedding=False, no_seed_provided=True, no_token_positional_embeddings=False, noise_type='normal', nprocs_per_node=3, num_batch_buckets=0, num_workers=1, optimizer='adam', optimizer_overrides='{}', patience=-1, pipeline_balance=None, pipeline_checkpoint='never', pipeline_chunks=None, pipeline_devices=None, pipeline_model_parallel=False, profile=False, quant_noise_pq=0, quant_noise_pq_block_size=8, quant_noise_scalar=0, quantization_config_path=None, r3f_lambda=0.05, required_batch_size_multiple=8, required_seq_len_multiple=1, reset_dataloader=False, reset_lr_scheduler=False, reset_meters=False, reset_optimizer=False, restore_file='checkpoint_last.pt', save_dir='./examples/entr/bash/../checkpoints/closer_gap', save_interval=1, save_interval_updates=0, scoring='bleu', seed=1, sentence_avg=False, share_all_embeddings=True, share_decoder_input_output_embed=False, skip_invalid_size_inputs_valid_test=False, slowmo_algorithm='LocalSGD', slowmo_momentum=None, source_lang='en', stop_time_hours=0, target_lang='tr', task='translation', tensorboard_logdir='', threshold_loss_scale=None, tie_adaptive_weights=False, tokenizer=None, tpu=False, train_subset='train', truncate_source=False, update_freq=[1], upsample_primary=1, use_bmuf=False, use_old_adam=False, user_dir=None, valid_subset='valid', validate_after_updates=0, validate_interval=1, validate_interval_updates=0, warmup_updates=0, weight_decay=0.0, zero_sharding='none')
+2020-12-09 12:55:45 | INFO | fairseq.tasks.translation | [en] dictionary: 19784 types
+2020-12-09 12:55:45 | INFO | fairseq.tasks.translation | [tr] dictionary: 19784 types
+2020-12-09 12:55:45 | INFO | fairseq.data.data_utils | loaded 3000 examples from: ./examples/entr/bash/../data-bin/valid.en-tr.en
+2020-12-09 12:55:45 | INFO | fairseq.data.data_utils | loaded 3000 examples from: ./examples/entr/bash/../data-bin/valid.en-tr.tr
+2020-12-09 12:55:45 | INFO | fairseq.tasks.translation | ./examples/entr/bash/../data-bin valid en-tr 3000 examples
+2020-12-09 12:55:46 | INFO | fairseq_cli.train | TransformerModel(
+  (encoder): TransformerEncoder(
+    (dropout_module): FairseqDropout()
+    (embed_tokens): Embedding(19784, 512, padding_idx=1)
+    (embed_positions): SinusoidalPositionalEmbedding()
+    (layers): ModuleList(
+      (0): TransformerEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (self_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (dropout_module): FairseqDropout()
+        (activation_dropout_module): FairseqDropout()
+        (fc1): Linear(in_features=512, out_features=2048, bias=True)
+        (fc2): Linear(in_features=2048, out_features=512, bias=True)
+        (final_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+      )
+      (1): TransformerEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (self_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (dropout_module): FairseqDropout()
+        (activation_dropout_module): FairseqDropout()
+        (fc1): Linear(in_features=512, out_features=2048, bias=True)
+        (fc2): Linear(in_features=2048, out_features=512, bias=True)
+        (final_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+      )
+      (2): TransformerEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (self_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (dropout_module): FairseqDropout()
+        (activation_dropout_module): FairseqDropout()
+        (fc1): Linear(in_features=512, out_features=2048, bias=True)
+        (fc2): Linear(in_features=2048, out_features=512, bias=True)
+        (final_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+      )
+      (3): TransformerEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (self_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (dropout_module): FairseqDropout()
+        (activation_dropout_module): FairseqDropout()
+        (fc1): Linear(in_features=512, out_features=2048, bias=True)
+        (fc2): Linear(in_features=2048, out_features=512, bias=True)
+        (final_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+      )
+      (4): TransformerEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (self_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (dropout_module): FairseqDropout()
+        (activation_dropout_module): FairseqDropout()
+        (fc1): Linear(in_features=512, out_features=2048, bias=True)
+        (fc2): Linear(in_features=2048, out_features=512, bias=True)
+        (final_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+      )
+      (5): TransformerEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (self_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (dropout_module): FairseqDropout()
+        (activation_dropout_module): FairseqDropout()
+        (fc1): Linear(in_features=512, out_features=2048, bias=True)
+        (fc2): Linear(in_features=2048, out_features=512, bias=True)
+        (final_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+      )
+    )
+  )
+  (decoder): TransformerDecoder(
+    (dropout_module): FairseqDropout()
+    (embed_tokens): Embedding(19784, 512, padding_idx=1)
+    (embed_positions): SinusoidalPositionalEmbedding()
+    (layers): ModuleList(
+      (0): TransformerDecoderLayer(
+        (dropout_module): FairseqDropout()
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (activation_dropout_module): FairseqDropout()
+        (self_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (encoder_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (encoder_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (fc1): Linear(in_features=512, out_features=2048, bias=True)
+        (fc2): Linear(in_features=2048, out_features=512, bias=True)
+        (final_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+      )
+      (1): TransformerDecoderLayer(
+        (dropout_module): FairseqDropout()
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (activation_dropout_module): FairseqDropout()
+        (self_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (encoder_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (encoder_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (fc1): Linear(in_features=512, out_features=2048, bias=True)
+        (fc2): Linear(in_features=2048, out_features=512, bias=True)
+        (final_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+      )
+      (2): TransformerDecoderLayer(
+        (dropout_module): FairseqDropout()
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (activation_dropout_module): FairseqDropout()
+        (self_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (encoder_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (encoder_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (fc1): Linear(in_features=512, out_features=2048, bias=True)
+        (fc2): Linear(in_features=2048, out_features=512, bias=True)
+        (final_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+      )
+      (3): TransformerDecoderLayer(
+        (dropout_module): FairseqDropout()
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (activation_dropout_module): FairseqDropout()
+        (self_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (encoder_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (encoder_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (fc1): Linear(in_features=512, out_features=2048, bias=True)
+        (fc2): Linear(in_features=2048, out_features=512, bias=True)
+        (final_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+      )
+      (4): TransformerDecoderLayer(
+        (dropout_module): FairseqDropout()
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (activation_dropout_module): FairseqDropout()
+        (self_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (encoder_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (encoder_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (fc1): Linear(in_features=512, out_features=2048, bias=True)
+        (fc2): Linear(in_features=2048, out_features=512, bias=True)
+        (final_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+      )
+      (5): TransformerDecoderLayer(
+        (dropout_module): FairseqDropout()
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (activation_dropout_module): FairseqDropout()
+        (self_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (encoder_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (encoder_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (fc1): Linear(in_features=512, out_features=2048, bias=True)
+        (fc2): Linear(in_features=2048, out_features=512, bias=True)
+        (final_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+      )
+    )
+    (output_projection): Linear(in_features=512, out_features=19784, bias=False)
+  )
+)
+2020-12-09 12:55:46 | INFO | fairseq_cli.train | task: translation (TranslationTask)
+2020-12-09 12:55:46 | INFO | fairseq_cli.train | model: transformer (TransformerModel)
+2020-12-09 12:55:46 | INFO | fairseq_cli.train | criterion: label_smoothed_cross_entropy_r3f (LabelSmoothedCrossEntropyR3FCriterion)
+2020-12-09 12:55:46 | INFO | fairseq_cli.train | num. model params: 54267904 (num. trained: 54267904)
+2020-12-09 12:55:46 | INFO | fairseq.trainer | detected shared parameter: encoder.embed_tokens.weight <- decoder.embed_tokens.weight
+2020-12-09 12:55:46 | INFO | fairseq.trainer | detected shared parameter: encoder.embed_tokens.weight <- decoder.output_projection.weight
+2020-12-09 12:55:46 | INFO | fairseq.utils | ***********************CUDA enviroments for all 3 workers***********************
+2020-12-09 12:55:46 | INFO | fairseq.utils | rank   0: capabilities =  6.1  ; total memory = 10.917 GB ; name = GeForce GTX 1080 Ti                     
+2020-12-09 12:55:46 | INFO | fairseq.utils | rank   1: capabilities =  6.1  ; total memory = 10.917 GB ; name = GeForce GTX 1080 Ti                     
+2020-12-09 12:55:46 | INFO | fairseq.utils | rank   2: capabilities =  6.1  ; total memory = 10.917 GB ; name = GeForce GTX 1080 Ti                     
+2020-12-09 12:55:46 | INFO | fairseq.utils | ***********************CUDA enviroments for all 3 workers***********************
+2020-12-09 12:55:46 | INFO | fairseq_cli.train | training on 3 devices (GPUs/TPUs)
+2020-12-09 12:55:46 | INFO | fairseq_cli.train | max tokens per GPU = 4000 and max sentences per GPU = None
+2020-12-09 12:55:46 | INFO | fairseq.checkpoint_utils | loading pretrained model from ./examples/entr/bash/../checkpoints/baseline/checkpoint_last.pt: optimizer, lr scheduler, meters, dataloader will be reset
+2020-12-09 12:55:47 | INFO | fairseq.trainer | loaded checkpoint ./examples/entr/bash/../checkpoints/baseline/checkpoint_last.pt (epoch 106 @ 0 updates)
+2020-12-09 12:55:47 | INFO | fairseq.optim.adam | using FusedAdam
+2020-12-09 12:55:47 | INFO | fairseq.trainer | loading train data for epoch 1
+2020-12-09 12:55:47 | INFO | fairseq.data.data_utils | loaded 207373 examples from: ./examples/entr/bash/../data-bin/train.en-tr.en
+2020-12-09 12:55:47 | INFO | fairseq.data.data_utils | loaded 207373 examples from: ./examples/entr/bash/../data-bin/train.en-tr.tr
+2020-12-09 12:55:47 | INFO | fairseq.tasks.translation | ./examples/entr/bash/../data-bin train en-tr 207373 examples
+2020-12-09 12:55:47 | INFO | fairseq.trainer | begin training epoch 1
+2020-12-09 12:55:48 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-09 12:55:48 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-09 12:55:48 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-09 12:55:50 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-09 12:55:50 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-09 12:55:50 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-09 12:56:36 | INFO | train_inner | epoch 001:    100 / 561 symm_kl=26.873, loss=4.664, nll_loss=0.756, ppl=1.69, wps=23818.1, ups=2.24, wpb=10623.3, bsz=364.6, num_updates=100, lr=1.25e-05, gnorm=4.591, train_wall=45, wall=50
+2020-12-09 12:57:20 | INFO | train_inner | epoch 001:    200 / 561 symm_kl=24.8, loss=4.564, nll_loss=0.729, ppl=1.66, wps=23747.7, ups=2.24, wpb=10583.4, bsz=369.8, num_updates=200, lr=1.25e-05, gnorm=4.167, train_wall=44, wall=94
+2020-12-09 12:58:05 | INFO | train_inner | epoch 001:    300 / 561 symm_kl=23.319, loss=4.47, nll_loss=0.73, ppl=1.66, wps=23170.6, ups=2.24, wpb=10335, bsz=373, num_updates=300, lr=1.25e-05, gnorm=4.006, train_wall=44, wall=139
+2020-12-09 12:58:49 | INFO | train_inner | epoch 001:    400 / 561 symm_kl=22.281, loss=4.39, nll_loss=0.727, ppl=1.65, wps=23663.1, ups=2.24, wpb=10571.8, bsz=388.4, num_updates=400, lr=1.25e-05, gnorm=3.847, train_wall=44, wall=183
+2020-12-09 12:59:34 | INFO | train_inner | epoch 001:    500 / 561 symm_kl=22.409, loss=4.407, nll_loss=0.732, ppl=1.66, wps=23075.1, ups=2.22, wpb=10411.2, bsz=371.8, num_updates=500, lr=1.25e-05, gnorm=3.869, train_wall=45, wall=229
+2020-12-09 13:00:02 | INFO | fairseq_cli.train | begin validation on "valid" subset
+2020-12-09 13:00:03 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-09 13:00:03 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-09 13:00:03 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-09 13:00:05 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-09 13:00:05 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-09 13:00:05 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-09 13:00:06 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2020-12-09 13:00:06 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2020-12-09 13:00:06 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2020-12-09 13:00:06 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2020-12-09 13:00:06 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2020-12-09 13:00:06 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2020-12-09 13:00:07 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2020-12-09 13:00:07 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2020-12-09 13:00:07 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2020-12-09 13:00:08 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2020-12-09 13:00:08 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2020-12-09 13:00:08 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2020-12-09 13:00:08 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2020-12-09 13:00:08 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2020-12-09 13:00:08 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2020-12-09 13:00:08 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2020-12-09 13:00:08 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2020-12-09 13:00:08 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2020-12-09 13:00:09 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2020-12-09 13:00:09 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2020-12-09 13:00:09 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2020-12-09 13:00:09 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2020-12-09 13:00:09 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2020-12-09 13:00:09 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2020-12-09 13:00:09 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2020-12-09 13:00:09 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2020-12-09 13:00:09 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2020-12-09 13:00:12 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2020-12-09 13:00:12 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2020-12-09 13:00:12 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2020-12-09 13:00:23 | INFO | valid | epoch 001 | valid on 'valid' subset | symm_kl 0 | loss 6.437 | nll_loss 4.607 | ppl 24.36 | bleu 21.67 | wps 4572 | wpb 7508.5 | bsz 272.7 | num_updates 561
+2020-12-09 13:00:23 | INFO | fairseq_cli.train | begin save checkpoint
+2020-12-09 13:00:24 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-09 13:00:24 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-09 13:00:25 | INFO | fairseq.checkpoint_utils | saved checkpoint ./examples/entr/bash/../checkpoints/closer_gap/checkpoint_best.pt (epoch 1 @ 561 updates, score 21.67) (writing took 2.21348681114614 seconds)
+2020-12-09 13:00:25 | INFO | fairseq_cli.train | end of epoch 1 (average epoch stats below)
+2020-12-09 13:00:25 | INFO | train | epoch 001 | symm_kl 24.148 | loss 4.519 | nll_loss 0.735 | ppl 1.66 | wps 21434.4 | ups 2.04 | wpb 10483.4 | bsz 369.6 | num_updates 561 | lr 1.25e-05 | gnorm 4.139 | train_wall 251 | wall 279
+2020-12-09 13:00:25 | INFO | fairseq.trainer | begin training epoch 2
+2020-12-09 13:00:26 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-09 13:00:26 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-09 13:00:26 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-09 13:00:28 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-09 13:00:46 | INFO | train_inner | epoch 002:     39 / 561 symm_kl=24.325, loss=4.554, nll_loss=0.728, ppl=1.66, wps=14505.1, ups=1.4, wpb=10345.6, bsz=358.4, num_updates=600, lr=1.25e-05, gnorm=4.29, train_wall=44, wall=300
+2020-12-09 13:01:31 | INFO | train_inner | epoch 002:    139 / 561 symm_kl=24.011, loss=4.533, nll_loss=0.73, ppl=1.66, wps=23463.5, ups=2.23, wpb=10532.9, bsz=366.4, num_updates=700, lr=1.25e-05, gnorm=4.202, train_wall=45, wall=345
+2020-12-09 13:02:16 | INFO | train_inner | epoch 002:    239 / 561 symm_kl=21.928, loss=4.377, nll_loss=0.724, ppl=1.65, wps=23269.3, ups=2.22, wpb=10499.4, bsz=369.4, num_updates=800, lr=1.25e-05, gnorm=3.819, train_wall=45, wall=390
+2020-12-09 13:03:01 | INFO | train_inner | epoch 002:    339 / 561 symm_kl=22.401, loss=4.414, nll_loss=0.726, ppl=1.65, wps=23435.2, ups=2.22, wpb=10541.2, bsz=377.1, num_updates=900, lr=1.25e-05, gnorm=3.933, train_wall=45, wall=435
+2020-12-09 13:03:46 | INFO | train_inner | epoch 002:    439 / 561 symm_kl=22.211, loss=4.414, nll_loss=0.734, ppl=1.66, wps=23396.3, ups=2.23, wpb=10472.1, bsz=362.4, num_updates=1000, lr=1.25e-05, gnorm=3.946, train_wall=45, wall=480
+2020-12-09 13:04:31 | INFO | train_inner | epoch 002:    539 / 561 symm_kl=22.795, loss=4.454, nll_loss=0.739, ppl=1.67, wps=23205.3, ups=2.22, wpb=10444.3, bsz=375.2, num_updates=1100, lr=1.25e-05, gnorm=4.08, train_wall=45, wall=525
+2020-12-09 13:04:41 | INFO | fairseq_cli.train | begin validation on "valid" subset
+2020-12-09 13:04:41 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-09 13:04:41 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-09 13:04:41 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-09 13:04:43 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-09 13:04:43 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-09 13:04:43 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-09 13:04:45 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2020-12-09 13:04:45 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2020-12-09 13:04:45 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2020-12-09 13:04:45 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2020-12-09 13:04:45 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2020-12-09 13:04:45 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2020-12-09 13:04:45 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2020-12-09 13:04:45 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2020-12-09 13:04:45 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2020-12-09 13:04:46 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2020-12-09 13:04:46 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2020-12-09 13:04:46 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2020-12-09 13:04:46 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2020-12-09 13:04:46 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2020-12-09 13:04:46 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2020-12-09 13:04:46 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2020-12-09 13:04:46 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2020-12-09 13:04:46 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2020-12-09 13:04:47 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2020-12-09 13:04:47 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2020-12-09 13:04:47 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2020-12-09 13:04:48 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2020-12-09 13:04:48 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2020-12-09 13:04:48 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2020-12-09 13:04:48 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2020-12-09 13:04:48 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2020-12-09 13:04:48 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2020-12-09 13:04:49 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2020-12-09 13:04:49 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2020-12-09 13:04:49 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2020-12-09 13:04:50 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2020-12-09 13:04:50 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2020-12-09 13:04:50 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2020-12-09 13:05:03 | INFO | valid | epoch 002 | valid on 'valid' subset | symm_kl 0 | loss 6.473 | nll_loss 4.634 | ppl 24.83 | bleu 21.61 | wps 4196.7 | wpb 7508.5 | bsz 272.7 | num_updates 1122 | best_bleu 21.67
+2020-12-09 13:05:03 | INFO | fairseq_cli.train | begin save checkpoint
+2020-12-09 13:05:04 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-09 13:05:04 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-09 13:05:06 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-09 13:05:06 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-09 13:05:06 | INFO | fairseq.checkpoint_utils | saved checkpoint ./examples/entr/bash/../checkpoints/closer_gap/checkpoint_last.pt (epoch 2 @ 1122 updates, score 21.61) (writing took 3.0095240008085966 seconds)
+2020-12-09 13:05:06 | INFO | fairseq_cli.train | end of epoch 2 (average epoch stats below)
+2020-12-09 13:05:06 | INFO | train | epoch 002 | symm_kl 22.692 | loss 4.439 | nll_loss 0.73 | ppl 1.66 | wps 20950.1 | ups 2 | wpb 10483.4 | bsz 369.6 | num_updates 1122 | lr 1.25e-05 | gnorm 4.019 | train_wall 251 | wall 560
+2020-12-09 13:05:06 | INFO | fairseq.trainer | begin training epoch 3
+2020-12-09 13:05:07 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-09 13:05:09 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-09 13:05:43 | INFO | train_inner | epoch 003:     78 / 561 symm_kl=22.869, loss=4.454, nll_loss=0.729, ppl=1.66, wps=14341.8, ups=1.37, wpb=10441.4, bsz=356.7, num_updates=1200, lr=1.25e-05, gnorm=4.143, train_wall=44, wall=597
+2020-12-09 13:06:28 | INFO | train_inner | epoch 003:    178 / 561 symm_kl=21.725, loss=4.377, nll_loss=0.734, ppl=1.66, wps=23327, ups=2.24, wpb=10420.6, bsz=376, num_updates=1300, lr=1.25e-05, gnorm=3.962, train_wall=44, wall=642
+2020-12-09 13:07:13 | INFO | train_inner | epoch 003:    278 / 561 symm_kl=21.788, loss=4.375, nll_loss=0.73, ppl=1.66, wps=23547.4, ups=2.25, wpb=10478.6, bsz=371.6, num_updates=1400, lr=1.25e-05, gnorm=3.929, train_wall=44, wall=687
+2020-12-09 13:07:57 | INFO | train_inner | epoch 003:    378 / 561 symm_kl=22.241, loss=4.426, nll_loss=0.746, ppl=1.68, wps=23376, ups=2.23, wpb=10472.3, bsz=374.7, num_updates=1500, lr=1.25e-05, gnorm=3.981, train_wall=45, wall=731
+2020-12-09 13:08:43 | INFO | train_inner | epoch 003:    478 / 561 symm_kl=21.557, loss=4.365, nll_loss=0.736, ppl=1.67, wps=23392.7, ups=2.2, wpb=10650.7, bsz=373.4, num_updates=1600, lr=1.25e-05, gnorm=3.868, train_wall=45, wall=777
+2020-12-09 13:09:20 | INFO | fairseq_cli.train | begin validation on "valid" subset
+2020-12-09 13:09:21 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-09 13:09:21 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-09 13:09:21 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-09 13:09:23 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-09 13:09:23 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-09 13:09:23 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-09 13:09:24 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2020-12-09 13:09:24 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2020-12-09 13:09:24 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2020-12-09 13:09:24 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2020-12-09 13:09:24 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2020-12-09 13:09:24 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2020-12-09 13:09:25 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2020-12-09 13:09:25 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2020-12-09 13:09:25 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2020-12-09 13:09:26 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2020-12-09 13:09:26 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2020-12-09 13:09:26 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2020-12-09 13:09:26 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2020-12-09 13:09:26 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2020-12-09 13:09:26 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2020-12-09 13:09:26 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2020-12-09 13:09:26 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2020-12-09 13:09:26 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2020-12-09 13:09:27 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2020-12-09 13:09:27 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2020-12-09 13:09:27 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2020-12-09 13:09:27 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2020-12-09 13:09:27 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2020-12-09 13:09:27 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2020-12-09 13:09:27 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2020-12-09 13:09:27 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2020-12-09 13:09:27 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2020-12-09 13:09:28 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2020-12-09 13:09:28 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2020-12-09 13:09:28 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2020-12-09 13:09:30 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2020-12-09 13:09:30 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2020-12-09 13:09:30 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2020-12-09 13:09:41 | INFO | valid | epoch 003 | valid on 'valid' subset | symm_kl 0 | loss 6.499 | nll_loss 4.655 | ppl 25.2 | bleu 21.58 | wps 4476.2 | wpb 7508.5 | bsz 272.7 | num_updates 1683 | best_bleu 21.67
+2020-12-09 13:09:41 | INFO | fairseq_cli.train | begin save checkpoint
+2020-12-09 13:09:42 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-09 13:09:42 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-09 13:09:44 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-09 13:09:44 | INFO | fairseq.checkpoint_utils | saved checkpoint ./examples/entr/bash/../checkpoints/closer_gap/checkpoint_last.pt (epoch 3 @ 1683 updates, score 21.58) (writing took 2.869382280856371 seconds)
+2020-12-09 13:09:44 | INFO | fairseq_cli.train | end of epoch 3 (average epoch stats below)
+2020-12-09 13:09:44 | INFO | train | epoch 003 | symm_kl 22.091 | loss 4.404 | nll_loss 0.734 | ppl 1.66 | wps 21137.1 | ups 2.02 | wpb 10483.4 | bsz 369.6 | num_updates 1683 | lr 1.25e-05 | gnorm 3.992 | train_wall 250 | wall 838
+2020-12-09 13:09:44 | INFO | fairseq.trainer | begin training epoch 4
+2020-12-09 13:09:44 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-09 13:09:45 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-09 13:09:47 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-09 13:09:55 | INFO | train_inner | epoch 004:     17 / 561 symm_kl=23.035, loss=4.472, nll_loss=0.728, ppl=1.66, wps=14520.2, ups=1.39, wpb=10447.8, bsz=352, num_updates=1700, lr=1.25e-05, gnorm=4.245, train_wall=44, wall=849
+2020-12-09 13:10:39 | INFO | train_inner | epoch 004:    117 / 561 symm_kl=22.496, loss=4.443, nll_loss=0.738, ppl=1.67, wps=23452, ups=2.24, wpb=10469.1, bsz=365.6, num_updates=1800, lr=1.25e-05, gnorm=4.111, train_wall=44, wall=894
+2020-12-09 13:11:24 | INFO | train_inner | epoch 004:    217 / 561 symm_kl=22.2, loss=4.425, nll_loss=0.744, ppl=1.67, wps=22975.4, ups=2.24, wpb=10271.1, bsz=367.4, num_updates=1900, lr=1.25e-05, gnorm=4.091, train_wall=45, wall=938
+2020-12-09 13:12:09 | INFO | train_inner | epoch 004:    317 / 561 symm_kl=22.13, loss=4.409, nll_loss=0.731, ppl=1.66, wps=23562.6, ups=2.23, wpb=10571.4, bsz=356.9, num_updates=2000, lr=1.25e-05, gnorm=4.062, train_wall=45, wall=983
+2020-12-09 13:12:54 | INFO | train_inner | epoch 004:    417 / 561 symm_kl=21.524, loss=4.367, nll_loss=0.736, ppl=1.67, wps=23292.9, ups=2.21, wpb=10532.7, bsz=370.6, num_updates=2100, lr=1.25e-05, gnorm=3.959, train_wall=45, wall=1028
+2020-12-09 13:13:39 | INFO | train_inner | epoch 004:    517 / 561 symm_kl=20.654, loss=4.305, nll_loss=0.739, ppl=1.67, wps=23608.3, ups=2.22, wpb=10614.4, bsz=387.6, num_updates=2200, lr=1.25e-05, gnorm=3.778, train_wall=45, wall=1073
+2020-12-09 13:13:59 | INFO | fairseq_cli.train | begin validation on "valid" subset
+2020-12-09 13:14:00 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-09 13:14:00 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-09 13:14:00 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-09 13:14:02 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-09 13:14:02 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-09 13:14:02 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-09 13:14:04 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2020-12-09 13:14:04 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2020-12-09 13:14:04 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2020-12-09 13:14:04 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2020-12-09 13:14:04 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2020-12-09 13:14:04 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2020-12-09 13:14:04 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2020-12-09 13:14:04 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2020-12-09 13:14:04 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2020-12-09 13:14:05 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2020-12-09 13:14:05 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2020-12-09 13:14:05 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2020-12-09 13:14:05 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2020-12-09 13:14:05 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2020-12-09 13:14:05 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2020-12-09 13:14:05 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2020-12-09 13:14:05 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2020-12-09 13:14:05 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2020-12-09 13:14:06 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2020-12-09 13:14:06 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2020-12-09 13:14:06 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2020-12-09 13:14:06 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2020-12-09 13:14:06 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2020-12-09 13:14:06 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2020-12-09 13:14:06 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2020-12-09 13:14:06 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2020-12-09 13:14:06 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2020-12-09 13:14:07 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2020-12-09 13:14:07 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2020-12-09 13:14:07 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2020-12-09 13:14:09 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2020-12-09 13:14:09 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2020-12-09 13:14:09 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2020-12-09 13:14:21 | INFO | valid | epoch 004 | valid on 'valid' subset | symm_kl 0 | loss 6.506 | nll_loss 4.662 | ppl 25.32 | bleu 21.48 | wps 4475.7 | wpb 7508.5 | bsz 272.7 | num_updates 2244 | best_bleu 21.67
+2020-12-09 13:14:21 | INFO | fairseq_cli.train | begin save checkpoint
+2020-12-09 13:14:21 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-09 13:14:21 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-09 13:14:23 | INFO | fairseq.checkpoint_utils | saved checkpoint ./examples/entr/bash/../checkpoints/closer_gap/checkpoint_last.pt (epoch 4 @ 2244 updates, score 21.48) (writing took 2.8014361392706633 seconds)
+2020-12-09 13:14:23 | INFO | fairseq_cli.train | end of epoch 4 (average epoch stats below)
+2020-12-09 13:14:23 | INFO | train | epoch 004 | symm_kl 21.656 | loss 4.377 | nll_loss 0.737 | ppl 1.67 | wps 21062.8 | ups 2.01 | wpb 10483.4 | bsz 369.6 | num_updates 2244 | lr 1.25e-05 | gnorm 3.972 | train_wall 251 | wall 1117
+2020-12-09 13:14:23 | INFO | fairseq.trainer | begin training epoch 5
+2020-12-09 13:14:24 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-09 13:14:24 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-09 13:14:24 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-09 13:14:26 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-09 13:14:51 | INFO | train_inner | epoch 005:     56 / 561 symm_kl=20.713, loss=4.299, nll_loss=0.73, ppl=1.66, wps=14493.5, ups=1.39, wpb=10433.5, bsz=373.3, num_updates=2300, lr=1.25e-05, gnorm=3.825, train_wall=44, wall=1145
+2020-12-09 13:15:36 | INFO | train_inner | epoch 005:    156 / 561 symm_kl=21.181, loss=4.348, nll_loss=0.742, ppl=1.67, wps=23168.2, ups=2.22, wpb=10447.6, bsz=372.4, num_updates=2400, lr=1.25e-05, gnorm=3.929, train_wall=45, wall=1190
+2020-12-09 13:16:22 | INFO | train_inner | epoch 005:    256 / 561 symm_kl=21.08, loss=4.341, nll_loss=0.742, ppl=1.67, wps=23242.4, ups=2.21, wpb=10524.3, bsz=363.8, num_updates=2500, lr=1.25e-05, gnorm=3.925, train_wall=45, wall=1236
+2020-12-09 13:17:07 | INFO | train_inner | epoch 005:    356 / 561 symm_kl=22.509, loss=4.455, nll_loss=0.747, ppl=1.68, wps=23075.7, ups=2.22, wpb=10415.7, bsz=357.5, num_updates=2600, lr=1.25e-05, gnorm=4.196, train_wall=45, wall=1281
+2020-12-09 13:17:52 | INFO | train_inner | epoch 005:    456 / 561 symm_kl=20.357, loss=4.28, nll_loss=0.735, ppl=1.66, wps=23543.8, ups=2.23, wpb=10565, bsz=383, num_updates=2700, lr=1.25e-05, gnorm=3.751, train_wall=45, wall=1326
+2020-12-09 13:18:37 | INFO | train_inner | epoch 005:    556 / 561 symm_kl=21.11, loss=4.336, nll_loss=0.734, ppl=1.66, wps=23241.4, ups=2.22, wpb=10479.6, bsz=374.7, num_updates=2800, lr=1.25e-05, gnorm=3.938, train_wall=45, wall=1371
+2020-12-09 13:18:39 | INFO | fairseq_cli.train | begin validation on "valid" subset
+2020-12-09 13:18:40 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-09 13:18:40 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-09 13:18:40 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-09 13:18:42 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-09 13:18:42 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-09 13:18:42 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-09 13:18:43 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2020-12-09 13:18:43 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2020-12-09 13:18:43 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2020-12-09 13:18:43 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2020-12-09 13:18:43 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2020-12-09 13:18:43 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2020-12-09 13:18:43 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2020-12-09 13:18:43 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2020-12-09 13:18:43 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2020-12-09 13:18:44 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2020-12-09 13:18:44 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2020-12-09 13:18:44 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2020-12-09 13:18:45 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2020-12-09 13:18:45 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2020-12-09 13:18:45 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2020-12-09 13:18:45 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2020-12-09 13:18:45 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2020-12-09 13:18:45 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2020-12-09 13:18:46 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2020-12-09 13:18:46 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2020-12-09 13:18:46 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2020-12-09 13:18:46 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2020-12-09 13:18:46 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2020-12-09 13:18:46 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2020-12-09 13:18:46 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2020-12-09 13:18:46 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2020-12-09 13:18:46 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2020-12-09 13:18:47 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2020-12-09 13:18:47 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2020-12-09 13:18:47 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2020-12-09 13:18:48 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2020-12-09 13:18:48 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2020-12-09 13:18:48 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2020-12-09 13:19:00 | INFO | valid | epoch 005 | valid on 'valid' subset | symm_kl 0 | loss 6.524 | nll_loss 4.678 | ppl 25.59 | bleu 21.41 | wps 4627.9 | wpb 7508.5 | bsz 272.7 | num_updates 2805 | best_bleu 21.67
+2020-12-09 13:19:00 | INFO | fairseq_cli.train | begin save checkpoint
+2020-12-09 13:19:01 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-09 13:19:01 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-09 13:19:03 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-09 13:19:03 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-09 13:19:03 | INFO | fairseq.checkpoint_utils | saved checkpoint ./examples/entr/bash/../checkpoints/closer_gap/checkpoint_last.pt (epoch 5 @ 2805 updates, score 21.41) (writing took 2.9255772847682238 seconds)
+2020-12-09 13:19:03 | INFO | fairseq_cli.train | end of epoch 5 (average epoch stats below)
+2020-12-09 13:19:03 | INFO | train | epoch 005 | symm_kl 21.28 | loss 4.353 | nll_loss 0.739 | ppl 1.67 | wps 21057.8 | ups 2.01 | wpb 10483.4 | bsz 369.6 | num_updates 2805 | lr 1.25e-05 | gnorm 3.957 | train_wall 251 | wall 1397
+2020-12-09 13:19:03 | INFO | fairseq.trainer | begin training epoch 6
+2020-12-09 13:19:04 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-09 13:19:05 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-09 13:19:48 | INFO | train_inner | epoch 006:     95 / 561 symm_kl=20.904, loss=4.323, nll_loss=0.738, ppl=1.67, wps=14449, ups=1.4, wpb=10318.1, bsz=377.4, num_updates=2900, lr=1.25e-05, gnorm=3.986, train_wall=44, wall=1442
+2020-12-09 13:20:33 | INFO | train_inner | epoch 006:    195 / 561 symm_kl=21.265, loss=4.354, nll_loss=0.739, ppl=1.67, wps=23650.4, ups=2.21, wpb=10679.3, bsz=372.1, num_updates=3000, lr=1.25e-05, gnorm=3.941, train_wall=45, wall=1487
+2020-12-09 13:21:19 | INFO | train_inner | epoch 006:    295 / 561 symm_kl=21.115, loss=4.343, nll_loss=0.737, ppl=1.67, wps=23130.3, ups=2.21, wpb=10477.8, bsz=365.4, num_updates=3100, lr=1.25e-05, gnorm=3.962, train_wall=45, wall=1533
+2020-12-09 13:22:03 | INFO | train_inner | epoch 006:    395 / 561 symm_kl=21.496, loss=4.388, nll_loss=0.751, ppl=1.68, wps=23470.2, ups=2.23, wpb=10517.4, bsz=358, num_updates=3200, lr=1.25e-05, gnorm=3.985, train_wall=45, wall=1577
+2020-12-09 13:22:48 | INFO | train_inner | epoch 006:    495 / 561 symm_kl=20.589, loss=4.293, nll_loss=0.727, ppl=1.66, wps=23450.1, ups=2.23, wpb=10534.9, bsz=372, num_updates=3300, lr=1.25e-05, gnorm=3.863, train_wall=45, wall=1622
+2020-12-09 13:23:18 | INFO | fairseq_cli.train | begin validation on "valid" subset
+2020-12-09 13:23:19 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-09 13:23:19 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-09 13:23:19 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-09 13:23:21 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-09 13:23:21 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-09 13:23:21 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-09 13:23:22 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2020-12-09 13:23:22 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2020-12-09 13:23:22 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2020-12-09 13:23:22 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2020-12-09 13:23:22 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2020-12-09 13:23:22 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2020-12-09 13:23:23 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2020-12-09 13:23:23 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2020-12-09 13:23:23 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2020-12-09 13:23:24 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2020-12-09 13:23:24 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2020-12-09 13:23:24 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2020-12-09 13:23:24 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2020-12-09 13:23:24 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2020-12-09 13:23:24 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2020-12-09 13:23:24 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2020-12-09 13:23:24 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2020-12-09 13:23:24 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2020-12-09 13:23:25 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2020-12-09 13:23:25 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2020-12-09 13:23:25 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2020-12-09 13:23:25 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2020-12-09 13:23:25 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2020-12-09 13:23:25 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2020-12-09 13:23:25 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2020-12-09 13:23:25 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2020-12-09 13:23:25 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2020-12-09 13:23:26 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2020-12-09 13:23:26 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2020-12-09 13:23:26 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2020-12-09 13:23:28 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2020-12-09 13:23:28 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2020-12-09 13:23:28 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2020-12-09 13:23:39 | INFO | valid | epoch 006 | valid on 'valid' subset | symm_kl 0 | loss 6.531 | nll_loss 4.682 | ppl 25.67 | bleu 21.52 | wps 4616.6 | wpb 7508.5 | bsz 272.7 | num_updates 3366 | best_bleu 21.67
+2020-12-09 13:23:39 | INFO | fairseq_cli.train | begin save checkpoint
+2020-12-09 13:23:40 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-09 13:23:40 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-09 13:23:41 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-09 13:23:41 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-09 13:23:42 | INFO | fairseq.checkpoint_utils | saved checkpoint ./examples/entr/bash/../checkpoints/closer_gap/checkpoint_last.pt (epoch 6 @ 3366 updates, score 21.52) (writing took 2.7824524268507957 seconds)
+2020-12-09 13:23:42 | INFO | fairseq_cli.train | end of epoch 6 (average epoch stats below)
+2020-12-09 13:23:42 | INFO | train | epoch 006 | symm_kl 20.988 | loss 4.336 | nll_loss 0.741 | ppl 1.67 | wps 21084.8 | ups 2.01 | wpb 10483.4 | bsz 369.6 | num_updates 3366 | lr 1.25e-05 | gnorm 3.927 | train_wall 251 | wall 1676
+2020-12-09 13:23:42 | INFO | fairseq.trainer | begin training epoch 7
+2020-12-09 13:23:43 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-09 13:23:44 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-09 13:24:00 | INFO | train_inner | epoch 007:     34 / 561 symm_kl=20.01, loss=4.276, nll_loss=0.756, ppl=1.69, wps=14340.9, ups=1.4, wpb=10237, bsz=369, num_updates=3400, lr=1.25e-05, gnorm=3.726, train_wall=44, wall=1694
+2020-12-09 13:24:45 | INFO | train_inner | epoch 007:    134 / 561 symm_kl=21.119, loss=4.344, nll_loss=0.74, ppl=1.67, wps=23165.6, ups=2.2, wpb=10508.4, bsz=371.6, num_updates=3500, lr=1.25e-05, gnorm=3.992, train_wall=45, wall=1739
+2020-12-09 13:25:30 | INFO | train_inner | epoch 007:    234 / 561 symm_kl=20.684, loss=4.32, nll_loss=0.745, ppl=1.68, wps=23101, ups=2.22, wpb=10404.4, bsz=363.4, num_updates=3600, lr=1.25e-05, gnorm=3.909, train_wall=45, wall=1784
+2020-12-09 13:26:15 | INFO | train_inner | epoch 007:    334 / 561 symm_kl=20.245, loss=4.286, nll_loss=0.747, ppl=1.68, wps=23468.9, ups=2.24, wpb=10456.6, bsz=375.4, num_updates=3700, lr=1.25e-05, gnorm=3.824, train_wall=44, wall=1829
+2020-12-09 13:27:00 | INFO | train_inner | epoch 007:    434 / 561 symm_kl=21.458, loss=4.372, nll_loss=0.739, ppl=1.67, wps=23321.1, ups=2.23, wpb=10467.8, bsz=366.5, num_updates=3800, lr=1.25e-05, gnorm=4.165, train_wall=45, wall=1874
+2020-12-09 13:27:45 | INFO | train_inner | epoch 007:    534 / 561 symm_kl=20.668, loss=4.317, nll_loss=0.743, ppl=1.67, wps=23664.7, ups=2.21, wpb=10688.9, bsz=373.3, num_updates=3900, lr=1.25e-05, gnorm=3.862, train_wall=45, wall=1919
+2020-12-09 13:27:57 | INFO | fairseq_cli.train | begin validation on "valid" subset
+2020-12-09 13:27:58 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-09 13:27:58 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-09 13:27:58 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-09 13:27:59 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-09 13:27:59 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-09 13:27:59 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-09 13:28:01 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2020-12-09 13:28:01 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2020-12-09 13:28:01 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2020-12-09 13:28:01 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2020-12-09 13:28:01 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2020-12-09 13:28:01 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2020-12-09 13:28:01 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2020-12-09 13:28:01 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2020-12-09 13:28:01 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2020-12-09 13:28:02 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2020-12-09 13:28:02 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2020-12-09 13:28:02 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2020-12-09 13:28:03 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2020-12-09 13:28:03 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2020-12-09 13:28:03 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2020-12-09 13:28:03 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2020-12-09 13:28:03 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2020-12-09 13:28:03 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2020-12-09 13:28:04 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2020-12-09 13:28:04 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2020-12-09 13:28:04 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2020-12-09 13:28:04 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2020-12-09 13:28:04 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2020-12-09 13:28:04 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2020-12-09 13:28:04 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2020-12-09 13:28:04 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2020-12-09 13:28:04 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2020-12-09 13:28:05 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2020-12-09 13:28:05 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2020-12-09 13:28:05 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2020-12-09 13:28:06 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2020-12-09 13:28:06 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2020-12-09 13:28:06 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2020-12-09 13:28:17 | INFO | valid | epoch 007 | valid on 'valid' subset | symm_kl 0 | loss 6.537 | nll_loss 4.688 | ppl 25.77 | bleu 21.56 | wps 4718.6 | wpb 7508.5 | bsz 272.7 | num_updates 3927 | best_bleu 21.67
+2020-12-09 13:28:17 | INFO | fairseq_cli.train | begin save checkpoint
+2020-12-09 13:28:18 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-09 13:28:18 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-09 13:28:20 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-09 13:28:20 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-09 13:28:20 | INFO | fairseq.checkpoint_utils | saved checkpoint ./examples/entr/bash/../checkpoints/closer_gap/checkpoint_last.pt (epoch 7 @ 3927 updates, score 21.56) (writing took 2.764877265319228 seconds)
+2020-12-09 13:28:20 | INFO | fairseq_cli.train | end of epoch 7 (average epoch stats below)
+2020-12-09 13:28:20 | INFO | train | epoch 007 | symm_kl 20.708 | loss 4.318 | nll_loss 0.743 | ppl 1.67 | wps 21123.2 | ups 2.01 | wpb 10483.4 | bsz 369.6 | num_updates 3927 | lr 1.25e-05 | gnorm 3.916 | train_wall 251 | wall 1954
+2020-12-09 13:28:20 | INFO | fairseq.trainer | begin training epoch 8
+2020-12-09 13:28:21 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-09 13:28:23 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-09 13:28:56 | INFO | train_inner | epoch 008:     73 / 561 symm_kl=20.23, loss=4.281, nll_loss=0.743, ppl=1.67, wps=14945.9, ups=1.41, wpb=10590, bsz=375, num_updates=4000, lr=1.25e-05, gnorm=3.801, train_wall=44, wall=1990
+2020-12-09 13:29:41 | INFO | train_inner | epoch 008:    173 / 561 symm_kl=21.84, loss=4.406, nll_loss=0.741, ppl=1.67, wps=23204.3, ups=2.21, wpb=10504.7, bsz=358.9, num_updates=4100, lr=1.25e-05, gnorm=4.179, train_wall=45, wall=2035
+2020-12-09 13:30:27 | INFO | train_inner | epoch 008:    273 / 561 symm_kl=20.043, loss=4.275, nll_loss=0.745, ppl=1.68, wps=22429.3, ups=2.16, wpb=10367.5, bsz=366.4, num_updates=4200, lr=1.25e-05, gnorm=3.862, train_wall=46, wall=2081
+2020-12-09 13:31:14 | INFO | train_inner | epoch 008:    373 / 561 symm_kl=19.392, loss=4.214, nll_loss=0.738, ppl=1.67, wps=22352.8, ups=2.15, wpb=10416.1, bsz=389.5, num_updates=4300, lr=1.25e-05, gnorm=3.711, train_wall=46, wall=2128
+2020-12-09 13:32:01 | INFO | train_inner | epoch 008:    473 / 561 symm_kl=19.669, loss=4.238, nll_loss=0.742, ppl=1.67, wps=22690.8, ups=2.13, wpb=10648.7, bsz=379.6, num_updates=4400, lr=1.25e-05, gnorm=3.662, train_wall=47, wall=2175
+2020-12-09 13:32:42 | INFO | fairseq_cli.train | begin validation on "valid" subset
+2020-12-09 13:32:43 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-09 13:32:43 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-09 13:32:43 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-09 13:32:45 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-09 13:32:46 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-09 13:32:46 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-09 13:32:48 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2020-12-09 13:32:48 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2020-12-09 13:32:48 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2020-12-09 13:32:48 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2020-12-09 13:32:48 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2020-12-09 13:32:48 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2020-12-09 13:32:48 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2020-12-09 13:32:48 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2020-12-09 13:32:48 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2020-12-09 13:32:49 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2020-12-09 13:32:49 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2020-12-09 13:32:49 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2020-12-09 13:32:49 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2020-12-09 13:32:49 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2020-12-09 13:32:49 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2020-12-09 13:32:49 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2020-12-09 13:32:49 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2020-12-09 13:32:49 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2020-12-09 13:32:50 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2020-12-09 13:32:50 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2020-12-09 13:32:50 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2020-12-09 13:32:50 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2020-12-09 13:32:50 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2020-12-09 13:32:50 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2020-12-09 13:32:50 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2020-12-09 13:32:50 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2020-12-09 13:32:50 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2020-12-09 13:32:52 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2020-12-09 13:32:52 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2020-12-09 13:32:52 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2020-12-09 13:32:53 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2020-12-09 13:32:53 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2020-12-09 13:32:53 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2020-12-09 13:33:06 | INFO | valid | epoch 008 | valid on 'valid' subset | symm_kl 0 | loss 6.547 | nll_loss 4.693 | ppl 25.87 | bleu 21.41 | wps 4060 | wpb 7508.5 | bsz 272.7 | num_updates 4488 | best_bleu 21.67
+2020-12-09 13:33:06 | INFO | fairseq_cli.train | begin save checkpoint
+2020-12-09 13:33:07 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-09 13:33:08 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-09 13:33:10 | INFO | fairseq.checkpoint_utils | saved checkpoint ./examples/entr/bash/../checkpoints/closer_gap/checkpoint_last.pt (epoch 8 @ 4488 updates, score 21.41) (writing took 3.3133538216352463 seconds)
+2020-12-09 13:33:10 | INFO | fairseq_cli.train | end of epoch 8 (average epoch stats below)
+2020-12-09 13:33:10 | INFO | train | epoch 008 | symm_kl 20.481 | loss 4.304 | nll_loss 0.745 | ppl 1.68 | wps 20307.7 | ups 1.94 | wpb 10483.4 | bsz 369.6 | num_updates 4488 | lr 1.25e-05 | gnorm 3.895 | train_wall 257 | wall 2244
+2020-12-09 13:33:10 | INFO | fairseq.trainer | begin training epoch 9
+2020-12-09 13:33:10 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-09 13:33:10 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-09 13:33:11 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-09 13:33:13 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-09 13:33:19 | INFO | train_inner | epoch 009:     12 / 561 symm_kl=21.22, loss=4.372, nll_loss=0.755, ppl=1.69, wps=13108.2, ups=1.27, wpb=10320.4, bsz=352.8, num_updates=4500, lr=1.25e-05, gnorm=4.032, train_wall=46, wall=2253
+2020-12-09 13:34:05 | INFO | train_inner | epoch 009:    112 / 561 symm_kl=20.487, loss=4.297, nll_loss=0.736, ppl=1.67, wps=23163.9, ups=2.2, wpb=10532.6, bsz=374.2, num_updates=4600, lr=1.25e-05, gnorm=3.883, train_wall=45, wall=2299
+2020-12-09 13:34:51 | INFO | train_inner | epoch 009:    212 / 561 symm_kl=21.878, loss=4.428, nll_loss=0.758, ppl=1.69, wps=22772.2, ups=2.16, wpb=10528, bsz=345, num_updates=4700, lr=1.25e-05, gnorm=4.127, train_wall=46, wall=2345
+2020-12-09 13:35:38 | INFO | train_inner | epoch 009:    312 / 561 symm_kl=19.374, loss=4.22, nll_loss=0.744, ppl=1.68, wps=22445.1, ups=2.14, wpb=10473.1, bsz=377.1, num_updates=4800, lr=1.25e-05, gnorm=3.666, train_wall=46, wall=2392
+2020-12-09 13:36:24 | INFO | train_inner | epoch 009:    412 / 561 symm_kl=20.015, loss=4.269, nll_loss=0.743, ppl=1.67, wps=22719.5, ups=2.17, wpb=10483.1, bsz=368.3, num_updates=4900, lr=1.25e-05, gnorm=3.885, train_wall=46, wall=2438
+2020-12-09 13:37:10 | INFO | train_inner | epoch 009:    512 / 561 symm_kl=19.443, loss=4.222, nll_loss=0.743, ppl=1.67, wps=22541.2, ups=2.14, wpb=10514.7, bsz=388.6, num_updates=5000, lr=1.25e-05, gnorm=3.769, train_wall=46, wall=2485
+2020-12-09 13:37:33 | INFO | fairseq_cli.train | begin validation on "valid" subset
+2020-12-09 13:37:34 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-09 13:37:34 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-09 13:37:34 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-09 13:37:37 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-09 13:37:37 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-09 13:37:37 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-09 13:37:39 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2020-12-09 13:37:39 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2020-12-09 13:37:39 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2020-12-09 13:37:39 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2020-12-09 13:37:39 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2020-12-09 13:37:39 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2020-12-09 13:37:39 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2020-12-09 13:37:39 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2020-12-09 13:37:39 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2020-12-09 13:37:41 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2020-12-09 13:37:41 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2020-12-09 13:37:41 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2020-12-09 13:37:41 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2020-12-09 13:37:41 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2020-12-09 13:37:41 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2020-12-09 13:37:41 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2020-12-09 13:37:41 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2020-12-09 13:37:41 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2020-12-09 13:37:42 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2020-12-09 13:37:42 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2020-12-09 13:37:42 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2020-12-09 13:37:42 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2020-12-09 13:37:42 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2020-12-09 13:37:42 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2020-12-09 13:37:42 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2020-12-09 13:37:42 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2020-12-09 13:37:42 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2020-12-09 13:37:43 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2020-12-09 13:37:43 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2020-12-09 13:37:43 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2020-12-09 13:37:45 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2020-12-09 13:37:45 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2020-12-09 13:37:45 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2020-12-09 13:37:57 | INFO | valid | epoch 009 | valid on 'valid' subset | symm_kl 0 | loss 6.555 | nll_loss 4.7 | ppl 25.99 | bleu 21.42 | wps 4127.3 | wpb 7508.5 | bsz 272.7 | num_updates 5049 | best_bleu 21.67
+2020-12-09 13:37:57 | INFO | fairseq_cli.train | begin save checkpoint
+2020-12-09 13:37:58 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-09 13:37:58 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-09 13:38:00 | INFO | fairseq.checkpoint_utils | saved checkpoint ./examples/entr/bash/../checkpoints/closer_gap/checkpoint_last.pt (epoch 9 @ 5049 updates, score 21.42) (writing took 3.2377920895814896 seconds)
+2020-12-09 13:38:00 | INFO | fairseq_cli.train | end of epoch 9 (average epoch stats below)
+2020-12-09 13:38:00 | INFO | train | epoch 009 | symm_kl 20.259 | loss 4.291 | nll_loss 0.746 | ppl 1.68 | wps 20234.4 | ups 1.93 | wpb 10483.4 | bsz 369.6 | num_updates 5049 | lr 1.25e-05 | gnorm 3.871 | train_wall 258 | wall 2534
+2020-12-09 13:38:00 | INFO | fairseq.trainer | begin training epoch 10
+2020-12-09 13:38:00 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-09 13:38:00 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-09 13:38:01 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-09 13:38:03 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-09 13:38:27 | INFO | train_inner | epoch 010:     51 / 561 symm_kl=20.326, loss=4.31, nll_loss=0.758, ppl=1.69, wps=13507.4, ups=1.3, wpb=10353, bsz=356, num_updates=5100, lr=1.25e-05, gnorm=3.91, train_wall=45, wall=2561
+2020-12-09 13:39:13 | INFO | train_inner | epoch 010:    151 / 561 symm_kl=19.99, loss=4.278, nll_loss=0.752, ppl=1.68, wps=22950.4, ups=2.17, wpb=10577.3, bsz=365.6, num_updates=5200, lr=1.25e-05, gnorm=3.788, train_wall=46, wall=2607
+2020-12-09 13:40:00 | INFO | train_inner | epoch 010:    251 / 561 symm_kl=20.463, loss=4.313, nll_loss=0.749, ppl=1.68, wps=22585.1, ups=2.15, wpb=10501.8, bsz=363.6, num_updates=5300, lr=1.25e-05, gnorm=3.965, train_wall=46, wall=2654
+2020-12-09 13:40:46 | INFO | train_inner | epoch 010:    351 / 561 symm_kl=20.244, loss=4.293, nll_loss=0.751, ppl=1.68, wps=22377.3, ups=2.14, wpb=10450.1, bsz=375.6, num_updates=5400, lr=1.25e-05, gnorm=3.929, train_wall=46, wall=2700
+2020-12-09 13:41:33 | INFO | train_inner | epoch 010:    451 / 561 symm_kl=19.609, loss=4.236, nll_loss=0.742, ppl=1.67, wps=22588.7, ups=2.16, wpb=10472.1, bsz=373.6, num_updates=5500, lr=1.25e-05, gnorm=3.843, train_wall=46, wall=2747
+2020-12-09 13:42:19 | INFO | train_inner | epoch 010:    551 / 561 symm_kl=19.552, loss=4.239, nll_loss=0.748, ppl=1.68, wps=22565.2, ups=2.15, wpb=10516.7, bsz=381.2, num_updates=5600, lr=1.25e-05, gnorm=3.745, train_wall=46, wall=2793
+2020-12-09 13:42:24 | INFO | fairseq_cli.train | begin validation on "valid" subset
+2020-12-09 13:42:25 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-09 13:42:25 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-09 13:42:25 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-09 13:42:27 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-09 13:42:27 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-09 13:42:27 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-09 13:42:29 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2020-12-09 13:42:29 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2020-12-09 13:42:29 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2020-12-09 13:42:30 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2020-12-09 13:42:30 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2020-12-09 13:42:30 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2020-12-09 13:42:30 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2020-12-09 13:42:30 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2020-12-09 13:42:30 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2020-12-09 13:42:31 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2020-12-09 13:42:31 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2020-12-09 13:42:31 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2020-12-09 13:42:31 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2020-12-09 13:42:31 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2020-12-09 13:42:31 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2020-12-09 13:42:31 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2020-12-09 13:42:31 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2020-12-09 13:42:31 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2020-12-09 13:42:32 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2020-12-09 13:42:32 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2020-12-09 13:42:32 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2020-12-09 13:42:33 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2020-12-09 13:42:33 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2020-12-09 13:42:33 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2020-12-09 13:42:33 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2020-12-09 13:42:33 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2020-12-09 13:42:33 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2020-12-09 13:42:34 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2020-12-09 13:42:34 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2020-12-09 13:42:34 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2020-12-09 13:42:36 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2020-12-09 13:42:36 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2020-12-09 13:42:36 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2020-12-09 13:42:48 | INFO | valid | epoch 010 | valid on 'valid' subset | symm_kl 0 | loss 6.556 | nll_loss 4.704 | ppl 26.07 | bleu 21.39 | wps 3898.9 | wpb 7508.5 | bsz 272.7 | num_updates 5610 | best_bleu 21.67
+2020-12-09 13:42:48 | INFO | fairseq_cli.train | begin save checkpoint
+2020-12-09 13:42:50 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-09 13:42:50 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-09 13:42:52 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-09 13:42:52 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-09 13:42:52 | INFO | fairseq.checkpoint_utils | saved checkpoint ./examples/entr/bash/../checkpoints/closer_gap/checkpoint_last.pt (epoch 10 @ 5610 updates, score 21.39) (writing took 3.5996076595038176 seconds)
+2020-12-09 13:42:52 | INFO | fairseq_cli.train | end of epoch 10 (average epoch stats below)
+2020-12-09 13:42:52 | INFO | train | epoch 010 | symm_kl 20.025 | loss 4.276 | nll_loss 0.748 | ppl 1.68 | wps 20159.2 | ups 1.92 | wpb 10483.4 | bsz 369.6 | num_updates 5610 | lr 1.25e-05 | gnorm 3.869 | train_wall 258 | wall 2826
+2020-12-09 13:42:52 | INFO | fairseq.trainer | begin training epoch 11
+2020-12-09 13:42:53 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2020-12-09 13:42:55 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2020-12-09 13:43:36 | INFO | train_inner | epoch 011:     90 / 561 symm_kl=20.746, loss=4.337, nll_loss=0.751, ppl=1.68, wps=13458, ups=1.3, wpb=10358.6, bsz=351.1, num_updates=5700, lr=1.25e-05, gnorm=3.957, train_wall=45, wall=2870
+2020-12-09 13:44:23 | INFO | train_inner | epoch 011:    190 / 561 symm_kl=19.191, loss=4.205, nll_loss=0.743, ppl=1.67, wps=22739.4, ups=2.15, wpb=10564, bsz=383.6, num_updates=5800, lr=1.25e-05, gnorm=3.723, train_wall=46, wall=2917
+Traceback (most recent call last):
+  File "train.py", line 14, in <module>
+    cli_main()
+  File "/home/rcduan/fairseq/fairseq/fairseq_cli/train.py", line 362, in cli_main
+    distributed_utils.call_main(args, main)
+  File "/home/rcduan/fairseq/fairseq/fairseq/distributed_utils.py", line 237, in call_main
+    torch.multiprocessing.spawn(
+  File "/home/rcduan/miniconda3/lib/python3.8/site-packages/torch/multiprocessing/spawn.py", line 200, in spawn
+    return start_processes(fn, args, nprocs, join, daemon, start_method='spawn')
+  File "/home/rcduan/miniconda3/lib/python3.8/site-packages/torch/multiprocessing/spawn.py", line 158, in start_processes
+    while not context.join():
+  File "/home/rcduan/miniconda3/lib/python3.8/site-packages/torch/multiprocessing/spawn.py", line 106, in join
+    raise Exception(
+Exception: process 0 terminated with signal SIGKILL
+/home/rcduan/miniconda3/lib/python3.8/multiprocessing/resource_tracker.py:216: UserWarning: resource_tracker: There appear to be 96 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '

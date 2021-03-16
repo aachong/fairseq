@@ -1,0 +1,2626 @@
+save_dir=./examples/entr/bash/../checkpoints/closer-all
+还是改了那个没有梯度的dropout=0.0,相当于无dropout
+criterion=label_smoothed_cross_entropy_r3f_noised_input
+label_smoothing=0.1
+dropout=0.3
+lr=0.00004
+lrscheduler=inverse_sqrt
+warmup_updates=3000
+max_epoch=200
+r3f_lambda=1
+extr='--warmup-init-lr 1e-07 --reset-optimizer'
+2021-01-27 18:08:36 | INFO | transformers.file_utils | PyTorch version 1.6.0 available.
+2021-01-27 18:08:38 | INFO | transformers.file_utils | TensorFlow version 2.2.0 available.
+2021-01-27 18:08:43 | INFO | fairseq_cli.train | Namespace(activation_dropout=0.0, activation_fn='relu', adam_betas='(0.9, 0.98)', adam_eps=1e-08, adaptive_input=False, adaptive_softmax_cutoff=None, adaptive_softmax_dropout=0, all_gather_list_size=16384, arch='transformer', attention_dropout=0.0, best_checkpoint_metric='bleu', bf16=False, bpe=None, broadcast_buffers=False, bucket_cap_mb=25, checkpoint_activations=False, checkpoint_suffix='', clip_norm=0.0, cpu=False, criterion='label_smoothed_cross_entropy_r3f_noised_input', cross_self_attention=False, curriculum=0, cv_lambda=0.0, data='./examples/entr/bash/../data-bin', data_buffer_size=10, dataset_impl=None, ddp_backend='c10d', decoder_attention_heads=8, decoder_embed_dim=512, decoder_embed_path=None, decoder_ffn_embed_dim=2048, decoder_input_dim=512, decoder_layerdrop=0, decoder_layers=6, decoder_layers_to_keep=None, decoder_learned_pos=False, decoder_normalize_before=False, decoder_output_dim=512, device_id=0, disable_validation=False, distributed_backend='nccl', distributed_init_method=None, distributed_no_spawn=False, distributed_num_procs=1, distributed_port=-1, distributed_rank=0, distributed_world_size=1, distributed_wrapper='DDP', dropout=0.3, empty_cache_freq=0, encoder_attention_heads=8, encoder_embed_dim=512, encoder_embed_path=None, encoder_ffn_embed_dim=2048, encoder_layerdrop=0, encoder_layers=6, encoder_layers_to_keep=None, encoder_learned_pos=False, encoder_normalize_before=False, eps=1e-06, eval_bleu=True, eval_bleu_args='{"beam": 5, "max_len_a": 1.2, "max_len_b": 10}', eval_bleu_detok='space', eval_bleu_detok_args=None, eval_bleu_print_samples=False, eval_bleu_remove_bpe='sentencepiece', eval_tokenized_bleu=False, fast_stat_sync=False, find_unused_parameters=False, finetune_from_model=None, fix_batches_to_gpus=False, fixed_validation_seed=None, fp16=False, fp16_init_scale=128, fp16_no_flatten_grads=False, fp16_scale_tolerance=0.0, fp16_scale_window=None, keep_best_checkpoints=-1, keep_interval_updates=-1, keep_last_epochs=-1, label_smoothing=0.1, layernorm_embedding=False, left_pad_source='True', left_pad_target='False', load_alignments=False, localsgd_frequency=3, log_format=None, log_interval=100, lr=[4e-05], lr_scheduler='inverse_sqrt', max_epoch=200, max_sentences=None, max_sentences_valid=None, max_source_positions=1024, max_target_positions=1024, max_tokens=6000, max_tokens_valid=6000, max_update=0, maximize_best_checkpoint_metric=True, memory_efficient_bf16=False, memory_efficient_fp16=False, min_loss_scale=0.0001, min_lr=1e-09, model_parallel_size=1, no_cross_attention=False, no_epoch_checkpoints=True, no_last_checkpoints=False, no_progress_bar=False, no_save=False, no_save_optimizer_state=False, no_scale_embedding=False, no_seed_provided=True, no_token_positional_embeddings=False, noise_type='normal', noised_eval_model=False, noised_no_grad=False, nprocs_per_node=1, num_batch_buckets=0, num_workers=1, optimizer='adam', optimizer_overrides='{}', patience=-1, pipeline_balance=None, pipeline_checkpoint='never', pipeline_chunks=None, pipeline_devices=None, pipeline_model_parallel=False, profile=False, quant_noise_pq=0, quant_noise_pq_block_size=8, quant_noise_scalar=0, quantization_config_path=None, r3f_lambda=1.0, required_batch_size_multiple=8, required_seq_len_multiple=1, reset_dataloader=False, reset_lr_scheduler=False, reset_meters=False, reset_optimizer=True, restore_file='checkpoint_last.pt', save_dir='./examples/entr/bash/../checkpoints/closer-all', save_interval=1, save_interval_updates=0, scoring='bleu', seed=1, self_training_drc=False, sentence_avg=False, share_all_embeddings=True, share_decoder_input_output_embed=False, skip_invalid_size_inputs_valid_test=False, slowmo_algorithm='LocalSGD', slowmo_momentum=None, source_lang='en', stop_time_hours=0, target_lang='tr', task='translation', tensorboard_logdir='', threshold_loss_scale=None, tie_adaptive_weights=False, tokenizer=None, tpu=False, train_subset='train', truncate_source=False, update_freq=[1], upsample_primary=1, use_bmuf=False, use_old_adam=False, user_dir=None, valid_subset='valid', validate_after_updates=0, validate_interval=1, validate_interval_updates=0, warmup_init_lr=1e-07, warmup_updates=3000, weight_decay=0.0, zero_sharding='none')
+2021-01-27 18:08:43 | INFO | fairseq.tasks.translation | [en] dictionary: 19784 types
+2021-01-27 18:08:43 | INFO | fairseq.tasks.translation | [tr] dictionary: 19784 types
+2021-01-27 18:08:43 | INFO | fairseq.data.data_utils | loaded 3000 examples from: ./examples/entr/bash/../data-bin/valid.en-tr.en
+2021-01-27 18:08:43 | INFO | fairseq.data.data_utils | loaded 3000 examples from: ./examples/entr/bash/../data-bin/valid.en-tr.tr
+2021-01-27 18:08:43 | INFO | fairseq.tasks.translation | ./examples/entr/bash/../data-bin valid en-tr 3000 examples
+2021-01-27 18:08:44 | INFO | fairseq_cli.train | TransformerModel(
+  (encoder): TransformerEncoder(
+    (dropout_module): FairseqDropout()
+    (embed_tokens): Embedding(19784, 512, padding_idx=1)
+    (embed_positions): SinusoidalPositionalEmbedding()
+    (layers): ModuleList(
+      (0): TransformerEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (self_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (dropout_module): FairseqDropout()
+        (activation_dropout_module): FairseqDropout()
+        (fc1): Linear(in_features=512, out_features=2048, bias=True)
+        (fc2): Linear(in_features=2048, out_features=512, bias=True)
+        (final_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+      )
+      (1): TransformerEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (self_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (dropout_module): FairseqDropout()
+        (activation_dropout_module): FairseqDropout()
+        (fc1): Linear(in_features=512, out_features=2048, bias=True)
+        (fc2): Linear(in_features=2048, out_features=512, bias=True)
+        (final_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+      )
+      (2): TransformerEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (self_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (dropout_module): FairseqDropout()
+        (activation_dropout_module): FairseqDropout()
+        (fc1): Linear(in_features=512, out_features=2048, bias=True)
+        (fc2): Linear(in_features=2048, out_features=512, bias=True)
+        (final_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+      )
+      (3): TransformerEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (self_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (dropout_module): FairseqDropout()
+        (activation_dropout_module): FairseqDropout()
+        (fc1): Linear(in_features=512, out_features=2048, bias=True)
+        (fc2): Linear(in_features=2048, out_features=512, bias=True)
+        (final_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+      )
+      (4): TransformerEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (self_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (dropout_module): FairseqDropout()
+        (activation_dropout_module): FairseqDropout()
+        (fc1): Linear(in_features=512, out_features=2048, bias=True)
+        (fc2): Linear(in_features=2048, out_features=512, bias=True)
+        (final_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+      )
+      (5): TransformerEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (self_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (dropout_module): FairseqDropout()
+        (activation_dropout_module): FairseqDropout()
+        (fc1): Linear(in_features=512, out_features=2048, bias=True)
+        (fc2): Linear(in_features=2048, out_features=512, bias=True)
+        (final_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+      )
+    )
+  )
+  (decoder): TransformerDecoder(
+    (dropout_module): FairseqDropout()
+    (embed_tokens): Embedding(19784, 512, padding_idx=1)
+    (embed_positions): SinusoidalPositionalEmbedding()
+    (layers): ModuleList(
+      (0): TransformerDecoderLayer(
+        (dropout_module): FairseqDropout()
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (activation_dropout_module): FairseqDropout()
+        (self_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (encoder_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (encoder_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (fc1): Linear(in_features=512, out_features=2048, bias=True)
+        (fc2): Linear(in_features=2048, out_features=512, bias=True)
+        (final_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+      )
+      (1): TransformerDecoderLayer(
+        (dropout_module): FairseqDropout()
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (activation_dropout_module): FairseqDropout()
+        (self_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (encoder_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (encoder_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (fc1): Linear(in_features=512, out_features=2048, bias=True)
+        (fc2): Linear(in_features=2048, out_features=512, bias=True)
+        (final_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+      )
+      (2): TransformerDecoderLayer(
+        (dropout_module): FairseqDropout()
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (activation_dropout_module): FairseqDropout()
+        (self_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (encoder_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (encoder_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (fc1): Linear(in_features=512, out_features=2048, bias=True)
+        (fc2): Linear(in_features=2048, out_features=512, bias=True)
+        (final_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+      )
+      (3): TransformerDecoderLayer(
+        (dropout_module): FairseqDropout()
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (activation_dropout_module): FairseqDropout()
+        (self_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (encoder_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (encoder_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (fc1): Linear(in_features=512, out_features=2048, bias=True)
+        (fc2): Linear(in_features=2048, out_features=512, bias=True)
+        (final_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+      )
+      (4): TransformerDecoderLayer(
+        (dropout_module): FairseqDropout()
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (activation_dropout_module): FairseqDropout()
+        (self_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (encoder_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (encoder_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (fc1): Linear(in_features=512, out_features=2048, bias=True)
+        (fc2): Linear(in_features=2048, out_features=512, bias=True)
+        (final_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+      )
+      (5): TransformerDecoderLayer(
+        (dropout_module): FairseqDropout()
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (activation_dropout_module): FairseqDropout()
+        (self_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (encoder_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=512, out_features=512, bias=True)
+          (v_proj): Linear(in_features=512, out_features=512, bias=True)
+          (q_proj): Linear(in_features=512, out_features=512, bias=True)
+          (out_proj): Linear(in_features=512, out_features=512, bias=True)
+        )
+        (encoder_attn_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+        (fc1): Linear(in_features=512, out_features=2048, bias=True)
+        (fc2): Linear(in_features=2048, out_features=512, bias=True)
+        (final_layer_norm): FusedLayerNorm(torch.Size([512]), eps=1e-05, elementwise_affine=True)
+      )
+    )
+    (output_projection): Linear(in_features=512, out_features=19784, bias=False)
+  )
+)
+2021-01-27 18:08:44 | INFO | fairseq_cli.train | task: translation (TranslationTask)
+2021-01-27 18:08:44 | INFO | fairseq_cli.train | model: transformer (TransformerModel)
+2021-01-27 18:08:44 | INFO | fairseq_cli.train | criterion: label_smoothed_cross_entropy_r3f_noised_input (NoisedInputCriterion)
+2021-01-27 18:08:44 | INFO | fairseq_cli.train | num. model params: 54267904 (num. trained: 54267904)
+2021-01-27 18:08:46 | INFO | fairseq.trainer | detected shared parameter: encoder.embed_tokens.weight <- decoder.embed_tokens.weight
+2021-01-27 18:08:46 | INFO | fairseq.trainer | detected shared parameter: encoder.embed_tokens.weight <- decoder.output_projection.weight
+2021-01-27 18:08:46 | INFO | fairseq.utils | ***********************CUDA enviroments for all 1 workers***********************
+2021-01-27 18:08:46 | INFO | fairseq.utils | rank   0: capabilities =  6.1  ; total memory = 10.917 GB ; name = GeForce GTX 1080 Ti                     
+2021-01-27 18:08:46 | INFO | fairseq.utils | ***********************CUDA enviroments for all 1 workers***********************
+2021-01-27 18:08:46 | INFO | fairseq_cli.train | training on 1 devices (GPUs/TPUs)
+2021-01-27 18:08:46 | INFO | fairseq_cli.train | max tokens per GPU = 6000 and max sentences per GPU = None
+2021-01-27 18:08:47 | INFO | fairseq.trainer | loaded checkpoint ./examples/entr/bash/../checkpoints/closer-all/checkpoint_last.pt (epoch 127 @ 0 updates)
+2021-01-27 18:08:47 | INFO | fairseq.optim.adam | using FusedAdam
+2021-01-27 18:08:47 | INFO | fairseq.trainer | loading train data for epoch 127
+2021-01-27 18:08:47 | INFO | fairseq.data.data_utils | loaded 207373 examples from: ./examples/entr/bash/../data-bin/train.en-tr.en
+2021-01-27 18:08:47 | INFO | fairseq.data.data_utils | loaded 207373 examples from: ./examples/entr/bash/../data-bin/train.en-tr.tr
+2021-01-27 18:08:47 | INFO | fairseq.tasks.translation | ./examples/entr/bash/../data-bin train en-tr 207373 examples
+2021-01-27 18:08:47 | INFO | fairseq.trainer | begin training epoch 127
+0.047   0.021   0.106   0.953   0.954   0.938
+0.038   0.027   0.102   0.973   0.974   0.968
+0.045   0.018   0.108   0.944   0.967   0.936
+0.078   0.089   0.114   0.918   0.903   0.897
+0.153   0.051   0.122   0.812   0.796   0.787
+0.064   0.037   0.110   0.943   0.957   0.937
+0.050   0.024   0.108   0.947   0.987   0.958
+0.069   0.023   0.103   0.960   0.966   0.952
+0.065   0.018   0.107   0.979   0.976   0.961
+0.054   0.085   0.173   1.034   1.028   0.976
+0.059   0.025   0.103   0.996   0.989   0.983
+0.053   0.022   0.105   0.949   0.952   0.936
+0.065   0.021   0.104   0.936   0.949   0.927
+0.039   0.031   0.136   1.115   0.995   1.051
+0.055   0.022   0.102   0.985   0.965   0.960
+0.039   0.029   0.105   1.004   0.983   0.988
+0.070   0.022   0.108   0.931   0.953   0.930
+0.069   0.019   0.104   0.957   0.964   0.950
+0.054   0.023   0.103   0.960   0.973   0.957
+0.041   0.024   0.104   1.024   1.015   1.016
+0.056   0.020   0.105   0.932   0.957   0.945
+0.058   0.036   0.151   1.152   1.077   1.076
+0.047   0.025   0.106   0.942   0.955   0.937
+0.047   0.016   0.103   0.960   0.954   0.951
+0.063   0.018   0.101   0.955   0.981   0.971
+0.053   0.020   0.103   0.981   0.973   0.967
+0.045   0.026   0.111   1.028   1.006   1.011
+0.077   0.022   0.109   0.936   0.961   0.933
+0.042   0.018   0.102   0.950   0.959   0.953
+0.035   0.093   0.200   1.106   1.080   1.020
+0.073   0.020   0.108   0.943   0.962   0.933
+0.075   0.079   0.112   0.957   0.945   0.939
+0.057   0.018   0.102   0.957   0.957   0.955
+0.033   0.033   0.111   1.131   1.079   1.115
+0.071   0.071   0.111   0.926   0.941   0.924
+0.077   0.073   0.121   0.940   0.949   0.939
+0.079   0.091   0.112   0.938   0.925   0.920
+0.044   0.015   0.108   0.947   0.961   0.944
+0.052   0.023   0.104   0.968   0.963   0.949
+0.060   0.085   0.111   0.962   0.947   0.942
+0.059   0.022   0.109   0.957   0.971   0.948
+0.092   0.103   0.127   0.778   0.749   0.743
+0.040   0.018   0.106   0.975   0.963   0.969
+0.046   0.098   0.114   0.942   0.937   0.932
+0.065   0.080   0.116   0.940   0.949   0.941
+0.045   0.022   0.104   0.997   0.984   0.986
+0.046   0.091   0.160   1.026   1.053   1.013
+0.052   0.023   0.104   0.973   0.965   0.959
+0.062   0.015   0.105   0.942   0.973   0.955
+0.051   0.020   0.103   0.981   0.975   0.972
+0.049   0.037   0.102   1.004   1.004   1.005
+0.047   0.025   0.102   0.995   0.985   0.982
+0.065   0.013   0.107   0.984   0.965   0.952
+0.031   0.019   0.129   1.077   0.989   1.046
+0.044   0.024   0.102   0.953   0.970   0.963
+0.056   0.016   0.106   0.950   0.961   0.947
+0.069   0.026   0.101   0.991   0.972   0.973
+0.060   0.020   0.107   0.972   0.981   0.976
+0.062   0.022   0.107   0.958   0.952   0.936
+0.059   0.023   0.102   0.984   0.960   0.959
+0.063   0.115   0.114   0.966   0.954   0.950
+0.054   0.021   0.103   0.956   0.964   0.954
+0.085   0.017   0.105   0.945   0.948   0.933
+0.030   0.023   0.105   0.957   0.966   0.959
+0.043   0.102   0.115   0.968   0.961   0.955
+0.051   0.019   0.104   0.946   0.965   0.950
+0.063   0.021   0.103   0.981   0.975   0.961
+0.051   0.024   0.108   0.929   0.969   0.938
+0.055   0.018   0.108   0.949   0.971   0.950
+0.052   0.018   0.106   0.959   0.969   0.945
+0.034   0.029   0.163   1.128   1.028   1.077
+0.067   0.027   0.107   0.931   0.959   0.930
+0.047   0.023   0.105   0.963   0.964   0.950
+0.072   0.094   0.109   0.949   0.945   0.940
+0.059   0.094   0.110   0.977   0.941   0.936
+0.064   0.014   0.105   0.979   0.972   0.952
+0.051   0.019   0.106   0.961   0.965   0.958
+0.078   0.077   0.113   0.956   0.963   0.956
+0.046   0.020   0.101   0.968   0.981   0.972
+0.044   0.029   0.110   0.987   0.991   0.998
+0.054   0.019   0.106   0.963   0.982   0.959
+0.061   0.025   0.105   0.957   0.974   0.950
+0.046   0.029   0.107   1.017   0.999   1.009
+0.046   0.018   0.102   1.002   0.976   0.971
+0.051   0.020   0.105   0.971   0.966   0.962
+0.047   0.021   0.105   0.958   0.969   0.956
+0.045   0.033   0.117   1.050   1.028   1.033
+0.056   0.070   0.109   0.940   0.950   0.933
+0.064   0.015   0.105   0.941   0.964   0.945
+0.050   0.023   0.103   0.959   0.965   0.963
+0.038   0.026   0.134   1.091   1.017   1.070
+0.024   0.031   0.146   1.087   0.998   1.056
+0.055   0.022   0.108   0.971   0.978   0.959
+0.065   0.025   0.106   0.949   0.963   0.953
+0.059   0.022   0.107   0.933   0.963   0.935
+0.045   0.022   0.104   0.969   0.963   0.956
+0.037   0.050   0.183   1.144   1.033   1.078
+0.036   0.024   0.117   1.082   1.008   1.045
+0.067   0.025   0.104   0.974   0.965   0.957
+0.044   0.028   0.103   1.015   0.994   0.999
+0.058   0.022   0.103   0.993   0.974   0.974
+0.038   0.019   0.102   0.991   0.972   0.977
+0.048   0.048   0.121   1.045   1.036   1.040
+0.061   0.020   0.108   0.955   0.976   0.958
+0.049   0.017   0.106   0.951   0.956   0.940
+0.032   0.026   0.109   1.068   1.018   1.046
+0.064   0.027   0.102   0.989   0.958   0.955
+0.048   0.021   0.104   0.984   0.981   0.975
+0.067   0.021   0.107   0.963   0.971   0.951
+0.064   0.073   0.108   0.942   0.944   0.938
+0.056   0.022   0.105   0.978   0.967   0.943
+0.056   0.021   0.107   0.982   0.990   0.975
+0.099   0.031   0.099   0.956   0.981   0.983
+0.048   0.020   0.106   0.987   0.981   0.979
+0.056   0.018   0.105   0.947   0.971   0.944
+0.061   0.019   0.103   0.966   0.966   0.951
+0.072   0.024   0.107   0.963   0.968   0.940
+0.055   0.022   0.103   0.992   0.970   0.964
+0.053   0.027   0.104   0.940   0.973   0.957
+0.052   0.033   0.101   1.003   0.974   0.973
+0.056   0.019   0.105   0.962   0.971   0.951
+0.072   0.082   0.114   0.949   0.941   0.935
+0.061   0.025   0.106   0.955   0.963   0.957
+0.042   0.018   0.105   0.963   0.972   0.950
+0.069   0.021   0.106   0.982   0.973   0.955
+0.049   0.027   0.106   0.935   0.978   0.959
+0.038   0.026   0.108   1.038   1.000   1.021
+0.047   0.022   0.102   1.003   0.982   0.985
+0.069   0.021   0.105   0.953   0.973   0.955
+0.051   0.023   0.106   0.948   0.971   0.952
+0.085   0.019   0.103   0.977   0.974   0.964
+0.088   0.024   0.102   0.911   0.959   0.946
+0.044   0.019   0.104   0.978   0.966   0.964
+0.055   0.021   0.103   0.974   0.979   0.973
+0.079   0.025   0.102   0.965   0.954   0.939
+0.074   0.028   0.101   0.927   0.960   0.956
+0.054   0.020   0.104   0.963   0.960   0.949
+0.059   0.023   0.104   0.956   0.982   0.972
+0.045   0.016   0.105   0.964   0.971   0.953
+0.067   0.025   0.104   0.961   0.979   0.976
+0.071   0.094   0.117   0.966   0.960   0.952
+0.052   0.021   0.106   0.962   0.969   0.958
+0.055   0.021   0.105   0.970   0.972   0.951
+0.082   0.084   0.114   0.936   0.900   0.895
+0.087   0.018   0.100   0.963   0.950   0.950
+0.055   0.019   0.105   0.979   0.969   0.952
+0.056   0.027   0.100   0.990   0.982   0.984
+0.084   0.071   0.117   0.969   0.958   0.949
+0.041   0.029   0.102   0.983   0.982   0.977
+0.034   0.023   0.159   1.126   1.014   1.076
+0.044   0.022   0.101   0.983   0.987   0.979
+0.070   0.107   0.115   0.988   0.955   0.950
+0.067   0.021   0.104   0.949   0.975   0.964
+0.048   0.020   0.102   0.993   0.973   0.968
+0.065   0.022   0.104   0.965   0.968   0.954
+0.092   0.021   0.102   0.920   0.942   0.930
+0.034   0.042   0.121   1.070   1.056   1.057
+0.049   0.084   0.184   1.111   1.095   1.058
+0.071   0.021   0.105   0.954   0.965   0.950
+0.054   0.026   0.103   0.957   0.964   0.956
+0.049   0.017   0.101   0.966   0.980   0.975
+0.040   0.021   0.101   0.989   0.978   0.968
+0.061   0.015   0.104   0.999   0.978   0.976
+0.061   0.020   0.107   0.946   0.968   0.945
+0.056   0.023   0.105   0.952   0.971   0.945
+0.046   0.029   0.103   1.015   0.992   1.005
+0.065   0.022   0.104   0.963   0.975   0.957
+0.048   0.025   0.106   0.966   0.995   0.984
+0.031   0.021   0.127   1.091   1.014   1.063
+0.103   0.021   0.101   0.942   0.974   0.955
+0.037   0.023   0.100   0.969   0.984   0.980
+0.049   0.021   0.103   0.984   0.965   0.956
+0.046   0.026   0.107   0.978   0.977   0.957
+0.047   0.022   0.105   0.983   0.971   0.950
+0.056   0.015   0.102   0.976   0.981   0.976
+0.051   0.027   0.108   0.945   0.982   0.950
+0.069   0.103   0.111   0.958   0.954   0.950
+0.045   0.081   0.110   0.972   0.958   0.952
+0.061   0.023   0.105   0.953   0.973   0.957
+0.072   0.027   0.107   0.957   0.982   0.950
+0.039   0.033   0.103   0.986   0.991   0.993
+0.070   0.025   0.105   0.965   0.973   0.955
+0.043   0.022   0.100   0.973   0.979   0.971
+0.051   0.025   0.102   1.008   0.985   0.984
+0.081   0.025   0.107   0.961   0.975   0.943
+0.068   0.018   0.104   0.923   0.958   0.938
+0.057   0.018   0.105   0.973   0.954   0.937
+0.059   0.022   0.107   0.953   0.980   0.960
+0.037   0.031   0.117   1.082   1.038   1.071
+0.042   0.033   0.106   1.024   1.024   1.024
+0.052   0.021   0.104   0.962   0.972   0.961
+0.046   0.058   0.113   0.973   0.970   0.962
+0.073   0.071   0.108   0.957   0.952   0.935
+0.139   0.021   0.101   0.932   0.941   0.935
+0.056   0.098   0.111   0.919   0.942   0.937
+0.057   0.013   0.104   0.963   0.967   0.956
+0.070   0.092   0.114   0.957   0.974   0.967
+0.062   0.026   0.105   0.941   0.972   0.949
+0.041   0.020   0.105   0.948   0.973   0.953
+0.056   0.030   0.105   0.965   0.978   0.953
+0.058   0.025   0.102   0.982   0.963   0.971
+0.072   0.018   0.101   0.963   0.965   0.956
+0.044   0.022   0.105   0.951   0.975   0.954
+0.084   0.073   0.107   0.958   0.959   0.948
+0.142   0.083   0.112   0.907   0.907   0.902
+0.047   0.024   0.106   0.924   0.969   0.939
+0.049   0.026   0.107   0.933   0.976   0.951
+0.061   0.044   0.108   0.967   0.963   0.947
+0.068   0.023   0.101   0.979   0.986   0.985
+0.054   0.026   0.102   0.970   0.974   0.961
+0.082   0.024   0.107   0.906   0.965   0.935
+0.055   0.023   0.104   0.966   0.966   0.955
+0.056   0.018   0.103   0.974   0.976   0.970
+0.063   0.103   0.115   0.942   0.940   0.936
+0.064   0.019   0.105   0.945   0.975   0.949
+0.053   0.101   0.109   0.947   0.947   0.943
+0.053   0.020   0.103   0.991   0.990   0.984
+0.047   0.059   0.108   0.987   0.981   0.968
+0.048   0.023   0.100   1.010   0.987   0.990
+0.040   0.021   0.107   0.984   0.981   0.968
+0.044   0.030   0.144   1.172   1.026   1.082
+0.048   0.022   0.101   0.987   0.987   0.990
+0.056   0.018   0.106   0.954   0.972   0.944
+0.080   0.020   0.102   0.959   0.974   0.963
+0.042   0.024   0.103   0.975   0.968   0.964
+0.063   0.016   0.102   0.968   0.974   0.964
+0.056   0.018   0.103   0.982   0.967   0.963
+0.070   0.019   0.106   0.958   0.981   0.957
+0.077   0.022   0.099   0.968   0.963   0.956
+0.070   0.024   0.105   0.959   0.990   0.968
+0.067   0.028   0.106   0.942   0.966   0.951
+0.049   0.025   0.102   0.974   0.965   0.961
+0.047   0.029   0.102   1.005   1.006   1.004
+0.058   0.096   0.111   0.953   0.943   0.938
+0.053   0.019   0.100   0.984   0.988   0.986
+0.075   0.028   0.106   0.954   0.979   0.948
+0.055   0.019   0.104   0.970   0.976   0.953
+0.060   0.016   0.101   1.005   0.980   0.977
+0.065   0.073   0.107   0.970   0.978   0.960
+0.049   0.036   0.102   0.988   0.979   0.982
+0.049   0.026   0.103   0.966   0.983   0.973
+0.060   0.022   0.103   0.977   0.967   0.964
+0.047   0.021   0.104   0.970   0.970   0.957
+0.032   0.018   0.127   1.145   1.021   1.068
+0.061   0.020   0.106   0.948   0.955   0.940
+0.045   0.025   0.104   0.986   0.991   0.976
+0.067   0.022   0.102   0.978   0.980   0.977
+0.051   0.015   0.101   0.993   0.971   0.965
+0.049   0.023   0.101   1.012   0.988   0.986
+0.068   0.019   0.108   0.993   0.991   0.963
+0.039   0.101   0.207   1.135   1.095   1.044
+0.052   0.027   0.100   1.033   0.990   1.001
+0.067   0.086   0.108   0.959   0.957   0.952
+0.061   0.026   0.100   0.972   0.971   0.976
+0.067   0.099   0.108   0.970   0.950   0.946
+0.107   0.100   0.125   0.759   0.754   0.748
+0.059   0.026   0.102   0.975   0.986   0.976
+0.042   0.099   0.180   1.097   1.059   1.004
+0.038   0.026   0.100   0.983   0.982   0.983
+0.066   0.071   0.107   0.931   0.959   0.941
+0.085   0.022   0.100   0.970   0.953   0.958
+0.039   0.015   0.100   0.999   0.981   0.981
+0.055   0.021   0.105   0.954   0.972   0.958
+0.052   0.024   0.102   0.988   0.982   0.981
+0.059   0.024   0.101   0.966   0.964   0.964
+0.055   0.024   0.105   0.958   0.979   0.953
+0.077   0.020   0.107   0.930   0.982   0.958
+0.065   0.022   0.105   0.973   0.990   0.963
+0.048   0.022   0.105   0.972   0.986   0.959
+0.056   0.025   0.102   0.990   0.977   0.980
+0.053   0.021   0.108   0.969   0.986   0.962
+0.063   0.018   0.105   0.977   0.976   0.961
+0.056   0.018   0.102   0.966   0.971   0.953
+0.060   0.023   0.101   1.028   1.020   1.025
+0.065   0.023   0.108   0.959   0.975   0.945
+0.057   0.030   0.102   0.989   0.984   0.980
+0.059   0.082   0.108   0.969   0.972   0.967
+0.071   0.024   0.100   0.969   0.975   0.976
+0.084   0.017   0.103   0.955   0.976   0.958
+0.055   0.018   0.102   0.980   0.984   0.982
+0.064   0.018   0.102   0.981   0.958   0.949
+0.056   0.069   0.124   1.061   1.048   1.044
+0.065   0.029   0.100   0.973   0.973   0.968
+0.055   0.061   0.108   0.981   0.981   0.983
+0.029   0.026   0.134   1.074   1.003   1.068
+0.064   0.073   0.107   0.952   0.961   0.955
+0.068   0.077   0.109   0.979   0.949   0.943
+0.059   0.018   0.103   0.988   0.955   0.954
+0.056   0.023   0.105   0.969   0.981   0.959
+0.050   0.028   0.103   0.995   0.989   0.969
+0.046   0.030   0.103   0.939   0.982   0.965
+0.093   0.025   0.106   0.940   0.974   0.946
+0.129   0.076   0.109   0.916   0.920   0.914
+0.120   0.048   0.121   0.741   0.796   0.787
+0.084   0.022   0.106   0.929   0.959   0.930
+0.064   0.022   0.102   1.009   0.999   0.995
+0.048   0.035   0.112   1.072   1.016   1.046
+0.092   0.092   0.107   0.965   0.954   0.950
+0.046   0.024   0.103   0.977   0.970   0.964
+0.067   0.085   0.116   0.981   0.981   0.972
+0.075   0.025   0.099   0.992   0.986   0.979
+0.071   0.102   0.109   0.967   0.954   0.951
+0.066   0.073   0.107   0.955   0.961   0.945
+0.067   0.020   0.106   0.957   0.978   0.953
+0.049   0.029   0.112   1.063   1.052   1.049
+0.052   0.030   0.101   1.000   0.998   0.991
+0.066   0.034   0.105   0.975   0.994   0.972
+0.034   0.026   0.151   1.120   1.021   1.092
+0.065   0.020   0.099   0.985   0.984   0.984
+0.034   0.023   0.106   1.053   1.009   1.045
+0.036   0.035   0.099   0.991   0.988   0.992
+0.067   0.096   0.111   1.004   0.962   0.956
+0.103   0.090   0.126   0.760   0.750   0.742
+0.039   0.028   0.172   1.149   1.026   1.105
+0.060   0.026   0.105   0.970   0.993   0.961
+0.059   0.020   0.102   0.966   0.981   0.969
+0.057   0.028   0.104   0.978   0.989   0.962
+0.132   0.091   0.125   0.767   0.758   0.751
+0.080   0.022   0.102   0.972   0.959   0.957
+0.053   0.021   0.104   0.969   0.979   0.959
+0.064   0.022   0.102   0.992   0.991   0.993
+0.052   0.023   0.104   0.977   0.994   0.986
+0.059   0.080   0.108   0.957   0.961   0.960
+0.063   0.016   0.100   0.947   0.965   0.955
+0.047   0.023   0.100   0.991   0.989   0.981
+0.067   0.018   0.101   0.977   0.958   0.965
+0.044   0.089   0.107   0.985   0.977   0.972
+0.070   0.025   0.102   0.965   0.967   0.950
+0.056   0.021   0.104   0.990   1.001   1.009
+0.063   0.016   0.102   1.005   0.987   0.972
+0.083   0.081   0.108   0.955   0.963   0.958
+0.050   0.102   0.109   0.937   0.949   0.946
+0.079   0.019   0.101   0.974   0.984   0.972
+0.045   0.024   0.101   0.978   0.997   1.003
+0.067   0.026   0.102   0.958   0.986   0.973
+0.058   0.031   0.102   0.972   0.986   0.976
+0.051   0.025   0.105   0.965   0.996   0.972
+0.072   0.027   0.101   1.028   1.011   1.033
+0.094   0.022   0.104   0.954   0.966   0.958
+0.061   0.022   0.100   1.004   0.982   1.012
+0.031   0.021   0.099   0.972   0.980   0.980
+0.084   0.019   0.105   0.954   0.991   0.974
+0.056   0.025   0.103   0.972   0.981   0.963
+0.042   0.025   0.105   0.946   0.992   0.963
+0.047   0.016   0.104   0.977   1.001   0.992
+0.077   0.022   0.102   0.968   0.963   0.959
+0.054   0.024   0.104   0.971   1.001   0.970
+0.052   0.092   0.109   0.959   0.966   0.961
+0.055   0.016   0.106   0.993   1.007   0.996
+0.055   0.025   0.101   0.968   0.974   0.969
+0.060   0.028   0.105   0.971   0.980   0.955
+0.070   0.029   0.105   0.981   1.003   0.978
+0.053   0.026   0.100   1.013   1.004   1.011
+0.057   0.023   0.106   0.937   0.983   0.954
+0.062   0.019   0.100   0.976   0.991   0.987
+0.068   0.025   0.103   1.004   0.986   0.971
+0.052   0.028   0.100   1.011   0.999   1.005
+0.081   0.023   0.102   0.953   0.948   0.937
+0.049   0.027   0.179   1.166   1.051   1.108
+0.104   0.085   0.109   0.924   0.937   0.932
+0.048   0.059   0.110   0.981   0.989   0.981
+0.068   0.063   0.108   0.960   0.989   0.982
+0.069   0.017   0.102   0.977   0.974   0.969
+0.068   0.020   0.100   0.982   0.977   0.966
+0.053   0.085   0.106   0.982   0.981   0.979
+0.053   0.023   0.100   0.966   0.979   0.981
+0.073   0.101   0.107   0.933   0.961   0.958
+0.061   0.012   0.101   0.955   0.976   0.961
+0.046   0.017   0.102   0.976   0.992   0.990
+0.055   0.026   0.102   0.974   0.977   0.963
+0.062   0.028   0.107   1.084   1.026   1.060
+0.068   0.020   0.103   0.982   0.988   0.967
+0.066   0.016   0.103   0.994   1.005   0.995
+0.036   0.030   0.140   1.100   1.012   1.083
+0.038   0.028   0.153   1.168   1.037   1.106
+0.070   0.096   0.107   0.967   0.955   0.951
+0.045   0.026   0.101   0.994   0.992   0.995
+0.053   0.019   0.101   0.968   0.973   0.969
+0.039   0.094   0.146   1.071   1.082   1.050
+0.091   0.023   0.101   0.963   0.967   0.960
+0.031   0.026   0.176   1.156   1.038   1.101
+0.082   0.030   0.099   0.998   0.976   0.977
+0.084   0.078   0.113   0.925   0.971   0.963
+0.103   0.024   0.098   0.943   0.954   0.960
+0.083   0.021   0.100   0.990   0.989   0.985
+0.048   0.028   0.102   1.022   1.006   1.015
+0.060   0.027   0.105   0.973   0.983   0.959
+0.048   0.027   0.102   1.060   1.032   1.050
+0.067   0.024   0.100   1.014   0.989   0.994
+0.058   0.022   0.101   0.986   0.980   0.980
+0.130   0.052   0.109   0.977   0.967   0.959
+0.061   0.024   0.099   1.023   1.016   1.015
+0.047   0.029   0.097   1.105   1.061   1.086
+0.056   0.080   0.107   0.972   0.976   0.971
+0.101   0.027   0.106   0.961   0.988   0.968
+0.056   0.016   0.104   1.033   1.016   1.012
+0.058   0.021   0.100   1.019   1.002   0.999
+0.069   0.026   0.102   1.017   0.986   0.985
+0.064   0.030   0.104   0.967   0.993   0.977
+0.057   0.025   0.097   1.018   0.992   0.999
+0.074   0.094   0.106   0.955   0.955   0.951
+0.079   0.024   0.099   0.990   1.002   0.995
+0.062   0.022   0.102   0.984   0.971   0.964
+0.047   0.110   0.202   1.147   1.106   1.057
+0.065   0.021   0.101   0.966   0.982   0.976
+0.059   0.027   0.100   1.005   0.986   0.999
+0.063   0.027   0.100   1.003   0.992   0.993
+0.068   0.024   0.103   0.992   0.987   0.961
+0.080   0.026   0.103   0.953   0.975   0.963
+0.062   0.020   0.102   0.968   0.993   0.986
+0.068   0.030   0.099   0.987   0.980   0.984
+0.065   0.024   0.102   0.995   0.989   0.975
+0.074   0.077   0.108   0.986   1.004   0.998
+0.054   0.021   0.101   0.973   0.992   0.974
+0.057   0.021   0.101   0.997   0.981   0.976
+0.044   0.017   0.101   0.981   0.969   0.964
+0.084   0.023   0.101   0.949   0.962   0.955
+0.079   0.018   0.100   0.982   0.977   0.973
+0.059   0.024   0.100   1.014   1.003   1.010
+0.057   0.034   0.102   1.000   1.000   1.011
+0.056   0.019   0.101   0.969   0.978   0.965
+0.064   0.077   0.106   0.956   0.971   0.966
+0.074   0.083   0.118   0.974   0.987   0.976
+0.066   0.088   0.111   0.965   0.984   0.977
+0.083   0.102   0.106   0.968   0.962   0.959
+0.058   0.052   0.164   1.180   1.097   1.117
+0.060   0.094   0.109   0.953   0.951   0.947
+0.045   0.028   0.099   0.979   0.993   0.998
+0.061   0.016   0.098   1.001   0.972   0.972
+0.047   0.028   0.101   0.982   0.988   0.990
+0.056   0.019   0.102   0.966   0.990   0.977
+0.045   0.019   0.100   0.992   0.986   0.983
+0.041   0.020   0.101   1.027   1.007   1.021
+0.089   0.073   0.111   0.936   0.945   0.938
+0.060   0.022   0.105   1.036   1.027   1.038
+0.104   0.085   0.111   0.901   0.925   0.919
+0.098   0.090   0.111   0.979   0.982   0.976
+0.069   0.018   0.099   0.972   0.986   0.991
+0.056   0.020   0.103   0.982   1.001   0.977
+0.066   0.029   0.101   1.042   1.019   1.029
+0.064   0.022   0.104   1.004   1.013   0.997
+0.063   0.024   0.101   1.008   0.982   0.974
+0.058   0.029   0.100   0.994   0.978   0.975
+0.062   0.096   0.108   1.002   0.988   0.984
+0.068   0.019   0.103   0.945   0.976   0.960
+0.050   0.024   0.097   1.025   1.000   1.011
+0.067   0.025   0.105   0.949   0.993   0.961
+0.057   0.055   0.127   1.127   1.083   1.097
+0.072   0.023   0.112   1.123   1.034   1.066
+0.069   0.021   0.103   0.973   0.986   0.983
+0.142   0.066   0.116   0.885   0.840   0.832
+0.050   0.034   0.099   1.032   1.009   1.027
+0.081   0.020   0.104   0.982   0.984   0.956
+0.074   0.024   0.102   0.963   0.973   0.957
+0.067   0.028   0.104   1.082   1.026   1.068
+0.072   0.027   0.102   0.976   0.992   0.981
+0.070   0.075   0.106   0.972   0.976   0.959
+0.049   0.035   0.108   1.092   1.001   1.055
+0.068   0.026   0.102   0.992   0.975   0.972
+0.078   0.060   0.119   0.967   0.987   0.975
+0.074   0.024   0.099   0.986   0.981   0.980
+0.070   0.065   0.113   1.004   1.000   0.992
+0.047   0.024   0.103   0.966   0.982   0.978
+0.061   0.085   0.106   0.956   0.968   0.968
+0.039   0.035   0.109   1.064   1.012   1.052
+0.055   0.017   0.101   0.978   0.974   0.971
+0.083   0.024   0.103   0.970   0.976   0.958
+0.050   0.027   0.107   1.080   1.056   1.063
+0.039   0.085   0.181   1.152   1.108   1.093
+0.060   0.026   0.098   1.015   0.983   0.981
+0.057   0.025   0.100   0.973   0.989   0.985
+0.052   0.034   0.099   0.999   0.993   0.994
+0.069   0.098   0.120   0.987   0.987   0.978
+0.068   0.021   0.104   0.996   0.995   0.966
+0.062   0.023   0.101   0.978   0.987   0.983
+0.088   0.029   0.106   0.972   0.991   0.959
+0.056   0.024   0.103   1.007   0.994   0.979
+0.062   0.025   0.103   0.991   0.985   0.981
+0.064   0.022   0.099   0.972   0.984   0.985
+0.043   0.039   0.142   1.196   1.084   1.110
+0.073   0.075   0.105   0.961   0.976   0.959
+0.075   0.028   0.105   0.990   1.019   0.990
+0.068   0.022   0.103   0.970   0.978   0.957
+0.068   0.025   0.099   1.007   0.996   0.998
+0.067   0.088   0.111   0.949   0.967   0.962
+0.063   0.016   0.099   0.965   0.956   0.959
+0.060   0.029   0.108   1.108   1.011   1.056
+0.075   0.029   0.102   0.922   0.985   0.970
+0.044   0.018   0.100   0.983   0.988   0.980
+0.057   0.102   0.106   0.992   0.967   0.964
+0.070   0.022   0.105   0.989   1.023   1.012
+0.042   0.031   0.110   1.066   1.023   1.066
+0.061   0.023   0.104   0.980   0.983   0.960
+0.059   0.031   0.099   1.020   0.998   1.010
+0.061   0.028   0.104   0.956   1.003   0.971
+0.042   0.034   0.120   1.064   1.007   1.068
+0.049   0.033   0.136   1.185   1.035   1.096
+0.055   0.023   0.098   0.994   0.981   0.987
+0.077   0.093   0.114   0.947   0.973   0.968
+0.072   0.084   0.113   0.938   0.958   0.952
+0.072   0.021   0.103   0.982   0.989   0.973
+0.064   0.029   0.100   1.009   0.997   1.009
+0.056   0.100   0.106   0.979   0.971   0.968
+0.045   0.056   0.184   1.141   1.110   1.080
+0.062   0.031   0.102   1.038   1.012   1.029
+0.058   0.037   0.098   0.990   0.993   0.999
+0.058   0.026   0.100   0.976   0.982   0.968
+0.081   0.017   0.099   1.023   0.998   0.992
+0.078   0.024   0.098   1.006   0.993   0.996
+0.043   0.019   0.099   0.983   1.003   1.004
+0.038   0.065   0.184   1.198   1.118   1.135
+0.060   0.080   0.108   0.985   1.003   0.998
+0.062   0.092   0.125   0.737   0.750   0.743
+0.066   0.018   0.101   0.953   0.995   0.976
+0.072   0.022   0.102   0.989   0.983   0.968
+0.037   0.025   0.117   1.079   1.012   1.066
+0.084   0.021   0.102   0.965   1.006   0.980
+0.048   0.022   0.100   0.964   0.981   0.976
+0.053   0.041   0.138   1.171   1.110   1.118
+0.066   0.026   0.097   1.021   1.016   1.033
+0.047   0.026   0.099   0.990   1.013   1.010
+0.039   0.031   0.106   1.126   1.072   1.104
+0.070   0.029   0.103   0.974   0.992   0.964
+0.118   0.021   0.102   0.952   0.972   0.957
+0.064   0.023   0.099   0.997   0.990   0.989
+0.068   0.024   0.101   0.980   0.982   0.977
+0.084   0.072   0.106   1.020   1.009   1.007
+0.055   0.024   0.101   0.985   1.005   0.997
+0.058   0.020   0.099   0.983   0.995   0.992
+0.070   0.022   0.101   1.047   1.010   1.043
+0.051   0.023   0.102   0.967   0.985   0.972
+0.046   0.023   0.099   0.999   0.990   0.990
+0.041   0.026   0.098   1.007   0.992   1.004
+0.063   0.024   0.101   0.981   0.987   0.974
+0.075   0.025   0.104   0.997   1.012   0.986
+0.066   0.021   0.101   0.986   0.999   0.977
+0.080   0.021   0.101   1.005   0.994   0.989
+0.060   0.019   0.100   1.009   1.004   1.009
+0.037   0.032   0.100   0.999   1.002   1.003
+0.084   0.027   0.105   0.944   0.988   0.958
+0.067   0.021   0.100   1.006   1.005   0.997
+0.098   0.086   0.125   0.760   0.756   0.749
+0.057   0.075   0.106   0.939   0.961   0.956
+0.062   0.018   0.099   0.993   1.001   0.992
+0.064   0.024   0.099   0.998   0.995   0.996
+0.068   0.026   0.100   1.001   0.990   0.988
+0.055   0.019   0.099   0.958   0.977   0.969
+0.056   0.026   0.099   0.972   0.966   0.965
+0.047   0.053   0.160   1.190   1.135   1.128
+0.066   0.019   0.100   0.976   0.995   0.982
+0.060   0.023   0.099   0.987   0.974   0.979
+0.051   0.017   0.100   0.970   0.986   0.981
+0.073   0.069   0.120   0.997   0.990   0.979
+0.124   0.068   0.110   0.839   0.886   0.876
+0.047   0.030   0.097   1.016   1.024   1.026
+0.070   0.021   0.099   1.011   1.000   1.011
+0.091   0.078   0.110   0.936   0.967   0.961
+0.062   0.032   0.098   1.009   0.991   0.987
+0.085   0.030   0.105   0.950   0.993   0.961
+0.094   0.023   0.099   0.987   0.954   0.951
+0.053   0.023   0.100   0.972   0.998   0.985
+0.057   0.023   0.101   1.009   0.983   0.990
+0.070   0.025   0.101   1.006   0.994   0.982
+0.068   0.025   0.104   0.961   0.989   0.958
+0.082   0.024   0.103   0.976   1.002   0.972
+0.050   0.022   0.102   0.977   0.998   0.975
+0.050   0.017   0.099   0.979   0.981   0.984
+0.081   0.016   0.103   0.973   0.996   0.982
+0.069   0.021   0.099   0.967   0.980   0.978
+0.098   0.022   0.100   0.954   0.977   0.960
+0.091   0.080   0.109   0.885   0.952   0.946
+0.035   0.024   0.130   1.104   1.031   1.087
+0.057   0.028   0.099   0.999   1.014   1.011
+0.071   0.081   0.106   1.001   0.980   0.975
+0.125   0.089   0.108   0.921   0.928   0.924
+0.064   0.102   0.106   0.974   0.970   0.966
+0.056   0.024   0.101   1.036   1.010   1.018
+0.075   0.020   0.103   0.974   0.984   0.965
+0.071   0.076   0.105   0.973   0.981   0.965
+0.058   0.028   0.102   0.989   0.985   0.983
+0.053   0.026   0.130   1.157   1.059   1.098
+0.066   0.026   0.104   0.978   1.004   0.982
+0.058   0.027   0.101   0.982   0.993   0.987
+0.073   0.023   0.101   1.006   0.994   0.986
+0.078   0.025   0.103   0.952   0.993   0.967
+0.050   0.024   0.101   0.989   0.989   0.979
+0.052   0.027   0.104   1.037   1.027   1.024
+0.068   0.026   0.106   1.028   1.038   1.018
+0.069   0.023   0.102   0.998   1.004   0.986
+0.061   0.099   0.106   0.967   0.962   0.959
+0.087   0.089   0.107   1.002   0.981   0.976
+0.078   0.017   0.102   0.988   1.003   0.992
+0.048   0.019   0.100   0.998   0.966   0.964
+0.081   0.019   0.097   0.990   0.984   0.991
+0.140   0.090   0.108   0.943   0.940   0.936
+0.068   0.024   0.101   0.981   0.994   0.972
+0.070   0.017   0.101   0.983   0.981   0.972
+0.069   0.018   0.098   1.013   1.001   1.004
+0.091   0.023   0.097   0.964   0.957   0.962
+0.070   0.025   0.102   0.984   1.000   0.974
+0.048   0.024   0.104   0.976   0.999   0.982
+0.064   0.021   0.101   0.993   1.002   0.988
+0.062   0.033   0.128   1.121   1.035   1.084
+0.049   0.018   0.103   0.995   0.991   0.972
+0.049   0.107   0.109   0.980   0.957   0.954
+0.038   0.042   0.109   1.082   1.079   1.077
+0.064   0.025   0.106   1.036   1.036   1.013
+0.079   0.030   0.103   0.960   0.998   0.969
+0.056   0.023   0.102   1.012   1.009   0.995
+0.062   0.022   0.102   0.986   1.011   0.998
+0.050   0.020   0.103   1.038   1.003   1.010
+0.070   0.026   0.098   0.973   0.992   0.992
+0.071   0.022   0.100   0.957   0.984   0.975
+0.075   0.030   0.115   1.133   1.024   1.076
+0.030   0.031   0.154   1.137   1.037   1.113
+0.056   0.029   0.103   0.964   1.004   0.972
+0.089   0.082   0.108   1.000   0.996   0.990
+0.061   0.025   0.102   0.983   0.997   0.968
+0.062   0.026   0.100   0.999   0.985   0.994
+0.070   0.051   0.108   1.037   1.027   1.019
+0.077   0.092   0.108   0.939   0.975   0.970
+0.080   0.028   0.100   1.006   1.016   1.004
+0.061   0.018   0.101   0.997   1.014   1.009
+0.147   0.072   0.110   0.877   0.880   0.874
+0.061   0.023   0.103   0.964   1.000   0.969
+0.058   0.020   0.098   1.010   0.993   0.995
+0.059   0.033   0.155   1.225   1.140   1.133
+0.077   0.119   0.110   1.015   0.991   0.988
+0.065   0.029   0.099   0.979   0.982   0.979
+0.056   0.027   0.102   1.017   1.000   0.982
+0.093   0.073   0.105   0.961   0.972   0.956
+0.074   0.089   0.124   0.735   0.753   0.746
+0.111   0.092   0.109   1.033   0.971   0.966
+0.067   0.067   0.105   1.005   0.995   0.985
+0.061   0.018   0.099   0.978   0.992   0.989
+0.088   0.105   0.104   0.975   0.977   0.975
+0.066   0.022   0.103   1.000   1.008   0.976
+0.128   0.071   0.110   0.878   0.871   0.858
+0.077   0.026   0.097   0.997   0.986   0.994
+0.093   0.027   0.096   1.020   1.004   1.009
+0.045   0.021   0.099   0.994   0.981   0.979
+0.046   0.024   0.146   1.161   1.035   1.106
+0.075   0.025   0.101   1.004   0.996   0.992
+0.041   0.091   0.110   0.985   0.999   0.994
+0.104   0.030   0.104   0.989   1.006   0.974
+0.060   0.021   0.103   0.968   0.988   0.975
+0.080   0.060   0.108   0.948   0.910   0.904
+0.066   0.017   0.098   0.979   0.985   0.991
+0.059   0.020   0.098   0.972   0.977   0.972
+0.054   0.027   0.099   0.997   0.998   0.988
+0.115   0.096   0.108   0.987   0.975   0.971
+0.069   0.024   0.101   0.998   0.987   0.989
+0.063   0.021   0.100   1.015   0.959   0.962
+0.089   0.021   0.102   0.995   0.974   0.969
+0.069   0.100   0.104   1.000   0.987   0.984
+0.105   0.027   0.102   0.993   0.997   0.969
+0.069   0.087   0.108   0.972   0.950   0.946
+0.055   0.026   0.100   0.977   0.997   0.997
+0.052   0.031   0.098   1.040   1.016   1.034
+0.060   0.027   0.103   1.009   1.011   0.995
+0.060   0.020   0.100   0.951   0.990   0.973
+0.049   0.025   0.103   0.993   1.005   0.980
+0.163   0.050   0.119   0.765   0.800   0.792
+0.060   0.025   0.097   1.032   1.013   1.024
+0.054   0.022   0.098   1.006   0.992   1.008
+0.050   0.102   0.105   0.999   0.976   0.985
+0.086   0.022   0.099   0.958   0.949   0.950
+0.089   0.067   0.106   0.973   0.961   0.947
+0.047   0.030   0.101   1.011   1.001   0.975
+0.074   0.025   0.098   0.988   0.986   0.992
+0.074   0.026   0.103   0.958   1.006   0.974
+0.063   0.026   0.100   1.023   1.014   1.027
+0.069   0.028   0.099   1.007   1.002   1.006
+0.058   0.024   0.099   0.988   0.986   0.978
+0.069   0.017   0.103   0.989   0.999   0.993
+0.078   0.025   0.099   0.991   0.989   0.981
+0.048   0.027   0.100   1.022   1.004   1.011
+0.059   0.025   0.095   1.007   0.986   0.994
+0.061   0.023   0.101   0.979   0.974   0.965
+0.067   0.103   0.105   0.936   0.967   0.964
+0.083   0.021   0.099   0.968   0.987   0.980
+0.081   0.027   0.104   1.017   1.026   1.005
+0.073   0.021   0.102   0.993   1.019   1.010
+0.071   0.028   0.099   1.025   0.987   0.999
+0.073   0.030   0.100   1.028   1.014   0.999
+0.068   0.028   0.098   0.980   0.991   0.988
+0.058   0.062   0.105   0.966   0.988   0.977
+0.065   0.027   0.098   1.009   0.994   0.996
+0.081   0.025   0.101   0.953   0.993   0.982
+0.083   0.019   0.102   0.968   1.008   0.996
+0.069   0.023   0.102   0.962   1.001   0.977
+0.089   0.068   0.113   0.958   0.976   0.968
+0.078   0.029   0.099   0.964   0.996   0.985
+0.060   0.060   0.104   0.982   1.006   0.994
+0.090   0.076   0.109   0.997   0.999   0.993
+0.054   0.029   0.097   1.021   1.010   1.019
+0.059   0.022   0.098   0.995   0.996   0.985
+0.094   0.018   0.098   0.969   0.983   0.983
+0.040   0.023   0.099   0.990   0.989   0.990
+0.065   0.021   0.099   1.028   0.995   0.994
+0.136   0.081   0.107   0.963   0.964   0.959
+0.069   0.023   0.103   0.968   0.982   0.954
+0.047   0.032   0.126   1.141   1.018   1.092
+0.059   0.029   0.098   0.978   0.987   0.987
+0.080   0.088   0.107   0.990   0.971   0.966
+0.039   0.086   0.174   1.156   1.098   1.101
+0.058   0.018   0.100   1.011   1.009   1.003
+0.074   0.018   0.100   0.981   0.984   0.973
+0.075   0.025   0.099   0.991   0.994   0.989
+0.060   0.031   0.099   1.028   1.003   1.016
+0.127   0.033   0.106   0.920   0.944   0.917
+0.075   0.016   0.101   1.000   1.000   0.987
+0.073   0.025   0.097   1.015   1.010   1.021
+0.099   0.026   0.104   0.965   0.996   0.970
+0.075   0.027   0.098   0.999   0.992   0.995
+0.060   0.029   0.100   1.030   1.013   1.035
+0.049   0.022   0.100   1.012   0.992   1.002
+0.030   0.021   0.145   1.134   1.049   1.110
+0.068   0.094   0.109   0.984   0.992   0.988
+0.084   0.026   0.099   1.017   1.000   1.007
+0.103   0.071   0.112   0.952   0.969   0.962
+0.067   0.028   0.102   0.937   0.991   0.966
+0.068   0.018   0.098   0.988   0.972   0.980
+0.090   0.071   0.107   1.034   1.006   0.999
+0.057   0.025   0.098   1.000   0.991   0.983
+0.052   0.019   0.098   1.049   1.020   1.016
+0.055   0.031   0.101   0.981   0.996   0.994
+0.051   0.023   0.098   1.022   1.001   1.017
+0.079   0.030   0.099   1.030   1.032   1.035
+0.059   0.031   0.103   1.077   1.028   1.059
+0.097   0.019   0.100   0.972   0.967   0.956
+0.064   0.024   0.101   0.985   1.007   0.995
+0.061   0.025   0.100   1.019   1.004   0.997
+0.090   0.021   0.100   0.980   0.991   0.977
+0.089   0.102   0.104   0.957   0.970   0.967
+0.068   0.020   0.099   0.986   1.004   0.991
+0.073   0.019   0.100   0.991   0.985   0.974
+0.176   0.050   0.118   0.831   0.801   0.793
+0.070   0.025   0.099   0.988   1.015   1.010
+0.074   0.029   0.096   1.010   1.002   1.010
+0.070   0.020   0.100   0.958   0.950   0.954
+0.060   0.024   0.115   1.112   1.082   1.089
+0.062   0.022   0.102   1.018   1.036   1.032
+0.065   0.026   0.103   0.974   1.018   0.997
+0.052   0.021   0.121   1.144   1.027   1.088
+0.074   0.022   0.099   1.001   0.999   0.992
+0.095   0.023   0.098   0.965   0.967   0.961
+0.065   0.025   0.101   0.971   0.994   0.986
+0.070   0.021   0.100   0.985   0.985   0.982
+0.083   0.025   0.099   1.010   0.991   0.990
+0.098   0.024   0.105   1.029   1.042   1.024
+0.069   0.031   0.100   1.018   1.019   1.024
+0.074   0.020   0.099   1.005   0.987   0.994
+0.060   0.024   0.103   0.985   1.003   0.970
+0.088   0.029   0.101   0.983   0.988   0.972
+0.077   0.024   0.101   0.963   0.991   0.988
+0.059   0.026   0.101   0.991   1.014   0.991
+0.065   0.060   0.125   1.143   1.115   1.122
+0.063   0.021   0.102   0.985   0.994   0.971
+0.071   0.023   0.098   0.997   0.993   0.995
+0.086   0.077   0.108   0.969   0.982   0.976
+0.078   0.024   0.100   1.048   1.021   1.033
+0.081   0.090   0.123   0.732   0.753   0.746
+0.045   0.019   0.097   1.008   1.005   1.013
+0.063   0.019   0.099   1.012   0.991   0.979
+0.069   0.021   0.100   1.025   1.008   1.004
+0.073   0.023   0.100   0.995   1.005   0.995
+0.032   0.030   0.132   1.123   1.045   1.102
+0.058   0.020   0.101   0.989   0.994   0.975
+0.078   0.021   0.102   0.959   1.016   0.999
+0.061   0.024   0.102   0.962   0.998   0.973
+0.065   0.017   0.099   1.015   0.990   1.006
+0.062   0.026   0.097   1.000   0.994   0.994
+0.089   0.098   0.103   0.988   0.976   0.974
+0.059   0.018   0.102   1.014   1.015   1.007
+0.062   0.024   0.099   0.998   0.987   0.981
+0.103   0.026   0.101   1.017   1.007   0.980
+0.069   0.019   0.101   1.044   1.012   1.004
+0.032   0.068   0.171   1.171   1.099   1.126
+0.079   0.024   0.100   0.991   0.992   0.993
+0.056   0.020   0.099   0.989   0.994   0.997
+0.052   0.019   0.098   1.000   0.980   0.972
+0.090   0.071   0.104   0.964   0.987   0.970
+0.052   0.025   0.098   1.031   1.033   1.039
+0.087   0.028   0.097   1.022   1.014   1.016
+0.082   0.030   0.101   0.991   1.005   0.982
+0.038   0.022   0.127   1.185   1.032   1.105
+0.072   0.105   0.105   0.957   0.964   0.961
+0.060   0.028   0.098   0.994   0.980   0.984
+0.043   0.022   0.118   1.113   1.026   1.082
+0.052   0.027   0.100   0.978   1.004   0.993
+0.072   0.024   0.103   1.008   1.035   1.015
+0.088   0.030   0.101   0.966   0.987   0.968
+0.059   0.039   0.105   1.020   1.027   1.019
+0.071   0.025   0.098   0.989   0.987   0.992
+0.054   0.098   0.103   0.940   0.967   0.964
+0.063   0.020   0.100   0.972   0.990   0.975
+0.063   0.027   0.098   0.985   0.990   0.998
+0.083   0.021   0.100   0.967   0.989   0.981
+0.072   0.026   0.104   1.070   1.058   1.061
+0.084   0.022   0.101   0.978   0.987   0.970
+0.071   0.021   0.096   1.028   0.995   0.996
+0.090   0.114   0.107   0.974   0.976   0.975
+0.070   0.022   0.100   0.998   0.993   0.980
+0.055   0.026   0.101   0.996   1.014   0.997
+0.076   0.021   0.097   0.992   1.006   1.013
+0.066   0.097   0.106   0.979   0.993   0.990
+0.099   0.030   0.097   0.940   0.988   0.989
+0.095   0.028   0.103   0.951   0.993   0.971
+0.057   0.024   0.096   1.016   1.006   1.015
+0.069   0.023   0.101   1.000   1.005   0.984
+0.061   0.029   0.097   1.036   1.015   1.016
+0.075   0.019   0.099   0.995   0.991   0.988
+0.107   0.026   0.096   1.003   1.008   1.013
+0.099   0.024   0.099   0.972   0.979   0.963
+0.071   0.028   0.100   0.972   1.007   0.980
+0.058   0.023   0.098   0.992   0.983   0.971
+0.103   0.027   0.101   0.963   0.987   0.964
+0.060   0.021   0.098   1.006   0.993   0.998
+0.077   0.019   0.103   0.994   1.018   0.986
+0.065   0.022   0.101   1.020   1.020   1.015
+0.059   0.032   0.101   0.988   1.005   0.982
+0.136   0.077   0.108   0.952   0.939   0.939
+0.090   0.024   0.101   0.945   0.983   0.963
+0.083   0.025   0.100   0.986   0.989   0.986
+0.089   0.092   0.112   0.977   0.991   0.986
+0.059   0.026   0.101   0.976   1.012   0.985
+0.063   0.022   0.101   0.943   0.987   0.965
+0.068   0.028   0.099   0.999   0.996   0.992
+0.059   0.021   0.098   1.000   0.996   0.985
+0.063   0.023   0.100   0.996   0.994   0.978
+0.074   0.028   0.099   1.014   1.010   1.005
+0.081   0.019   0.100   1.039   1.031   1.019
+0.070   0.020   0.100   0.981   0.992   0.985
+0.044   0.026   0.101   1.024   1.030   1.019
+0.097   0.021   0.103   0.964   0.989   0.968
+0.090   0.029   0.098   1.004   0.989   0.985
+0.063   0.027   0.110   1.092   1.072   1.071
+0.057   0.027   0.098   1.019   1.006   0.999
+0.058   0.018   0.099   0.988   0.992   0.991
+0.066   0.022   0.100   1.014   1.010   1.003
+0.059   0.115   0.105   0.999   0.997   0.995
+0.093   0.094   0.104   0.960   0.969   0.966
+0.065   0.025   0.099   1.029   1.037   1.022
+0.071   0.027   0.098   0.989   0.979   0.975
+0.062   0.027   0.102   1.010   1.020   0.996
+0.040   0.030   0.159   1.140   1.050   1.118
+0.071   0.019   0.098   0.972   0.993   0.986
+0.063   0.021   0.100   0.974   0.996   0.980
+0.055   0.023   0.097   0.989   0.995   0.991
+0.049   0.035   0.115   1.090   1.101   1.096
+0.125   0.034   0.104   1.005   1.022   0.995
+0.095   0.092   0.109   0.998   1.003   0.997
+0.127   0.083   0.107   0.996   0.976   0.971
+0.071   0.031   0.104   0.991   1.031   1.011
+0.067   0.032   0.097   1.043   1.030   1.045
+0.046   0.022   0.097   1.007   0.985   0.993
+0.043   0.026   0.103   1.103   1.053   1.078
+0.052   0.021   0.099   1.023   1.007   1.014
+0.050   0.069   0.115   0.989   1.001   0.991
+0.066   0.028   0.096   1.005   0.996   1.002
+0.069   0.024   0.100   0.996   1.007   0.999
+0.070   0.025   0.101   0.973   1.011   0.985
+0.122   0.021   0.097   0.925   0.971   0.966
+0.072   0.024   0.096   1.017   0.993   0.999
+0.065   0.027   0.100   1.001   1.014   0.989
+0.050   0.018   0.102   0.999   1.011   1.029
+0.077   0.080   0.111   1.021   1.018   1.010
+0.097   0.032   0.105   0.951   0.953   0.925
+0.062   0.026   0.096   1.030   1.001   1.015
+0.077   0.019   0.100   0.967   0.997   0.987
+0.107   0.018   0.098   0.961   0.973   0.969
+0.096   0.020   0.101   1.003   0.975   0.968
+0.080   0.026   0.096   1.037   0.994   0.996
+0.070   0.020   0.100   1.046   1.024   1.019
+0.062   0.020   0.097   0.984   0.992   0.984
+0.082   0.080   0.108   0.982   0.993   0.988
+0.068   0.025   0.103   1.028   1.036   1.031
+0.047   0.062   0.135   1.178   1.164   1.143
+0.079   0.032   0.096   1.019   1.011   1.025
+0.060   0.028   0.097   0.985   0.997   0.996
+0.078   0.024   0.098   1.025   1.018   1.012
+0.074   0.029   0.099   1.010   1.008   0.999
+0.126   0.018   0.104   0.955   0.987   0.966
+0.064   0.027   0.097   0.997   1.007   1.014
+0.046   0.099   0.104   0.980   0.974   0.971
+0.116   0.035   0.104   0.974   0.994   0.966
+0.075   0.027   0.101   0.996   0.991   0.971
+0.070   0.028   0.098   1.015   1.008   1.022
+0.068   0.025   0.101   0.976   1.008   0.990
+0.065   0.027   0.098   0.993   0.992   0.982
+0.085   0.097   0.104   0.999   0.974   0.971
+0.045   0.080   0.172   1.190   1.131   1.116
+0.132   0.074   0.108   0.894   0.877   0.864
+0.081   0.077   0.107   0.964   0.991   0.985
+0.053   0.036   0.098   1.017   0.996   1.000
+0.034   0.031   0.109   1.120   1.036   1.078
+0.083   0.026   0.100   0.993   1.016   0.985
+0.071   0.026   0.096   0.996   0.994   0.999
+0.058   0.020   0.106   1.016   1.053   1.043
+0.072   0.023   0.098   1.002   1.014   0.999
+0.158   0.090   0.107   0.951   0.944   0.940
+0.076   0.028   0.099   1.019   0.997   0.982
+0.084   0.026   0.102   0.979   1.006   0.986
+0.042   0.027   0.100   1.019   1.036   1.017
+0.064   0.031   0.101   1.024   1.005   0.984
+0.041   0.031   0.152   1.190   1.043   1.126
+0.076   0.028   0.101   0.981   1.009   0.984
+0.079   0.074   0.107   0.984   1.001   0.994
+0.062   0.019   0.099   0.996   1.012   0.999
+0.054   0.029   0.097   1.017   1.014   1.029
+0.061   0.025   0.096   1.029   1.004   1.019
+0.084   0.030   0.097   1.016   1.015   1.000
+0.039   0.025   0.102   0.999   1.012   0.989
+0.060   0.026   0.098   1.018   1.011   1.000
+0.068   0.033   0.105   1.118   1.083   1.081
+0.063   0.028   0.157   1.148   1.049   1.114
+0.080   0.019   0.099   0.978   0.996   0.985
+0.069   0.106   0.106   0.986   0.963   0.961
+0.093   0.027   0.101   0.998   1.014   0.993
+0.060   0.024   0.096   0.993   0.997   1.003
+0.065   0.026   0.101   0.972   0.997   0.977
+0.067   0.020   0.103   0.969   1.005   0.973
+0.083   0.026   0.099   0.975   1.003   0.990
+0.072   0.019   0.096   1.033   1.029   1.037
+0.066   0.027   0.096   1.020   1.020   1.020
+0.064   0.102   0.105   0.973   0.987   0.985
+0.046   0.097   0.193   1.179   1.131   1.100
+0.061   0.062   0.164   1.162   1.141   1.120
+0.089   0.025   0.097   1.040   1.020   1.039
+0.083   0.019   0.101   1.006   1.001   0.997
+0.043   0.036   0.108   1.087   1.043   1.075
+0.070   0.026   0.099   0.997   0.991   0.983
+0.062   0.020   0.101   0.995   0.995   0.970
+0.056   0.026   0.103   0.986   1.013   0.987
+0.052   0.028   0.099   1.067   1.013   1.049
+0.092   0.029   0.100   0.963   0.998   0.978
+0.087   0.022   0.098   0.982   1.004   0.985
+0.066   0.026   0.095   1.006   0.997   1.002
+0.056   0.023   0.100   1.007   1.007   0.991
+0.066   0.094   0.107   1.014   0.986   0.982
+0.072   0.025   0.097   1.005   0.995   1.000
+0.079   0.101   0.105   0.950   0.978   0.975
+0.075   0.103   0.107   0.952   0.967   0.964
+0.079   0.095   0.103   0.979   0.981   0.978
+0.070   0.071   0.108   1.064   1.058   1.050
+0.065   0.023   0.097   1.054   1.013   1.035
+0.068   0.104   0.104   0.985   0.972   0.970
+0.082   0.017   0.100   0.991   0.998   0.986
+0.064   0.023   0.098   1.020   1.019   1.011
+0.064   0.022   0.096   1.000   0.992   0.989
+0.085   0.027   0.099   1.018   1.016   1.003
+0.071   0.022   0.101   0.955   0.976   0.961
+0.078   0.029   0.097   0.996   1.004   0.993
+0.091   0.024   0.097   0.980   0.997   0.992
+0.044   0.030   0.100   1.004   1.004   0.973
+0.098   0.021   0.098   0.951   0.979   0.961
+0.082   0.087   0.108   0.938   0.980   0.975
+0.079   0.094   0.108   0.971   0.934   0.930
+0.045   0.025   0.120   1.088   1.045   1.090
+0.081   0.022   0.096   1.052   1.005   1.010
+0.073   0.031   0.102   0.995   1.015   0.993
+0.072   0.020   0.099   1.001   1.004   0.992
+0.066   0.029   0.099   0.999   1.018   1.012
+0.082   0.022   0.098   1.032   1.007   1.005
+0.049   0.088   0.179   1.115   1.114   1.055
+0.083   0.029   0.101   0.999   1.027   0.999
+0.070   0.022   0.099   0.969   0.994   0.986
+0.079   0.031   0.116   1.141   1.072   1.098
+0.077   0.103   0.105   0.984   0.970   0.967
+0.059   0.018   0.096   1.038   1.021   1.028
+0.048   0.024   0.115   1.090   1.040   1.094
+0.075   0.018   0.097   1.042   1.012   1.031
+0.085   0.022   0.100   0.981   1.008   0.994
+0.072   0.028   0.096   1.024   1.006   1.012
+0.075   0.097   0.103   0.948   0.968   0.966
+0.100   0.028   0.102   0.959   1.005   0.973
+0.079   0.022   0.099   1.014   1.004   0.997
+0.063   0.080   0.102   1.010   1.002   0.992
+0.089   0.021   0.098   0.988   0.998   0.997
+0.070   0.025   0.097   1.008   1.006   1.002
+0.069   0.020   0.101   0.999   1.003   0.987
+0.072   0.018   0.097   0.974   0.981   0.979
+0.098   0.021   0.104   1.006   1.019   0.986
+0.071   0.035   0.097   1.037   1.018   1.016
+0.063   0.021   0.096   0.993   1.013   1.009
+0.080   0.022   0.098   0.972   0.969   0.975
+0.061   0.090   0.185   1.195   1.109   1.125
+0.063   0.020   0.097   0.988   0.997   0.996
+0.052   0.030   0.097   1.020   1.011   1.019
+0.107   0.021   0.096   0.956   0.990   0.988
+0.074   0.076   0.108   1.050   1.047   1.040
+0.044   0.022   0.096   1.012   1.002   1.012
+0.074   0.023   0.098   1.050   1.023   1.032
+0.079   0.029   0.098   1.027   0.997   0.998
+0.081   0.025   0.099   1.006   1.004   0.996
+0.066   0.022   0.098   0.971   0.990   0.981
+0.049   0.026   0.099   1.018   1.002   0.992
+0.042   0.033   0.131   1.124   1.044   1.111
+0.076   0.022   0.099   0.990   1.002   0.997
+0.090   0.027   0.100   0.947   0.983   0.960
+0.162   0.047   0.119   0.770   0.791   0.783
+0.064   0.024   0.100   1.001   1.002   0.983
+0.110   0.021   0.096   0.987   0.989   0.992
+0.096   0.021   0.100   0.942   0.971   0.955
+0.083   0.019   0.099   0.991   1.000   1.000
+0.074   0.016   0.098   0.980   1.008   0.990
+0.076   0.026   0.100   0.967   1.017   0.989
+0.045   0.030   0.098   1.002   1.023   1.015
+0.052   0.034   0.149   1.164   1.068   1.125
+0.056   0.030   0.100   0.992   1.000   0.987
+0.097   0.032   0.102   0.973   1.001   0.971
+0.085   0.098   0.105   0.955   0.982   0.979
+0.082   0.026   0.101   0.990   1.011   0.978
+0.085   0.025   0.102   0.994   1.007   0.975
+0.127   0.020   0.093   0.957   0.977   0.979
+0.064   0.078   0.102   0.984   0.988   0.972
+0.133   0.093   0.109   0.947   0.936   0.932
+0.058   0.060   0.115   1.115   1.086   1.083
+0.058   0.030   0.099   1.003   1.018   0.998
+0.048   0.030   0.095   1.036   1.007   1.024
+0.063   0.026   0.095   1.029   1.021   1.026
+0.048   0.087   0.187   1.184   1.115   1.107
+0.075   0.022   0.100   0.978   1.022   1.009
+0.075   0.020   0.099   1.035   1.038   1.035
+0.077   0.027   0.099   1.007   0.993   0.990
+0.072   0.020   0.107   1.026   1.055   1.051
+0.083   0.110   0.111   1.019   1.003   0.999
+0.071   0.016   0.096   0.991   1.003   0.998
+0.067   0.024   0.099   0.986   1.009   0.995
+0.064   0.025   0.098   0.998   0.996   0.993
+0.085   0.083   0.111   1.001   0.996   0.990
+0.096   0.091   0.106   1.020   0.987   0.983
+0.040   0.022   0.094   0.996   0.986   0.993
+0.110   0.114   0.113   0.980   0.988   0.984
+0.053   0.028   0.096   1.038   1.024   1.034
+0.057   0.021   0.093   1.039   1.012   1.023
+0.076   0.025   0.102   0.981   0.999   0.970
+0.088   0.111   0.106   0.978   0.986   0.983
+0.085   0.095   0.105   1.012   1.021   1.016
+0.083   0.022   0.101   0.994   1.012   0.988
+0.085   0.023   0.096   0.995   0.994   0.986
+0.089   0.025   0.095   1.012   0.990   0.999
+0.059   0.073   0.177   1.151   1.143   1.101
+0.079   0.058   0.110   1.122   1.087   1.088
+0.071   0.021   0.095   1.040   1.019   1.020
+0.068   0.088   0.121   0.733   0.758   0.752
+0.054   0.027   0.096   0.985   1.010   1.007
+0.081   0.022   0.097   1.007   1.009   1.007
+0.079   0.028   0.098   0.983   0.994   0.983
+0.044   0.023   0.096   1.004   1.013   1.007
+0.050   0.025   0.093   1.025   1.021   1.022
+0.044   0.032   0.152   1.135   1.051   1.118
+0.070   0.031   0.101   0.987   1.011   0.991
+0.136   0.075   0.108   0.860   0.867   0.861
+0.063   0.088   0.105   0.961   0.972   0.968
+0.075   0.084   0.104   0.982   0.976   0.972
+0.074   0.018   0.096   0.994   0.993   0.992
+0.066   0.039   0.104   1.049   1.038   1.031
+0.096   0.028   0.096   1.005   0.994   1.006
+0.074   0.029   0.098   1.039   1.030   1.038
+0.061   0.028   0.098   0.982   1.003   0.987
+0.104   0.025   0.099   0.984   1.001   0.981
+0.069   0.024   0.097   1.018   1.007   0.997
+0.073   0.028   0.097   1.023   1.000   1.005
+0.074   0.035   0.100   1.009   0.999   0.988
+0.080   0.084   0.106   0.966   0.998   0.993
+0.081   0.101   0.106   0.981   0.994   0.991
+0.068   0.021   0.099   0.994   1.006   1.000
+0.074   0.026   0.102   1.010   1.011   0.990
+0.086   0.029   0.099   0.972   0.998   0.973
+0.057   0.031   0.102   1.001   1.007   0.988
+0.054   0.029   0.095   1.040   1.028   1.029
+0.067   0.036   0.096   1.063   1.032   1.036
+0.082   0.091   0.109   0.997   0.988   0.983
+0.080   0.025   0.097   1.016   1.004   1.001
+0.067   0.019   0.098   1.012   0.993   0.999
+0.122   0.093   0.107   0.954   0.934   0.930
+0.064   0.030   0.097   1.027   0.992   1.001
+0.074   0.028   0.098   1.022   0.996   0.983
+0.079   0.109   0.105   1.002   0.989   0.987
+0.096   0.023   0.097   0.951   0.981   0.978
+0.043   0.025   0.098   0.985   1.004   0.993
+0.061   0.026   0.101   0.983   1.009   0.987
+0.066   0.028   0.098   1.024   1.011   0.992
+0.086   0.026   0.095   0.998   1.008   1.013
+0.080   0.020   0.104   1.060   1.050   1.049
+0.082   0.109   0.104   1.007   0.984   0.982
+0.063   0.019   0.095   1.024   1.020   1.024
+0.097   0.020   0.095   1.040   1.026   1.053
+0.059   0.024   0.099   0.978   1.000   0.981
+0.070   0.022   0.097   0.987   0.992   0.984
+0.083   0.074   0.104   1.016   1.009   1.004
+0.037   0.031   0.144   1.186   1.084   1.129
+0.057   0.030   0.100   1.068   1.036   1.061
+0.061   0.026   0.095   1.065   1.044   1.050
+0.056   0.018   0.096   1.039   0.997   1.001
+0.049   0.032   0.143   1.135   1.046   1.110
+0.082   0.026   0.097   1.004   1.003   0.995
+0.074   0.024   0.098   1.009   1.007   0.994
+0.060   0.031   0.102   1.025   1.019   0.996
+0.093   0.027   0.097   1.026   1.009   1.009
+0.062   0.030   0.104   1.031   1.047   1.052
+0.047   0.024   0.100   0.990   1.019   0.987
+0.078   0.025   0.097   0.954   1.002   0.995
+0.076   0.030   0.099   1.006   1.015   0.991
+0.077   0.025   0.097   1.012   1.005   0.992
+0.094   0.029   0.101   1.003   1.031   1.004
+0.066   0.026   0.094   1.031   1.021   1.033
+0.110   0.093   0.104   0.966   0.983   0.979
+0.072   0.065   0.101   1.018   1.009   0.996
+0.073   0.022   0.094   1.025   1.013   1.017
+0.084   0.018   0.096   1.054   1.044   1.041
+0.087   0.101   0.104   0.981   0.992   0.990
+0.048   0.110   0.189   1.141   1.107   1.069
+0.072   0.023   0.099   1.069   1.031   1.049
+0.090   0.025   0.098   0.967   0.998   0.978
+0.064   0.056   0.142   1.135   1.113   1.111
+0.040   0.022   0.149   1.153   1.071   1.116
+0.057   0.024   0.098   1.001   1.010   1.002
+0.074   0.076   0.114   1.025   1.046   1.035
+0.055   0.030   0.100   0.990   1.010   0.982
+0.041   0.032   0.116   1.098   1.069   1.104
+2021-01-27 18:18:46 | INFO | fairseq_cli.train | begin validation on "valid" subset
+2021-01-27 18:18:48 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2021-01-27 18:18:48 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2021-01-27 18:18:48 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2021-01-27 18:18:49 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2021-01-27 18:18:49 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2021-01-27 18:18:49 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2021-01-27 18:18:51 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2021-01-27 18:18:51 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2021-01-27 18:18:51 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2021-01-27 18:18:52 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2021-01-27 18:18:52 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2021-01-27 18:18:52 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2021-01-27 18:18:54 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2021-01-27 18:18:54 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2021-01-27 18:18:54 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2021-01-27 18:18:55 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2021-01-27 18:18:55 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2021-01-27 18:18:55 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2021-01-27 18:18:57 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2021-01-27 18:18:57 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2021-01-27 18:18:57 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2021-01-27 18:18:58 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2021-01-27 18:18:58 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2021-01-27 18:18:58 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2021-01-27 18:19:00 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2021-01-27 18:19:00 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2021-01-27 18:19:00 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2021-01-27 18:19:01 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2021-01-27 18:19:01 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2021-01-27 18:19:01 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2021-01-27 18:19:03 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2021-01-27 18:19:03 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2021-01-27 18:19:03 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2021-01-27 18:19:05 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2021-01-27 18:19:05 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2021-01-27 18:19:05 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2021-01-27 18:19:06 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2021-01-27 18:19:06 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2021-01-27 18:19:06 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2021-01-27 18:19:08 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2021-01-27 18:19:08 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2021-01-27 18:19:08 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2021-01-27 18:19:10 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2021-01-27 18:19:10 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2021-01-27 18:19:10 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2021-01-27 18:19:23 | INFO | valid | epoch 127 | valid on 'valid' subset | symm_kl 0 | loss 5.406 | nll_loss 3.835 | ppl 14.27 | bleu 22.61 | wps 2227.1 | wpb 3933 | bsz 142.9 | num_updates 1123
+2021-01-27 18:19:23 | INFO | fairseq_cli.train | begin save checkpoint
+2021-01-27 18:19:28 | INFO | fairseq.checkpoint_utils | saved checkpoint ./examples/entr/bash/../checkpoints/closer-all/checkpoint_best.pt (epoch 127 @ 1123 updates, score 22.61) (writing took 5.06528435900691 seconds)
+2021-01-27 18:19:28 | INFO | fairseq_cli.train | end of epoch 127 (average epoch stats below)
+2021-01-27 18:19:28 | INFO | train | epoch 127 | symm_kl 0.173 | self_kl 0 | self_cv 0 | loss 2.962 | nll_loss 0.938 | ppl 1.92 | wps 12730.3 | ups 1.67 | wpb 7618.1 | bsz 268.6 | num_updates 1123 | lr 1.50359e-05 | gnorm 0.714 | train_wall 858 | wall 0
+2021-01-27 18:19:28 | INFO | fairseq.trainer | begin training epoch 128
+0.052   0.016   0.097   0.982   1.004   1.001
+0.061   0.019   0.098   0.999   1.002   1.000
+0.106   0.031   0.103   0.958   0.961   0.933
+0.075   0.031   0.095   1.028   1.012   1.018
+0.070   0.015   0.095   1.037   1.036   1.045
+0.087   0.026   0.098   1.031   1.013   1.009
+0.102   0.023   0.097   0.991   1.006   0.999
+0.057   0.031   0.101   1.061   1.051   1.046
+0.072   0.024   0.104   1.093   1.068   1.076
+0.061   0.040   0.096   1.025   1.008   1.019
+0.083   0.113   0.103   0.994   0.987   0.986
+0.077   0.024   0.098   1.005   1.017   1.007
+0.075   0.028   0.098   1.035   1.005   0.999
+0.080   0.017   0.099   0.998   1.006   0.994
+0.062   0.025   0.096   1.040   1.027   1.039
+0.039   0.030   0.152   1.190   1.055   1.130
+0.046   0.035   0.137   1.198   1.080   1.121
+0.075   0.013   0.097   0.978   0.999   0.987
+0.073   0.025   0.094   1.043   1.037   1.055
+0.135   0.071   0.107   0.847   0.899   0.889
+0.142   0.071   0.107   0.893   0.882   0.869
+0.073   0.020   0.099   1.015   0.989   0.975
+0.092   0.096   0.103   0.971   0.979   0.976
+0.099   0.084   0.106   0.952   0.986   0.981
+0.065   0.025   0.100   1.044   1.033   1.035
+0.039   0.023   0.095   0.999   1.004   1.009
+0.089   0.021   0.095   1.012   1.003   1.012
+0.070   0.024   0.096   1.005   1.007   1.013
+0.100   0.016   0.096   0.986   0.997   0.999
+0.087   0.028   0.100   0.981   1.026   0.993
+0.124   0.021   0.095   0.944   0.963   0.958
+0.087   0.025   0.098   0.994   0.992   0.979
+0.062   0.022   0.097   1.003   0.994   0.984
+0.072   0.015   0.095   0.975   0.974   0.978
+0.062   0.023   0.099   0.994   1.006   0.988
+0.107   0.023   0.097   1.022   1.017   1.013
+0.074   0.021   0.099   0.998   1.005   0.991
+0.074   0.025   0.103   1.049   1.063   1.040
+0.087   0.028   0.099   1.027   1.026   1.012
+0.072   0.025   0.098   1.040   1.049   1.034
+0.054   0.106   0.103   1.015   0.993   1.001
+0.091   0.022   0.097   0.973   0.962   0.964
+0.080   0.022   0.096   0.996   1.012   1.023
+0.093   0.091   0.107   0.997   1.012   1.006
+0.082   0.077   0.106   0.987   1.006   0.999
+0.055   0.024   0.094   1.018   1.006   1.006
+0.088   0.070   0.108   1.033   1.025   1.018
+0.134   0.094   0.105   0.938   0.946   0.942
+0.069   0.017   0.096   0.995   1.001   1.006
+0.067   0.025   0.098   0.989   1.005   0.989
+0.083   0.021   0.102   1.044   1.037   1.007
+0.061   0.069   0.175   1.146   1.143   1.099
+0.074   0.030   0.100   0.968   1.018   0.986
+0.063   0.026   0.101   0.964   1.012   0.983
+0.079   0.080   0.102   0.997   1.000   0.983
+0.049   0.028   0.126   1.171   1.088   1.117
+0.067   0.020   0.097   1.020   0.998   1.004
+0.068   0.024   0.099   0.955   0.997   0.975
+0.057   0.025   0.100   0.991   1.019   1.000
+0.087   0.025   0.099   1.001   1.027   0.996
+0.080   0.027   0.096   1.043   1.013   1.021
+0.067   0.032   0.096   1.037   1.031   1.029
+0.064   0.022   0.095   1.003   1.003   1.007
+0.066   0.024   0.096   1.001   1.003   1.001
+0.057   0.016   0.099   1.006   1.037   1.028
+0.076   0.027   0.098   0.994   0.993   0.983
+0.064   0.022   0.095   1.006   1.021   1.017
+0.074   0.022   0.098   0.978   1.002   0.994
+0.077   0.031   0.094   1.001   1.000   0.998
+0.072   0.080   0.103   0.954   0.979   0.975
+0.076   0.017   0.097   0.988   1.018   1.000
+0.062   0.029   0.093   1.146   1.096   1.126
+0.095   0.025   0.097   0.998   1.017   1.003
+0.055   0.018   0.099   1.014   1.010   0.991
+0.097   0.118   0.105   0.983   0.991   0.990
+0.063   0.026   0.101   0.998   1.017   0.984
+0.074   0.020   0.097   0.992   1.015   1.003
+0.052   0.020   0.094   1.023   1.020   1.030
+0.113   0.033   0.100   1.002   1.027   0.994
+0.071   0.025   0.096   1.037   1.005   1.007
+0.064   0.113   0.104   0.966   0.979   0.978
+0.132   0.087   0.105   1.005   0.986   0.982
+0.071   0.037   0.094   1.049   1.007   1.017
+0.096   0.109   0.101   1.002   0.995   0.994
+0.102   0.018   0.096   0.991   0.977   0.968
+0.080   0.025   0.096   0.989   1.006   1.003
+0.073   0.023   0.098   0.989   1.016   0.990
+0.064   0.026   0.097   1.010   0.998   0.994
+0.045   0.047   0.115   1.140   1.135   1.124
+0.069   0.100   0.104   0.981   0.975   0.973
+0.055   0.031   0.097   1.008   1.033   1.033
+0.065   0.021   0.099   0.987   1.007   0.992
+0.062   0.019   0.097   0.996   1.003   1.004
+0.085   0.023   0.098   0.953   0.993   0.977
+0.063   0.030   0.095   1.049   1.028   1.032
+0.065   0.019   0.095   0.986   0.994   0.990
+0.157   0.094   0.106   0.959   0.955   0.952
+0.073   0.031   0.097   1.028   1.017   1.035
+0.095   0.033   0.095   1.029   0.996   1.004
+0.043   0.031   0.146   1.187   1.080   1.140
+0.073   0.072   0.107   1.073   1.067   1.059
+0.073   0.028   0.100   0.989   1.015   0.988
+0.069   0.023   0.099   1.007   1.005   0.994
+0.066   0.030   0.098   1.001   1.003   0.991
+0.069   0.026   0.104   1.118   1.100   1.101
+0.060   0.025   0.100   1.004   1.014   0.991
+0.053   0.060   0.179   1.219   1.154   1.157
+0.072   0.017   0.101   1.030   1.050   1.039
+0.079   0.029   0.098   1.019   1.021   1.011
+0.072   0.019   0.096   0.983   0.988   0.988
+0.061   0.024   0.099   1.005   1.022   1.000
+0.097   0.085   0.106   0.897   0.970   0.965
+0.053   0.029   0.141   1.141   1.058   1.117
+0.109   0.027   0.100   0.975   1.000   0.977
+0.079   0.071   0.102   1.026   1.017   1.006
+0.083   0.019   0.098   0.989   1.005   0.995
+0.093   0.026   0.095   1.052   1.036   1.054
+0.080   0.109   0.104   0.969   0.977   0.975
+0.081   0.023   0.097   1.070   1.035   1.069
+0.182   0.052   0.116   0.776   0.810   0.803
+0.087   0.101   0.106   0.993   1.001   0.998
+0.061   0.026   0.095   1.074   1.053   1.057
+0.062   0.017   0.095   0.975   0.996   0.990
+0.070   0.021   0.097   1.038   0.977   0.982
+0.070   0.021   0.097   1.021   1.039   1.048
+0.082   0.028   0.094   1.037   0.989   0.997
+0.051   0.022   0.096   1.017   1.015   1.014
+0.069   0.021   0.098   1.002   0.998   0.987
+0.064   0.019   0.099   0.995   1.008   0.986
+0.071   0.019   0.098   1.013   1.027   1.012
+0.079   0.023   0.097   1.030   1.017   1.006
+0.086   0.043   0.101   0.991   1.012   0.991
+0.074   0.073   0.107   1.066   1.055   1.048
+0.152   0.089   0.120   0.774   0.761   0.755
+0.068   0.025   0.099   0.973   1.013   0.987
+0.070   0.033   0.096   1.060   1.043   1.059
+0.076   0.020   0.097   1.011   1.020   1.013
+0.101   0.026   0.100   0.982   1.013   0.984
+0.172   0.095   0.105   0.942   0.943   0.940
+0.062   0.021   0.096   1.016   1.007   0.998
+0.064   0.033   0.098   0.996   1.012   1.013
+0.097   0.020   0.099   1.016   1.008   0.980
+0.074   0.031   0.096   1.049   1.023   1.038
+0.062   0.083   0.191   1.141   1.118   1.061
+0.073   0.102   0.104   1.028   1.017   1.015
+0.096   0.019   0.093   0.998   0.989   0.988
+0.080   0.019   0.098   0.965   1.000   0.985
+0.059   0.036   0.095   1.030   1.018   1.022
+0.058   0.028   0.099   0.987   1.017   1.006
+0.061   0.023   0.095   1.043   1.018   1.037
+0.067   0.027   0.095   1.009   0.999   1.002
+0.079   0.034   0.099   1.010   1.004   0.995
+0.060   0.029   0.098   1.036   1.019   1.002
+0.054   0.036   0.122   1.150   1.041   1.109
+0.040   0.059   0.167   1.163   1.110   1.128
+0.102   0.024   0.101   0.954   0.992   0.963
+0.107   0.031   0.095   0.955   1.002   1.006
+0.084   0.026   0.095   1.018   1.021   1.029
+0.066   0.057   0.113   1.114   1.125   1.116
+0.065   0.025   0.098   1.002   1.017   1.007
+0.066   0.024   0.100   0.980   1.020   0.989
+0.062   0.020   0.097   1.004   1.010   1.013
+0.057   0.031   0.098   0.997   1.009   0.996
+0.077   0.090   0.120   0.737   0.757   0.751
+0.067   0.017   0.098   1.015   1.041   1.037
+0.100   0.023   0.097   1.006   0.986   0.989
+0.074   0.032   0.097   1.035   1.020   1.035
+0.066   0.029   0.098   1.037   1.017   0.998
+0.062   0.021   0.104   1.025   1.069   1.057
+0.084   0.026   0.100   1.005   0.998   0.985
+0.074   0.019   0.095   1.030   1.027   1.031
+0.077   0.095   0.101   1.016   1.013   1.010
+0.050   0.071   0.175   1.127   1.147   1.102
+0.065   0.025   0.098   1.012   1.010   0.993
+0.072   0.104   0.103   0.998   0.998   0.996
+0.086   0.016   0.096   1.063   1.051   1.049
+0.081   0.026   0.096   1.008   1.009   1.010
+0.070   0.101   0.101   0.948   0.978   0.976
+0.116   0.089   0.106   0.918   0.947   0.942
+0.101   0.028   0.100   0.992   1.016   0.988
+0.058   0.022   0.099   0.994   1.022   0.990
+0.096   0.103   0.101   0.980   0.982   0.980
+0.076   0.127   0.105   1.029   1.009   1.008
+0.053   0.023   0.096   1.010   1.010   1.011
+0.074   0.022   0.094   1.049   1.028   1.030
+0.083   0.109   0.103   1.001   0.973   0.972
+0.069   0.028   0.099   1.006   1.032   1.009
+0.072   0.029   0.100   0.952   1.009   0.984
+0.060   0.022   0.099   0.986   1.016   0.995
+0.055   0.031   0.094   1.027   1.027   1.043
+0.078   0.030   0.097   1.040   1.009   1.009
+0.058   0.025   0.099   1.015   1.026   0.999
+0.083   0.016   0.098   0.998   0.999   0.993
+0.069   0.027   0.097   0.996   1.011   1.003
+0.117   0.095   0.121   0.760   0.756   0.751
+0.078   0.030   0.097   1.034   1.007   0.994
+0.100   0.021   0.098   1.011   0.986   0.980
+0.056   0.024   0.097   1.003   1.014   1.007
+0.092   0.027   0.099   0.995   1.034   1.011
+0.103   0.094   0.106   0.997   1.006   1.001
+0.066   0.054   0.140   1.149   1.124   1.121
+0.058   0.025   0.096   1.007   1.009   1.004
+0.062   0.028   0.096   1.032   1.021   1.014
+0.056   0.029   0.100   1.093   1.034   1.073
+0.054   0.084   0.177   1.124   1.113   1.055
+0.057   0.025   0.096   1.005   1.028   1.039
+0.093   0.029   0.095   1.062   1.039   1.069
+0.089   0.024   0.095   1.080   1.061   1.071
+0.056   0.035   0.095   1.029   1.011   1.016
+0.063   0.020   0.093   1.050   1.030   1.041
+0.084   0.027   0.100   1.038   1.035   1.019
+0.147   0.074   0.106   0.907   0.886   0.873
+0.097   0.021   0.098   0.948   0.979   0.964
+0.075   0.023   0.094   1.047   1.013   1.016
+0.076   0.021   0.094   1.048   1.010   1.016
+0.071   0.116   0.101   0.987   0.990   0.989
+0.065   0.029   0.093   1.047   1.034   1.039
+0.073   0.026   0.098   1.038   1.015   1.001
+0.092   0.026   0.096   1.008   1.008   1.001
+0.077   0.022   0.095   0.996   1.008   1.013
+0.074   0.037   0.096   1.039   1.022   1.020
+0.067   0.029   0.095   1.034   1.002   1.010
+0.067   0.019   0.097   1.012   1.013   1.003
+0.081   0.029   0.097   1.007   1.014   1.005
+0.070   0.021   0.098   0.986   1.017   1.005
+0.048   0.019   0.120   1.183   1.075   1.113
+0.069   0.029   0.102   1.113   1.060   1.096
+0.080   0.027   0.097   1.028   1.023   1.021
+0.069   0.025   0.093   1.016   1.007   1.014
+0.083   0.025   0.098   1.026   1.009   0.988
+0.120   0.023   0.094   0.927   0.987   0.982
+0.092   0.103   0.109   0.969   0.999   0.995
+0.071   0.029   0.099   1.005   1.016   0.994
+0.062   0.032   0.098   1.096   1.059   1.082
+0.073   0.028   0.095   1.011   1.021   1.010
+0.163   0.080   0.103   0.947   0.948   0.943
+0.058   0.027   0.098   1.033   1.013   0.994
+0.079   0.029   0.094   1.043   1.001   1.010
+0.050   0.023   0.096   1.008   1.016   1.009
+0.096   0.028   0.100   1.014   1.026   1.005
+0.107   0.020   0.097   0.986   1.010   0.995
+0.057   0.021   0.097   1.025   1.008   1.021
+0.074   0.030   0.100   1.007   1.010   0.986
+0.073   0.017   0.097   0.993   1.021   1.018
+0.067   0.021   0.100   0.990   1.011   0.984
+0.067   0.028   0.097   1.049   1.033   1.057
+0.057   0.022   0.093   1.048   1.021   1.034
+0.069   0.027   0.097   1.008   1.001   0.995
+0.080   0.026   0.097   1.021   1.017   1.017
+0.086   0.028   0.099   0.979   1.010   0.983
+0.087   0.022   0.100   1.002   1.027   1.001
+0.076   0.032   0.100   1.007   1.031   1.008
+0.063   0.027   0.095   1.014   1.009   1.002
+0.086   0.022   0.098   0.984   1.007   1.000
+0.113   0.096   0.105   0.985   0.938   0.935
+0.078   0.022   0.098   1.045   1.048   1.046
+0.081   0.027   0.097   1.033   1.016   1.007
+0.082   0.077   0.114   1.029   1.055   1.044
+0.098   0.097   0.109   1.000   1.009   1.004
+0.062   0.030   0.101   1.011   1.017   0.998
+0.093   0.025   0.094   0.991   1.007   1.005
+0.048   0.037   0.092   1.022   1.015   1.028
+0.087   0.023   0.094   1.006   1.002   0.994
+0.072   0.022   0.098   1.037   1.061   1.057
+0.064   0.025   0.095   1.032   1.024   1.014
+0.049   0.030   0.097   1.012   1.034   1.027
+0.094   0.031   0.096   0.986   1.016   1.008
+0.143   0.050   0.114   0.745   0.812   0.805
+0.050   0.094   0.106   1.003   1.021   1.016
+0.120   0.023   0.098   0.980   0.996   0.992
+0.076   0.029   0.096   1.056   1.015   1.019
+0.065   0.029   0.100   1.033   1.034   1.017
+0.067   0.024   0.096   1.008   1.032   1.024
+0.082   0.021   0.098   1.005   1.014   1.000
+0.077   0.027   0.094   1.031   1.020   1.027
+0.065   0.036   0.108   1.127   1.114   1.109
+0.079   0.022   0.098   1.017   1.046   1.039
+0.060   0.062   0.103   1.019   1.028   1.022
+0.059   0.031   0.096   1.062   1.036   1.054
+0.098   0.030   0.093   1.017   1.005   1.018
+0.068   0.103   0.102   0.983   0.998   0.996
+0.067   0.034   0.103   1.133   1.040   1.087
+0.066   0.024   0.097   1.001   0.996   0.988
+0.087   0.026   0.096   1.040   1.033   1.028
+0.050   0.028   0.094   1.011   1.020   1.028
+0.088   0.080   0.101   0.967   0.999   0.982
+0.078   0.029   0.097   1.032   1.004   0.991
+0.105   0.089   0.103   0.989   0.996   0.992
+0.177   0.053   0.114   0.835   0.808   0.801
+0.075   0.031   0.093   1.083   1.025   1.044
+0.124   0.096   0.105   0.968   0.940   0.937
+0.144   0.086   0.103   0.982   0.981   0.977
+0.089   0.095   0.104   1.021   1.029   1.025
+0.052   0.019   0.095   1.054   1.012   1.031
+0.126   0.093   0.102   0.948   0.968   0.965
+0.090   0.095   0.103   1.013   0.990   0.987
+0.101   0.022   0.101   1.015   1.029   0.996
+0.079   0.018   0.094   0.976   0.990   0.986
+0.103   0.112   0.101   0.999   0.990   0.989
+0.051   0.026   0.093   0.995   1.009   1.014
+0.080   0.033   0.093   1.026   1.017   1.027
+0.090   0.097   0.102   1.001   0.997   0.995
+0.073   0.027   0.102   1.073   1.066   1.041
+0.071   0.021   0.097   1.027   1.007   1.014
+0.055   0.026   0.094   1.025   1.019   1.016
+0.081   0.024   0.094   1.066   1.018   1.023
+0.085   0.026   0.097   1.039   1.016   1.003
+0.081   0.018   0.095   1.040   1.025   1.041
+0.099   0.025   0.099   1.007   1.029   0.999
+0.070   0.020   0.095   1.000   0.999   1.000
+0.057   0.030   0.099   0.994   1.017   0.990
+0.097   0.082   0.112   1.001   1.009   1.002
+0.070   0.032   0.096   1.024   1.005   1.007
+0.081   0.028   0.096   1.008   1.024   1.016
+0.041   0.035   0.129   1.131   1.058   1.123
+0.068   0.021   0.098   1.010   1.009   0.985
+0.060   0.037   0.105   1.111   1.064   1.092
+0.088   0.027   0.098   0.969   1.005   0.985
+0.077   0.024   0.101   0.991   1.010   0.980
+0.088   0.017   0.095   1.013   1.008   1.006
+0.051   0.073   0.168   1.188   1.141   1.122
+0.058   0.019   0.095   1.010   0.996   0.994
+0.056   0.029   0.106   1.120   1.119   1.106
+0.075   0.027   0.096   1.012   1.005   0.999
+0.108   0.026   0.099   0.970   1.014   0.987
+0.096   0.088   0.103   1.028   1.023   1.019
+0.069   0.029   0.093   1.047   1.010   1.011
+0.054   0.060   0.114   1.131   1.101   1.098
+0.056   0.031   0.094   1.013   1.018   1.026
+0.073   0.028   0.094   1.049   1.017   1.034
+0.067   0.081   0.099   0.987   1.000   0.984
+0.078   0.029   0.097   0.984   1.025   0.998
+0.073   0.026   0.093   1.061   1.042   1.054
+0.071   0.019   0.095   1.029   1.019   1.025
+0.052   0.032   0.102   1.167   1.106   1.142
+0.077   0.018   0.096   1.029   0.985   0.989
+0.082   0.026   0.095   1.017   1.016   1.004
+0.053   0.023   0.094   1.043   1.013   1.030
+0.060   0.026   0.167   1.204   1.107   1.148
+0.077   0.031   0.111   1.166   1.050   1.104
+0.075   0.027   0.094   1.007   0.994   1.003
+0.092   0.074   0.108   0.979   1.001   0.995
+0.087   0.018   0.098   1.061   1.054   1.041
+0.056   0.024   0.094   0.982   1.002   1.002
+0.090   0.021   0.094   1.041   1.030   1.022
+0.086   0.022   0.098   1.030   1.026   0.997
+0.087   0.081   0.100   0.982   1.001   0.985
+0.056   0.036   0.094   1.079   1.047   1.062
+0.108   0.025   0.094   1.014   0.978   0.978
+0.064   0.036   0.139   1.222   1.181   1.158
+0.085   0.033   0.098   1.004   1.010   1.008
+0.053   0.045   0.170   1.212   1.117   1.146
+0.082   0.025   0.095   1.002   1.007   1.003
+0.110   0.029   0.099   1.005   1.025   0.993
+0.090   0.082   0.100   1.006   0.998   0.982
+0.057   0.024   0.097   1.024   1.024   1.009
+0.075   0.028   0.093   1.035   1.031   1.035
+0.102   0.029   0.093   1.051   1.028   1.038
+0.076   0.119   0.104   1.006   0.999   0.998
+0.037   0.032   0.095   1.024   1.030   1.035
+0.090   0.031   0.100   1.020   1.057   1.027
+0.079   0.033   0.098   0.999   1.033   1.016
+0.084   0.064   0.120   1.160   1.151   1.147
+0.065   0.026   0.098   1.030   1.042   1.016
+0.093   0.033   0.092   1.039   1.019   1.031
+0.047   0.030   0.113   1.102   1.042   1.091
+0.068   0.032   0.096   1.048   1.033   1.013
+0.077   0.022   0.097   1.025   1.030   1.009
+0.062   0.031   0.096   1.068   1.041   1.053
+0.082   0.027   0.095   1.032   1.020   1.002
+0.083   0.096   0.107   0.969   0.987   0.983
+0.092   0.032   0.099   0.984   1.011   0.994
+0.078   0.027   0.094   1.009   1.006   1.017
+0.116   0.090   0.120   0.767   0.755   0.749
+0.080   0.020   0.095   1.012   0.991   1.003
+0.108   0.030   0.100   0.972   1.020   0.987
+0.067   0.025   0.091   1.054   1.027   1.036
+0.071   0.028   0.095   1.003   1.004   1.004
+0.129   0.023   0.094   0.939   0.988   0.984
+0.086   0.021   0.095   1.005   1.000   0.998
+0.062   0.033   0.097   1.020   1.031   1.012
+0.079   0.024   0.099   0.982   0.995   0.983
+0.079   0.025   0.096   1.027   1.012   1.016
+0.084   0.028   0.095   1.020   1.016   1.014
+0.058   0.027   0.096   1.012   1.012   1.010
+0.066   0.024   0.098   1.019   1.017   0.999
+0.031   0.031   0.107   1.136   1.058   1.096
+0.057   0.069   0.100   1.036   1.034   1.019
+0.076   0.033   0.095   1.037   1.016   1.026
+0.048   0.032   0.094   1.052   1.020   1.040
+0.092   0.024   0.095   0.999   1.011   1.013
+0.096   0.031   0.097   1.024   1.009   1.007
+0.100   0.095   0.103   1.017   1.005   1.002
+0.078   0.020   0.095   1.017   1.016   1.016
+0.074   0.029   0.095   1.010   1.007   1.015
+0.071   0.030   0.096   1.014   1.012   1.001
+0.047   0.031   0.097   1.017   1.020   0.988
+0.072   0.025   0.098   1.048   1.046   1.040
+0.070   0.029   0.094   1.008   1.010   1.023
+0.075   0.030   0.098   0.981   1.017   0.995
+0.069   0.032   0.103   1.134   1.102   1.100
+0.037   0.027   0.166   1.172   1.090   1.130
+0.074   0.021   0.098   1.087   1.048   1.064
+0.056   0.026   0.096   1.022   1.019   1.010
+0.088   0.024   0.099   1.019   1.024   1.008
+0.141   0.034   0.091   0.994   1.018   1.034
+0.055   0.028   0.094   1.037   1.019   1.027
+0.099   0.098   0.105   1.003   0.996   0.992
+0.079   0.025   0.101   1.088   1.086   1.085
+0.086   0.022   0.098   0.981   1.044   1.026
+0.071   0.025   0.095   1.020   1.012   1.006
+0.067   0.019   0.094   1.062   1.019   1.022
+0.062   0.021   0.097   0.991   1.011   0.999
+0.119   0.019   0.092   1.014   0.981   0.995
+0.098   0.083   0.103   0.990   1.007   1.002
+0.066   0.028   0.098   0.966   1.016   0.986
+0.066   0.027   0.095   1.106   1.082   1.090
+0.056   0.028   0.093   1.001   1.028   1.023
+0.114   0.116   0.110   0.995   1.002   0.998
+0.077   0.026   0.095   0.964   1.012   1.005
+0.083   0.026   0.094   1.020   1.018   1.016
+0.115   0.021   0.093   1.001   1.002   1.007
+0.042   0.037   0.148   1.156   1.080   1.139
+0.081   0.027   0.094   1.039   1.011   1.019
+0.072   0.031   0.094   1.004   1.007   1.006
+0.050   0.028   0.095   1.031   1.028   1.038
+0.102   0.083   0.107   0.952   1.006   1.000
+0.071   0.021   0.097   1.000   1.012   1.006
+0.087   0.022   0.097   1.008   1.018   1.019
+0.165   0.049   0.116   0.775   0.799   0.791
+0.065   0.030   0.098   1.014   1.062   1.030
+0.050   0.030   0.093   1.021   1.019   1.030
+0.062   0.062   0.121   1.175   1.141   1.142
+0.088   0.022   0.097   1.023   1.033   1.015
+0.035   0.023   0.140   1.146   1.085   1.129
+0.081   0.026   0.098   1.015   1.006   0.987
+0.071   0.027   0.092   1.049   1.037   1.044
+0.145   0.080   0.104   0.962   0.958   0.959
+0.081   0.121   0.106   0.979   0.991   0.990
+0.079   0.024   0.097   1.022   1.017   1.013
+0.095   0.029   0.094   1.036   1.031   1.017
+0.082   0.026   0.099   1.039   1.061   1.040
+0.069   0.113   0.101   1.031   1.001   1.000
+0.107   0.030   0.099   0.935   1.012   0.981
+0.062   0.027   0.093   0.998   1.013   1.021
+0.050   0.018   0.094   1.040   1.019   1.027
+0.074   0.113   0.103   0.970   0.992   0.991
+0.101   0.021   0.097   1.016   0.997   0.993
+0.068   0.027   0.096   1.025   1.017   1.020
+0.083   0.019   0.092   1.008   1.032   1.031
+0.102   0.092   0.103   1.041   1.001   0.997
+0.095   0.020   0.098   1.060   1.046   1.033
+0.084   0.028   0.092   1.031   1.012   1.024
+0.071   0.033   0.100   1.012   1.055   1.034
+0.082   0.021   0.096   1.014   1.008   1.007
+0.079   0.024   0.093   1.040   1.015   1.055
+0.080   0.026   0.095   1.016   1.015   1.007
+0.077   0.028   0.094   1.014   1.016   1.009
+0.056   0.034   0.155   1.150   1.080   1.129
+0.054   0.025   0.146   1.153   1.087   1.129
+0.085   0.018   0.097   1.006   1.008   0.998
+0.145   0.095   0.106   0.963   0.948   0.945
+0.137   0.019   0.092   0.972   0.992   0.995
+0.091   0.033   0.098   0.985   1.029   0.999
+0.063   0.025   0.093   1.034   1.030   1.044
+0.087   0.017   0.095   1.009   1.016   1.017
+0.063   0.019   0.096   1.010   1.030   1.031
+0.071   0.022   0.097   1.014   1.045   1.030
+0.038   0.018   0.122   1.188   1.059   1.122
+0.066   0.018   0.095   1.008   1.001   1.004
+0.069   0.039   0.094   1.076   1.058   1.071
+0.047   0.033   0.111   1.114   1.131   1.122
+0.064   0.025   0.095   1.049   1.029   1.023
+0.062   0.023   0.092   1.059   1.031   1.047
+0.074   0.028   0.098   1.015   1.026   0.997
+0.087   0.030   0.097   0.986   1.012   0.987
+0.092   0.025   0.098   1.039   1.029   1.015
+0.078   0.019   0.094   1.011   1.027   1.030
+0.101   0.021   0.097   1.008   1.016   1.003
+0.060   0.027   0.095   1.037   1.023   1.038
+0.078   0.029   0.094   1.008   1.017   1.015
+0.106   0.024   0.094   0.989   0.988   0.983
+0.058   0.019   0.095   1.051   1.014   1.017
+0.100   0.028   0.097   1.006   1.009   0.993
+0.074   0.016   0.095   1.045   1.029   1.016
+0.064   0.025   0.098   1.044   1.047   1.031
+0.065   0.021   0.097   1.015   1.019   1.000
+0.067   0.018   0.093   1.040   1.041   1.043
+0.051   0.081   0.182   1.178   1.128   1.116
+0.108   0.032   0.099   0.993   1.018   0.987
+0.081   0.082   0.100   0.992   1.006   0.990
+0.075   0.122   0.105   1.037   1.016   1.014
+0.113   0.025   0.094   1.012   0.990   1.002
+0.084   0.031   0.098   0.998   1.024   0.996
+0.093   0.027   0.097   0.982   1.024   1.013
+0.066   0.027   0.093   1.023   1.011   1.021
+0.049   0.025   0.095   1.033   1.005   1.017
+0.080   0.025   0.093   1.041   1.029   1.032
+0.098   0.025   0.096   0.981   0.977   0.970
+0.059   0.029   0.094   1.025   1.027   1.017
+0.053   0.036   0.095   1.039   1.039   1.051
+0.074   0.025   0.097   1.005   1.030   1.020
+0.081   0.034   0.095   1.058   1.037   1.036
+0.069   0.026   0.097   0.989   1.017   1.010
+0.095   0.027   0.094   1.045   1.029   1.038
+0.067   0.020   0.095   1.026   1.018   1.025
+0.091   0.020   0.094   1.018   1.011   1.001
+0.076   0.033   0.095   1.060   1.013   1.027
+0.064   0.028   0.098   1.015   1.034   1.007
+0.094   0.113   0.104   0.988   0.997   0.994
+0.090   0.060   0.107   1.135   1.104   1.103
+0.082   0.022   0.096   0.984   1.011   1.003
+0.085   0.030   0.100   1.015   1.047   1.018
+0.075   0.029   0.095   1.016   1.012   1.001
+0.074   0.032   0.098   1.012   1.038   1.015
+0.068   0.029   0.097   1.015   1.015   1.015
+0.090   0.037   0.098   1.021   1.040   1.019
+0.074   0.027   0.095   0.998   0.989   0.992
+0.065   0.028   0.092   1.067   1.031   1.044
+0.088   0.019   0.097   1.031   1.021   1.008
+0.084   0.020   0.095   1.019   0.995   0.991
+0.091   0.028   0.100   1.046   1.062   1.038
+0.084   0.065   0.104   0.968   0.930   0.925
+0.075   0.022   0.096   1.005   1.022   1.018
+0.110   0.018   0.094   0.976   0.990   0.988
+0.094   0.028   0.095   1.002   0.998   0.999
+0.072   0.028   0.094   1.040   1.022   1.026
+0.068   0.025   0.097   0.987   1.016   0.996
+0.072   0.019   0.098   1.086   1.062   1.059
+0.074   0.028   0.094   1.036   1.014   1.020
+0.078   0.026   0.097   1.029   1.022   0.996
+0.068   0.027   0.097   1.042   1.027   1.013
+0.084   0.025   0.094   1.058   1.024   1.034
+0.051   0.038   0.096   0.980   1.029   1.014
+0.089   0.021   0.098   1.006   1.023   0.998
+0.083   0.022   0.096   1.026   1.019   1.016
+0.119   0.104   0.100   1.010   0.997   0.995
+0.109   0.031   0.092   0.959   1.002   1.009
+0.083   0.081   0.104   0.984   1.010   1.005
+0.117   0.018   0.096   0.988   0.997   0.986
+0.082   0.025   0.094   1.025   1.030   1.028
+0.051   0.063   0.128   1.188   1.196   1.165
+0.075   0.091   0.102   0.971   0.985   0.982
+0.091   0.025   0.095   1.030   1.024   1.021
+0.060   0.032   0.093   1.016   1.031   1.039
+0.083   0.025   0.098   1.030   1.040   1.014
+0.085   0.024   0.096   1.023   1.016   1.002
+0.094   0.017   0.099   1.006   1.029   1.015
+0.084   0.025   0.095   1.016   1.015   1.010
+0.064   0.042   0.093   1.025   1.025   1.035
+0.071   0.034   0.094   1.016   1.029   1.022
+0.064   0.026   0.092   1.043   1.033   1.044
+0.068   0.022   0.094   1.038   1.033   1.035
+0.075   0.022   0.096   0.978   1.029   1.010
+0.082   0.097   0.098   1.029   1.030   1.029
+0.091   0.109   0.104   0.970   0.984   0.982
+0.045   0.018   0.094   1.015   1.037   1.041
+0.054   0.021   0.091   1.044   1.024   1.021
+0.087   0.021   0.097   1.023   1.026   1.007
+0.076   0.025   0.097   0.992   1.033   1.006
+0.064   0.028   0.093   1.015   0.999   1.007
+0.072   0.028   0.093   1.004   1.031   1.028
+0.050   0.025   0.098   1.000   1.032   1.000
+0.096   0.115   0.102   1.013   1.004   1.002
+0.080   0.086   0.147   1.076   1.111   1.074
+0.080   0.019   0.102   1.047   1.077   1.071
+0.095   0.024   0.094   1.023   1.019   1.013
+0.076   0.020   0.092   1.064   1.034   1.053
+0.049   0.027   0.096   1.057   1.062   1.048
+0.042   0.027   0.107   1.143   1.067   1.114
+0.104   0.037   0.099   0.992   1.032   0.999
+0.098   0.107   0.099   1.012   1.001   0.999
+0.041   0.030   0.148   1.183   1.119   1.152
+0.060   0.030   0.092   1.059   1.044   1.057
+0.080   0.030   0.097   1.126   1.074   1.117
+0.061   0.034   0.098   1.017   1.033   1.012
+0.063   0.037   0.092   1.078   1.048   1.073
+0.075   0.022   0.096   1.043   1.038   1.031
+0.065   0.025   0.094   1.014   1.005   1.015
+0.067   0.035   0.094   1.035   1.053   1.054
+0.086   0.024   0.095   1.037   1.026   1.020
+0.058   0.030   0.097   1.000   1.014   1.000
+0.093   0.092   0.105   0.960   1.001   0.997
+0.072   0.031   0.093   1.028   1.021   1.027
+0.065   0.038   0.096   1.031   1.040   1.051
+0.083   0.090   0.101   0.997   0.994   0.990
+0.079   0.027   0.092   1.025   1.014   1.020
+0.082   0.027   0.096   1.026   1.011   1.009
+0.069   0.028   0.148   1.213   1.178   1.154
+0.078   0.032   0.095   1.043   1.049   1.054
+0.098   0.110   0.100   0.984   0.995   0.994
+0.061   0.090   0.188   1.161   1.138   1.099
+0.080   0.021   0.092   1.046   1.034   1.040
+0.093   0.028   0.097   0.981   1.012   1.002
+0.076   0.027   0.095   1.043   1.020   1.023
+0.074   0.024   0.094   1.074   1.044   1.055
+0.053   0.027   0.094   1.062   1.049   1.057
+0.095   0.076   0.103   1.069   1.037   1.031
+0.065   0.032   0.094   1.003   1.010   1.009
+0.053   0.029   0.095   1.043   1.025   1.016
+0.064   0.027   0.097   1.003   1.026   1.002
+0.038   0.032   0.125   1.146   1.080   1.125
+0.110   0.023   0.095   1.005   1.007   0.991
+0.102   0.033   0.098   1.020   1.046   1.013
+0.065   0.019   0.096   1.085   1.042   1.048
+0.047   0.032   0.097   1.040   1.064   1.043
+0.076   0.023   0.095   1.024   1.029   1.012
+0.092   0.025   0.092   1.032   1.007   1.018
+0.079   0.028   0.100   1.006   1.028   0.997
+0.078   0.027   0.095   1.032   1.025   1.030
+0.092   0.029   0.097   0.982   1.028   1.000
+0.059   0.022   0.093   1.040   1.025   1.041
+0.082   0.099   0.104   0.963   1.004   1.000
+0.042   0.025   0.140   1.182   1.075   1.128
+0.062   0.031   0.097   1.015   1.048   1.017
+0.095   0.104   0.100   1.022   0.995   0.993
+0.061   0.030   0.097   1.023   1.041   1.024
+0.059   0.074   0.112   1.007   1.022   1.014
+0.098   0.037   0.098   0.977   1.020   0.991
+0.090   0.110   0.099   1.005   0.995   0.995
+0.111   0.022   0.095   0.970   0.997   0.980
+0.093   0.027   0.099   1.010   1.024   0.992
+0.076   0.033   0.098   1.012   1.031   1.009
+0.068   0.091   0.100   1.012   1.016   1.013
+0.077   0.027   0.094   1.032   1.019   1.007
+0.078   0.026   0.095   1.006   1.021   1.014
+0.065   0.030   0.094   1.075   1.049   1.065
+0.087   0.099   0.106   1.014   1.004   1.001
+0.080   0.021   0.094   0.976   0.970   0.976
+0.081   0.032   0.096   1.062   1.050   1.034
+0.077   0.027   0.092   1.016   1.017   1.021
+0.072   0.092   0.100   0.988   1.002   1.002
+0.098   0.025   0.097   0.965   1.006   0.987
+0.080   0.031   0.096   1.018   1.036   1.012
+0.065   0.027   0.095   1.010   1.025   1.024
+0.075   0.059   0.116   1.102   1.105   1.098
+0.042   0.022   0.090   1.015   1.003   1.012
+0.059   0.020   0.094   1.029   0.993   0.994
+0.093   0.116   0.101   1.031   1.001   1.001
+0.059   0.034   0.146   1.179   1.096   1.135
+0.055   0.026   0.098   1.038   1.037   1.025
+0.106   0.024   0.094   1.022   1.019   1.012
+0.080   0.021   0.094   1.046   1.041   1.032
+0.048   0.042   0.131   1.195   1.168   1.152
+0.063   0.032   0.100   1.037   1.039   1.014
+0.073   0.024   0.094   1.031   1.026   1.025
+0.073   0.023   0.095   1.032   1.040   1.025
+0.072   0.030   0.096   1.019   1.043   1.037
+0.081   0.028   0.095   1.021   1.004   1.001
+0.090   0.017   0.097   1.045   1.059   1.050
+0.098   0.027   0.097   0.965   1.003   0.980
+0.069   0.028   0.106   1.127   1.111   1.103
+0.082   0.089   0.102   1.034   0.996   0.992
+0.076   0.022   0.092   1.044   1.031   1.036
+0.078   0.021   0.096   1.080   1.043   1.033
+0.096   0.026   0.094   0.985   0.997   0.994
+0.111   0.023   0.094   1.021   0.998   0.989
+0.073   0.028   0.095   1.033   1.020   1.012
+0.071   0.031   0.094   1.057   1.045   1.056
+0.137   0.094   0.119   0.791   0.757   0.752
+0.071   0.021   0.096   1.082   1.050   1.061
+0.057   0.108   0.100   1.007   1.000   0.998
+0.086   0.024   0.095   1.011   1.023   1.019
+0.063   0.023   0.095   1.051   1.035   1.042
+0.098   0.078   0.100   1.060   1.051   1.048
+0.073   0.027   0.093   1.059   1.047   1.057
+0.097   0.115   0.099   0.968   1.004   1.004
+0.104   0.079   0.103   0.968   0.978   0.973
+0.083   0.093   0.118   0.735   0.761   0.756
+0.057   0.084   0.138   1.109   1.123   1.093
+0.093   0.021   0.097   1.004   1.025   1.014
+0.075   0.110   0.100   1.002   0.994   0.993
+0.107   0.024   0.101   1.055   1.075   1.055
+0.077   0.025   0.093   0.997   1.012   1.011
+0.072   0.032   0.096   1.043   1.028   1.007
+0.081   0.028   0.096   1.019   1.035   1.008
+0.085   0.023   0.094   1.027   1.024   1.017
+0.068   0.097   0.170   1.150   1.096   1.047
+0.091   0.032   0.096   0.987   1.012   0.993
+0.072   0.073   0.099   1.033   1.041   1.041
+0.086   0.023   0.096   1.004   1.012   0.992
+0.074   0.022   0.097   1.074   1.049   1.045
+0.100   0.021   0.097   0.993   1.040   1.022
+0.082   0.103   0.101   1.007   1.019   1.017
+0.068   0.029   0.097   1.013   1.045   1.021
+0.066   0.027   0.095   1.030   1.022   1.012
+0.064   0.029   0.096   1.003   1.040   1.013
+0.055   0.041   0.101   1.130   1.045   1.096
+0.084   0.027   0.097   1.029   1.030   1.009
+0.062   0.028   0.094   1.022   1.018   1.011
+0.067   0.030   0.090   1.027   1.020   1.022
+0.086   0.029   0.098   0.997   1.027   1.007
+0.055   0.032   0.097   1.039   1.034   1.015
+0.072   0.022   0.095   0.993   1.016   1.001
+0.079   0.015   0.094   1.018   1.014   1.007
+0.090   0.027   0.094   1.029   1.015   1.014
+0.080   0.022   0.097   0.997   1.044   1.029
+0.074   0.107   0.100   0.995   0.998   0.996
+0.081   0.017   0.092   1.017   0.997   1.009
+0.080   0.033   0.099   0.994   1.046   1.013
+0.080   0.052   0.102   1.075   1.062   1.054
+0.066   0.027   0.092   1.055   1.024   1.039
+0.060   0.018   0.093   1.080   1.048   1.046
+0.069   0.113   0.104   1.031   1.024   1.021
+0.084   0.026   0.098   1.038   1.050   1.023
+0.067   0.025   0.092   1.033   1.037   1.037
+0.060   0.025   0.096   1.023   1.044   1.038
+0.057   0.028   0.095   1.048   1.048   1.032
+0.094   0.100   0.106   0.999   1.028   1.023
+0.084   0.023   0.094   1.029   1.027   1.021
+0.070   0.022   0.099   0.990   1.029   0.996
+0.079   0.031   0.096   1.023   1.032   1.008
+0.088   0.019   0.094   1.017   1.013   1.003
+0.108   0.028   0.095   0.997   1.020   1.000
+0.053   0.025   0.122   1.147   1.092   1.134
+0.087   0.027   0.095   1.016   1.016   1.013
+0.090   0.020   0.097   1.017   1.036   1.026
+0.083   0.113   0.101   1.027   1.008   1.006
+0.088   0.020   0.094   1.039   1.013   1.022
+0.092   0.023   0.098   1.023   1.032   1.008
+0.070   0.119   0.101   1.029   1.022   1.021
+0.078   0.025   0.095   1.044   1.043   1.048
+0.058   0.027   0.094   1.008   1.033   1.021
+0.088   0.084   0.098   0.994   1.007   1.003
+0.063   0.025   0.092   1.044   1.011   1.010
+0.055   0.020   0.092   1.014   1.010   1.016
+0.064   0.036   0.093   1.060   1.059   1.063
+0.082   0.031   0.094   1.003   1.013   1.002
+0.071   0.023   0.097   1.000   1.018   1.004
+0.055   0.041   0.115   1.088   1.052   1.101
+0.043   0.037   0.135   1.135   1.075   1.111
+0.139   0.019   0.093   0.985   1.021   1.009
+0.087   0.031   0.095   1.006   1.025   1.020
+0.073   0.023   0.094   1.011   1.012   1.012
+0.050   0.022   0.093   1.027   1.011   1.010
+0.072   0.095   0.100   0.989   1.006   1.006
+0.051   0.028   0.093   1.037   1.026   1.039
+0.071   0.023   0.094   0.979   1.010   1.007
+0.087   0.114   0.102   1.004   0.995   0.994
+0.090   0.026   0.097   0.998   1.027   1.002
+0.045   0.042   0.176   1.154   1.135   1.098
+0.087   0.030   0.095   0.999   1.028   1.018
+0.087   0.032   0.097   1.004   1.034   1.009
+0.096   0.033   0.097   1.023   1.032   1.009
+0.065   0.041   0.153   1.206   1.184   1.152
+0.063   0.024   0.095   1.044   1.017   1.025
+0.071   0.092   0.101   1.046   1.016   1.013
+0.089   0.063   0.112   0.998   1.024   1.014
+0.061   0.032   0.096   1.043   1.039   1.012
+0.079   0.068   0.113   1.023   1.020   1.010
+0.088   0.013   0.095   1.034   1.031   1.015
+0.055   0.028   0.092   1.047   1.042   1.043
+0.051   0.034   0.147   1.158   1.077   1.135
+0.104   0.024   0.094   0.971   1.002   0.999
+0.099   0.083   0.103   1.028   1.033   1.028
+0.069   0.093   0.119   0.739   0.757   0.752
+0.133   0.035   0.099   0.997   1.020   0.991
+0.089   0.108   0.101   1.005   0.989   0.987
+0.075   0.028   0.095   1.025   1.029   1.024
+0.072   0.027   0.096   1.013   1.022   0.998
+0.069   0.024   0.106   1.156   1.090   1.113
+0.097   0.028   0.095   1.048   1.029   1.028
+0.080   0.111   0.099   1.038   1.022   1.021
+0.098   0.025   0.092   1.029   1.043   1.037
+0.090   0.084   0.099   1.003   1.017   1.000
+0.071   0.017   0.094   1.013   1.024   1.025
+0.137   0.018   0.100   0.976   1.014   0.990
+0.180   0.024   0.093   0.965   0.978   0.980
+0.061   0.036   0.097   0.982   1.041   1.023
+0.080   0.033   0.097   1.024   1.040   1.011
+0.066   0.028   0.094   1.005   1.022   1.008
+0.161   0.077   0.104   0.892   0.902   0.897
+0.074   0.038   0.094   1.084   1.055   1.059
+0.088   0.091   0.103   0.993   1.019   1.015
+0.076   0.020   0.095   1.039   1.014   1.016
+0.072   0.030   0.092   1.012   1.022   1.022
+0.065   0.084   0.197   1.145   1.122   1.066
+0.081   0.031   0.093   1.048   1.031   1.039
+0.063   0.025   0.093   1.052   1.038   1.042
+0.090   0.030   0.095   0.958   1.025   1.011
+0.063   0.047   0.155   1.199   1.161   1.151
+0.056   0.029   0.096   0.990   1.046   1.015
+0.050   0.024   0.093   1.037   1.027   1.038
+0.077   0.086   0.098   0.994   1.016   0.999
+0.100   0.025   0.092   0.991   0.986   0.994
+0.089   0.027   0.094   0.990   1.031   1.021
+0.073   0.112   0.098   1.005   0.994   0.994
+0.069   0.026   0.094   1.034   1.016   1.029
+0.073   0.033   0.095   1.060   1.050   1.064
+0.095   0.022   0.093   0.992   1.017   1.013
+0.074   0.114   0.100   1.020   1.009   1.008
+0.080   0.030   0.098   1.002   1.036   1.014
+0.048   0.038   0.104   1.110   1.072   1.100
+0.187   0.057   0.111   0.835   0.822   0.816
+0.096   0.034   0.097   1.023   1.055   1.026
+0.057   0.036   0.094   1.076   1.049   1.071
+0.092   0.105   0.102   1.065   1.005   1.002
+0.071   0.022   0.112   1.147   1.127   1.120
+0.068   0.070   0.098   0.992   1.022   1.009
+0.089   0.029   0.095   1.083   1.049   1.064
+0.069   0.053   0.157   1.155   1.159   1.126
+0.077   0.031   0.092   1.044   1.025   1.045
+0.070   0.026   0.095   1.027   1.043   1.021
+0.104   0.032   0.092   1.058   1.044   1.050
+0.070   0.026   0.095   1.035   1.008   1.005
+0.090   0.025   0.092   0.993   0.990   0.995
+0.096   0.025   0.095   0.982   1.018   0.999
+0.109   0.026   0.095   0.984   1.011   0.995
+0.069   0.035   0.098   1.107   1.059   1.093
+0.071   0.025   0.095   1.031   1.038   1.015
+0.099   0.026   0.091   1.045   1.034   1.031
+0.107   0.117   0.098   1.018   1.014   1.013
+0.077   0.087   0.101   1.021   1.045   1.041
+0.077   0.023   0.096   1.015   1.029   1.022
+0.059   0.017   0.092   1.018   1.002   1.012
+0.072   0.020   0.092   1.006   1.019   1.012
+0.085   0.038   0.096   1.026   1.036   1.012
+0.076   0.024   0.099   1.023   1.044   1.017
+0.074   0.023   0.096   1.008   1.041   1.017
+0.089   0.111   0.100   1.004   1.012   1.011
+0.087   0.083   0.110   1.020   1.028   1.019
+0.071   0.021   0.093   1.040   1.031   1.020
+0.072   0.033   0.093   1.066   1.039   1.054
+0.063   0.017   0.092   1.043   1.012   1.012
+0.088   0.028   0.093   1.020   1.032   1.020
+0.074   0.025   0.095   0.995   1.038   1.020
+0.088   0.023   0.090   1.027   1.028   1.036
+0.059   0.022   0.094   1.014   1.038   1.025
+0.104   0.024   0.098   0.968   1.039   1.012
+0.081   0.097   0.101   1.004   0.982   0.980
+0.059   0.026   0.091   1.014   1.021   1.032
+0.093   0.019   0.096   1.030   1.026   1.022
+0.076   0.024   0.099   1.059   1.069   1.064
+0.142   0.024   0.094   0.989   1.003   0.991
+0.089   0.079   0.106   1.057   1.046   1.038
+0.049   0.023   0.144   1.171   1.103   1.144
+0.124   0.027   0.092   1.039   1.039   1.049
+0.058   0.100   0.182   1.139   1.114   1.073
+0.093   0.026   0.093   1.019   1.034   1.039
+0.056   0.030   0.097   1.090   1.060   1.083
+0.079   0.028   0.097   1.005   1.031   1.015
+0.054   0.032   0.091   1.057   1.069   1.068
+0.114   0.085   0.098   1.013   1.017   1.006
+0.109   0.029   0.097   1.026   1.055   1.026
+0.112   0.096   0.103   0.968   0.956   0.953
+0.070   0.027   0.092   1.051   1.047   1.050
+0.123   0.028   0.097   1.029   1.034   1.005
+0.078   0.029   0.094   1.026   1.034   1.031
+0.068   0.034   0.095   0.997   1.044   1.011
+0.068   0.028   0.092   1.037   1.030   1.036
+0.099   0.021   0.096   0.992   1.046   1.019
+0.087   0.116   0.099   1.026   1.002   1.002
+0.083   0.107   0.101   1.019   1.029   1.027
+0.074   0.021   0.092   1.031   1.029   1.020
+0.069   0.029   0.100   1.052   1.071   1.073
+0.081   0.023   0.092   1.067   1.062   1.064
+0.061   0.020   0.092   1.036   1.007   1.002
+0.062   0.027   0.094   1.006   1.026   1.018
+0.111   0.023   0.094   1.038   1.031   1.031
+0.063   0.026   0.094   1.031   1.020   1.015
+0.072   0.021   0.094   0.980   1.027   1.011
+0.043   0.025   0.124   1.135   1.082   1.111
+0.062   0.031   0.093   1.012   1.035   1.029
+0.040   0.032   0.104   1.208   1.160   1.198
+0.073   0.032   0.097   1.031   1.071   1.056
+0.085   0.025   0.098   1.051   1.066   1.048
+0.119   0.099   0.103   1.063   1.003   0.999
+0.072   0.025   0.094   1.017   1.012   1.006
+0.080   0.025   0.096   1.025   1.036   1.013
+0.077   0.032   0.092   1.050   1.028   1.028
+0.112   0.025   0.092   1.004   1.009   1.005
+0.096   0.028   0.092   1.023   1.022   1.032
+0.052   0.032   0.126   1.170   1.072   1.120
+0.054   0.027   0.095   1.000   1.022   1.023
+0.064   0.045   0.101   1.059   1.059   1.053
+0.092   0.024   0.096   1.008   1.020   1.001
+0.055   0.023   0.092   1.024   1.036   1.039
+0.092   0.025   0.094   1.006   1.031   1.019
+0.043   0.026   0.125   1.119   1.061   1.113
+0.074   0.029   0.096   1.014   1.031   1.008
+0.066   0.068   0.097   1.033   1.031   1.017
+0.113   0.028   0.098   0.996   1.034   1.006
+0.082   0.030   0.095   1.009   1.030   1.017
+0.068   0.103   0.101   1.043   1.012   1.010
+0.121   0.099   0.099   0.995   1.005   1.003
+0.106   0.031   0.097   0.985   1.033   1.000
+0.067   0.030   0.092   1.025   1.037   1.046
+0.073   0.016   0.094   1.029   1.040   1.032
+0.127   0.088   0.105   1.044   1.024   1.019
+0.092   0.025   0.091   1.059   1.047   1.063
+0.064   0.100   0.097   1.037   1.030   1.028
+0.071   0.024   0.097   1.031   1.045   1.013
+0.050   0.020   0.097   1.020   1.041   1.058
+0.085   0.028   0.094   1.021   1.050   1.046
+0.116   0.031   0.098   0.997   1.034   1.011
+0.057   0.034   0.134   1.198   1.141   1.142
+0.068   0.022   0.094   1.048   1.048   1.051
+0.059   0.033   0.093   1.053   1.042   1.044
+0.072   0.025   0.096   1.020   1.029   1.021
+0.071   0.027   0.091   1.053   1.042   1.057
+0.058   0.019   0.093   1.011   1.016   1.024
+0.066   0.029   0.092   1.010   1.025   1.027
+0.086   0.020   0.095   0.990   1.026   1.017
+0.054   0.025   0.116   1.133   1.080   1.122
+0.084   0.015   0.092   1.065   1.027   1.033
+0.074   0.090   0.118   0.734   0.764   0.758
+0.069   0.022   0.091   1.024   1.017   1.017
+0.074   0.087   0.097   1.045   1.031   1.020
+0.108   0.087   0.117   0.767   0.764   0.758
+0.073   0.020   0.090   1.024   1.012   1.022
+0.058   0.028   0.094   1.055   1.042   1.049
+0.067   0.020   0.092   1.009   1.017   1.007
+0.085   0.100   0.102   0.992   1.007   1.004
+0.085   0.032   0.095   1.099   1.071   1.086
+0.106   0.091   0.100   1.035   1.032   1.028
+0.072   0.021   0.094   1.008   1.022   1.012
+0.052   0.026   0.096   1.001   1.032   1.013
+0.090   0.027   0.092   1.028   1.021   1.024
+0.107   0.079   0.105   0.982   1.000   0.995
+0.084   0.109   0.101   0.969   1.003   1.002
+0.077   0.022   0.096   1.028   1.030   1.013
+0.110   0.036   0.097   1.007   1.033   1.001
+0.052   0.024   0.094   1.015   1.028   1.019
+0.074   0.029   0.097   0.977   1.037   1.004
+0.089   0.022   0.097   1.029   1.074   1.059
+0.075   0.028   0.098   0.998   1.054   1.031
+0.051   0.024   0.112   1.138   1.059   1.108
+0.055   0.036   0.100   1.142   1.092   1.127
+0.086   0.020   0.101   1.087   1.080   1.076
+0.087   0.020   0.093   1.018   1.021   1.020
+0.065   0.024   0.094   1.005   1.027   1.007
+0.093   0.051   0.098   1.027   1.024   1.005
+0.066   0.027   0.097   1.006   1.037   1.013
+0.084   0.020   0.093   1.000   1.023   1.018
+0.073   0.026   0.093   1.076   1.040   1.049
+0.062   0.025   0.117   1.172   1.064   1.116
+0.063   0.038   0.099   1.092   1.094   1.095
+0.076   0.025   0.093   1.010   1.032   1.034
+0.085   0.030   0.095   1.067   1.058   1.068
+0.076   0.025   0.094   1.090   1.044   1.070
+0.066   0.018   0.096   1.002   1.014   1.002
+0.060   0.017   0.095   1.049   1.054   1.047
+0.066   0.028   0.098   1.017   1.046   1.018
+0.072   0.031   0.098   1.096   1.072   1.087
+0.068   0.032   0.122   1.152   1.083   1.118
+0.085   0.017   0.095   1.012   1.038   1.029
+0.085   0.031   0.092   1.044   1.032   1.036
+0.106   0.032   0.096   1.023   1.021   1.006
+0.041   0.033   0.138   1.195   1.117   1.147
+0.086   0.035   0.096   1.022   1.036   1.018
+0.106   0.029   0.098   0.980   1.028   1.004
+0.084   0.015   0.096   1.021   1.039   1.032
+0.062   0.027   0.093   1.027   1.022   1.022
+0.064   0.018   0.090   1.075   1.034   1.040
+0.062   0.028   0.090   1.045   1.022   1.034
+0.094   0.090   0.107   1.029   1.031   1.024
+0.053   0.108   0.097   0.968   0.997   0.995
+0.084   0.026   0.092   1.034   1.023   1.028
+0.083   0.028   0.113   1.162   1.100   1.124
+0.075   0.022   0.093   1.055   1.051   1.051
+0.042   0.027   0.113   1.122   1.100   1.128
+0.077   0.043   0.101   1.079   1.070   1.061
+0.069   0.022   0.093   1.075   1.030   1.032
+0.176   0.098   0.101   0.982   0.968   0.965
+0.082   0.020   0.096   1.070   1.072   1.053
+0.073   0.027   0.149   1.155   1.083   1.129
+0.098   0.019   0.093   1.075   1.041   1.035
+0.107   0.024   0.098   0.993   1.023   0.998
+0.098   0.030   0.094   0.982   1.028   1.008
+0.059   0.092   0.191   1.151   1.120   1.067
+0.077   0.027   0.096   0.994   1.049   1.019
+0.057   0.024   0.092   1.030   1.040   1.034
+0.090   0.019   0.094   0.993   1.029   1.014
+0.049   0.026   0.115   1.110   1.081   1.111
+0.090   0.027   0.097   1.041   1.062   1.056
+0.078   0.019   0.093   1.019   1.018   1.003
+0.094   0.029   0.093   1.025   1.047   1.050
+0.067   0.029   0.094   1.014   1.037   1.037
+0.091   0.026   0.094   1.002   1.017   1.001
+0.084   0.099   0.112   1.022   1.021   1.014
+0.092   0.117   0.099   1.065   1.014   1.014
+0.082   0.026   0.096   1.010   1.021   0.991
+0.153   0.033   0.099   0.946   0.976   0.948
+0.074   0.022   0.095   1.006   1.015   1.007
+0.103   0.030   0.098   0.977   1.028   0.998
+0.081   0.024   0.095   1.020   1.038   1.017
+0.053   0.029   0.099   1.141   1.096   1.116
+0.047   0.031   0.157   1.156   1.094   1.127
+0.074   0.019   0.093   1.042   1.020   1.039
+0.038   0.032   0.131   1.130   1.065   1.116
+0.078   0.027   0.097   0.994   1.039   1.013
+0.081   0.018   0.093   1.069   1.040   1.044
+0.099   0.022   0.093   1.067   1.056   1.080
+0.091   0.016   0.097   1.064   1.039   1.024
+0.099   0.026   0.094   1.002   1.007   0.990
+0.084   0.027   0.094   1.049   1.014   1.031
+0.057   0.028   0.097   1.103   1.044   1.084
+0.129   0.024   0.091   0.975   0.989   1.001
+0.080   0.024   0.094   1.021   1.042   1.030
+0.110   0.076   0.100   1.015   0.999   0.985
+0.070   0.015   0.094   1.035   1.039   1.043
+0.094   0.020   0.093   1.022   1.017   1.017
+0.131   0.109   0.102   1.025   1.013   1.011
+0.084   0.095   0.104   1.010   1.018   1.014
+0.088   0.086   0.097   1.014   1.023   1.006
+0.088   0.085   0.097   1.032   1.044   1.027
+0.060   0.026   0.094   1.074   1.079   1.080
+0.087   0.107   0.100   0.985   1.011   1.009
+0.064   0.030   0.095   1.021   1.038   1.032
+0.083   0.027   0.098   1.014   1.049   1.023
+0.102   0.079   0.098   0.992   1.023   1.006
+0.089   0.094   0.098   1.062   1.024   1.021
+0.091   0.024   0.093   1.068   1.041   1.040
+0.085   0.033   0.092   1.038   1.025   1.033
+0.058   0.037   0.103   1.107   1.066   1.098
+0.117   0.019   0.092   0.982   1.019   1.017
+0.057   0.027   0.128   1.187   1.090   1.132
+0.094   0.114   0.107   1.045   1.029   1.025
+0.057   0.032   0.094   1.057   1.047   1.054
+0.143   0.036   0.099   1.043   1.063   1.034
+0.074   0.029   0.095   1.032   1.051   1.025
+0.103   0.093   0.107   1.033   1.022   1.017
+0.093   0.021   0.098   1.036   1.063   1.030
+0.081   0.023   0.097   0.988   1.005   0.991
+0.074   0.021   0.093   1.057   1.028   1.018
+0.046   0.029   0.095   1.028   1.036   1.036
+0.095   0.110   0.100   1.051   1.028   1.027
+0.064   0.026   0.093   1.033   1.041   1.022
+0.084   0.087   0.097   1.002   1.011   1.008
+0.084   0.017   0.092   1.018   1.034   1.044
+0.082   0.098   0.104   1.004   1.031   1.027
+0.064   0.023   0.094   1.016   1.040   1.023
+0.069   0.022   0.093   1.022   1.039   1.036
+0.048   0.027   0.098   1.026   1.045   1.019
+0.092   0.028   0.095   1.014   1.042   1.008
+0.085   0.026   0.091   1.053   1.038   1.053
+0.057   0.021   0.092   1.030   1.037   1.034
+0.083   0.091   0.101   1.017   1.021   1.017
+0.060   0.028   0.091   1.062   1.055   1.056
+0.077   0.034   0.096   1.084   1.059   1.076
+0.075   0.030   0.099   1.065   1.078   1.084
+0.063   0.027   0.093   1.083   1.053   1.069
+0.049   0.074   0.165   1.158   1.131   1.115
+0.099   0.031   0.094   1.046   1.027   1.025
+0.085   0.023   0.094   1.068   1.063   1.063
+0.081   0.019   0.091   1.035   1.043   1.045
+0.076   0.027   0.095   1.012   1.036   1.023
+0.054   0.043   0.104   1.133   1.138   1.126
+0.077   0.025   0.093   1.053   1.031   1.029
+0.080   0.021   0.094   1.020   1.033   1.024
+0.119   0.027   0.096   1.055   1.045   1.017
+0.095   0.026   0.094   1.013   1.038   1.019
+0.091   0.025   0.097   1.040   1.052   1.036
+0.073   0.033   0.093   1.078   1.048   1.056
+0.076   0.025   0.095   1.069   1.044   1.043
+0.171   0.056   0.100   1.029   1.020   1.007
+0.084   0.025   0.094   1.047   1.019   1.018
+0.077   0.026   0.093   1.049   1.053   1.045
+0.084   0.020   0.093   1.075   1.049   1.051
+0.082   0.028   0.095   1.037   1.031   1.027
+0.049   0.027   0.100   1.112   1.067   1.105
+0.104   0.033   0.096   1.029   1.033   1.006
+0.085   0.023   0.095   1.017   1.024   1.004
+0.094   0.031   0.094   1.072   1.075   1.077
+0.053   0.081   0.176   1.198   1.129   1.137
+0.082   0.034   0.095   0.992   1.033   1.024
+0.107   0.026   0.096   1.016   1.023   1.012
+0.061   0.076   0.101   1.051   1.041   1.036
+0.171   0.067   0.107   0.910   0.863   0.856
+0.119   0.081   0.098   0.996   1.009   0.993
+0.098   0.086   0.098   1.046   1.035   1.032
+0.080   0.069   0.098   1.018   1.051   1.036
+0.064   0.123   0.101   1.033   0.996   0.996
+0.086   0.105   0.098   1.002   1.010   1.008
+0.053   0.035   0.105   1.110   1.075   1.112
+0.071   0.024   0.094   0.998   1.018   1.009
+0.074   0.031   0.096   1.001   1.052   1.018
+0.087   0.033   0.092   1.050   1.040   1.060
+0.097   0.106   0.106   1.028   1.023   1.019
+0.099   0.024   0.095   1.060   1.036   1.033
+0.065   0.016   0.097   1.014   1.033   1.019
+0.098   0.020   0.094   1.023   1.035   1.026
+0.066   0.020   0.095   1.056   1.052   1.044
+0.085   0.022   0.099   1.090   1.084   1.093
+0.090   0.022   0.091   1.033   1.023   1.016
+0.086   0.026   0.093   1.029   1.025   1.035
+0.068   0.033   0.097   0.985   1.040   1.011
+0.105   0.119   0.103   1.076   1.018   1.016
+0.066   0.028   0.093   1.023   1.021   1.020
+0.073   0.020   0.091   1.055   1.018   1.024
+0.046   0.024   0.094   1.081   1.059   1.077
+0.096   0.017   0.096   1.009   1.051   1.039
+0.089   0.081   0.165   1.041   1.049   1.003
+0.081   0.117   0.098   0.975   1.005   1.005
+0.078   0.019   0.096   1.026   1.034   1.019
+0.094   0.089   0.100   1.041   1.058   1.054
+0.044   0.029   0.141   1.159   1.096   1.135
+0.080   0.030   0.095   1.029   1.054   1.020
+0.099   0.032   0.095   1.049   1.064   1.053
+0.087   0.028   0.095   0.999   1.026   1.024
+0.081   0.089   0.097   0.995   1.019   1.013
+0.081   0.097   0.103   0.990   0.956   0.953
+0.096   0.113   0.099   0.998   0.990   0.990
+0.089   0.026   0.091   1.078   1.031   1.033
+0.095   0.027   0.092   1.053   1.037   1.043
+0.074   0.023   0.093   1.039   1.044   1.045
+0.085   0.026   0.093   1.085   1.057   1.066
+0.042   0.068   0.169   1.147   1.140   1.104
+0.071   0.022   0.092   1.055   1.036   1.040
+0.091   0.025   0.093   1.036   1.037   1.042
+0.087   0.028   0.095   1.047   1.039   1.031
+0.087   0.014   0.094   1.045   1.043   1.031
+0.148   0.078   0.103   0.882   0.883   0.879
+0.075   0.016   0.093   1.016   1.031   1.028
+0.054   0.026   0.111   1.114   1.081   1.124
+0.083   0.022   0.094   1.047   1.065   1.042
+0.083   0.081   0.098   1.007   1.046   1.042
+0.097   0.024   0.098   1.012   1.033   1.012
+0.083   0.024   0.093   1.040   1.021   1.024
+0.104   0.100   0.100   1.053   1.021   1.018
+0.054   0.013   0.119   1.124   1.074   1.112
+0.085   0.028   0.097   1.003   1.030   0.998
+0.065   0.032   0.108   1.155   1.131   1.150
+2021-01-27 18:29:29 | INFO | fairseq_cli.train | begin validation on "valid" subset
+2021-01-27 18:29:30 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2021-01-27 18:29:30 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2021-01-27 18:29:30 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2021-01-27 18:29:32 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2021-01-27 18:29:32 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2021-01-27 18:29:32 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2021-01-27 18:29:33 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2021-01-27 18:29:33 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2021-01-27 18:29:33 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2021-01-27 18:29:35 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2021-01-27 18:29:35 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2021-01-27 18:29:35 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2021-01-27 18:29:36 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2021-01-27 18:29:36 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2021-01-27 18:29:36 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2021-01-27 18:29:38 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2021-01-27 18:29:38 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2021-01-27 18:29:38 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2021-01-27 18:29:40 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2021-01-27 18:29:40 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2021-01-27 18:29:40 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2021-01-27 18:29:41 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2021-01-27 18:29:41 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2021-01-27 18:29:41 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2021-01-27 18:29:43 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2021-01-27 18:29:43 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2021-01-27 18:29:43 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2021-01-27 18:29:44 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2021-01-27 18:29:44 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2021-01-27 18:29:44 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2021-01-27 18:29:46 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2021-01-27 18:29:46 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2021-01-27 18:29:46 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2021-01-27 18:29:48 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2021-01-27 18:29:48 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2021-01-27 18:29:48 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2021-01-27 18:29:49 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2021-01-27 18:29:49 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2021-01-27 18:29:49 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2021-01-27 18:29:51 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2021-01-27 18:29:51 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2021-01-27 18:29:51 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.
+2021-01-27 18:29:53 | WARNING | sacrebleu | That's 100 lines that end in a tokenized period ('.')
+2021-01-27 18:29:53 | WARNING | sacrebleu | It looks like you forgot to detokenize your test data, which may hurt your score.
+2021-01-27 18:29:53 | WARNING | sacrebleu | If you insist your data is detokenized, or don't care, you can suppress this message with '--force'.

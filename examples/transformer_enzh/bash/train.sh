@@ -1,14 +1,15 @@
 #正常训练文件
 
-base_dir=./examples/transformer_enzh
-num=5,6
+# base_dir=./examples/transformer_enzh
+base_dir=./$(dirname $0)/..
+num=1,2,3
 dropout=0.3
 arch=transformer
 max_tokens=4000
 criterion=label_smoothed_cross_entropy
 label_smoothing=0.1
 lrscheduler=inverse_sqrt
-save_dir=$base_dir/checkpoints
+save_dir=$base_dir/checkpoints/baseline
 data_bin=$base_dir/data-bin
 train() {
     CUDA_VISIBLE_DEVICES=$num python train.py $data_bin \
@@ -33,7 +34,7 @@ train() {
         --eval-bleu-args '{"beam": 5, "max_len_a": 1.2, "max_len_b": 10}' \
         --eval-bleu-detok moses \
         --eval-bleu-remove-bpe \
-        --reset-optimizer #--valid-subset test # --no-epoch-checkpoints \
+        --reset-optimizer #--valid-subset test # 
 
     #cp out $save_dir
 }

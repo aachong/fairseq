@@ -51,7 +51,7 @@ def main(args):
 
     metrics.reset()
 
-    #初始化随机种子
+    # 初始化随机种子
     np.random.seed(args.seed)
     utils.set_torch_seed(args.seed)
 
@@ -75,7 +75,8 @@ def main(args):
     logger.info("task: {} ({})".format(args.task, task.__class__.__name__))
     logger.info("model: {} ({})".format(args.arch, model.__class__.__name__))
     logger.info(
-        "criterion: {} ({})".format(args.criterion, criterion.__class__.__name__)
+        "criterion: {} ({})".format(
+            args.criterion, criterion.__class__.__name__)
     )
     logger.info(
         "num. model params: {} (num. trained: {})".format(
@@ -84,7 +85,7 @@ def main(args):
         )
     )
 
-    #这是啥
+    # 这是啥
     # (optionally) Configure quantization
     if args.quantization_config_path is not None:
         quantizer = quantization_utils.Quantizer(
@@ -125,7 +126,6 @@ def main(args):
     train_meter = meters.StopwatchMeter()
     train_meter.start()
     while lr > args.min_lr and epoch_itr.next_epoch_idx <= max_epoch:
-        print(111)
         # train for one epoch
         valid_losses, should_stop = train(args, trainer, task, epoch_itr)
         if should_stop:
@@ -195,7 +195,8 @@ def train(args, trainer, task, epoch_itr):
         log_interval=args.log_interval,
         epoch=epoch_itr.epoch,
         tensorboard_logdir=(
-            args.tensorboard_logdir if distributed_utils.is_master(args) else None
+            args.tensorboard_logdir if distributed_utils.is_master(
+                args) else None
         ),
         default_log_format=("tqdm" if not args.no_progress_bar else "simple"),
     )
@@ -214,8 +215,10 @@ def train(args, trainer, task, epoch_itr):
         if log_output is not None:  # not OOM, overflow, ...
             # log mid-epoch stats
             num_updates = trainer.get_num_updates()
+
             if num_updates % args.log_interval == 0:
-                stats = get_training_stats(metrics.get_smoothed_values("train_inner"))
+                stats = get_training_stats(
+                    metrics.get_smoothed_values("train_inner"))
                 progress.log(stats, tag="train_inner", step=num_updates)
 
                 # reset mid-epoch stats after each log interval
@@ -231,7 +234,8 @@ def train(args, trainer, task, epoch_itr):
             break
 
     # log end-of-epoch stats
-    logger.info("end of epoch {} (average epoch stats below)".format(epoch_itr.epoch))
+    logger.info(
+        "end of epoch {} (average epoch stats below)".format(epoch_itr.epoch))
     stats = get_training_stats(metrics.get_smoothed_values("train"))
     progress.print(stats, tag="train", step=num_updates)
 
@@ -282,7 +286,8 @@ def validate_and_save(args, trainer, task, epoch_itr, valid_subsets, end_of_epoc
     # Save checkpoint
     if do_save or should_stop:
         logger.info("begin save checkpoint")
-        checkpoint_utils.save_checkpoint(args, trainer, epoch_itr, valid_losses[0])
+        checkpoint_utils.save_checkpoint(
+            args, trainer, epoch_itr, valid_losses[0])
 
     return valid_losses, should_stop
 
@@ -314,9 +319,11 @@ def validate(args, trainer, task, epoch_itr, subsets):
             epoch=epoch_itr.epoch,
             prefix=f"valid on '{subset}' subset",
             tensorboard_logdir=(
-                args.tensorboard_logdir if distributed_utils.is_master(args) else None
+                args.tensorboard_logdir if distributed_utils.is_master(
+                    args) else None
             ),
-            default_log_format=("tqdm" if not args.no_progress_bar else "simple"),
+            default_log_format=(
+                "tqdm" if not args.no_progress_bar else "simple"),
         )
 
         # create a new root metrics aggregator so validation metrics

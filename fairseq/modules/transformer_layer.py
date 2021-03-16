@@ -9,13 +9,12 @@ import torch
 import torch.nn as nn
 from fairseq import utils
 from fairseq.modules import LayerNorm, MultiheadAttention
-from fairseq.modules.quant_noise import quant_noise
 from fairseq.modules.fairseq_dropout import FairseqDropout
+from fairseq.modules.quant_noise import quant_noise
 from torch import Tensor
 
 class TransformerEncoderLayer(nn.Module):
     """Encoder layer block.
-
     In the original paper each operation (multi-head attention or FFN) is
     postprocessed with: `dropout -> add residual -> layernorm`. In the
     tensor2tensor code they suggest that learning is more robust when
@@ -23,19 +22,23 @@ class TransformerEncoderLayer(nn.Module):
     `dropout -> add residual`. We default to the approach in the paper, but the
     tensor2tensor approach can be enabled by setting
     *args.encoder_normalize_before* to ``True``.
-
     Args:
         args (argparse.Namespace): parsed command-line arguments
     """
 
     def __init__(self, args):
         super().__init__()
+        self.args = args
         self.embed_dim = args.encoder_embed_dim
-        self.quant_noise = getattr(args, "quant_noise_pq", 0)
+        self.quant_noise = getattr(args, 'quant_noise_pq', 0)
         self.quant_noise_block_size = getattr(args, "quant_noise_pq_block_size", 8)
         self.self_attn = self.build_self_attention(self.embed_dim, args)
-        self.self_attn_layer_norm = LayerNorm(self.embed_dim)
-        self.dropout_module = FairseqDropout(args.dropout, module_name=self.__class__.__name__)
+        self.need_drc_head=getattr(args,'need_drc_head',False)
+        self.need_drc_residual=getattr(args,'need_drc_residual',False)
+        self.self_attn_layer_norm = LayerNorm(self.embed_dim,need_drc_head=self.need_drc_head,need_drc_residual=self.need_drc_residual)
+        self.dropout_module = FairseqDropout(
+            args.dropout, module_name=self.__class__.__name__
+            )
         self.activation_fn = utils.get_activation_fn(
             activation=getattr(args, "activation_fn", "relu")
         )
@@ -48,19 +51,29 @@ class TransformerEncoderLayer(nn.Module):
         )
         self.normalize_before = args.encoder_normalize_before
         self.fc1 = self.build_fc1(
-            self.embed_dim, args.encoder_ffn_embed_dim, self.quant_noise, self.quant_noise_block_size
+            self.embed_dim, 
+            args.encoder_ffn_embed_dim, 
+            self.quant_noise, 
+            self.quant_noise_block_size,
         )
         self.fc2 = self.build_fc2(
-            args.encoder_ffn_embed_dim, self.embed_dim, self.quant_noise, self.quant_noise_block_size
+            args.encoder_ffn_embed_dim,
+            self.embed_dim, 
+            self.quant_noise, 
+            self.quant_noise_block_size,
         )
 
-        self.final_layer_norm = LayerNorm(self.embed_dim)
+        self.final_layer_norm = LayerNorm(self.embed_dim,need_drc_head=self.need_drc_head,need_drc_residual=self.need_drc_residual)
 
     def build_fc1(self, input_dim, output_dim, q_noise, qn_block_size):
-        return quant_noise(nn.Linear(input_dim, output_dim), p=q_noise, block_size=qn_block_size)
+        return quant_noise(
+            nn.Linear(input_dim, output_dim), p=q_noise, block_size=qn_block_size
+            )
 
     def build_fc2(self, input_dim, output_dim, q_noise, qn_block_size):
-        return quant_noise(nn.Linear(input_dim, output_dim), p=q_noise, block_size=qn_block_size)
+        return quant_noise(
+            nn.Linear(input_dim, output_dim), p=q_noise, block_size=qn_block_size
+            )
 
     def build_self_attention(self, embed_dim, args):
         return MultiheadAttention(
@@ -123,19 +136,31 @@ class TransformerEncoderLayer(nn.Module):
         x = self.dropout_module(x)
         x = residual + x
         if not self.normalize_before:
-            x = self.self_attn_layer_norm(x)
+            if self.need_drc_head or self.need_drc_residual:
+                batch_size,seq_len,hidden_size = x.shape
+                x = x.contiguous().view(batch_size,seq_len,self.quant_noise_block_size,-1)
+                x = self.self_attn_layer_norm(x)
+                x = x.contiguous().view(batch_size,seq_len,hidden_size)
+            else:
+                x = self.self_attn_layer_norm(x)
 
         residual = x
         if self.normalize_before:
             x = self.final_layer_norm(x)
-
         x = self.activation_fn(self.fc1(x))
         x = self.activation_dropout_module(x)
         x = self.fc2(x)
         x = self.dropout_module(x)
         x = residual + x
         if not self.normalize_before:
-            x = self.final_layer_norm(x)
+            if self.need_drc_head or self.need_drc_residual:
+                batch_size,seq_len,hidden_size = x.shape
+                x = x.contiguous().view(batch_size,seq_len,self.quant_noise_block_size,-1)
+                x = self.final_layer_norm(x)
+                x = x.contiguous().view(batch_size,seq_len,hidden_size)
+            else:
+
+                x = self.final_layer_norm(x)
         return x
 
 
@@ -189,14 +214,16 @@ class TransformerDecoderLayer(nn.Module):
         # char_inputs can be used to determint this.
         # TODO  remove this once we update apex with the fix
         export = getattr(args, "char_inputs", False)
-        self.self_attn_layer_norm = LayerNorm(self.embed_dim, export=export)
+        self.need_drc_head=getattr(args,'need_drc_head',False)
+        self.need_drc_residual=getattr(args,'need_drc_residual',False)
+        self.self_attn_layer_norm = LayerNorm(self.embed_dim, export=export,need_drc_head=self.need_drc_head,need_drc_residual=self.need_drc_residual)
 
         if no_encoder_attn:
             self.encoder_attn = None
             self.encoder_attn_layer_norm = None
         else:
             self.encoder_attn = self.build_encoder_attention(self.embed_dim, args)
-            self.encoder_attn_layer_norm = LayerNorm(self.embed_dim, export=export)
+            self.encoder_attn_layer_norm = LayerNorm(self.embed_dim, export=export,need_drc_head=self.need_drc_head,need_drc_residual=self.need_drc_residual)
 
         self.fc1 = self.build_fc1(
             self.embed_dim, args.decoder_ffn_embed_dim, self.quant_noise, self.quant_noise_block_size
@@ -205,7 +232,7 @@ class TransformerDecoderLayer(nn.Module):
             args.decoder_ffn_embed_dim, self.embed_dim, self.quant_noise, self.quant_noise_block_size
         )
 
-        self.final_layer_norm = LayerNorm(self.embed_dim, export=export)
+        self.final_layer_norm = LayerNorm(self.embed_dim, export=export,need_drc_head=self.need_drc_head,need_drc_residual=self.need_drc_residual)
         self.need_attn = True
 
         self.onnx_trace = False
@@ -255,6 +282,7 @@ class TransformerDecoderLayer(nn.Module):
         self_attn_padding_mask: Optional[torch.Tensor] = None,
         need_attn: bool = False,
         need_head_weights: bool = False,
+        need_show_pic: int = -1,
     ):
         """
         Args:
@@ -265,7 +293,6 @@ class TransformerDecoderLayer(nn.Module):
             need_attn (bool, optional): return attention weights
             need_head_weights (bool, optional): return attention weights
                 for each head (default: return average over heads).
-
         Returns:
             encoded output of shape `(seq_len, batch, embed_dim)`
         """
@@ -322,7 +349,13 @@ class TransformerDecoderLayer(nn.Module):
         x = self.dropout_module(x)
         x = residual + x
         if not self.normalize_before:
-            x = self.self_attn_layer_norm(x)
+            if self.need_drc_head or self.need_drc_residual:
+                batch_size,seq_len,hidden_size = x.shape
+                x = x.contiguous().view(batch_size,seq_len,self.quant_noise_block_size,-1)
+                x = self.self_attn_layer_norm(x)
+                x = x.contiguous().view(batch_size,seq_len,hidden_size)
+            else:
+                x = self.self_attn_layer_norm(x)
 
         if self.encoder_attn is not None and encoder_out is not None:
             residual = x
@@ -352,7 +385,13 @@ class TransformerDecoderLayer(nn.Module):
             x = self.dropout_module(x)
             x = residual + x
             if not self.normalize_before:
-                x = self.encoder_attn_layer_norm(x)
+                if self.need_drc_head or self.need_drc_residual:
+                    batch_size,seq_len,hidden_size = x.shape
+                    x = x.contiguous().view(batch_size,seq_len,self.quant_noise_block_size,-1)
+                    x = self.encoder_attn_layer_norm(x)
+                    x = x.contiguous().view(batch_size,seq_len,hidden_size)
+                else:
+                    x = self.encoder_attn_layer_norm(x)
 
         residual = x
         if self.normalize_before:
@@ -363,8 +402,45 @@ class TransformerDecoderLayer(nn.Module):
         x = self.fc2(x)
         x = self.dropout_module(x)
         x = residual + x
+
+        if need_show_pic!=-1 :
+            def ff(n):
+                return format(n,'.3f')+' '
+            def show_pic(t:torch.tensor):
+                t = t.detach().cpu()
+                # x = torch.tensor([t[i,:,:].std() for i in range(min(t.shape[0],20))])
+                # a = x.std()
+                # aa = x.mean()
+                # x = torch.tensor([t[:,i,:].std() for i in range(min(t.shape[1],20))])
+                # b = x.std()
+                # bb = x.mean()
+                # x = torch.tensor([t[:,:,64*i:64*(i+1)].std() for i in range(8)])
+                # c = x.std()
+                # cc = x.mean()
+                # print(ff(a),ff(b),ff(c),ff(aa),ff(bb),ff(cc))
+                # return a,b,c,aa,bb,cc
+                # t = t*t
+                # t = t.sum(-1)
+                t = t.view(-1)
+                t = abs(t)
+                print(t.mean(),t.shape)
+                import plotly.graph_objs as go
+                line1 = go.Histogram(x=t) #添加统计间隔，每隔都少个加一个
+                fig = go.Figure(line1)
+                # if need_show_pic==5:
+                    # fig.show()
+            show_pic(x)
+            if need_show_pic==5:
+                assert False
+        
         if not self.normalize_before:
-            x = self.final_layer_norm(x)
+            if self.need_drc_head or self.need_drc_residual:
+                batch_size,seq_len,hidden_size = x.shape
+                x = x.contiguous().view(batch_size,seq_len,self.quant_noise_block_size,-1)
+                x = self.final_layer_norm(x)
+                x = x.contiguous().view(batch_size,seq_len,hidden_size)
+            else:
+                x = self.final_layer_norm(x)
         if self.onnx_trace and incremental_state is not None:
             saved_state = self.self_attn._get_input_buffer(incremental_state)
             assert saved_state is not None

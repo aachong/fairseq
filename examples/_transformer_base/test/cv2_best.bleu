@@ -1,0 +1,12 @@
+checkpoint is ./examples/_transformer_base/bash/../checkpoints/cv/checkpoint_best.pt
+BLEU = 46.54, 81.9/56.6/38.6/26.2 (BP=1.000, ratio=1.014, hyp_len=27815, ref_len=27422)
+BLEU = 45.44, 80.1/55.1/37.6/25.7 (BP=1.000, ratio=1.019, hyp_len=29770, ref_len=29218)
+BLEU = 46.38, 80.6/56.0/38.6/26.5 (BP=1.000, ratio=1.025, hyp_len=61760, ref_len=60254)
+BLEU = 46.49, 79.2/55.5/38.8/27.4 (BP=1.000, ratio=1.027, hyp_len=36583, ref_len=35610)
+BLEU = 37.15, 75.8/47.0/29.4/18.6 (BP=0.994, ratio=0.995, hyp_len=40200, ref_len=40422)
+checkpoint is ./examples/_transformer_base/bash/../checkpoints/cv1/checkpoint_last.pt
+BLEU = 48.54, 82.9/58.9/40.8/27.9 (BP=1.000, ratio=1.019, hyp_len=27743, ref_len=27223)
+BLEU = 47.62, 81.3/57.3/40.0/27.6 (BP=1.000, ratio=1.017, hyp_len=29503, ref_len=29000)
+BLEU = 48.87, 82.1/58.6/41.2/28.8 (BP=1.000, ratio=1.018, hyp_len=60769, ref_len=59682)
+BLEU = 47.99, 80.3/57.1/40.3/28.7 (BP=1.000, ratio=1.020, hyp_len=36361, ref_len=35634)
+BLEU = 39.11, 77.4/49.5/31.8/20.6 (BP=0.983, ratio=0.983, hyp_len=39380, ref_len=40058)

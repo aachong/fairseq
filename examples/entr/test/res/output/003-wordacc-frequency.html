@@ -1,0 +1,1221 @@
+<html>
+<head>
+<link rel="stylesheet" href="compare_mt.css">
+</head>
+<script>
+
+function showhide(elem) {
+  var x = document.getElementById(elem);
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+
+</script>
+<body>
+<h1>word fmeas by frequency bucket</h1>
+ <a name="bucket0"/><h3> Examples for Bucket <1 </h3><a name="bucket1"/><h3> Examples for Bucket 1 </h3><h4> Examples where all systems were good </h4><table border="1">
+<tr> <th>  </th>
+  <th> Output </th> </tr><tr> <th> Ref </th>
+  <td> <em>Denizli</em> <em>Pamukkale</em> &#220;niversitesi &apos; nde 14 &apos; &#252; <em>profes&#246;r</em> 30 , <em>Alanya</em> <em>Alaaddin</em> <em>Keykubat</em> &#220;niversitesi &apos; nde 19 , <em>Karab&#252;k</em> &#220;niversitesi &apos; nde 2 <em>akademisyen</em> , Rize &apos; de FET&#214; &apos; c&#252; yarbay <em>Hilmi</em> <em>Sandal</em> g&#246;zalt&#305;na al&#305;nd&#305; . </td> </tr><tr> <th> sys1 </th>
+  <td> tutuklananlar aras&#305;nda <em>Denizli</em> <em>Pamukkale</em> &#220;niversitesi &apos; nden 14 <em>profes&#246;r</em> , <em>Alanya</em> <em>Alaaddin</em> <em>Keykubat</em> &#220;niversitesi &apos; nden 19 <em>akademisyen</em> , <em>Karab&#252;k</em> &#220;niversitesi 2 akademisyen ve FETO &#252;yesi korgeneral <em>Hilmi</em> <em>Sandal</em> &apos; &#305;n da yer ald&#305;&#287;&#305; 30 akademisyen tutukland&#305; . </td> </tr>
+</table>
+ <br/><button onclick="showhide('003_latex')">Show/Hide LaTeX</button> <br/><pre id="003_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||c}
+ & Output \\ \hline \hline
+Ref & \textlessem\textgreaterDenizli\textless/em\textgreater \textlessem\textgreaterPamukkale\textless/em\textgreater &#220;niversitesi &apos; nde 14 &apos; &#252; \textlessem\textgreaterprofes&#246;r\textless/em\textgreater 30 , \textlessem\textgreaterAlanya\textless/em\textgreater \textlessem\textgreaterAlaaddin\textless/em\textgreater \textlessem\textgreaterKeykubat\textless/em\textgreater &#220;niversitesi &apos; nde 19 , \textlessem\textgreaterKarab&#252;k\textless/em\textgreater &#220;niversitesi &apos; nde 2 \textlessem\textgreaterakademisyen\textless/em\textgreater , Rize &apos; de FET&#214; &apos; c&#252; yarbay \textlessem\textgreaterHilmi\textless/em\textgreater \textlessem\textgreaterSandal\textless/em\textgreater g&#246;zalt&#305;na al&#305;nd&#305; . \\
+sys1 & tutuklananlar aras&#305;nda \textlessem\textgreaterDenizli\textless/em\textgreater \textlessem\textgreaterPamukkale\textless/em\textgreater &#220;niversitesi &apos; nden 14 \textlessem\textgreaterprofes&#246;r\textless/em\textgreater , \textlessem\textgreaterAlanya\textless/em\textgreater \textlessem\textgreaterAlaaddin\textless/em\textgreater \textlessem\textgreaterKeykubat\textless/em\textgreater &#220;niversitesi &apos; nden 19 \textlessem\textgreaterakademisyen\textless/em\textgreater , \textlessem\textgreaterKarab&#252;k\textless/em\textgreater &#220;niversitesi 2 akademisyen ve FETO &#252;yesi korgeneral \textlessem\textgreaterHilmi\textless/em\textgreater \textlessem\textgreaterSandal\textless/em\textgreater &apos; &#305;n da yer ald&#305;&#287;&#305; 30 akademisyen tutukland&#305; . \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table003}
+\end{table}</pre><table border="1">
+<tr> <th>  </th>
+  <th> Output </th> </tr><tr> <th> Ref </th>
+  <td> kendisi S&#246;r <em>Gordon</em> <em>Richards</em> , <em>Doug</em> <em>Smith</em> , Lester Piggott , Pat <em>Eddery</em> ve <em>Willie</em> <em>Carson</em> &apos; &#305;n izlerini takip ediyor . </td> </tr><tr> <th> sys1 </th>
+  <td> ard&#305;ndan Sir <em>Gordon</em> <em>Richards</em> , <em>Doug</em> <em>Smith</em> , Lester Piggott , Pat <em>Eddery</em> ve <em>Willie</em> <em>Carson</em> &apos; tan sonra geldi . </td> </tr>
+</table>
+ <br/><button onclick="showhide('004_latex')">Show/Hide LaTeX</button> <br/><pre id="004_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||c}
+ & Output \\ \hline \hline
+Ref & kendisi S&#246;r \textlessem\textgreaterGordon\textless/em\textgreater \textlessem\textgreaterRichards\textless/em\textgreater , \textlessem\textgreaterDoug\textless/em\textgreater \textlessem\textgreaterSmith\textless/em\textgreater , Lester Piggott , Pat \textlessem\textgreaterEddery\textless/em\textgreater ve \textlessem\textgreaterWillie\textless/em\textgreater \textlessem\textgreaterCarson\textless/em\textgreater &apos; &#305;n izlerini takip ediyor . \\
+sys1 & ard&#305;ndan Sir \textlessem\textgreaterGordon\textless/em\textgreater \textlessem\textgreaterRichards\textless/em\textgreater , \textlessem\textgreaterDoug\textless/em\textgreater \textlessem\textgreaterSmith\textless/em\textgreater , Lester Piggott , Pat \textlessem\textgreaterEddery\textless/em\textgreater ve \textlessem\textgreaterWillie\textless/em\textgreater \textlessem\textgreaterCarson\textless/em\textgreater &apos; tan sonra geldi . \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table004}
+\end{table}</pre><table border="1">
+<tr> <th>  </th>
+  <th> Output </th> </tr><tr> <th> Ref </th>
+  <td> tesisin b&#252;y&#252;k bir &#231;o&#287;unlu&#287;u Alcoa ve <em>Alumina</em> &apos; n&#305;n ortak giri&#351;imine ait ve &#199;in &apos; in <em>CITIC</em> , Japonya &apos; n&#305;n da <em>Marubeni</em> <em>Corp</em> &#351;irketleri daha k&#252;&#231;&#252;k <em>hisselere</em> sahip . </td> </tr><tr> <th> sys1 </th>
+  <td> fabrika b&#252;y&#252;k oranda Alcoa ve <em>Alumina</em> &apos; n&#305;n ortak giri&#351;imiyle , &#199;inli <em>CITIC</em> ve Japon <em>Marubeni</em> <em>Corp</em> &apos; in daha k&#252;&#231;&#252;k <em>hisselere</em> sahip oldu&#287;u fabrikan&#305;n sahibi . </td> </tr>
+</table>
+ <br/><button onclick="showhide('005_latex')">Show/Hide LaTeX</button> <br/><pre id="005_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||c}
+ & Output \\ \hline \hline
+Ref & tesisin b&#252;y&#252;k bir &#231;o&#287;unlu&#287;u Alcoa ve \textlessem\textgreaterAlumina\textless/em\textgreater &apos; n&#305;n ortak giri&#351;imine ait ve &#199;in &apos; in \textlessem\textgreaterCITIC\textless/em\textgreater , Japonya &apos; n&#305;n da \textlessem\textgreaterMarubeni\textless/em\textgreater \textlessem\textgreaterCorp\textless/em\textgreater &#351;irketleri daha k&#252;&#231;&#252;k \textlessem\textgreaterhisselere\textless/em\textgreater sahip . \\
+sys1 & fabrika b&#252;y&#252;k oranda Alcoa ve \textlessem\textgreaterAlumina\textless/em\textgreater &apos; n&#305;n ortak giri&#351;imiyle , &#199;inli \textlessem\textgreaterCITIC\textless/em\textgreater ve Japon \textlessem\textgreaterMarubeni\textless/em\textgreater \textlessem\textgreaterCorp\textless/em\textgreater &apos; in daha k&#252;&#231;&#252;k \textlessem\textgreaterhisselere\textless/em\textgreater sahip oldu&#287;u fabrikan&#305;n sahibi . \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table005}
+\end{table}</pre><table border="1">
+<tr> <th>  </th>
+  <th> Output </th> </tr><tr> <th> Ref </th>
+  <td> <em>Hamm</em> <em>Ba&#351;savc&#305;s&#305;</em> , <em>Interpol</em> taraf&#305;ndan <em>190</em> &#252;lkede aranan Ali Kemal S. &apos; nin sokakta y&#252;r&#252;rken yakaland&#305;&#287;&#305;n&#305; ve polise <em>direnmedi&#287;ini</em> bildirdi . </td> </tr><tr> <th> sys1 </th>
+  <td> <em>Hamm</em> <em>Ba&#351;savc&#305;s&#305;</em> , <em>190</em> &#252;lkede <em>Interpol</em> taraf&#305;ndan aranan Ali Kemal S. &apos; nin sokakta y&#252;r&#252;rken tutukland&#305;&#287;&#305;n&#305; ve tutuklanmaya kar&#351;&#305; <em>direnmedi&#287;ini</em> s&#246;yledi . </td> </tr>
+</table>
+ <br/><button onclick="showhide('006_latex')">Show/Hide LaTeX</button> <br/><pre id="006_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||c}
+ & Output \\ \hline \hline
+Ref & \textlessem\textgreaterHamm\textless/em\textgreater \textlessem\textgreaterBa&#351;savc&#305;s&#305;\textless/em\textgreater , \textlessem\textgreaterInterpol\textless/em\textgreater taraf&#305;ndan \textlessem\textgreater190\textless/em\textgreater &#252;lkede aranan Ali Kemal S. &apos; nin sokakta y&#252;r&#252;rken yakaland&#305;&#287;&#305;n&#305; ve polise \textlessem\textgreaterdirenmedi&#287;ini\textless/em\textgreater bildirdi . \\
+sys1 & \textlessem\textgreaterHamm\textless/em\textgreater \textlessem\textgreaterBa&#351;savc&#305;s&#305;\textless/em\textgreater , \textlessem\textgreater190\textless/em\textgreater &#252;lkede \textlessem\textgreaterInterpol\textless/em\textgreater taraf&#305;ndan aranan Ali Kemal S. &apos; nin sokakta y&#252;r&#252;rken tutukland&#305;&#287;&#305;n&#305; ve tutuklanmaya kar&#351;&#305; \textlessem\textgreaterdirenmedi&#287;ini\textless/em\textgreater s&#246;yledi . \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table006}
+\end{table}</pre><table border="1">
+<tr> <th>  </th>
+  <th> Output </th> </tr><tr> <th> Ref </th>
+  <td> 2014 y&#305;l&#305;nda , Alcoa <em>Point</em> <em>Henry</em> izabe oca&#287;&#305;n&#305; kapatt&#305; ve bu da ge&#231;en sene <em>Anglesea</em> enerji <em>santralinin</em> <em>kapat&#305;lmas&#305;na</em> yol a&#231;t&#305; . </td> </tr><tr> <th> sys1 </th>
+  <td> Alcoa 2014 y&#305;l&#305;nda , <em>Anglesea</em> elektrik <em>santralinin</em> ge&#231;en y&#305;l <em>kapat&#305;lmas&#305;na</em> yol a&#231;an <em>Point</em> <em>Henry</em> smelter &apos; i kapatt&#305; . </td> </tr>
+</table>
+ <br/><button onclick="showhide('007_latex')">Show/Hide LaTeX</button> <br/><pre id="007_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||c}
+ & Output \\ \hline \hline
+Ref & 2014 y&#305;l&#305;nda , Alcoa \textlessem\textgreaterPoint\textless/em\textgreater \textlessem\textgreaterHenry\textless/em\textgreater izabe oca&#287;&#305;n&#305; kapatt&#305; ve bu da ge&#231;en sene \textlessem\textgreaterAnglesea\textless/em\textgreater enerji \textlessem\textgreatersantralinin\textless/em\textgreater \textlessem\textgreaterkapat&#305;lmas&#305;na\textless/em\textgreater yol a&#231;t&#305; . \\
+sys1 & Alcoa 2014 y&#305;l&#305;nda , \textlessem\textgreaterAnglesea\textless/em\textgreater elektrik \textlessem\textgreatersantralinin\textless/em\textgreater ge&#231;en y&#305;l \textlessem\textgreaterkapat&#305;lmas&#305;na\textless/em\textgreater yol a&#231;an \textlessem\textgreaterPoint\textless/em\textgreater \textlessem\textgreaterHenry\textless/em\textgreater smelter &apos; i kapatt&#305; . \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table007}
+\end{table}</pre><h4> Examples where all systems were bad </h4><table border="1">
+<tr> <th>  </th>
+  <th> Output </th> </tr><tr> <th> Ref </th>
+  <td> yetkililer , Bay Hooker &apos; &#305;n ekibinin ge&#231;en sene aksi <em>y&#246;ndeki</em> kamu <em>a&#231;&#305;klamalar&#305;na</em> ra&#287;men &#304;slam Devleti &apos; nin elinde <em>bulundurdu&#287;u</em> <em>rafinerilere</em> kar&#351;&#305; yap&#305;lan hava <em>sald&#305;r&#305;lar&#305;n&#305;n</em> <em>karaborsada</em> petrol satmak i&#231;in ge&#231;ici <em>rafineriler</em> in&#351;a etmi&#351; <em>olduklar&#305;ndan</em> , ter&#246;rist grubun mali <em>kaynaklar&#305;n&#305;</em> kayda de&#287;er oranda <em>etkilemedi&#287;i</em> sonucuna ula&#351;t&#305;&#287;&#305;n&#305; <em>belirtmi&#351;tir</em> . </td> </tr><tr> <th> sys1 </th>
+  <td> yetkililer ge&#231;en y&#305;l , Bay Hooker &apos; in ekibinin halk&#305;n &#304;slamc&#305; Devlet rafinerilerine kar&#351;&#305; yapt&#305;&#287;&#305; tam tersine hava sald&#305;r&#305;lar&#305;na ra&#287;men , kara borsada petrol satmak i&#231;in hediye rafinerileri in&#351;a etti&#287;i i&#231;in ter&#246;r &#246;rg&#252;t&#252;n&#252;n maliyesini &#246;nemli &#246;l&#231;&#252;de zay&#305;flatmad&#305;&#287;&#305; sonucuna vard&#305;klar&#305;n&#305; s&#246;ylediler . </td> </tr>
+</table>
+ <br/><button onclick="showhide('008_latex')">Show/Hide LaTeX</button> <br/><pre id="008_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||c}
+ & Output \\ \hline \hline
+Ref & yetkililer , Bay Hooker &apos; &#305;n ekibinin ge&#231;en sene aksi \textlessem\textgreatery&#246;ndeki\textless/em\textgreater kamu \textlessem\textgreatera&#231;&#305;klamalar&#305;na\textless/em\textgreater ra&#287;men &#304;slam Devleti &apos; nin elinde \textlessem\textgreaterbulundurdu&#287;u\textless/em\textgreater \textlessem\textgreaterrafinerilere\textless/em\textgreater kar&#351;&#305; yap&#305;lan hava \textlessem\textgreatersald&#305;r&#305;lar&#305;n&#305;n\textless/em\textgreater \textlessem\textgreaterkaraborsada\textless/em\textgreater petrol satmak i&#231;in ge&#231;ici \textlessem\textgreaterrafineriler\textless/em\textgreater in&#351;a etmi&#351; \textlessem\textgreaterolduklar&#305;ndan\textless/em\textgreater , ter&#246;rist grubun mali \textlessem\textgreaterkaynaklar&#305;n&#305;\textless/em\textgreater kayda de&#287;er oranda \textlessem\textgreateretkilemedi&#287;i\textless/em\textgreater sonucuna ula&#351;t&#305;&#287;&#305;n&#305; \textlessem\textgreaterbelirtmi&#351;tir\textless/em\textgreater . \\
+sys1 & yetkililer ge&#231;en y&#305;l , Bay Hooker &apos; in ekibinin halk&#305;n &#304;slamc&#305; Devlet rafinerilerine kar&#351;&#305; yapt&#305;&#287;&#305; tam tersine hava sald&#305;r&#305;lar&#305;na ra&#287;men , kara borsada petrol satmak i&#231;in hediye rafinerileri in&#351;a etti&#287;i i&#231;in ter&#246;r &#246;rg&#252;t&#252;n&#252;n maliyesini &#246;nemli &#246;l&#231;&#252;de zay&#305;flatmad&#305;&#287;&#305; sonucuna vard&#305;klar&#305;n&#305; s&#246;ylediler . \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table008}
+\end{table}</pre><table border="1">
+<tr> <th>  </th>
+  <th> Output </th> </tr><tr> <th> Ref </th>
+  <td> bu neredeyse t&#252;m &#231;ocuk televizyon <em>programlar&#305;n&#305;n</em> her &quot; do&#287;um g&#252;n&#252; &quot; <em>b&#246;l&#252;m&#252;n&#252;n</em> <em>kli&#351;e</em> hikaye &#231;izgisi olsa da ( Seacrest sabah 8 &apos; de bir &#231;izgi film <em>tav&#351;an&#305;</em> <em>samimiyeti</em> ile &quot; <em>Seni</em> <em>unuttu&#287;umuzu</em> mu <em>sand&#305;n</em> ? &quot; diyor ) Kris , di&#287;er <em>k&#305;zlar&#305;</em> da bir &#351;ekilde bu <em>tan&#305;t&#305;ma</em> dahil <em>etmeliydi</em> . </td> </tr><tr> <th> sys1 </th>
+  <td> bir &#231;ocuk televizyon dizisinin ( Seacrest del Ponte &apos; nin ) neredeyse her &quot; do&#287;um g&#252;n&#252; &quot; ni&#351;an&#305;na ili&#351;kin bir plan , &quot; Sizleri unuttu&#287;unu d&#252;&#351;&#252;n&#252;yor musunuz ? &quot; diye soruyor . Kris 8 katl&#305; bir &#231;izgi filminin samimiyetine sahip olmas&#305;na kar&#351;&#305;n , di&#287;er k&#305;zlar&#305;n&#305; bu kamusal alanda almak zorunda kald&#305; . </td> </tr>
+</table>
+ <br/><button onclick="showhide('009_latex')">Show/Hide LaTeX</button> <br/><pre id="009_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||c}
+ & Output \\ \hline \hline
+Ref & bu neredeyse t&#252;m &#231;ocuk televizyon \textlessem\textgreaterprogramlar&#305;n&#305;n\textless/em\textgreater her &quot; do&#287;um g&#252;n&#252; &quot; \textlessem\textgreaterb&#246;l&#252;m&#252;n&#252;n\textless/em\textgreater \textlessem\textgreaterkli&#351;e\textless/em\textgreater hikaye &#231;izgisi olsa da ( Seacrest sabah 8 &apos; de bir &#231;izgi film \textlessem\textgreatertav&#351;an&#305;\textless/em\textgreater \textlessem\textgreatersamimiyeti\textless/em\textgreater ile &quot; \textlessem\textgreaterSeni\textless/em\textgreater \textlessem\textgreaterunuttu&#287;umuzu\textless/em\textgreater mu \textlessem\textgreatersand&#305;n\textless/em\textgreater ? &quot; diyor ) Kris , di&#287;er \textlessem\textgreaterk&#305;zlar&#305;\textless/em\textgreater da bir &#351;ekilde bu \textlessem\textgreatertan&#305;t&#305;ma\textless/em\textgreater dahil \textlessem\textgreateretmeliydi\textless/em\textgreater . \\
+sys1 & bir &#231;ocuk televizyon dizisinin ( Seacrest del Ponte &apos; nin ) neredeyse her &quot; do&#287;um g&#252;n&#252; &quot; ni&#351;an&#305;na ili&#351;kin bir plan , &quot; Sizleri unuttu&#287;unu d&#252;&#351;&#252;n&#252;yor musunuz ? &quot; diye soruyor . Kris 8 katl&#305; bir &#231;izgi filminin samimiyetine sahip olmas&#305;na kar&#351;&#305;n , di&#287;er k&#305;zlar&#305;n&#305; bu kamusal alanda almak zorunda kald&#305; . \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table009}
+\end{table}</pre><table border="1">
+<tr> <th>  </th>
+  <th> Output </th> </tr><tr> <th> Ref </th>
+  <td> &#304;lk defa <em>Olimpiyatlara</em> kat&#305;lan Bay Dooley , <em>sponsorluklar</em> ve kendinizi iyi <em>hissetmenizi</em> <em>&#246;&#287;&#252;tleyen</em> TV reklamlar&#305; aras&#305;nda adeta bir y&#252;z&#252;c&#252; , jimnastik&#231;i veya <em>eskrimci</em> gibi <em>gamzeli</em> bir kalp <em>at&#305;&#351;&#305;</em> <em>yuma&#287;&#305;</em> , <em>prime</em> <em>time</em> saatlerinde g&#246;sterilen <em>adlardan</em> biri olabilir . </td> </tr><tr> <th> sys1 </th>
+  <td> &#304;lk defa Olimpiyatlar &apos; &#305;n ilk kez bir kalp krizi ge&#231;irmi&#351; olan Mr. Dooley , bir y&#252;z&#252;c&#252; , jimnastik veya hatta bir jimnastik&#231;i olsayd&#305; , sponsorlar ve kendilerini iyi televizyon reklamlar&#305;yla besleyen bu evlerin adlar&#305; aras&#305;nda yer al&#305;yor olabilir . </td> </tr>
+</table>
+ <br/><button onclick="showhide('010_latex')">Show/Hide LaTeX</button> <br/><pre id="010_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||c}
+ & Output \\ \hline \hline
+Ref & &#304;lk defa \textlessem\textgreaterOlimpiyatlara\textless/em\textgreater kat&#305;lan Bay Dooley , \textlessem\textgreatersponsorluklar\textless/em\textgreater ve kendinizi iyi \textlessem\textgreaterhissetmenizi\textless/em\textgreater \textlessem\textgreater&#246;&#287;&#252;tleyen\textless/em\textgreater TV reklamlar&#305; aras&#305;nda adeta bir y&#252;z&#252;c&#252; , jimnastik&#231;i veya \textlessem\textgreatereskrimci\textless/em\textgreater gibi \textlessem\textgreatergamzeli\textless/em\textgreater bir kalp \textlessem\textgreaterat&#305;&#351;&#305;\textless/em\textgreater \textlessem\textgreateryuma&#287;&#305;\textless/em\textgreater , \textlessem\textgreaterprime\textless/em\textgreater \textlessem\textgreatertime\textless/em\textgreater saatlerinde g&#246;sterilen \textlessem\textgreateradlardan\textless/em\textgreater biri olabilir . \\
+sys1 & &#304;lk defa Olimpiyatlar &apos; &#305;n ilk kez bir kalp krizi ge&#231;irmi&#351; olan Mr. Dooley , bir y&#252;z&#252;c&#252; , jimnastik veya hatta bir jimnastik&#231;i olsayd&#305; , sponsorlar ve kendilerini iyi televizyon reklamlar&#305;yla besleyen bu evlerin adlar&#305; aras&#305;nda yer al&#305;yor olabilir . \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table010}
+\end{table}</pre><table border="1">
+<tr> <th>  </th>
+  <th> Output </th> </tr><tr> <th> Ref </th>
+  <td> <em>sunucu</em> ve gezi yazar&#305; , <em>Suffolklu</em> Ian Wright ( 51 ) , ba&#287;&#305;&#351;&#305;kl&#305;k sisteminin g&#252;c&#252;n&#252; kan&#305;tlamak i&#231;in dilini bir Euro <em>banknotu</em> , bir <em>Piccadily</em> <em>Sirki</em> <em>t&#305;rabzan&#305;</em> , bir tren <em>tuvaletinin</em> sifon <em>d&#252;&#287;mesi</em> ve Rusya &apos; daki bir <em>ankes&#246;rl&#252;</em> <em>telefona</em> s&#252;rd&#252; . </td> </tr><tr> <th> sys1 </th>
+  <td> Suffolk &apos; dan gelen 51 ya&#351;&#305;ndaki g&#252;n&#252;m&#252;z ve seyahat yazar&#305; Ian Wright , bir Euro notunda dilini , Piccadilly Circus el demiryolu , filet &apos; in bir treni kelebek k&#305;l&#305;&#287;&#305;na ve ba&#287;&#305;&#351;&#305;kl&#305;k sisteminin g&#252;c&#252;n&#252; kan&#305;tlamak i&#231;in bir Rus devlet telefonunu konu ald&#305; . </td> </tr>
+</table>
+ <br/><button onclick="showhide('011_latex')">Show/Hide LaTeX</button> <br/><pre id="011_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||c}
+ & Output \\ \hline \hline
+Ref & \textlessem\textgreatersunucu\textless/em\textgreater ve gezi yazar&#305; , \textlessem\textgreaterSuffolklu\textless/em\textgreater Ian Wright ( 51 ) , ba&#287;&#305;&#351;&#305;kl&#305;k sisteminin g&#252;c&#252;n&#252; kan&#305;tlamak i&#231;in dilini bir Euro \textlessem\textgreaterbanknotu\textless/em\textgreater , bir \textlessem\textgreaterPiccadily\textless/em\textgreater \textlessem\textgreaterSirki\textless/em\textgreater \textlessem\textgreatert&#305;rabzan&#305;\textless/em\textgreater , bir tren \textlessem\textgreatertuvaletinin\textless/em\textgreater sifon \textlessem\textgreaterd&#252;&#287;mesi\textless/em\textgreater ve Rusya &apos; daki bir \textlessem\textgreaterankes&#246;rl&#252;\textless/em\textgreater \textlessem\textgreatertelefona\textless/em\textgreater s&#252;rd&#252; . \\
+sys1 & Suffolk &apos; dan gelen 51 ya&#351;&#305;ndaki g&#252;n&#252;m&#252;z ve seyahat yazar&#305; Ian Wright , bir Euro notunda dilini , Piccadilly Circus el demiryolu , filet &apos; in bir treni kelebek k&#305;l&#305;&#287;&#305;na ve ba&#287;&#305;&#351;&#305;kl&#305;k sisteminin g&#252;c&#252;n&#252; kan&#305;tlamak i&#231;in bir Rus devlet telefonunu konu ald&#305; . \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table011}
+\end{table}</pre><table border="1">
+<tr> <th>  </th>
+  <th> Output </th> </tr><tr> <th> Ref </th>
+  <td> Per&#351;embe g&#252;n&#252; , Snapchat personelinin &#305;rksal <em>k&#246;kenlerini</em> <em>payla&#351;may&#305;</em> reddetti ancak bir <em>s&#246;zc&#252;ye</em> g&#246;re , &#351;irket k&#305;sa s&#252;re &#246;nce yeterli d&#252;zeyde temsil <em>edilmeyen</em> <em>pop&#252;lasyonlara</em> <em>odaklan&#305;lmas&#305;</em> ve dahil etme &#231;al&#305;&#351;malar&#305;n&#305; <em>dahili</em> olarak <em>art&#305;rmak</em> amac&#305;yla bir i&#351;e al&#305;m <em>Sorumlusunu</em> <em>b&#252;nyesine</em> katt&#305; . </td> </tr><tr> <th> sys1 </th>
+  <td> Per&#351;embe g&#252;n&#252; Snapchat , personelinin &#305;rksal ge&#231;mi&#351;lerini tart&#305;&#351;may&#305; reddetmesine kar&#351;&#305;n , bir s&#246;zc&#252;ke g&#246;re &#351;irket k&#305;sa bir s&#252;re &#246;nce sunulan n&#252;fuslar &#252;zerinde yo&#287;unla&#351;mak ve bunlar&#305;n &#252;lke i&#231;inde yerlerini de&#287;i&#351;tirmeye y&#246;nelik &#231;abalara odaklanmak &#252;zere bir i&#351;e al&#305;m yapt&#305; . </td> </tr>
+</table>
+ <br/><button onclick="showhide('012_latex')">Show/Hide LaTeX</button> <br/><pre id="012_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||c}
+ & Output \\ \hline \hline
+Ref & Per&#351;embe g&#252;n&#252; , Snapchat personelinin &#305;rksal \textlessem\textgreaterk&#246;kenlerini\textless/em\textgreater \textlessem\textgreaterpayla&#351;may&#305;\textless/em\textgreater reddetti ancak bir \textlessem\textgreaters&#246;zc&#252;ye\textless/em\textgreater g&#246;re , &#351;irket k&#305;sa s&#252;re &#246;nce yeterli d&#252;zeyde temsil \textlessem\textgreateredilmeyen\textless/em\textgreater \textlessem\textgreaterpop&#252;lasyonlara\textless/em\textgreater \textlessem\textgreaterodaklan&#305;lmas&#305;\textless/em\textgreater ve dahil etme &#231;al&#305;&#351;malar&#305;n&#305; \textlessem\textgreaterdahili\textless/em\textgreater olarak \textlessem\textgreaterart&#305;rmak\textless/em\textgreater amac&#305;yla bir i&#351;e al&#305;m \textlessem\textgreaterSorumlusunu\textless/em\textgreater \textlessem\textgreaterb&#252;nyesine\textless/em\textgreater katt&#305; . \\
+sys1 & Per&#351;embe g&#252;n&#252; Snapchat , personelinin &#305;rksal ge&#231;mi&#351;lerini tart&#305;&#351;may&#305; reddetmesine kar&#351;&#305;n , bir s&#246;zc&#252;ke g&#246;re &#351;irket k&#305;sa bir s&#252;re &#246;nce sunulan n&#252;fuslar &#252;zerinde yo&#287;unla&#351;mak ve bunlar&#305;n &#252;lke i&#231;inde yerlerini de&#287;i&#351;tirmeye y&#246;nelik &#231;abalara odaklanmak &#252;zere bir i&#351;e al&#305;m yapt&#305; . \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table012}
+\end{table}</pre><a name="bucket2"/><h3> Examples for Bucket 2 </h3><h4> Examples where all systems were good </h4><table border="1">
+<tr> <th>  </th>
+  <th> Output </th> </tr><tr> <th> Ref </th>
+  <td> Portekiz Hava Kuvvetleri , bug&#252;n <em>P</em> @-@ <em>3C</em> <em>Orion</em> <em>u&#231;a&#287;&#305;n&#305;n</em> pilotunun sahildeki bal&#305;k&#231;&#305; <em>teknelerini</em> tan&#305;mlamak &#252;zere e&#287;itim u&#231;u&#351;unda oldu&#287;unu ve bunlar&#305; kontrol <em>etmenin</em> tek yolu oldu&#287;undan o kadar al&#231;aktan gitmek durumunda kald&#305;&#287;&#305;n&#305; a&#231;&#305;klad&#305; . </td> </tr><tr> <th> sys1 </th>
+  <td> Portekiz Hava Kuvvetleri &apos; nden yap&#305;lan a&#231;&#305;klamada , bug&#252;n <em>P</em> @-@ <em>3C</em> <em>Orion</em> <em>u&#231;a&#287;&#305;n&#305;n</em> k&#305;y&#305; &#351;eridinden bal&#305;k&#231;&#305; <em>teknelerini</em> tespit etmek i&#231;in e&#287;itim ama&#231;l&#305; bir u&#231;a&#287;a gitti&#287;i ve bunlar&#305; kontrol <em>etmenin</em> tek yolu oldu&#287;u i&#231;in bu kadar d&#252;&#351;mek zorunda kald&#305;&#287;&#305; belirtildi . </td> </tr>
+</table>
+ <br/><button onclick="showhide('013_latex')">Show/Hide LaTeX</button> <br/><pre id="013_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||c}
+ & Output \\ \hline \hline
+Ref & Portekiz Hava Kuvvetleri , bug&#252;n \textlessem\textgreaterP\textless/em\textgreater @-@ \textlessem\textgreater3C\textless/em\textgreater \textlessem\textgreaterOrion\textless/em\textgreater \textlessem\textgreateru&#231;a&#287;&#305;n&#305;n\textless/em\textgreater pilotunun sahildeki bal&#305;k&#231;&#305; \textlessem\textgreaterteknelerini\textless/em\textgreater tan&#305;mlamak &#252;zere e&#287;itim u&#231;u&#351;unda oldu&#287;unu ve bunlar&#305; kontrol \textlessem\textgreateretmenin\textless/em\textgreater tek yolu oldu&#287;undan o kadar al&#231;aktan gitmek durumunda kald&#305;&#287;&#305;n&#305; a&#231;&#305;klad&#305; . \\
+sys1 & Portekiz Hava Kuvvetleri &apos; nden yap&#305;lan a&#231;&#305;klamada , bug&#252;n \textlessem\textgreaterP\textless/em\textgreater @-@ \textlessem\textgreater3C\textless/em\textgreater \textlessem\textgreaterOrion\textless/em\textgreater \textlessem\textgreateru&#231;a&#287;&#305;n&#305;n\textless/em\textgreater k&#305;y&#305; &#351;eridinden bal&#305;k&#231;&#305; \textlessem\textgreaterteknelerini\textless/em\textgreater tespit etmek i&#231;in e&#287;itim ama&#231;l&#305; bir u&#231;a&#287;a gitti&#287;i ve bunlar&#305; kontrol \textlessem\textgreateretmenin\textless/em\textgreater tek yolu oldu&#287;u i&#231;in bu kadar d&#252;&#351;mek zorunda kald&#305;&#287;&#305; belirtildi . \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table013}
+\end{table}</pre><table border="1">
+<tr> <th>  </th>
+  <th> Output </th> </tr><tr> <th> Ref </th>
+  <td> bu haftan&#305;n ba&#351;&#305;nda analizcilere yan&#305;t veren AGL &apos; nin operasyonlar sorumlusu <em>Stephen</em> Mikkels , Portland &apos; &#305;n her y&#305;l yakla&#351;&#305;k 600 <em>megawatt</em> , <em>Tomago</em> &apos; nun da 900 <em>megawatt</em> enerji <em>kulland&#305;&#287;&#305;n&#305;</em> s&#246;ylemi&#351;tir . </td> </tr><tr> <th> sys1 </th>
+  <td> hafta ba&#351;&#305;nda AGL &apos; nin operasyon ba&#351;kan&#305; <em>Stephen</em> Mikkelsen analistlere hitaben yapt&#305;&#287;&#305; konu&#351;mada , Portland &apos; &#305;n y&#305;lda yakla&#351;&#305;k 600 <em>megawatt</em> elektrik , <em>Tomago</em> &apos; nun ise 900 <em>megawatt</em> civar&#305;nda elektrik <em>kulland&#305;&#287;&#305;n&#305;</em> s&#246;yledi . </td> </tr>
+</table>
+ <br/><button onclick="showhide('014_latex')">Show/Hide LaTeX</button> <br/><pre id="014_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||c}
+ & Output \\ \hline \hline
+Ref & bu haftan&#305;n ba&#351;&#305;nda analizcilere yan&#305;t veren AGL &apos; nin operasyonlar sorumlusu \textlessem\textgreaterStephen\textless/em\textgreater Mikkels , Portland &apos; &#305;n her y&#305;l yakla&#351;&#305;k 600 \textlessem\textgreatermegawatt\textless/em\textgreater , \textlessem\textgreaterTomago\textless/em\textgreater &apos; nun da 900 \textlessem\textgreatermegawatt\textless/em\textgreater enerji \textlessem\textgreaterkulland&#305;&#287;&#305;n&#305;\textless/em\textgreater s&#246;ylemi&#351;tir . \\
+sys1 & hafta ba&#351;&#305;nda AGL &apos; nin operasyon ba&#351;kan&#305; \textlessem\textgreaterStephen\textless/em\textgreater Mikkelsen analistlere hitaben yapt&#305;&#287;&#305; konu&#351;mada , Portland &apos; &#305;n y&#305;lda yakla&#351;&#305;k 600 \textlessem\textgreatermegawatt\textless/em\textgreater elektrik , \textlessem\textgreaterTomago\textless/em\textgreater &apos; nun ise 900 \textlessem\textgreatermegawatt\textless/em\textgreater civar&#305;nda elektrik \textlessem\textgreaterkulland&#305;&#287;&#305;n&#305;\textless/em\textgreater s&#246;yledi . \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table014}
+\end{table}</pre><table border="1">
+<tr> <th>  </th>
+  <th> Output </th> </tr><tr> <th> Ref </th>
+  <td> Clinton &apos; un aday arkada&#351;&#305; ABD &apos; li Senat&#246;r , <em>Virginia</em> &apos; dan <em>Tim</em> <em>Kaine</em> , e&#351;i <em>Anne</em> Holton ile 10 y&#305;ll&#305;k vergi beyan&#305;n&#305; yay&#305;nlad&#305; . </td> </tr><tr> <th> sys1 </th>
+  <td> Clinton &apos; &#305;n Mate , U.S. <em>Virginia</em> &apos; dan Senat&#246;r <em>Tim</em> <em>Kaine</em> &apos; nin e&#351;i <em>Anne</em> Holton ile birlikte 10 y&#305;l s&#252;ren vergi d&#246;n&#252;&#351;leri yay&#305;nlad&#305; . </td> </tr>
+</table>
+ <br/><button onclick="showhide('015_latex')">Show/Hide LaTeX</button> <br/><pre id="015_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||c}
+ & Output \\ \hline \hline
+Ref & Clinton &apos; un aday arkada&#351;&#305; ABD &apos; li Senat&#246;r , \textlessem\textgreaterVirginia\textless/em\textgreater &apos; dan \textlessem\textgreaterTim\textless/em\textgreater \textlessem\textgreaterKaine\textless/em\textgreater , e&#351;i \textlessem\textgreaterAnne\textless/em\textgreater Holton ile 10 y&#305;ll&#305;k vergi beyan&#305;n&#305; yay&#305;nlad&#305; . \\
+sys1 & Clinton &apos; &#305;n Mate , U.S. \textlessem\textgreaterVirginia\textless/em\textgreater &apos; dan Senat&#246;r \textlessem\textgreaterTim\textless/em\textgreater \textlessem\textgreaterKaine\textless/em\textgreater &apos; nin e&#351;i \textlessem\textgreaterAnne\textless/em\textgreater Holton ile birlikte 10 y&#305;l s&#252;ren vergi d&#246;n&#252;&#351;leri yay&#305;nlad&#305; . \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table015}
+\end{table}</pre><table border="1">
+<tr> <th>  </th>
+  <th> Output </th> </tr><tr> <th> Ref </th>
+  <td> <em>&#351;imdilik</em> sadece bu <em>an&#305;n</em> <em>tad&#305;n&#305;</em> <em>&#231;&#305;karmak</em> istiyor . </td> </tr><tr> <th> sys1 </th>
+  <td> <em>&#351;imdilik</em> <em>an&#305;n</em> <em>tad&#305;n&#305;</em> <em>&#231;&#305;karmak</em> istiyor . </td> </tr>
+</table>
+ <br/><button onclick="showhide('016_latex')">Show/Hide LaTeX</button> <br/><pre id="016_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||c}
+ & Output \\ \hline \hline
+Ref & \textlessem\textgreater&#351;imdilik\textless/em\textgreater sadece bu \textlessem\textgreateran&#305;n\textless/em\textgreater \textlessem\textgreatertad&#305;n&#305;\textless/em\textgreater \textlessem\textgreater&#231;&#305;karmak\textless/em\textgreater istiyor . \\
+sys1 & \textlessem\textgreater&#351;imdilik\textless/em\textgreater \textlessem\textgreateran&#305;n\textless/em\textgreater \textlessem\textgreatertad&#305;n&#305;\textless/em\textgreater \textlessem\textgreater&#231;&#305;karmak\textless/em\textgreater istiyor . \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table016}
+\end{table}</pre><table border="1">
+<tr> <th>  </th>
+  <th> Output </th> </tr><tr> <th> Ref </th>
+  <td> <em>Kevin</em> <em>Bain</em> , bu <em>75</em> bal&#305;&#287;&#305;n deniz hortumu ile ta&#351;&#305;nan <em>kum</em> bal&#305;klar&#305; olabilece&#287;ini d&#252;&#351;&#252;n&#252;yor . </td> </tr><tr> <th> sys1 </th>
+  <td> <em>Kevin</em> <em>Bain</em> , <em>75</em> bal&#305;k&#305;n bir su kenar&#305;ndaki <em>kum</em> torbalar&#305; olabilece&#287;ini d&#252;&#351;&#252;n&#252;yor . </td> </tr>
+</table>
+ <br/><button onclick="showhide('017_latex')">Show/Hide LaTeX</button> <br/><pre id="017_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||c}
+ & Output \\ \hline \hline
+Ref & \textlessem\textgreaterKevin\textless/em\textgreater \textlessem\textgreaterBain\textless/em\textgreater , bu \textlessem\textgreater75\textless/em\textgreater bal&#305;&#287;&#305;n deniz hortumu ile ta&#351;&#305;nan \textlessem\textgreaterkum\textless/em\textgreater bal&#305;klar&#305; olabilece&#287;ini d&#252;&#351;&#252;n&#252;yor . \\
+sys1 & \textlessem\textgreaterKevin\textless/em\textgreater \textlessem\textgreaterBain\textless/em\textgreater , \textlessem\textgreater75\textless/em\textgreater bal&#305;k&#305;n bir su kenar&#305;ndaki \textlessem\textgreaterkum\textless/em\textgreater torbalar&#305; olabilece&#287;ini d&#252;&#351;&#252;n&#252;yor . \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table017}
+\end{table}</pre><h4> Examples where all systems were bad </h4><table border="1">
+<tr> <th>  </th>
+  <th> Output </th> </tr><tr> <th> Ref </th>
+  <td> sar&#305; @-@ k&#305;rm&#305;z&#305;l&#305; <em>kul&#252;pten</em> yap&#305;lan a&#231;&#305;klamada , 34 ya&#351;&#305;ndaki <em>sporcuyla</em> hem oyuncu hem de sportif menajer olarak s&#246;zle&#351;me imzaland&#305;&#287;&#305; <em>belirtilerek</em> , &quot; ba&#351;ar&#305;larla dolu bir voleybol kariyerinin yan&#305; s&#305;ra en az kariyeri kadar &#246;nemli bir <em>karakter</em> sahibi olan <em>kaptan</em> Nihan G&#252;neyligil &apos; e yeni <em>g&#246;revinde</em> <em>y&#252;rekten</em> <em>ba&#351;ar&#305;lar</em> dileriz &quot; . denildi . </td> </tr><tr> <th> sys1 </th>
+  <td> sar&#305; ve k&#305;rm&#305;z&#305; tak&#305;m taraf&#305;ndan yap&#305;lan duyuruya g&#246;re , 34 ya&#351;&#305;ndaki spor kad&#305;n&#305; hem bir oyuncu hem de spor m&#252;d&#252;r&#252; olarak bir s&#246;zle&#351;me imzaland&#305; ve &quot; Nihan G&#252;neyligil &apos; in yeni mevkisinde ba&#351;ar&#305;ya ula&#351;an voleybol kariyerine ek olarak samimi bir &#351;ekilde ba&#351;ar&#305;l&#305; olduk &quot; . dedi . </td> </tr>
+</table>
+ <br/><button onclick="showhide('018_latex')">Show/Hide LaTeX</button> <br/><pre id="018_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||c}
+ & Output \\ \hline \hline
+Ref & sar&#305; @-@ k&#305;rm&#305;z&#305;l&#305; \textlessem\textgreaterkul&#252;pten\textless/em\textgreater yap&#305;lan a&#231;&#305;klamada , 34 ya&#351;&#305;ndaki \textlessem\textgreatersporcuyla\textless/em\textgreater hem oyuncu hem de sportif menajer olarak s&#246;zle&#351;me imzaland&#305;&#287;&#305; \textlessem\textgreaterbelirtilerek\textless/em\textgreater , &quot; ba&#351;ar&#305;larla dolu bir voleybol kariyerinin yan&#305; s&#305;ra en az kariyeri kadar &#246;nemli bir \textlessem\textgreaterkarakter\textless/em\textgreater sahibi olan \textlessem\textgreaterkaptan\textless/em\textgreater Nihan G&#252;neyligil &apos; e yeni \textlessem\textgreaterg&#246;revinde\textless/em\textgreater \textlessem\textgreatery&#252;rekten\textless/em\textgreater \textlessem\textgreaterba&#351;ar&#305;lar\textless/em\textgreater dileriz &quot; . denildi . \\
+sys1 & sar&#305; ve k&#305;rm&#305;z&#305; tak&#305;m taraf&#305;ndan yap&#305;lan duyuruya g&#246;re , 34 ya&#351;&#305;ndaki spor kad&#305;n&#305; hem bir oyuncu hem de spor m&#252;d&#252;r&#252; olarak bir s&#246;zle&#351;me imzaland&#305; ve &quot; Nihan G&#252;neyligil &apos; in yeni mevkisinde ba&#351;ar&#305;ya ula&#351;an voleybol kariyerine ek olarak samimi bir &#351;ekilde ba&#351;ar&#305;l&#305; olduk &quot; . dedi . \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table018}
+\end{table}</pre><table border="1">
+<tr> <th>  </th>
+  <th> Output </th> </tr><tr> <th> Ref </th>
+  <td> ayn&#305; zamanda bu karga&#351;a yaratan s&#252;re&#231;te onu savunmak i&#231;in elinden <em>geleni</em> yapan vekillerini de <em>ima</em> <em>etti&#287;inin</em> bu <em>olmad&#305;&#287;&#305;na</em> dair beyan&#305; <em>a&#231;&#305;klamaya</em> <em>&#231;al&#305;&#351;t&#305;klar&#305;</em> s&#252;re&#231;te garip bir konuma <em>soktu</em> . </td> </tr><tr> <th> sys1 </th>
+  <td> belgede ayr&#305;ca , kendisini &#231;alkant&#305;l&#305; bir b&#246;l&#252;mde savunmaya &#231;al&#305;&#351;an &#231;evreleri de ortaya konuyor . </td> </tr>
+</table>
+ <br/><button onclick="showhide('019_latex')">Show/Hide LaTeX</button> <br/><pre id="019_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||c}
+ & Output \\ \hline \hline
+Ref & ayn&#305; zamanda bu karga&#351;a yaratan s&#252;re&#231;te onu savunmak i&#231;in elinden \textlessem\textgreatergeleni\textless/em\textgreater yapan vekillerini de \textlessem\textgreaterima\textless/em\textgreater \textlessem\textgreateretti&#287;inin\textless/em\textgreater bu \textlessem\textgreaterolmad&#305;&#287;&#305;na\textless/em\textgreater dair beyan&#305; \textlessem\textgreatera&#231;&#305;klamaya\textless/em\textgreater \textlessem\textgreater&#231;al&#305;&#351;t&#305;klar&#305;\textless/em\textgreater s&#252;re&#231;te garip bir konuma \textlessem\textgreatersoktu\textless/em\textgreater . \\
+sys1 & belgede ayr&#305;ca , kendisini &#231;alkant&#305;l&#305; bir b&#246;l&#252;mde savunmaya &#231;al&#305;&#351;an &#231;evreleri de ortaya konuyor . \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table019}
+\end{table}</pre><table border="1">
+<tr> <th>  </th>
+  <th> Output </th> </tr><tr> <th> Ref </th>
+  <td> g&#246;z Hastal&#305;klar&#305; <em>Uzman&#305;</em> Do&#231; . Dr. Volkan H&#252;rmeri&#231; &quot; Her mesafe g&#246;r&#252;&#351; tedavisi i&#231;in <em>uygulanan</em> <em>trifokal</em> <em>lens</em> tedavisinin normal <em>katarakt</em> tedavisinden bir fark&#305; <em>bulunmamaktad&#305;r</em> &quot; . </td> </tr><tr> <th> sys1 </th>
+  <td> Optometrist Prof. Dr. Volkan H&#252;rmeri&#231; , &quot; B&#252;t&#252;n mesafeli vizyon tedavileri i&#231;in uygun davrand&#305; , basit lekeleme tedavisinin normal katmatik tedaviden fark&#305; yok &quot; . dedi . </td> </tr>
+</table>
+ <br/><button onclick="showhide('020_latex')">Show/Hide LaTeX</button> <br/><pre id="020_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||c}
+ & Output \\ \hline \hline
+Ref & g&#246;z Hastal&#305;klar&#305; \textlessem\textgreaterUzman&#305;\textless/em\textgreater Do&#231; . Dr. Volkan H&#252;rmeri&#231; &quot; Her mesafe g&#246;r&#252;&#351; tedavisi i&#231;in \textlessem\textgreateruygulanan\textless/em\textgreater \textlessem\textgreatertrifokal\textless/em\textgreater \textlessem\textgreaterlens\textless/em\textgreater tedavisinin normal \textlessem\textgreaterkatarakt\textless/em\textgreater tedavisinden bir fark&#305; \textlessem\textgreaterbulunmamaktad&#305;r\textless/em\textgreater &quot; . \\
+sys1 & Optometrist Prof. Dr. Volkan H&#252;rmeri&#231; , &quot; B&#252;t&#252;n mesafeli vizyon tedavileri i&#231;in uygun davrand&#305; , basit lekeleme tedavisinin normal katmatik tedaviden fark&#305; yok &quot; . dedi . \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table020}
+\end{table}</pre><table border="1">
+<tr> <th>  </th>
+  <th> Output </th> </tr><tr> <th> Ref </th>
+  <td> Konyaalt&#305; <em>sahilinde</em> ak&#351;am saatlerinde arkada&#351;lar&#305;yla <em>y&#252;zen</em> &#350;amil Tayyar Bayrak&#231;&#305; , ard&#305;ndan varyant <em>alt&#305;ndaki</em> &quot; Kartal Tepesi &quot; olarak bilinen 25 metre <em>y&#252;kseklikteki</em> <em>falezlerden</em> denize bal&#305;klama <em>atlad&#305;</em> . </td> </tr><tr> <th> sys1 </th>
+  <td> ak&#351;am saatlerinde Konyaalt&#305; k&#305;y&#305;lar&#305;ndan arkada&#351;lar&#305;yla birlikte y&#252;zmek isteyen &#350;amil Tayyar Bayrak&#231;&#305; , daha sonra 25 metre y&#252;kseklikte &quot; Eagle Hill &quot; olarak bilinen m&#252;vekkillerden ate&#351; p&#252;sk&#252;rd&#252; . </td> </tr>
+</table>
+ <br/><button onclick="showhide('021_latex')">Show/Hide LaTeX</button> <br/><pre id="021_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||c}
+ & Output \\ \hline \hline
+Ref & Konyaalt&#305; \textlessem\textgreatersahilinde\textless/em\textgreater ak&#351;am saatlerinde arkada&#351;lar&#305;yla \textlessem\textgreatery&#252;zen\textless/em\textgreater &#350;amil Tayyar Bayrak&#231;&#305; , ard&#305;ndan varyant \textlessem\textgreateralt&#305;ndaki\textless/em\textgreater &quot; Kartal Tepesi &quot; olarak bilinen 25 metre \textlessem\textgreatery&#252;kseklikteki\textless/em\textgreater \textlessem\textgreaterfalezlerden\textless/em\textgreater denize bal&#305;klama \textlessem\textgreateratlad&#305;\textless/em\textgreater . \\
+sys1 & ak&#351;am saatlerinde Konyaalt&#305; k&#305;y&#305;lar&#305;ndan arkada&#351;lar&#305;yla birlikte y&#252;zmek isteyen &#350;amil Tayyar Bayrak&#231;&#305; , daha sonra 25 metre y&#252;kseklikte &quot; Eagle Hill &quot; olarak bilinen m&#252;vekkillerden ate&#351; p&#252;sk&#252;rd&#252; . \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table021}
+\end{table}</pre><table border="1">
+<tr> <th>  </th>
+  <th> Output </th> </tr><tr> <th> Ref </th>
+  <td> ula&#351;t&#305;rma Denizcilik ve Haberle&#351;me Bakanl&#305;&#287;&#305; <em>Alt</em> Yap&#305; Yat&#305;r&#305;mlar&#305; Genel M&#252;d&#252;rl&#252;&#287;&#252; taraf&#305;ndan 8 Eyl&#252;l tarihinde ihaleye <em>&#231;&#305;kar&#305;lacak</em> olan Rize Havaliman&#305; projesi i&#231;in ilk <em>etapta</em> deniz dolgusu , pist , <em>apron</em> , taksirut , &#231;evreyolu , emniyet tel &#214;rg&#252;s&#252; , mendirek , <em>Pat</em> sahalar&#305; ve &#231;evre ayd&#305;nlatma <em>i&#351;leri</em> yap&#305;lacak . </td> </tr><tr> <th> sys1 </th>
+  <td> &#304;lk ad&#305;mda , deniz embriyatifi , pi&#351;irme , taksi yolu , taksitli bir yol , g&#252;venlik &#231;itleri , &#231;&#305;lg&#305;nl&#305;k ve &#231;evre &#305;&#351;&#305;kland&#305;rma &#231;al&#305;&#351;malar&#305; , 8 Eyl&#252;l &apos; de Ula&#351;t&#305;rma , Deniz ve Haberle&#351;me Bakanl&#305;&#287;&#305; Genel M&#252;d&#252;rl&#252;&#287;&#252; taraf&#305;ndan hizmete girecek olan Rize Havaalan&#305; projesi i&#231;in yap&#305;lacak . </td> </tr>
+</table>
+ <br/><button onclick="showhide('022_latex')">Show/Hide LaTeX</button> <br/><pre id="022_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||c}
+ & Output \\ \hline \hline
+Ref & ula&#351;t&#305;rma Denizcilik ve Haberle&#351;me Bakanl&#305;&#287;&#305; \textlessem\textgreaterAlt\textless/em\textgreater Yap&#305; Yat&#305;r&#305;mlar&#305; Genel M&#252;d&#252;rl&#252;&#287;&#252; taraf&#305;ndan 8 Eyl&#252;l tarihinde ihaleye \textlessem\textgreater&#231;&#305;kar&#305;lacak\textless/em\textgreater olan Rize Havaliman&#305; projesi i&#231;in ilk \textlessem\textgreateretapta\textless/em\textgreater deniz dolgusu , pist , \textlessem\textgreaterapron\textless/em\textgreater , taksirut , &#231;evreyolu , emniyet tel &#214;rg&#252;s&#252; , mendirek , \textlessem\textgreaterPat\textless/em\textgreater sahalar&#305; ve &#231;evre ayd&#305;nlatma \textlessem\textgreateri&#351;leri\textless/em\textgreater yap&#305;lacak . \\
+sys1 & &#304;lk ad&#305;mda , deniz embriyatifi , pi&#351;irme , taksi yolu , taksitli bir yol , g&#252;venlik &#231;itleri , &#231;&#305;lg&#305;nl&#305;k ve &#231;evre &#305;&#351;&#305;kland&#305;rma &#231;al&#305;&#351;malar&#305; , 8 Eyl&#252;l &apos; de Ula&#351;t&#305;rma , Deniz ve Haberle&#351;me Bakanl&#305;&#287;&#305; Genel M&#252;d&#252;rl&#252;&#287;&#252; taraf&#305;ndan hizmete girecek olan Rize Havaalan&#305; projesi i&#231;in yap&#305;lacak . \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table022}
+\end{table}</pre><a name="bucket3"/><h3> Examples for Bucket 3 </h3><h4> Examples where all systems were good </h4><table border="1">
+<tr> <th>  </th>
+  <th> Output </th> </tr><tr> <th> Ref </th>
+  <td> <em>Yahudi</em> Aly Raisman ve Katolik <em>Madison</em> Kocian taraf&#305;ndan bir araya getirilen bu <em>ekibin</em> yap&#305;s&#305; <em>herkesi</em> gururland&#305;r&#305;yor . </td> </tr><tr> <th> sys1 </th>
+  <td> <em>Yahudi</em> olan Aly Raisman ve Katolik <em>Madison</em> Kocian &apos; &#305;n kurdu&#287;u bu <em>ekibin</em> yap&#305;s&#305; <em>herkesi</em> gururland&#305;r&#305;yor . </td> </tr>
+</table>
+ <br/><button onclick="showhide('023_latex')">Show/Hide LaTeX</button> <br/><pre id="023_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||c}
+ & Output \\ \hline \hline
+Ref & \textlessem\textgreaterYahudi\textless/em\textgreater Aly Raisman ve Katolik \textlessem\textgreaterMadison\textless/em\textgreater Kocian taraf&#305;ndan bir araya getirilen bu \textlessem\textgreaterekibin\textless/em\textgreater yap&#305;s&#305; \textlessem\textgreaterherkesi\textless/em\textgreater gururland&#305;r&#305;yor . \\
+sys1 & \textlessem\textgreaterYahudi\textless/em\textgreater olan Aly Raisman ve Katolik \textlessem\textgreaterMadison\textless/em\textgreater Kocian &apos; &#305;n kurdu&#287;u bu \textlessem\textgreaterekibin\textless/em\textgreater yap&#305;s&#305; \textlessem\textgreaterherkesi\textless/em\textgreater gururland&#305;r&#305;yor . \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table023}
+\end{table}</pre><table border="1">
+<tr> <th>  </th>
+  <th> Output </th> </tr><tr> <th> Ref </th>
+  <td> <em>1996</em> y&#305;l&#305;nda &#231;ekildi&#287;i <em>s&#246;ylenen</em> g&#246;r&#252;nt&#252;de Fetullah G&#252;len &apos; in sohbetini dinleyen futbolcular aras&#305;nda Hakan &#220;nsal , Mert Korkmaz , <em>Okan</em> buruk , Arif <em>Erdem</em> , &#304;smail Demiriz , U&#287;ur T&#252;t&#252;neker ve Yusuf Tepekule net bir &#351;ekilde belli oluyor . </td> </tr><tr> <th> sys1 </th>
+  <td> <em>1996</em> y&#305;l&#305;nda &#231;ekildi&#287;i <em>s&#246;ylenen</em> imajda Hakan &#220;nsal , Mert Korkmaz , <em>Okan</em> Buruk , Arif <em>Erdem</em> , &#304;smail Demiriz , U&#287;ur T&#252;t&#252;neker ve Yusuf Tepekule &apos; nin Fetullah G&#252;len &apos; in konu&#351;mas&#305;n&#305; dinleyen futbolcular aras&#305;nda a&#231;&#305;k&#231;a g&#246;r&#252;l&#252;yor . </td> </tr>
+</table>
+ <br/><button onclick="showhide('024_latex')">Show/Hide LaTeX</button> <br/><pre id="024_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||c}
+ & Output \\ \hline \hline
+Ref & \textlessem\textgreater1996\textless/em\textgreater y&#305;l&#305;nda &#231;ekildi&#287;i \textlessem\textgreaters&#246;ylenen\textless/em\textgreater g&#246;r&#252;nt&#252;de Fetullah G&#252;len &apos; in sohbetini dinleyen futbolcular aras&#305;nda Hakan &#220;nsal , Mert Korkmaz , \textlessem\textgreaterOkan\textless/em\textgreater buruk , Arif \textlessem\textgreaterErdem\textless/em\textgreater , &#304;smail Demiriz , U&#287;ur T&#252;t&#252;neker ve Yusuf Tepekule net bir &#351;ekilde belli oluyor . \\
+sys1 & \textlessem\textgreater1996\textless/em\textgreater y&#305;l&#305;nda &#231;ekildi&#287;i \textlessem\textgreaters&#246;ylenen\textless/em\textgreater imajda Hakan &#220;nsal , Mert Korkmaz , \textlessem\textgreaterOkan\textless/em\textgreater Buruk , Arif \textlessem\textgreaterErdem\textless/em\textgreater , &#304;smail Demiriz , U&#287;ur T&#252;t&#252;neker ve Yusuf Tepekule &apos; nin Fetullah G&#252;len &apos; in konu&#351;mas&#305;n&#305; dinleyen futbolcular aras&#305;nda a&#231;&#305;k&#231;a g&#246;r&#252;l&#252;yor . \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table024}
+\end{table}</pre><table border="1">
+<tr> <th>  </th>
+  <th> Output </th> </tr><tr> <th> Ref </th>
+  <td> &#246;te yandan <em>Amasya</em> &apos; da FET&#214; darbe giri&#351;imine ili&#351;kin soru&#351;turma kapsam&#305;nda g&#246;zalt&#305;na al&#305;narak , <em>mahkemeye</em> sevk edilen ve aralar&#305;nda Merzifon <em>Ticaret</em> ve Sanayi Odas&#305; Ba&#351;kan&#305; <em>Fatih</em> Alt&#305;nay &apos; &#305;n da bulundu&#287;u 9 ki&#351;i tutukland&#305; , 7 ki&#351;i adli kontrol &#351;art&#305;yla serbest b&#305;rak&#305;ld&#305; . </td> </tr><tr> <th> sys1 </th>
+  <td> &#246;te yandan , insanlar aras&#305;nda FETO darbe giri&#351;imi ile ilgili soru&#351;turma kapsam&#305;nda <em>Amasya</em> &apos; da g&#246;zalt&#305;na al&#305;nan ve <em>mahkemeye</em> getirilenler aras&#305;nda , aralar&#305;nda Merzifon <em>Ticaret</em> ve Sanayi Odas&#305; Ba&#351;kan&#305; <em>Fatih</em> Alt&#305;nay &apos; &#305;n da yer ald&#305;&#287;&#305; 9 &apos; u tutukland&#305; ve bunlar&#305;n 7 &apos; si yarg&#305; kontrol&#252; &#351;art&#305;yla serbest b&#305;rak&#305;ld&#305; . </td> </tr>
+</table>
+ <br/><button onclick="showhide('025_latex')">Show/Hide LaTeX</button> <br/><pre id="025_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||c}
+ & Output \\ \hline \hline
+Ref & &#246;te yandan \textlessem\textgreaterAmasya\textless/em\textgreater &apos; da FET&#214; darbe giri&#351;imine ili&#351;kin soru&#351;turma kapsam&#305;nda g&#246;zalt&#305;na al&#305;narak , \textlessem\textgreatermahkemeye\textless/em\textgreater sevk edilen ve aralar&#305;nda Merzifon \textlessem\textgreaterTicaret\textless/em\textgreater ve Sanayi Odas&#305; Ba&#351;kan&#305; \textlessem\textgreaterFatih\textless/em\textgreater Alt&#305;nay &apos; &#305;n da bulundu&#287;u 9 ki&#351;i tutukland&#305; , 7 ki&#351;i adli kontrol &#351;art&#305;yla serbest b&#305;rak&#305;ld&#305; . \\
+sys1 & &#246;te yandan , insanlar aras&#305;nda FETO darbe giri&#351;imi ile ilgili soru&#351;turma kapsam&#305;nda \textlessem\textgreaterAmasya\textless/em\textgreater &apos; da g&#246;zalt&#305;na al&#305;nan ve \textlessem\textgreatermahkemeye\textless/em\textgreater getirilenler aras&#305;nda , aralar&#305;nda Merzifon \textlessem\textgreaterTicaret\textless/em\textgreater ve Sanayi Odas&#305; Ba&#351;kan&#305; \textlessem\textgreaterFatih\textless/em\textgreater Alt&#305;nay &apos; &#305;n da yer ald&#305;&#287;&#305; 9 &apos; u tutukland&#305; ve bunlar&#305;n 7 &apos; si yarg&#305; kontrol&#252; &#351;art&#305;yla serbest b&#305;rak&#305;ld&#305; . \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table025}
+\end{table}</pre><table border="1">
+<tr> <th>  </th>
+  <th> Output </th> </tr><tr> <th> Ref </th>
+  <td> ABD b&#246;lge yarg&#305;c&#305;n&#305;n karar&#305;na g&#246;re Gilead Sciences <em>Inc</em> , ila&#231; <em>&#252;reticisi</em> Merck &amp; Co <em>Inc</em> ile y&#252;r&#252;t&#252;len hepatit C patenti davas&#305; ile ilgili avukatl&#305;k &#252;cretlerini alma hakk&#305; kazand&#305; . </td> </tr><tr> <th> sys1 </th>
+  <td> bir U.S. b&#246;lge hakimi , Gilead Bilim <em>Inc</em> &apos; in uyu&#351;turucu <em>&#252;reticisi</em> Merck &amp; Co <em>Inc</em> ile birlikte hepatit C vatanseverlik davas&#305;yla ilgili olarak &#246;ne s&#252;rd&#252;&#287;&#252; avukat &#252;cretlerini alma hakk&#305;na sahip oldu&#287;una karar verdi . </td> </tr>
+</table>
+ <br/><button onclick="showhide('026_latex')">Show/Hide LaTeX</button> <br/><pre id="026_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||c}
+ & Output \\ \hline \hline
+Ref & ABD b&#246;lge yarg&#305;c&#305;n&#305;n karar&#305;na g&#246;re Gilead Sciences \textlessem\textgreaterInc\textless/em\textgreater , ila&#231; \textlessem\textgreater&#252;reticisi\textless/em\textgreater Merck &amp; Co \textlessem\textgreaterInc\textless/em\textgreater ile y&#252;r&#252;t&#252;len hepatit C patenti davas&#305; ile ilgili avukatl&#305;k &#252;cretlerini alma hakk&#305; kazand&#305; . \\
+sys1 & bir U.S. b&#246;lge hakimi , Gilead Bilim \textlessem\textgreaterInc\textless/em\textgreater &apos; in uyu&#351;turucu \textlessem\textgreater&#252;reticisi\textless/em\textgreater Merck &amp; Co \textlessem\textgreaterInc\textless/em\textgreater ile birlikte hepatit C vatanseverlik davas&#305;yla ilgili olarak &#246;ne s&#252;rd&#252;&#287;&#252; avukat &#252;cretlerini alma hakk&#305;na sahip oldu&#287;una karar verdi . \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table026}
+\end{table}</pre><table border="1">
+<tr> <th>  </th>
+  <th> Output </th> </tr><tr> <th> Ref </th>
+  <td> <em>Krav</em> <em>Maga</em> ile silahl&#305; sald&#305;r&#305;lara kar&#351;&#305; <em>kendinizi</em> nas&#305;l koruyabilirsiniz </td> </tr><tr> <th> sys1 </th>
+  <td> <em>kendinizi</em> <em>Krav</em> <em>Maga</em> &apos; n&#305;n kullan&#305;ld&#305;&#287;&#305; silahl&#305; sald&#305;r&#305;lardan nas&#305;l savunacak ? </td> </tr>
+</table>
+ <br/><button onclick="showhide('027_latex')">Show/Hide LaTeX</button> <br/><pre id="027_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||c}
+ & Output \\ \hline \hline
+Ref & \textlessem\textgreaterKrav\textless/em\textgreater \textlessem\textgreaterMaga\textless/em\textgreater ile silahl&#305; sald&#305;r&#305;lara kar&#351;&#305; \textlessem\textgreaterkendinizi\textless/em\textgreater nas&#305;l koruyabilirsiniz \\
+sys1 & \textlessem\textgreaterkendinizi\textless/em\textgreater \textlessem\textgreaterKrav\textless/em\textgreater \textlessem\textgreaterMaga\textless/em\textgreater &apos; n&#305;n kullan&#305;ld&#305;&#287;&#305; silahl&#305; sald&#305;r&#305;lardan nas&#305;l savunacak ? \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table027}
+\end{table}</pre><h4> Examples where all systems were bad </h4><table border="1">
+<tr> <th>  </th>
+  <th> Output </th> </tr><tr> <th> Ref </th>
+  <td> &#304;stanbul Emniyet M&#252;d&#252;r&#252; Dr. Mustafa &#199;al&#305;&#351;kan koordinesinde <em>kent</em> genelinde ak&#351;am saatlerinde ba&#351;lat&#305;lan asayi&#351; uygulamas&#305;na , narkotik <em>su&#231;larla</em> m&#252;cadele , mali <em>su&#231;larla</em> m&#252;cadele , <em>ter&#246;rle</em> m&#252;cadele , ka&#231;ak&#231;&#305;l&#305;k ve organize <em>su&#231;larla</em> m&#252;cadele , &#246;zel harekat , <em>&#231;evik</em> kuvvet ve trafik ekiplerinin de aralar&#305;nda oldu&#287;u &#231;ok say&#305;da polis kat&#305;l&#305;yor . </td> </tr><tr> <th> sys1 </th>
+  <td> &#304;stanbul Emniyet Genel M&#252;d&#252;r&#252; Dr. Mustafa &#199;al&#305;&#351;kan &apos; &#305;n ak&#351;am saatlerinde ba&#351;layan operasyonda , kentin d&#246;rt bir yan&#305;nda saatlerce s&#252;ren uyum i&#231;inde ba&#351;lat&#305;lan kamu d&#252;zeni , uyu&#351;turucu su&#231;lar&#305;na kar&#351;&#305; m&#252;cadele , mali su&#231;lar , ter&#246;r , ka&#231;ak&#231;&#305;l&#305;k ve &#246;zel operasyonlar , isyan ve trafik polisi de dahil olmak &#252;zere organize su&#231;la m&#252;cadele de dahil olmak &#252;zere pek &#231;ok polis te&#351;kilat&#305; da yer al&#305;yor . </td> </tr>
+</table>
+ <br/><button onclick="showhide('028_latex')">Show/Hide LaTeX</button> <br/><pre id="028_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||c}
+ & Output \\ \hline \hline
+Ref & &#304;stanbul Emniyet M&#252;d&#252;r&#252; Dr. Mustafa &#199;al&#305;&#351;kan koordinesinde \textlessem\textgreaterkent\textless/em\textgreater genelinde ak&#351;am saatlerinde ba&#351;lat&#305;lan asayi&#351; uygulamas&#305;na , narkotik \textlessem\textgreatersu&#231;larla\textless/em\textgreater m&#252;cadele , mali \textlessem\textgreatersu&#231;larla\textless/em\textgreater m&#252;cadele , \textlessem\textgreaterter&#246;rle\textless/em\textgreater m&#252;cadele , ka&#231;ak&#231;&#305;l&#305;k ve organize \textlessem\textgreatersu&#231;larla\textless/em\textgreater m&#252;cadele , &#246;zel harekat , \textlessem\textgreater&#231;evik\textless/em\textgreater kuvvet ve trafik ekiplerinin de aralar&#305;nda oldu&#287;u &#231;ok say&#305;da polis kat&#305;l&#305;yor . \\
+sys1 & &#304;stanbul Emniyet Genel M&#252;d&#252;r&#252; Dr. Mustafa &#199;al&#305;&#351;kan &apos; &#305;n ak&#351;am saatlerinde ba&#351;layan operasyonda , kentin d&#246;rt bir yan&#305;nda saatlerce s&#252;ren uyum i&#231;inde ba&#351;lat&#305;lan kamu d&#252;zeni , uyu&#351;turucu su&#231;lar&#305;na kar&#351;&#305; m&#252;cadele , mali su&#231;lar , ter&#246;r , ka&#231;ak&#231;&#305;l&#305;k ve &#246;zel operasyonlar , isyan ve trafik polisi de dahil olmak &#252;zere organize su&#231;la m&#252;cadele de dahil olmak &#252;zere pek &#231;ok polis te&#351;kilat&#305; da yer al&#305;yor . \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table028}
+\end{table}</pre><table border="1">
+<tr> <th>  </th>
+  <th> Output </th> </tr><tr> <th> Ref </th>
+  <td> savc&#305;l&#305;k <em>ifadesinin</em> ard&#305;ndan , &quot; ter&#246;r &#246;rg&#252;t&#252; &#252;yesi olmak &quot; ve &quot; &#246;rg&#252;t ad&#305;na <em>faaliyet</em> <em>g&#246;stermek</em> &quot; <em>su&#231;lamalar&#305;yla</em> n&#246;bet&#231;i <em>mahkemeye</em> &#231;&#305;kar&#305;lan &#199;a&#287;layan , tutukland&#305; . </td> </tr><tr> <th> sys1 </th>
+  <td> savc&#305;l&#305;ktan yap&#305;lan a&#231;&#305;klamada , Caglayan &apos; &#305;n &quot; bir ter&#246;r &#246;rg&#252;t&#252;n&#252;n &#252;yesi &quot; oldu&#287;u ve mahkemenin cezas&#305;yla &quot; &#246;rg&#252;t ad&#305;na hareket etti&#287;i &quot; su&#231;undan tutukland&#305;&#287;&#305; belirtildi . </td> </tr>
+</table>
+ <br/><button onclick="showhide('029_latex')">Show/Hide LaTeX</button> <br/><pre id="029_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||c}
+ & Output \\ \hline \hline
+Ref & savc&#305;l&#305;k \textlessem\textgreaterifadesinin\textless/em\textgreater ard&#305;ndan , &quot; ter&#246;r &#246;rg&#252;t&#252; &#252;yesi olmak &quot; ve &quot; &#246;rg&#252;t ad&#305;na \textlessem\textgreaterfaaliyet\textless/em\textgreater \textlessem\textgreaterg&#246;stermek\textless/em\textgreater &quot; \textlessem\textgreatersu&#231;lamalar&#305;yla\textless/em\textgreater n&#246;bet&#231;i \textlessem\textgreatermahkemeye\textless/em\textgreater &#231;&#305;kar&#305;lan &#199;a&#287;layan , tutukland&#305; . \\
+sys1 & savc&#305;l&#305;ktan yap&#305;lan a&#231;&#305;klamada , Caglayan &apos; &#305;n &quot; bir ter&#246;r &#246;rg&#252;t&#252;n&#252;n &#252;yesi &quot; oldu&#287;u ve mahkemenin cezas&#305;yla &quot; &#246;rg&#252;t ad&#305;na hareket etti&#287;i &quot; su&#231;undan tutukland&#305;&#287;&#305; belirtildi . \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table029}
+\end{table}</pre><table border="1">
+<tr> <th>  </th>
+  <th> Output </th> </tr><tr> <th> Ref </th>
+  <td> al&#231;aktan <em>u&#231;an</em> jet dolu kumsal&#305;n &#252;zerinden <em>ge&#231;erken</em> turistlerin <em>panik</em> <em>yapmaya</em> <em>ba&#351;lad&#305;&#287;&#305;</em> an bu . </td> </tr><tr> <th> sys1 </th>
+  <td> bu , &#351;i&#351;mi&#351; turistlerin paketli bir plaj&#305;n &#252;zerine inen d&#252;&#351;&#252;k u&#231;lu bir jetle pani&#287;e &#231;&#305;kt&#305;klar&#305; bir d&#246;nem . </td> </tr>
+</table>
+ <br/><button onclick="showhide('030_latex')">Show/Hide LaTeX</button> <br/><pre id="030_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||c}
+ & Output \\ \hline \hline
+Ref & al&#231;aktan \textlessem\textgreateru&#231;an\textless/em\textgreater jet dolu kumsal&#305;n &#252;zerinden \textlessem\textgreaterge&#231;erken\textless/em\textgreater turistlerin \textlessem\textgreaterpanik\textless/em\textgreater \textlessem\textgreateryapmaya\textless/em\textgreater \textlessem\textgreaterba&#351;lad&#305;&#287;&#305;\textless/em\textgreater an bu . \\
+sys1 & bu , &#351;i&#351;mi&#351; turistlerin paketli bir plaj&#305;n &#252;zerine inen d&#252;&#351;&#252;k u&#231;lu bir jetle pani&#287;e &#231;&#305;kt&#305;klar&#305; bir d&#246;nem . \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table030}
+\end{table}</pre><table border="1">
+<tr> <th>  </th>
+  <th> Output </th> </tr><tr> <th> Ref </th>
+  <td> 50 ya&#351;&#305;ndaki Roy , beyan&#305;nda &quot; Ge&#231;ti&#287;imiz &#252;&#231; y&#305;l boyunca , Colorado Avalanche &apos; taki ba&#351; <em>antren&#246;rl&#252;k</em> ve <em>hokey</em> <em>operasyonlar&#305;</em> ba&#351;kan <em>yard&#305;mc&#305;l&#305;&#287;&#305;</em> g&#246;revlerimi enerji , tutku ve kararl&#305;l&#305;kla yerine getirdim &quot; dedi . </td> </tr><tr> <th> sys1 </th>
+  <td> 50 ya&#351;&#305;ndaki Roy yapt&#305;&#287;&#305; a&#231;&#305;klamada , &quot; Son &#252;&#231; y&#305;ld&#305;r , enerji , tutku ve kararl&#305;l&#305;kla Colorado avalanche &apos; nin ba&#351; m&#252;zakerecisi veockey operasyon ba&#351;kan yard&#305;mc&#305;s&#305; olarak g&#246;revlerimi yerine getirdim &quot; . dedi . </td> </tr>
+</table>
+ <br/><button onclick="showhide('031_latex')">Show/Hide LaTeX</button> <br/><pre id="031_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||c}
+ & Output \\ \hline \hline
+Ref & 50 ya&#351;&#305;ndaki Roy , beyan&#305;nda &quot; Ge&#231;ti&#287;imiz &#252;&#231; y&#305;l boyunca , Colorado Avalanche &apos; taki ba&#351; \textlessem\textgreaterantren&#246;rl&#252;k\textless/em\textgreater ve \textlessem\textgreaterhokey\textless/em\textgreater \textlessem\textgreateroperasyonlar&#305;\textless/em\textgreater ba&#351;kan \textlessem\textgreateryard&#305;mc&#305;l&#305;&#287;&#305;\textless/em\textgreater g&#246;revlerimi enerji , tutku ve kararl&#305;l&#305;kla yerine getirdim &quot; dedi . \\
+sys1 & 50 ya&#351;&#305;ndaki Roy yapt&#305;&#287;&#305; a&#231;&#305;klamada , &quot; Son &#252;&#231; y&#305;ld&#305;r , enerji , tutku ve kararl&#305;l&#305;kla Colorado avalanche &apos; nin ba&#351; m&#252;zakerecisi veockey operasyon ba&#351;kan yard&#305;mc&#305;s&#305; olarak g&#246;revlerimi yerine getirdim &quot; . dedi . \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table031}
+\end{table}</pre><table border="1">
+<tr> <th>  </th>
+  <th> Output </th> </tr><tr> <th> Ref </th>
+  <td> AKP &apos; nin getirdi&#287;i T&#252;rkiye Varl&#305;k Fonu kanun teklifini sozcu.com.tr &apos; ye de&#287;erlendiren CHP Milletvekili ve Plan ve B&#252;t&#231;e Komisyonu &#220;yesi Utku &#199;ak&#305;r&#246;zer , &quot; Kamuya ait varl&#305;klardan , emek&#231;inin , &#231;al&#305;&#351;anlardan al&#305;nacak zorunluk <em>emeklilik</em> kesintilerinin , i&#351;sizler i&#231;in toplanan i&#351;sizlik <em>fonundan</em> olu&#351;acak bu yap&#305;n&#305;n , <em>Anayasal</em> denetim <em>mekanizmalar&#305;</em> d&#305;&#351;&#305;nda tutulmas&#305;na kesinlikle kar&#351;&#305;y&#305;z &quot; dedi . </td> </tr><tr> <th> sys1 </th>
+  <td> AKP &apos; nin sozcu.com.tr &apos; a getirdi&#287;i T&#252;rkiye Sa&#287;l&#305;k Fonu ile ilgili yasa tasar&#305;s&#305;n&#305; de&#287;erlendiren CHP Ba&#351;kan Yard&#305;mc&#305;s&#305; ve Planlama B&#252;t&#231;e B&#252;t&#231;e Komitesi &#252;yesi Utku &#199;ak&#305;r&#246;zer , &quot; Kamu mallar&#305;ndan olu&#351;acak olan bu yap&#305; , laboratuvar ve &#231;al&#305;&#351;anlardan zorunlu emekli ayl&#305;klar&#305; ve i&#351;sizlik fonlar&#305;ndan , i&#351;sizler i&#231;in tahsil edilebilmek i&#231;in gereken zorunlu emekli ayl&#305;klar&#305; d&#252;zenlemeye kesinlikle kar&#351;&#305;y&#305;z &quot; . dedi . </td> </tr>
+</table>
+ <br/><button onclick="showhide('032_latex')">Show/Hide LaTeX</button> <br/><pre id="032_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||c}
+ & Output \\ \hline \hline
+Ref & AKP &apos; nin getirdi&#287;i T&#252;rkiye Varl&#305;k Fonu kanun teklifini sozcu.com.tr &apos; ye de&#287;erlendiren CHP Milletvekili ve Plan ve B&#252;t&#231;e Komisyonu &#220;yesi Utku &#199;ak&#305;r&#246;zer , &quot; Kamuya ait varl&#305;klardan , emek&#231;inin , &#231;al&#305;&#351;anlardan al&#305;nacak zorunluk \textlessem\textgreateremeklilik\textless/em\textgreater kesintilerinin , i&#351;sizler i&#231;in toplanan i&#351;sizlik \textlessem\textgreaterfonundan\textless/em\textgreater olu&#351;acak bu yap&#305;n&#305;n , \textlessem\textgreaterAnayasal\textless/em\textgreater denetim \textlessem\textgreatermekanizmalar&#305;\textless/em\textgreater d&#305;&#351;&#305;nda tutulmas&#305;na kesinlikle kar&#351;&#305;y&#305;z &quot; dedi . \\
+sys1 & AKP &apos; nin sozcu.com.tr &apos; a getirdi&#287;i T&#252;rkiye Sa&#287;l&#305;k Fonu ile ilgili yasa tasar&#305;s&#305;n&#305; de&#287;erlendiren CHP Ba&#351;kan Yard&#305;mc&#305;s&#305; ve Planlama B&#252;t&#231;e B&#252;t&#231;e Komitesi &#252;yesi Utku &#199;ak&#305;r&#246;zer , &quot; Kamu mallar&#305;ndan olu&#351;acak olan bu yap&#305; , laboratuvar ve &#231;al&#305;&#351;anlardan zorunlu emekli ayl&#305;klar&#305; ve i&#351;sizlik fonlar&#305;ndan , i&#351;sizler i&#231;in tahsil edilebilmek i&#231;in gereken zorunlu emekli ayl&#305;klar&#305; d&#252;zenlemeye kesinlikle kar&#351;&#305;y&#305;z &quot; . dedi . \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table032}
+\end{table}</pre><a name="bucket4"/><h3> Examples for Bucket 4 </h3><h4> Examples where all systems were good </h4><table border="1">
+<tr> <th>  </th>
+  <th> Output </th> </tr><tr> <th> Ref </th>
+  <td> Fransa &apos; daki bir mahkeme , binlerce m&#252;ltecinin ya&#351;ad&#305;&#287;&#305; <em>Jungle</em> kamp&#305;ndaki onlarca <em>derme</em> <em>&#231;atma</em> ma&#287;aza ve restoran&#305;n y&#305;k&#305;lmas&#305; i&#231;in <em>Calais</em> yetkililerinin yapt&#305;&#287;&#305; teklifi reddetti . </td> </tr><tr> <th> sys1 </th>
+  <td> bir Frans&#305;z mahkemesi , <em>Calais</em> makamlar&#305;n&#305;n <em>Jungle</em> kamp&#305;nda binlerce m&#252;ltecinin ya&#351;ad&#305;&#287;&#305; <em>derme</em> <em>&#231;atma</em> d&#252;kkan ve restoranlar&#305; y&#305;kma teklifini reddetti . </td> </tr>
+</table>
+ <br/><button onclick="showhide('033_latex')">Show/Hide LaTeX</button> <br/><pre id="033_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||c}
+ & Output \\ \hline \hline
+Ref & Fransa &apos; daki bir mahkeme , binlerce m&#252;ltecinin ya&#351;ad&#305;&#287;&#305; \textlessem\textgreaterJungle\textless/em\textgreater kamp&#305;ndaki onlarca \textlessem\textgreaterderme\textless/em\textgreater \textlessem\textgreater&#231;atma\textless/em\textgreater ma&#287;aza ve restoran&#305;n y&#305;k&#305;lmas&#305; i&#231;in \textlessem\textgreaterCalais\textless/em\textgreater yetkililerinin yapt&#305;&#287;&#305; teklifi reddetti . \\
+sys1 & bir Frans&#305;z mahkemesi , \textlessem\textgreaterCalais\textless/em\textgreater makamlar&#305;n&#305;n \textlessem\textgreaterJungle\textless/em\textgreater kamp&#305;nda binlerce m&#252;ltecinin ya&#351;ad&#305;&#287;&#305; \textlessem\textgreaterderme\textless/em\textgreater \textlessem\textgreater&#231;atma\textless/em\textgreater d&#252;kkan ve restoranlar&#305; y&#305;kma teklifini reddetti . \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table033}
+\end{table}</pre><table border="1">
+<tr> <th>  </th>
+  <th> Output </th> </tr><tr> <th> Ref </th>
+  <td> yetkililer , Angela Rochelle Liner , Stefanie R. <em>Ellis</em> ve <em>Ellis</em> &apos; in k&#305;z&#305; Maleah &apos; &#305;n 12 Haziran &apos; da bir garaj yolu &#252;zerine <em>park</em> edilmi&#351; arabada vuruldu&#287;unu ifade etti . </td> </tr><tr> <th> sys1 </th>
+  <td> yetkililer , Angela Rochelle liner , Stefanie R. <em>Ellis</em> ve <em>Ellis</em> &apos; in k&#305;z&#305; Maleah &apos; &#305;n 12 Haziran &apos; da vurulurken araban&#305;n bir drivayda <em>park</em> edildi&#287;ini s&#246;ylediler . </td> </tr>
+</table>
+ <br/><button onclick="showhide('034_latex')">Show/Hide LaTeX</button> <br/><pre id="034_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||c}
+ & Output \\ \hline \hline
+Ref & yetkililer , Angela Rochelle Liner , Stefanie R. \textlessem\textgreaterEllis\textless/em\textgreater ve \textlessem\textgreaterEllis\textless/em\textgreater &apos; in k&#305;z&#305; Maleah &apos; &#305;n 12 Haziran &apos; da bir garaj yolu &#252;zerine \textlessem\textgreaterpark\textless/em\textgreater edilmi&#351; arabada vuruldu&#287;unu ifade etti . \\
+sys1 & yetkililer , Angela Rochelle liner , Stefanie R. \textlessem\textgreaterEllis\textless/em\textgreater ve \textlessem\textgreaterEllis\textless/em\textgreater &apos; in k&#305;z&#305; Maleah &apos; &#305;n 12 Haziran &apos; da vurulurken araban&#305;n bir drivayda \textlessem\textgreaterpark\textless/em\textgreater edildi&#287;ini s&#246;ylediler . \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table034}
+\end{table}</pre><table border="1">
+<tr> <th>  </th>
+  <th> Output </th> </tr><tr> <th> Ref </th>
+  <td> bir ara&#351;t&#305;rma grubu olan <em>Uluslararas&#305;</em> Kriz Grubunun Somali Yar&#305;madas&#305; <em>proje</em> direkt&#246;r&#252; Rashid Abdi &quot; Bu &#252;lkeyi bir <em>arada</em> tutmak her zaman zor oldu ve ilerlemek &#231;ok daha zor olacak &quot; dedi . </td> </tr><tr> <th> sys1 </th>
+  <td> Afrika &apos; n&#305;n <em>Uluslararas&#305;</em> Kriz Grubu <em>proje</em> m&#252;d&#252;r&#252; Ra&#351;id Abdi , &quot; Bu &#252;lkeyi bir <em>arada</em> tutmak ve ilerlemek her zaman zordu &quot; . dedi . </td> </tr>
+</table>
+ <br/><button onclick="showhide('035_latex')">Show/Hide LaTeX</button> <br/><pre id="035_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||c}
+ & Output \\ \hline \hline
+Ref & bir ara&#351;t&#305;rma grubu olan \textlessem\textgreaterUluslararas&#305;\textless/em\textgreater Kriz Grubunun Somali Yar&#305;madas&#305; \textlessem\textgreaterproje\textless/em\textgreater direkt&#246;r&#252; Rashid Abdi &quot; Bu &#252;lkeyi bir \textlessem\textgreaterarada\textless/em\textgreater tutmak her zaman zor oldu ve ilerlemek &#231;ok daha zor olacak &quot; dedi . \\
+sys1 & Afrika &apos; n&#305;n \textlessem\textgreaterUluslararas&#305;\textless/em\textgreater Kriz Grubu \textlessem\textgreaterproje\textless/em\textgreater m&#252;d&#252;r&#252; Ra&#351;id Abdi , &quot; Bu &#252;lkeyi bir \textlessem\textgreaterarada\textless/em\textgreater tutmak ve ilerlemek her zaman zordu &quot; . dedi . \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table035}
+\end{table}</pre><table border="1">
+<tr> <th>  </th>
+  <th> Output </th> </tr><tr> <th> Ref </th>
+  <td> Cumhurba&#351;kan&#305; Recep Tayyip Erdo&#287;an , Y&#252;ksek&#246;&#287;retim Kurulu ( Y&#214;K ) &#220;yeli&#287;ine <em>Maliye</em> Bakanl&#305;&#287;&#305; M&#252;ste&#351;ar&#305; H. Abdullah <em>Kaya</em> &apos; y&#305; <em>se&#231;ti</em> . </td> </tr><tr> <th> sys1 </th>
+  <td> Cumhurba&#351;kan&#305; Recep Tayyip Erdo&#287;an <em>Maliye</em> Bakanl&#305;&#287;&#305; M&#252;ste&#351;ar&#305; H. Abdullah <em>Kaya</em> &apos; y&#305; Y&#252;ksek &#214;&#287;renim Konseyi ( Y&#214;K ) &#220;yeli&#287;i i&#231;in <em>se&#231;ti</em> . </td> </tr>
+</table>
+ <br/><button onclick="showhide('036_latex')">Show/Hide LaTeX</button> <br/><pre id="036_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||c}
+ & Output \\ \hline \hline
+Ref & Cumhurba&#351;kan&#305; Recep Tayyip Erdo&#287;an , Y&#252;ksek&#246;&#287;retim Kurulu ( Y&#214;K ) &#220;yeli&#287;ine \textlessem\textgreaterMaliye\textless/em\textgreater Bakanl&#305;&#287;&#305; M&#252;ste&#351;ar&#305; H. Abdullah \textlessem\textgreaterKaya\textless/em\textgreater &apos; y&#305; \textlessem\textgreaterse&#231;ti\textless/em\textgreater . \\
+sys1 & Cumhurba&#351;kan&#305; Recep Tayyip Erdo&#287;an \textlessem\textgreaterMaliye\textless/em\textgreater Bakanl&#305;&#287;&#305; M&#252;ste&#351;ar&#305; H. Abdullah \textlessem\textgreaterKaya\textless/em\textgreater &apos; y&#305; Y&#252;ksek &#214;&#287;renim Konseyi ( Y&#214;K ) &#220;yeli&#287;i i&#231;in \textlessem\textgreaterse&#231;ti\textless/em\textgreater . \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table036}
+\end{table}</pre><table border="1">
+<tr> <th>  </th>
+  <th> Output </th> </tr><tr> <th> Ref </th>
+  <td> T&#252;rkiye &apos; nin Suriye &apos; ye d&#246;nmesini <em>istemedi&#287;ini</em> belirten Y&#305;ld&#305;r&#305;m , &quot; Bizim <em>darbeye</em> de&#287;il , &#231;al&#305;&#351;maya <em>ihtiyac&#305;m&#305;z</em> var &quot; . </td> </tr><tr> <th> sys1 </th>
+  <td> T&#252;rkiye &apos; nin Suriye olmas&#305;n&#305; <em>istemedi&#287;ini</em> belirten Y&#305;ld&#305;r&#305;m , &quot; Bir <em>darbeye</em> <em>ihtiyac&#305;m&#305;z</em> yok , &#231;al&#305;&#351;mam&#305;z gerekiyor &quot; . dedi . </td> </tr>
+</table>
+ <br/><button onclick="showhide('037_latex')">Show/Hide LaTeX</button> <br/><pre id="037_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||c}
+ & Output \\ \hline \hline
+Ref & T&#252;rkiye &apos; nin Suriye &apos; ye d&#246;nmesini \textlessem\textgreateristemedi&#287;ini\textless/em\textgreater belirten Y&#305;ld&#305;r&#305;m , &quot; Bizim \textlessem\textgreaterdarbeye\textless/em\textgreater de&#287;il , &#231;al&#305;&#351;maya \textlessem\textgreaterihtiyac&#305;m&#305;z\textless/em\textgreater var &quot; . \\
+sys1 & T&#252;rkiye &apos; nin Suriye olmas&#305;n&#305; \textlessem\textgreateristemedi&#287;ini\textless/em\textgreater belirten Y&#305;ld&#305;r&#305;m , &quot; Bir \textlessem\textgreaterdarbeye\textless/em\textgreater \textlessem\textgreaterihtiyac&#305;m&#305;z\textless/em\textgreater yok , &#231;al&#305;&#351;mam&#305;z gerekiyor &quot; . dedi . \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table037}
+\end{table}</pre><h4> Examples where all systems were bad </h4><table border="1">
+<tr> <th>  </th>
+  <th> Output </th> </tr><tr> <th> Ref </th>
+  <td> rapor hakk&#305;ndaki bir haber <em>b&#252;lteninde</em> &#351;u <em>ifadeler</em> yer alm&#305;&#351;t&#305;r : &quot; <em>k&#305;demli</em> CENTCOM <em>liderleri</em> taraf&#305;ndan onaylanan istihbarat sonu&#231;lar&#305; , tipik olarak ABD &apos; nin ter&#246;r&#252; &#246;nleme &#231;al&#305;&#351;malar&#305;na dair sahadaki ger&#231;eklerin g&#246;sterdi&#287;inden daha pozitif bir resim &#231;izmekte ve s&#252;rekli olarak istihbarat toplulu&#287;unun di&#287;er elemanlar&#305;n&#305;n olu&#351;turdu&#287;u analizlerden &#231;ok daha pozitif sonu&#231;lar sunmaktad&#305;r &quot; . </td> </tr><tr> <th> sys1 </th>
+  <td> raporda , &quot; &#220;st d&#252;zey CENTCOM liderlerinin onaylad&#305;&#287;&#305; istihbarat &#252;r&#252;nleri , asl&#305;nda U.S. ter&#246;rle m&#252;cadele &#231;abalar&#305; , ger&#231;ekler taraf&#305;ndan emredilenden daha olumlu bir tasvir sa&#287;lad&#305; ve istihbarat toplumunun di&#287;er unsurlar&#305; taraf&#305;ndan &#252;retilen analizlerden s&#252;rekli olarak daha olumlu &#231;&#305;kt&#305; &quot; . ifadesi yer ald&#305; . </td> </tr>
+</table>
+ <br/><button onclick="showhide('038_latex')">Show/Hide LaTeX</button> <br/><pre id="038_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||c}
+ & Output \\ \hline \hline
+Ref & rapor hakk&#305;ndaki bir haber \textlessem\textgreaterb&#252;lteninde\textless/em\textgreater &#351;u \textlessem\textgreaterifadeler\textless/em\textgreater yer alm&#305;&#351;t&#305;r : &quot; \textlessem\textgreaterk&#305;demli\textless/em\textgreater CENTCOM \textlessem\textgreaterliderleri\textless/em\textgreater taraf&#305;ndan onaylanan istihbarat sonu&#231;lar&#305; , tipik olarak ABD &apos; nin ter&#246;r&#252; &#246;nleme &#231;al&#305;&#351;malar&#305;na dair sahadaki ger&#231;eklerin g&#246;sterdi&#287;inden daha pozitif bir resim &#231;izmekte ve s&#252;rekli olarak istihbarat toplulu&#287;unun di&#287;er elemanlar&#305;n&#305;n olu&#351;turdu&#287;u analizlerden &#231;ok daha pozitif sonu&#231;lar sunmaktad&#305;r &quot; . \\
+sys1 & raporda , &quot; &#220;st d&#252;zey CENTCOM liderlerinin onaylad&#305;&#287;&#305; istihbarat &#252;r&#252;nleri , asl&#305;nda U.S. ter&#246;rle m&#252;cadele &#231;abalar&#305; , ger&#231;ekler taraf&#305;ndan emredilenden daha olumlu bir tasvir sa&#287;lad&#305; ve istihbarat toplumunun di&#287;er unsurlar&#305; taraf&#305;ndan &#252;retilen analizlerden s&#252;rekli olarak daha olumlu &#231;&#305;kt&#305; &quot; . ifadesi yer ald&#305; . \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table038}
+\end{table}</pre><table border="1">
+<tr> <th>  </th>
+  <th> Output </th> </tr><tr> <th> Ref </th>
+  <td> Ya&#287;c&#305; , yeni nesillerin <em>gelece&#287;i</em> a&#231;&#305;s&#305;ndan ilgili t&#252;m kamu kurumu y&#246;neticileriyle protokol imzalamak amac&#305;yla bir araya geldiklerini an&#305;msatarak , protokol&#252;n <em>&#231;ocuklara</em> ve <em>gen&#231;lere</em> hay&#305;rl&#305; olmas&#305;n&#305; <em>diledi</em> . </td> </tr><tr> <th> sys1 </th>
+  <td> Ya&#287;c&#305; , yeni neslin gelece&#287;iyle ilgili olarak b&#252;t&#252;n kamu organizasyonu y&#246;neticileriyle bir protokol imzalamak i&#231;in bir araya geldiklerini ve protokol&#252;n yararl&#305; olaca&#287;&#305;n&#305; s&#246;yledi . </td> </tr>
+</table>
+ <br/><button onclick="showhide('039_latex')">Show/Hide LaTeX</button> <br/><pre id="039_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||c}
+ & Output \\ \hline \hline
+Ref & Ya&#287;c&#305; , yeni nesillerin \textlessem\textgreatergelece&#287;i\textless/em\textgreater a&#231;&#305;s&#305;ndan ilgili t&#252;m kamu kurumu y&#246;neticileriyle protokol imzalamak amac&#305;yla bir araya geldiklerini an&#305;msatarak , protokol&#252;n \textlessem\textgreater&#231;ocuklara\textless/em\textgreater ve \textlessem\textgreatergen&#231;lere\textless/em\textgreater hay&#305;rl&#305; olmas&#305;n&#305; \textlessem\textgreaterdiledi\textless/em\textgreater . \\
+sys1 & Ya&#287;c&#305; , yeni neslin gelece&#287;iyle ilgili olarak b&#252;t&#252;n kamu organizasyonu y&#246;neticileriyle bir protokol imzalamak i&#231;in bir araya geldiklerini ve protokol&#252;n yararl&#305; olaca&#287;&#305;n&#305; s&#246;yledi . \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table039}
+\end{table}</pre><table border="1">
+<tr> <th>  </th>
+  <th> Output </th> </tr><tr> <th> Ref </th>
+  <td> Cumhurba&#351;kan&#305; Recep Tayyip Erdo&#287;an , demokrasi n&#246;betlerine ara verilen &#246;nceki ak&#351;amki son n&#246;bette , Cumhurba&#351;kanl&#305;&#287;&#305; <em>k&#252;lliyesi</em> bah&#231;esinde vatanda&#351;lara <em>hitap</em> ettikten sonra , AK Parti Sinop <em>Milletvekili</em> Naz&#305;m Mavi&#351; arac&#305;l&#305;&#287;&#305;yla , demokrasi &#351;ehidi &#252;niversiteli &#214;mer Can a&#231;&#305;kg&#246;z &apos; &#252;n ailesini de <em>arad&#305;</em> . </td> </tr><tr> <th> sys1 </th>
+  <td> Cumhurba&#351;kan&#305; Erdo&#287;an , demokrasi g&#246;zlemlerinde bir par&#231;alanman&#305;n ya&#351;and&#305;&#287;&#305; son g&#252;venlik g&#246;zlemi s&#305;ras&#305;nda Cumhurba&#351;kanl&#305;&#287;&#305; Kompleksi &apos; nde halka hitaben yapt&#305;&#287;&#305; konu&#351;mada , AK Parti Sinop milletvekili Naz&#305;m Mavi&#351; arac&#305;l&#305;&#287;&#305;yla demokrasi matematik &#246;&#287;rencisi &#214;mer Can A&#231;&#305;kg&#246;z &apos; &#252; ailesi olarak nitelendirdi . </td> </tr>
+</table>
+ <br/><button onclick="showhide('040_latex')">Show/Hide LaTeX</button> <br/><pre id="040_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||c}
+ & Output \\ \hline \hline
+Ref & Cumhurba&#351;kan&#305; Recep Tayyip Erdo&#287;an , demokrasi n&#246;betlerine ara verilen &#246;nceki ak&#351;amki son n&#246;bette , Cumhurba&#351;kanl&#305;&#287;&#305; \textlessem\textgreaterk&#252;lliyesi\textless/em\textgreater bah&#231;esinde vatanda&#351;lara \textlessem\textgreaterhitap\textless/em\textgreater ettikten sonra , AK Parti Sinop \textlessem\textgreaterMilletvekili\textless/em\textgreater Naz&#305;m Mavi&#351; arac&#305;l&#305;&#287;&#305;yla , demokrasi &#351;ehidi &#252;niversiteli &#214;mer Can a&#231;&#305;kg&#246;z &apos; &#252;n ailesini de \textlessem\textgreaterarad&#305;\textless/em\textgreater . \\
+sys1 & Cumhurba&#351;kan&#305; Erdo&#287;an , demokrasi g&#246;zlemlerinde bir par&#231;alanman&#305;n ya&#351;and&#305;&#287;&#305; son g&#252;venlik g&#246;zlemi s&#305;ras&#305;nda Cumhurba&#351;kanl&#305;&#287;&#305; Kompleksi &apos; nde halka hitaben yapt&#305;&#287;&#305; konu&#351;mada , AK Parti Sinop milletvekili Naz&#305;m Mavi&#351; arac&#305;l&#305;&#287;&#305;yla demokrasi matematik &#246;&#287;rencisi &#214;mer Can A&#231;&#305;kg&#246;z &apos; &#252; ailesi olarak nitelendirdi . \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table040}
+\end{table}</pre><table border="1">
+<tr> <th>  </th>
+  <th> Output </th> </tr><tr> <th> Ref </th>
+  <td> daha sonra kas&#305;klar&#305;na diz att&#305;&#287;&#305;n&#305;zda sald&#305;rgan&#305;n ac&#305;s&#305; iki kat&#305;na &#231;&#305;kacak ve bu a&#351;amada silah&#305; &#231;evirerek <em>elinden</em> alacak ve silah ona <em>d&#246;n&#252;k</em> halde , silah&#305;n namlusu ile arka k&#305;s&#305;m <em>yukar&#305;da</em> kalacak &#351;ekilde kendisinin <em>y&#252;z&#252;ne</em> vuracaks&#305;n&#305;z . </td> </tr><tr> <th> sys1 </th>
+  <td> bunu damat&#305;n bir dizisi izledi ve sald&#305;rgan ac&#305;s&#305;n&#305; iki kat&#305;na &#231;&#305;kar&#305;rken , silah&#305; ellerinden kopar&#305;yor , varille y&#252;zle&#351;iyor ve geri d&#246;n&#252;yor , silah&#305; onun &#252;zerinde e&#287;itim g&#246;rd&#252; . </td> </tr>
+</table>
+ <br/><button onclick="showhide('041_latex')">Show/Hide LaTeX</button> <br/><pre id="041_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||c}
+ & Output \\ \hline \hline
+Ref & daha sonra kas&#305;klar&#305;na diz att&#305;&#287;&#305;n&#305;zda sald&#305;rgan&#305;n ac&#305;s&#305; iki kat&#305;na &#231;&#305;kacak ve bu a&#351;amada silah&#305; &#231;evirerek \textlessem\textgreaterelinden\textless/em\textgreater alacak ve silah ona \textlessem\textgreaterd&#246;n&#252;k\textless/em\textgreater halde , silah&#305;n namlusu ile arka k&#305;s&#305;m \textlessem\textgreateryukar&#305;da\textless/em\textgreater kalacak &#351;ekilde kendisinin \textlessem\textgreatery&#252;z&#252;ne\textless/em\textgreater vuracaks&#305;n&#305;z . \\
+sys1 & bunu damat&#305;n bir dizisi izledi ve sald&#305;rgan ac&#305;s&#305;n&#305; iki kat&#305;na &#231;&#305;kar&#305;rken , silah&#305; ellerinden kopar&#305;yor , varille y&#252;zle&#351;iyor ve geri d&#246;n&#252;yor , silah&#305; onun &#252;zerinde e&#287;itim g&#246;rd&#252; . \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table041}
+\end{table}</pre><table border="1">
+<tr> <th>  </th>
+  <th> Output </th> </tr><tr> <th> Ref </th>
+  <td> her ne kadar , <em>k&#305;demli</em> Obama idaresi yetkililerinin raporlar&#305;n de&#287;i&#351;tirilmesi y&#246;n&#252;nde <em>emir</em> verdi&#287;ine dair kesin deliller olmasa da analizcilerin I&#350;&#304;D ve DAE&#350; olarak da bilinen &#304;slam Devleti &apos; nin <em>yaratt&#305;&#287;&#305;</em> tehdide dair daha iyimser bir bak&#305;&#351; a&#231;&#305;s&#305; sunma konusunda CENTCOM liderlerinden bask&#305; hissetti&#287;i a&#231;&#305;klanmaktad&#305;r . </td> </tr><tr> <th> sys1 </th>
+  <td> belgede , &#252;st d&#252;zey Obama y&#246;netimi yetkililerinin raporlar&#305;n doktora edilmesi y&#246;n&#252;nde talimat verdi&#287;i kesin bir kan&#305;t bulunmamas&#305;na kar&#351;&#305;n , analistler kendisini CENTCOM liderlerinden , &#304;sis veya Isil olarak da bilinen &#304;slam Devleti &apos; nin olu&#351;turdu&#287;u tehdit hakk&#305;nda daha iyimser bir bak&#305;&#351; a&#231;&#305;s&#305; sunmalar&#305; y&#246;n&#252;nde bask&#305; alt&#305;nda olduklar&#305; &#351;eklinde yorumlan&#305;yor . </td> </tr>
+</table>
+ <br/><button onclick="showhide('042_latex')">Show/Hide LaTeX</button> <br/><pre id="042_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||c}
+ & Output \\ \hline \hline
+Ref & her ne kadar , \textlessem\textgreaterk&#305;demli\textless/em\textgreater Obama idaresi yetkililerinin raporlar&#305;n de&#287;i&#351;tirilmesi y&#246;n&#252;nde \textlessem\textgreateremir\textless/em\textgreater verdi&#287;ine dair kesin deliller olmasa da analizcilerin I&#350;&#304;D ve DAE&#350; olarak da bilinen &#304;slam Devleti &apos; nin \textlessem\textgreateryaratt&#305;&#287;&#305;\textless/em\textgreater tehdide dair daha iyimser bir bak&#305;&#351; a&#231;&#305;s&#305; sunma konusunda CENTCOM liderlerinden bask&#305; hissetti&#287;i a&#231;&#305;klanmaktad&#305;r . \\
+sys1 & belgede , &#252;st d&#252;zey Obama y&#246;netimi yetkililerinin raporlar&#305;n doktora edilmesi y&#246;n&#252;nde talimat verdi&#287;i kesin bir kan&#305;t bulunmamas&#305;na kar&#351;&#305;n , analistler kendisini CENTCOM liderlerinden , &#304;sis veya Isil olarak da bilinen &#304;slam Devleti &apos; nin olu&#351;turdu&#287;u tehdit hakk&#305;nda daha iyimser bir bak&#305;&#351; a&#231;&#305;s&#305; sunmalar&#305; y&#246;n&#252;nde bask&#305; alt&#305;nda olduklar&#305; &#351;eklinde yorumlan&#305;yor . \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table042}
+\end{table}</pre><a name="bucket5"/><h3> Examples for Bucket [5,10) </h3><h4> Examples where all systems were good </h4><table border="1">
+<tr> <th>  </th>
+  <th> Output </th> </tr><tr> <th> Ref </th>
+  <td> <em>Roy</em> &apos; u <em>23</em> <em>May&#305;s</em> <em>2013</em> &apos; te ekibe katan Sakic , <em>Roy</em> &apos; a tak&#305;ma yapt&#305;&#287;&#305; katk&#305;lar i&#231;in <em>te&#351;ekk&#252;r</em> etti . </td> </tr><tr> <th> sys1 </th>
+  <td> <em>23</em> <em>May&#305;s</em> <em>2013</em> &apos; te <em>Roy</em> &apos; u sat&#305;n alan Saki&#231; , <em>Roy</em> &apos; a tak&#305;ma olan katk&#305;lar&#305;ndan &#246;t&#252;r&#252; <em>te&#351;ekk&#252;r</em> etti . </td> </tr>
+</table>
+ <br/><button onclick="showhide('043_latex')">Show/Hide LaTeX</button> <br/><pre id="043_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||c}
+ & Output \\ \hline \hline
+Ref & \textlessem\textgreaterRoy\textless/em\textgreater &apos; u \textlessem\textgreater23\textless/em\textgreater \textlessem\textgreaterMay&#305;s\textless/em\textgreater \textlessem\textgreater2013\textless/em\textgreater &apos; te ekibe katan Sakic , \textlessem\textgreaterRoy\textless/em\textgreater &apos; a tak&#305;ma yapt&#305;&#287;&#305; katk&#305;lar i&#231;in \textlessem\textgreaterte&#351;ekk&#252;r\textless/em\textgreater etti . \\
+sys1 & \textlessem\textgreater23\textless/em\textgreater \textlessem\textgreaterMay&#305;s\textless/em\textgreater \textlessem\textgreater2013\textless/em\textgreater &apos; te \textlessem\textgreaterRoy\textless/em\textgreater &apos; u sat&#305;n alan Saki&#231; , \textlessem\textgreaterRoy\textless/em\textgreater &apos; a tak&#305;ma olan katk&#305;lar&#305;ndan &#246;t&#252;r&#252; \textlessem\textgreaterte&#351;ekk&#252;r\textless/em\textgreater etti . \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table043}
+\end{table}</pre><table border="1">
+<tr> <th>  </th>
+  <th> Output </th> </tr><tr> <th> Ref </th>
+  <td> Amerika Birle&#351;ik Devletleri &apos; nden Simone Biles , <em>solda</em> , ve <em>Aly</em> <em>Raisman</em> , <em>Brezilya</em> &apos; da d&#252;zenlenen 2016 Rio de <em>Janeiro</em> Yaz <em>Olimpiyatlar&#305;</em> &apos; nda artistik jimnastik kad&#305;nlar genel de&#287;erlendirmesinde s&#305;ras&#305;yla alt&#305;n ve g&#252;m&#252;&#351; madalya ald&#305;ktan sonra , Per&#351;embe , A&#287;u . </td> </tr><tr> <th> sys1 </th>
+  <td> ABD &apos; li Simone Biles , <em>solda</em> ve <em>Aly</em> <em>Raisman</em> , Per&#351;embe g&#252;n&#252; <em>Brezilya</em> &apos; n&#305;n Rio de <em>Janeiro</em> kentinde d&#252;zenlenen 2016 Yaz <em>Olimpiyatlar&#305;</em> &apos; nda bayanlar bireysel olarak finalde s&#305;ras&#305;yla alt&#305;n ve g&#252;m&#252;&#351; madalya kazand&#305;ktan sonra , Aly Raisman kucakla&#351;t&#305; . </td> </tr>
+</table>
+ <br/><button onclick="showhide('044_latex')">Show/Hide LaTeX</button> <br/><pre id="044_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||c}
+ & Output \\ \hline \hline
+Ref & Amerika Birle&#351;ik Devletleri &apos; nden Simone Biles , \textlessem\textgreatersolda\textless/em\textgreater , ve \textlessem\textgreaterAly\textless/em\textgreater \textlessem\textgreaterRaisman\textless/em\textgreater , \textlessem\textgreaterBrezilya\textless/em\textgreater &apos; da d&#252;zenlenen 2016 Rio de \textlessem\textgreaterJaneiro\textless/em\textgreater Yaz \textlessem\textgreaterOlimpiyatlar&#305;\textless/em\textgreater &apos; nda artistik jimnastik kad&#305;nlar genel de&#287;erlendirmesinde s&#305;ras&#305;yla alt&#305;n ve g&#252;m&#252;&#351; madalya ald&#305;ktan sonra , Per&#351;embe , A&#287;u . \\
+sys1 & ABD &apos; li Simone Biles , \textlessem\textgreatersolda\textless/em\textgreater ve \textlessem\textgreaterAly\textless/em\textgreater \textlessem\textgreaterRaisman\textless/em\textgreater , Per&#351;embe g&#252;n&#252; \textlessem\textgreaterBrezilya\textless/em\textgreater &apos; n&#305;n Rio de \textlessem\textgreaterJaneiro\textless/em\textgreater kentinde d&#252;zenlenen 2016 Yaz \textlessem\textgreaterOlimpiyatlar&#305;\textless/em\textgreater &apos; nda bayanlar bireysel olarak finalde s&#305;ras&#305;yla alt&#305;n ve g&#252;m&#252;&#351; madalya kazand&#305;ktan sonra , Aly Raisman kucakla&#351;t&#305; . \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table044}
+\end{table}</pre><table border="1">
+<tr> <th>  </th>
+  <th> Output </th> </tr><tr> <th> Ref </th>
+  <td> Galatasaray Ba&#351;kan&#305; <em>Dursun</em> <em>&#214;zbek</em> , Galatasaray &apos; a sponsor olan NEF &apos; in &#246;nceki ak&#351;am <em>d&#252;zenledi&#287;i</em> yemekte <em>medya</em> mensuplar&#305;n&#305;n sorular&#305;n&#305; yan&#305;tlad&#305; ve transferi de y&#305;ll&#305;k &#252;creti de tart&#305;&#351;ma <em>konusu</em> olan gurbet&#231;i <em>futbolcu</em> Tolga Ci&#287;erci &apos; ye destek verdi . </td> </tr><tr> <th> sys1 </th>
+  <td> Galatasaray Cumhurba&#351;kan&#305; <em>Dursun</em> <em>&#214;zbek</em> , Galasay sponsoru NEF &apos; nin d&#252;n ak&#351;am&#305; <em>d&#252;zenledi&#287;i</em> bir ak&#351;am yeme&#287;inde <em>medya</em> mensuplar&#305;n&#305;n sorular&#305;n&#305; yan&#305;tlad&#305; ve bu &#252;lkeye verdi&#287;i deste&#287;i bir tart&#305;&#351;ma <em>konusu</em> haline gelen <em>futbolcu</em> Tolga Ci&#287;erci &apos; ye verdi . </td> </tr>
+</table>
+ <br/><button onclick="showhide('045_latex')">Show/Hide LaTeX</button> <br/><pre id="045_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||c}
+ & Output \\ \hline \hline
+Ref & Galatasaray Ba&#351;kan&#305; \textlessem\textgreaterDursun\textless/em\textgreater \textlessem\textgreater&#214;zbek\textless/em\textgreater , Galatasaray &apos; a sponsor olan NEF &apos; in &#246;nceki ak&#351;am \textlessem\textgreaterd&#252;zenledi&#287;i\textless/em\textgreater yemekte \textlessem\textgreatermedya\textless/em\textgreater mensuplar&#305;n&#305;n sorular&#305;n&#305; yan&#305;tlad&#305; ve transferi de y&#305;ll&#305;k &#252;creti de tart&#305;&#351;ma \textlessem\textgreaterkonusu\textless/em\textgreater olan gurbet&#231;i \textlessem\textgreaterfutbolcu\textless/em\textgreater Tolga Ci&#287;erci &apos; ye destek verdi . \\
+sys1 & Galatasaray Cumhurba&#351;kan&#305; \textlessem\textgreaterDursun\textless/em\textgreater \textlessem\textgreater&#214;zbek\textless/em\textgreater , Galasay sponsoru NEF &apos; nin d&#252;n ak&#351;am&#305; \textlessem\textgreaterd&#252;zenledi&#287;i\textless/em\textgreater bir ak&#351;am yeme&#287;inde \textlessem\textgreatermedya\textless/em\textgreater mensuplar&#305;n&#305;n sorular&#305;n&#305; yan&#305;tlad&#305; ve bu &#252;lkeye verdi&#287;i deste&#287;i bir tart&#305;&#351;ma \textlessem\textgreaterkonusu\textless/em\textgreater haline gelen \textlessem\textgreaterfutbolcu\textless/em\textgreater Tolga Ci&#287;erci &apos; ye verdi . \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table045}
+\end{table}</pre><table border="1">
+<tr> <th>  </th>
+  <th> Output </th> </tr><tr> <th> Ref </th>
+  <td> kurban <em>Bayram&#305;</em> &#246;ncesinde <em>Do&#287;u</em> ve G&#252;neydo&#287;u Anadolu b&#246;lgelerinde ger&#231;ekle&#351;tirilecek yard&#305;m kampanyas&#305;na , <em>CHP</em> ve <em>MHP</em> &apos; li <em>il</em> ba&#351;kanlar&#305; da davet edilecek . </td> </tr><tr> <th> sys1 </th>
+  <td> <em>CHP</em> ve <em>MHP</em> <em>il</em> ba&#351;kanlar&#305; , <em>Do&#287;u</em> ve G&#252;neydo&#287;u Anadolu b&#246;lgelerinde Kurban <em>Bayram&#305;</em> &apos; ndan &#246;nce d&#252;zenlenecek yard&#305;m kampanyas&#305;na da davet edilecekler . </td> </tr>
+</table>
+ <br/><button onclick="showhide('046_latex')">Show/Hide LaTeX</button> <br/><pre id="046_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||c}
+ & Output \\ \hline \hline
+Ref & kurban \textlessem\textgreaterBayram&#305;\textless/em\textgreater &#246;ncesinde \textlessem\textgreaterDo&#287;u\textless/em\textgreater ve G&#252;neydo&#287;u Anadolu b&#246;lgelerinde ger&#231;ekle&#351;tirilecek yard&#305;m kampanyas&#305;na , \textlessem\textgreaterCHP\textless/em\textgreater ve \textlessem\textgreaterMHP\textless/em\textgreater &apos; li \textlessem\textgreateril\textless/em\textgreater ba&#351;kanlar&#305; da davet edilecek . \\
+sys1 & \textlessem\textgreaterCHP\textless/em\textgreater ve \textlessem\textgreaterMHP\textless/em\textgreater \textlessem\textgreateril\textless/em\textgreater ba&#351;kanlar&#305; , \textlessem\textgreaterDo&#287;u\textless/em\textgreater ve G&#252;neydo&#287;u Anadolu b&#246;lgelerinde Kurban \textlessem\textgreaterBayram&#305;\textless/em\textgreater &apos; ndan &#246;nce d&#252;zenlenecek yard&#305;m kampanyas&#305;na da davet edilecekler . \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table046}
+\end{table}</pre><table border="1">
+<tr> <th>  </th>
+  <th> Output </th> </tr><tr> <th> Ref </th>
+  <td> bankan&#305;n kendisi <em>k&#252;resel</em> bir <em>marka</em> haline geldik&#231;e , <em>RBS</em> <em>k&#252;resel</em> <em>marka</em> haline geldi . </td> </tr><tr> <th> sys1 </th>
+  <td> bankan&#305;n kendisi de <em>k&#252;resel</em> bir <em>marka</em> haline geldi&#287;i i&#231;in , <em>RBS</em> <em>k&#252;resel</em> <em>marka</em> haline geldi . </td> </tr>
+</table>
+ <br/><button onclick="showhide('047_latex')">Show/Hide LaTeX</button> <br/><pre id="047_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||c}
+ & Output \\ \hline \hline
+Ref & bankan&#305;n kendisi \textlessem\textgreaterk&#252;resel\textless/em\textgreater bir \textlessem\textgreatermarka\textless/em\textgreater haline geldik&#231;e , \textlessem\textgreaterRBS\textless/em\textgreater \textlessem\textgreaterk&#252;resel\textless/em\textgreater \textlessem\textgreatermarka\textless/em\textgreater haline geldi . \\
+sys1 & bankan&#305;n kendisi de \textlessem\textgreaterk&#252;resel\textless/em\textgreater bir \textlessem\textgreatermarka\textless/em\textgreater haline geldi&#287;i i&#231;in , \textlessem\textgreaterRBS\textless/em\textgreater \textlessem\textgreaterk&#252;resel\textless/em\textgreater \textlessem\textgreatermarka\textless/em\textgreater haline geldi . \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table047}
+\end{table}</pre><h4> Examples where all systems were bad </h4><table border="1">
+<tr> <th>  </th>
+  <th> Output </th> </tr><tr> <th> Ref </th>
+  <td> <em>operasyon</em> icra edilen <em>b&#246;lgelerde</em> <em>halk&#305;n</em> <em>can</em> ile mal g&#252;venli&#287;inin <em>sa&#287;lanmas&#305;</em> ve 5442 say&#305;l&#305; <em>&#304;l</em> &#304;daresi <em>Kanunu</em> &apos; nun ilgili maddeleri gere&#287;ince , sivil <em>vatanda&#351;lar&#305;n</em> zarar g&#246;rmemesi amac&#305;yla 9 A&#287;ustos saat 05.00 &apos; <em>ten</em> itibaren duyurulan yasaklama karar&#305; , bug&#252;n saat 16.00 &apos; dan itibaren kald&#305;r&#305;lm&#305;&#351;t&#305;r . </td> </tr><tr> <th> sys1 </th>
+  <td> operasyonlar&#305;n y&#252;r&#252;t&#252;ld&#252;&#287;&#252; b&#246;lgelerdeki insanlar&#305;n ya&#351;am ve mallar&#305;n&#305;n g&#252;venli&#287;ini sa&#287;lamak amac&#305;yla 9 A&#287;ustos &apos; ta 05.00 &apos; clock &apos; de duyuruldu . 5442 &apos; de ise , s&#246;z konusu s&#305;n&#305;rlamalar , bug&#252;n 16,00 &apos; aral&#305;&#287;&#305;ndaki hane olarak kald&#305;r&#305;ld&#305; . </td> </tr>
+</table>
+ <br/><button onclick="showhide('048_latex')">Show/Hide LaTeX</button> <br/><pre id="048_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||c}
+ & Output \\ \hline \hline
+Ref & \textlessem\textgreateroperasyon\textless/em\textgreater icra edilen \textlessem\textgreaterb&#246;lgelerde\textless/em\textgreater \textlessem\textgreaterhalk&#305;n\textless/em\textgreater \textlessem\textgreatercan\textless/em\textgreater ile mal g&#252;venli&#287;inin \textlessem\textgreatersa&#287;lanmas&#305;\textless/em\textgreater ve 5442 say&#305;l&#305; \textlessem\textgreater&#304;l\textless/em\textgreater &#304;daresi \textlessem\textgreaterKanunu\textless/em\textgreater &apos; nun ilgili maddeleri gere&#287;ince , sivil \textlessem\textgreatervatanda&#351;lar&#305;n\textless/em\textgreater zarar g&#246;rmemesi amac&#305;yla 9 A&#287;ustos saat 05.00 &apos; \textlessem\textgreaterten\textless/em\textgreater itibaren duyurulan yasaklama karar&#305; , bug&#252;n saat 16.00 &apos; dan itibaren kald&#305;r&#305;lm&#305;&#351;t&#305;r . \\
+sys1 & operasyonlar&#305;n y&#252;r&#252;t&#252;ld&#252;&#287;&#252; b&#246;lgelerdeki insanlar&#305;n ya&#351;am ve mallar&#305;n&#305;n g&#252;venli&#287;ini sa&#287;lamak amac&#305;yla 9 A&#287;ustos &apos; ta 05.00 &apos; clock &apos; de duyuruldu . 5442 &apos; de ise , s&#246;z konusu s&#305;n&#305;rlamalar , bug&#252;n 16,00 &apos; aral&#305;&#287;&#305;ndaki hane olarak kald&#305;r&#305;ld&#305; . \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table048}
+\end{table}</pre><table border="1">
+<tr> <th>  </th>
+  <th> Output </th> </tr><tr> <th> Ref </th>
+  <td> <em>Olimpiyatlarda</em> en <em>s&#305;k</em> <em>g&#246;r&#252;len</em> <em>ilerleme</em> <em>do&#287;rudan</em> <em>ileri</em> oland&#305;r . </td> </tr><tr> <th> sys1 </th>
+  <td> en yayg&#305;n Olimpiyat vekt&#246;r&#252; &#246;n&#252;m&#252;zde olduk&#231;a parlak . </td> </tr>
+</table>
+ <br/><button onclick="showhide('049_latex')">Show/Hide LaTeX</button> <br/><pre id="049_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||c}
+ & Output \\ \hline \hline
+Ref & \textlessem\textgreaterOlimpiyatlarda\textless/em\textgreater en \textlessem\textgreaters&#305;k\textless/em\textgreater \textlessem\textgreaterg&#246;r&#252;len\textless/em\textgreater \textlessem\textgreaterilerleme\textless/em\textgreater \textlessem\textgreaterdo&#287;rudan\textless/em\textgreater \textlessem\textgreaterileri\textless/em\textgreater oland&#305;r . \\
+sys1 & en yayg&#305;n Olimpiyat vekt&#246;r&#252; &#246;n&#252;m&#252;zde olduk&#231;a parlak . \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table049}
+\end{table}</pre><table border="1">
+<tr> <th>  </th>
+  <th> Output </th> </tr><tr> <th> Ref </th>
+  <td> bunun <em>m&#252;mk&#252;n</em> <em>olmad&#305;&#287;&#305;</em> <em>durumlarda</em> &quot; <em>k&#305;rm&#305;z&#305;</em> <em>biber</em> bulutu &quot; <em>ad&#305;</em> verilen &#351;ey at&#305;l&#305;yor . </td> </tr><tr> <th> sys1 </th>
+  <td> cayd&#305;r&#305;lamazsa , s&#246;zde &quot; so&#287;uk bir k&#305;yafetler &quot; at&#305;l&#305;r . </td> </tr>
+</table>
+ <br/><button onclick="showhide('050_latex')">Show/Hide LaTeX</button> <br/><pre id="050_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||c}
+ & Output \\ \hline \hline
+Ref & bunun \textlessem\textgreaterm&#252;mk&#252;n\textless/em\textgreater \textlessem\textgreaterolmad&#305;&#287;&#305;\textless/em\textgreater \textlessem\textgreaterdurumlarda\textless/em\textgreater &quot; \textlessem\textgreaterk&#305;rm&#305;z&#305;\textless/em\textgreater \textlessem\textgreaterbiber\textless/em\textgreater bulutu &quot; \textlessem\textgreaterad&#305;\textless/em\textgreater verilen &#351;ey at&#305;l&#305;yor . \\
+sys1 & cayd&#305;r&#305;lamazsa , s&#246;zde &quot; so&#287;uk bir k&#305;yafetler &quot; at&#305;l&#305;r . \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table050}
+\end{table}</pre><table border="1">
+<tr> <th>  </th>
+  <th> Output </th> </tr><tr> <th> Ref </th>
+  <td> &#231;ocuklarda <em>parmak</em> <em>emme</em> al&#305;&#351;kanl&#305;&#287;&#305;n&#305;n g&#246;r&#252;lmesinin nedenlerini s&#305;ralayan <em>Do&#231;</em> . Dr. Giray , &quot; <em>parmak</em> <em>emme</em> , do&#287;umdan itibaren 3 @-@ 4 ya&#351;lar&#305;na kadar <em>g&#246;r&#252;len</em> bir olayd&#305;r &quot; . </td> </tr><tr> <th> sys1 </th>
+  <td> Associate Prof. Dr. Giray , &#231;&#246;pl&#252;k al&#305;&#351;kanl&#305;&#287;&#305;n&#305;n neden &#231;ocuklarda g&#246;r&#252;ld&#252;&#287;&#252;n&#252; a&#231;&#305;klarken , &quot; &#231;&#246;pe atmak do&#287;umdan 3 @-@ 4 ya&#351;&#305;na kadar de&#287;i&#351;en bir durumdur &quot; . dedi . </td> </tr>
+</table>
+ <br/><button onclick="showhide('051_latex')">Show/Hide LaTeX</button> <br/><pre id="051_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||c}
+ & Output \\ \hline \hline
+Ref & &#231;ocuklarda \textlessem\textgreaterparmak\textless/em\textgreater \textlessem\textgreateremme\textless/em\textgreater al&#305;&#351;kanl&#305;&#287;&#305;n&#305;n g&#246;r&#252;lmesinin nedenlerini s&#305;ralayan \textlessem\textgreaterDo&#231;\textless/em\textgreater . Dr. Giray , &quot; \textlessem\textgreaterparmak\textless/em\textgreater \textlessem\textgreateremme\textless/em\textgreater , do&#287;umdan itibaren 3 @-@ 4 ya&#351;lar&#305;na kadar \textlessem\textgreaterg&#246;r&#252;len\textless/em\textgreater bir olayd&#305;r &quot; . \\
+sys1 & Associate Prof. Dr. Giray , &#231;&#246;pl&#252;k al&#305;&#351;kanl&#305;&#287;&#305;n&#305;n neden &#231;ocuklarda g&#246;r&#252;ld&#252;&#287;&#252;n&#252; a&#231;&#305;klarken , &quot; &#231;&#246;pe atmak do&#287;umdan 3 @-@ 4 ya&#351;&#305;na kadar de&#287;i&#351;en bir durumdur &quot; . dedi . \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table051}
+\end{table}</pre><table border="1">
+<tr> <th>  </th>
+  <th> Output </th> </tr><tr> <th> Ref </th>
+  <td> olay <em>yeri</em> , farkl&#305; <em>sald&#305;r&#305;</em> silahlar&#305;na ait <em>sald&#305;r&#305;</em> <em>silah&#305;</em> tarz&#305;nda <em>mermi</em> kovanlar&#305; doluydu . </td> </tr><tr> <th> sys1 </th>
+  <td> sald&#305;r&#305;da silah tarz&#305; mermiler , farkl&#305; sald&#305;rgan silahlara g&#246;m&#252;lm&#252;&#351; ve olay yerini kirletmi&#351;ti . </td> </tr>
+</table>
+ <br/><button onclick="showhide('052_latex')">Show/Hide LaTeX</button> <br/><pre id="052_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||c}
+ & Output \\ \hline \hline
+Ref & olay \textlessem\textgreateryeri\textless/em\textgreater , farkl&#305; \textlessem\textgreatersald&#305;r&#305;\textless/em\textgreater silahlar&#305;na ait \textlessem\textgreatersald&#305;r&#305;\textless/em\textgreater \textlessem\textgreatersilah&#305;\textless/em\textgreater tarz&#305;nda \textlessem\textgreatermermi\textless/em\textgreater kovanlar&#305; doluydu . \\
+sys1 & sald&#305;r&#305;da silah tarz&#305; mermiler , farkl&#305; sald&#305;rgan silahlara g&#246;m&#252;lm&#252;&#351; ve olay yerini kirletmi&#351;ti . \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table052}
+\end{table}</pre><a name="bucket6"/><h3> Examples for Bucket [10,100) </h3><h4> Examples where all systems were good </h4><table border="1">
+<tr> <th>  </th>
+  <th> Output </th> </tr><tr> <th> Ref </th>
+  <td> Phoenix &apos; in on y&#305;ld&#305;r <em>ilk</em> seri katil vakas&#305;nda <em>iki</em> <em>kad&#305;n</em> ve <em>12</em> <em>ya&#351;&#305;ndaki</em> bir <em>k&#305;z</em> &#231;ocu&#287;u , <em>Per&#351;embe</em> <em>g&#252;n&#252;</em> <em>yay&#305;nlanan</em> <em>polis</em> raporlar&#305;na <em>g&#246;re</em> arabada konu&#351;urken ve m&#252;zik dinlerken vuruldu . </td> </tr><tr> <th> sys1 </th>
+  <td> <em>polis</em> te&#351;kilat&#305;ndan <em>Per&#351;embe</em> <em>g&#252;n&#252;</em> <em>yay&#305;nlanan</em> haberlere <em>g&#246;re</em> , Phoenix &apos; in on y&#305;l i&#231;inde meydana gelen <em>ilk</em> seri katil davas&#305;nda en &#246;l&#252;mc&#252;l sald&#305;r&#305;da hayat&#305;n&#305; kaybeden <em>iki</em> <em>kad&#305;n</em> ve <em>12</em> <em>ya&#351;&#305;ndaki</em> bir <em>k&#305;z</em> &#231;ocu&#287;u , vuruldu&#287;unda m&#252;zik dinlemek &#252;zere bir arabada oturup dinliyorlard&#305; . </td> </tr>
+</table>
+ <br/><button onclick="showhide('053_latex')">Show/Hide LaTeX</button> <br/><pre id="053_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||c}
+ & Output \\ \hline \hline
+Ref & Phoenix &apos; in on y&#305;ld&#305;r \textlessem\textgreaterilk\textless/em\textgreater seri katil vakas&#305;nda \textlessem\textgreateriki\textless/em\textgreater \textlessem\textgreaterkad&#305;n\textless/em\textgreater ve \textlessem\textgreater12\textless/em\textgreater \textlessem\textgreaterya&#351;&#305;ndaki\textless/em\textgreater bir \textlessem\textgreaterk&#305;z\textless/em\textgreater &#231;ocu&#287;u , \textlessem\textgreaterPer&#351;embe\textless/em\textgreater \textlessem\textgreaterg&#252;n&#252;\textless/em\textgreater \textlessem\textgreateryay&#305;nlanan\textless/em\textgreater \textlessem\textgreaterpolis\textless/em\textgreater raporlar&#305;na \textlessem\textgreaterg&#246;re\textless/em\textgreater arabada konu&#351;urken ve m&#252;zik dinlerken vuruldu . \\
+sys1 & \textlessem\textgreaterpolis\textless/em\textgreater te&#351;kilat&#305;ndan \textlessem\textgreaterPer&#351;embe\textless/em\textgreater \textlessem\textgreaterg&#252;n&#252;\textless/em\textgreater \textlessem\textgreateryay&#305;nlanan\textless/em\textgreater haberlere \textlessem\textgreaterg&#246;re\textless/em\textgreater , Phoenix &apos; in on y&#305;l i&#231;inde meydana gelen \textlessem\textgreaterilk\textless/em\textgreater seri katil davas&#305;nda en &#246;l&#252;mc&#252;l sald&#305;r&#305;da hayat&#305;n&#305; kaybeden \textlessem\textgreateriki\textless/em\textgreater \textlessem\textgreaterkad&#305;n\textless/em\textgreater ve \textlessem\textgreater12\textless/em\textgreater \textlessem\textgreaterya&#351;&#305;ndaki\textless/em\textgreater bir \textlessem\textgreaterk&#305;z\textless/em\textgreater &#231;ocu&#287;u , vuruldu&#287;unda m&#252;zik dinlemek &#252;zere bir arabada oturup dinliyorlard&#305; . \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table053}
+\end{table}</pre><table border="1">
+<tr> <th>  </th>
+  <th> Output </th> </tr><tr> <th> Ref </th>
+  <td> <em>Biles</em> , ilkini emekli olan <em>milli</em> <em>tak&#305;m</em> koordinat&#246;r&#252; Martha Karolyi &apos; nin veda partisinde &#252;nlem i&#351;areti olarak <em>g&#246;rev</em> <em>yapt&#305;&#287;&#305;</em> <em>Sal&#305;</em> <em>g&#252;n&#252;</em> <em>kazand&#305;</em> . </td> </tr><tr> <th> sys1 </th>
+  <td> <em>Biles</em> , <em>milli</em> <em>tak&#305;m</em> astlar&#305; Martha Karolyi &apos; nin bir sonraki partisini uzakla&#351;t&#305;rmak i&#231;in bir heyecan noktas&#305; olarak <em>g&#246;rev</em> <em>yapt&#305;&#287;&#305;</em> <em>Sal&#305;</em> <em>g&#252;n&#252;</em> ilk defa <em>kazand&#305;</em> . </td> </tr>
+</table>
+ <br/><button onclick="showhide('054_latex')">Show/Hide LaTeX</button> <br/><pre id="054_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||c}
+ & Output \\ \hline \hline
+Ref & \textlessem\textgreaterBiles\textless/em\textgreater , ilkini emekli olan \textlessem\textgreatermilli\textless/em\textgreater \textlessem\textgreatertak&#305;m\textless/em\textgreater koordinat&#246;r&#252; Martha Karolyi &apos; nin veda partisinde &#252;nlem i&#351;areti olarak \textlessem\textgreaterg&#246;rev\textless/em\textgreater \textlessem\textgreateryapt&#305;&#287;&#305;\textless/em\textgreater \textlessem\textgreaterSal&#305;\textless/em\textgreater \textlessem\textgreaterg&#252;n&#252;\textless/em\textgreater \textlessem\textgreaterkazand&#305;\textless/em\textgreater . \\
+sys1 & \textlessem\textgreaterBiles\textless/em\textgreater , \textlessem\textgreatermilli\textless/em\textgreater \textlessem\textgreatertak&#305;m\textless/em\textgreater astlar&#305; Martha Karolyi &apos; nin bir sonraki partisini uzakla&#351;t&#305;rmak i&#231;in bir heyecan noktas&#305; olarak \textlessem\textgreaterg&#246;rev\textless/em\textgreater \textlessem\textgreateryapt&#305;&#287;&#305;\textless/em\textgreater \textlessem\textgreaterSal&#305;\textless/em\textgreater \textlessem\textgreaterg&#252;n&#252;\textless/em\textgreater ilk defa \textlessem\textgreaterkazand&#305;\textless/em\textgreater . \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table054}
+\end{table}</pre><table border="1">
+<tr> <th>  </th>
+  <th> Output </th> </tr><tr> <th> Ref </th>
+  <td> <em>&#304;stanbul</em> Sar&#305;yer &apos; de <em>ge&#231;en</em> <em>hafta</em> <em>d&#252;zenlenen</em> gen&#231;lik festivalinde rahats&#305;zlanarak <em>hastaneye</em> kald&#305;r&#305;lan <em>5</em> ki&#351;iden <em>2</em> &apos; si <em>hayat&#305;n&#305;</em> kaybetti . </td> </tr><tr> <th> sys1 </th>
+  <td> <em>&#304;stanbul</em> &apos; un Sar&#305;yer kentinde <em>d&#252;zenlenen</em> festivalde kendisini hasta hissediyor ve <em>ge&#231;en</em> <em>hafta</em> <em>hastaneye</em> g&#246;t&#252;r&#252;len <em>5</em> ki&#351;iden <em>2</em> &apos; si <em>hayat&#305;n&#305;</em> kaybetti . </td> </tr>
+</table>
+ <br/><button onclick="showhide('055_latex')">Show/Hide LaTeX</button> <br/><pre id="055_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||c}
+ & Output \\ \hline \hline
+Ref & \textlessem\textgreater&#304;stanbul\textless/em\textgreater Sar&#305;yer &apos; de \textlessem\textgreaterge&#231;en\textless/em\textgreater \textlessem\textgreaterhafta\textless/em\textgreater \textlessem\textgreaterd&#252;zenlenen\textless/em\textgreater gen&#231;lik festivalinde rahats&#305;zlanarak \textlessem\textgreaterhastaneye\textless/em\textgreater kald&#305;r&#305;lan \textlessem\textgreater5\textless/em\textgreater ki&#351;iden \textlessem\textgreater2\textless/em\textgreater &apos; si \textlessem\textgreaterhayat&#305;n&#305;\textless/em\textgreater kaybetti . \\
+sys1 & \textlessem\textgreater&#304;stanbul\textless/em\textgreater &apos; un Sar&#305;yer kentinde \textlessem\textgreaterd&#252;zenlenen\textless/em\textgreater festivalde kendisini hasta hissediyor ve \textlessem\textgreaterge&#231;en\textless/em\textgreater \textlessem\textgreaterhafta\textless/em\textgreater \textlessem\textgreaterhastaneye\textless/em\textgreater g&#246;t&#252;r&#252;len \textlessem\textgreater5\textless/em\textgreater ki&#351;iden \textlessem\textgreater2\textless/em\textgreater &apos; si \textlessem\textgreaterhayat&#305;n&#305;\textless/em\textgreater kaybetti . \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table055}
+\end{table}</pre><table border="1">
+<tr> <th>  </th>
+  <th> Output </th> </tr><tr> <th> Ref </th>
+  <td> bilindi&#287;i gibi <em>9</em> <em>Temmuz</em> &apos; da <em>ter&#246;r</em> &#246;rg&#252;t&#252;n&#252;n <em>&#246;nemli</em> ismi Bahoz Erdal , Tel Hamis tugaylar&#305; <em>taraf&#305;ndan</em> <em>Suriye</em> &apos; de <em>d&#252;zenlenen</em> suikast <em>sonucu</em> &#246;ld&#252;r&#252;lm&#252;&#351;t&#252; . </td> </tr><tr> <th> sys1 </th>
+  <td> haberlere g&#246;re , <em>ter&#246;r</em> &#246;rg&#252;t&#252;n&#252;n en <em>&#246;nemli</em> &#252;yelerinden biri olan Bahoz Erdal , <em>9</em> <em>Temmuz</em> &apos; da Tel Hamees Tugaylar&#305; <em>taraf&#305;ndan</em> <em>Suriye</em> &apos; de <em>d&#252;zenlenen</em> bir suikast <em>sonucu</em> &#246;ld&#252;r&#252;lm&#252;&#351;t&#252; . </td> </tr>
+</table>
+ <br/><button onclick="showhide('056_latex')">Show/Hide LaTeX</button> <br/><pre id="056_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||c}
+ & Output \\ \hline \hline
+Ref & bilindi&#287;i gibi \textlessem\textgreater9\textless/em\textgreater \textlessem\textgreaterTemmuz\textless/em\textgreater &apos; da \textlessem\textgreaterter&#246;r\textless/em\textgreater &#246;rg&#252;t&#252;n&#252;n \textlessem\textgreater&#246;nemli\textless/em\textgreater ismi Bahoz Erdal , Tel Hamis tugaylar&#305; \textlessem\textgreatertaraf&#305;ndan\textless/em\textgreater \textlessem\textgreaterSuriye\textless/em\textgreater &apos; de \textlessem\textgreaterd&#252;zenlenen\textless/em\textgreater suikast \textlessem\textgreatersonucu\textless/em\textgreater &#246;ld&#252;r&#252;lm&#252;&#351;t&#252; . \\
+sys1 & haberlere g&#246;re , \textlessem\textgreaterter&#246;r\textless/em\textgreater &#246;rg&#252;t&#252;n&#252;n en \textlessem\textgreater&#246;nemli\textless/em\textgreater &#252;yelerinden biri olan Bahoz Erdal , \textlessem\textgreater9\textless/em\textgreater \textlessem\textgreaterTemmuz\textless/em\textgreater &apos; da Tel Hamees Tugaylar&#305; \textlessem\textgreatertaraf&#305;ndan\textless/em\textgreater \textlessem\textgreaterSuriye\textless/em\textgreater &apos; de \textlessem\textgreaterd&#252;zenlenen\textless/em\textgreater bir suikast \textlessem\textgreatersonucu\textless/em\textgreater &#246;ld&#252;r&#252;lm&#252;&#351;t&#252; . \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table056}
+\end{table}</pre><table border="1">
+<tr> <th>  </th>
+  <th> Output </th> </tr><tr> <th> Ref </th>
+  <td> &#304;stihbarat incelemesinde , <em>hem</em> hedeflerin sapt&#305;r&#305;lmas&#305;nda <em>hem</em> de F @-@ <em>16</em> &apos; lar havalanmadan <em>PKK</em> &apos; <em>l&#305;</em> ter&#246;ristlerin bulunduklar&#305; yerden ka&#231;mas&#305;nda S&#246;nmezate&#351; &apos; in kilit rol oynad&#305;&#287;&#305; <em>ortaya</em> <em>&#231;&#305;kt&#305;</em> . </td> </tr><tr> <th> sys1 </th>
+  <td> istihbarat &#304;ncelemesi &apos; nde , S&#246;nmezate&#351; &apos; in <em>hem</em> hedeflerin bozulmas&#305;nda <em>hem</em> de <em>PKK</em> &apos; <em>l&#305;</em> ter&#246;ristlerin F @-@ <em>16</em> &apos; lar&#305;n ba&#351;lamas&#305;ndan &#246;nce yerlerinden ka&#231;malar&#305;na izin vererek &#246;nemli rol oynad&#305;&#287;&#305; <em>ortaya</em> <em>&#231;&#305;kt&#305;</em> . </td> </tr>
+</table>
+ <br/><button onclick="showhide('057_latex')">Show/Hide LaTeX</button> <br/><pre id="057_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||c}
+ & Output \\ \hline \hline
+Ref & &#304;stihbarat incelemesinde , \textlessem\textgreaterhem\textless/em\textgreater hedeflerin sapt&#305;r&#305;lmas&#305;nda \textlessem\textgreaterhem\textless/em\textgreater de F @-@ \textlessem\textgreater16\textless/em\textgreater &apos; lar havalanmadan \textlessem\textgreaterPKK\textless/em\textgreater &apos; \textlessem\textgreaterl&#305;\textless/em\textgreater ter&#246;ristlerin bulunduklar&#305; yerden ka&#231;mas&#305;nda S&#246;nmezate&#351; &apos; in kilit rol oynad&#305;&#287;&#305; \textlessem\textgreaterortaya\textless/em\textgreater \textlessem\textgreater&#231;&#305;kt&#305;\textless/em\textgreater . \\
+sys1 & istihbarat &#304;ncelemesi &apos; nde , S&#246;nmezate&#351; &apos; in \textlessem\textgreaterhem\textless/em\textgreater hedeflerin bozulmas&#305;nda \textlessem\textgreaterhem\textless/em\textgreater de \textlessem\textgreaterPKK\textless/em\textgreater &apos; \textlessem\textgreaterl&#305;\textless/em\textgreater ter&#246;ristlerin F @-@ \textlessem\textgreater16\textless/em\textgreater &apos; lar&#305;n ba&#351;lamas&#305;ndan &#246;nce yerlerinden ka&#231;malar&#305;na izin vererek &#246;nemli rol oynad&#305;&#287;&#305; \textlessem\textgreaterortaya\textless/em\textgreater \textlessem\textgreater&#231;&#305;kt&#305;\textless/em\textgreater . \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table057}
+\end{table}</pre><h4> Examples where all systems were bad </h4><table border="1">
+<tr> <th>  </th>
+  <th> Output </th> </tr><tr> <th> Ref </th>
+  <td> bununla <em>ilgili</em> <em>yap&#305;lan</em> filmde <em>&#351;unu</em> <em>s&#246;yledi</em> : &apos; &#231;ocuklu&#287;umdan <em>beri</em> sa&#287;l&#305;&#287;&#305;ma pek <em>dikkat</em> <em>eden</em> <em>biri</em> olmad&#305;m ve topraktan , solucana ve &#231;amurlu suya kadar <em>bir&#231;ok</em> <em>&#351;eyi</em> a&#287;z&#305;ma soktum . &apos; </td> </tr><tr> <th> sys1 </th>
+  <td> filmi anlatan filmde , &quot; Her zaman bir &#231;ocuk oldu&#287;um i&#231;in , sa&#287;l&#305;&#287;&#305;mla olduk&#231;a kareferlik yapt&#305;m ve a&#287;z&#305;mda , soil &apos; den gelen , sohbet ve &#231;amur suyu tatl&#305; bir &#351;ekilde her t&#252;rl&#252; &#351;ey anlatt&#305;m . </td> </tr>
+</table>
+ <br/><button onclick="showhide('058_latex')">Show/Hide LaTeX</button> <br/><pre id="058_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||c}
+ & Output \\ \hline \hline
+Ref & bununla \textlessem\textgreaterilgili\textless/em\textgreater \textlessem\textgreateryap&#305;lan\textless/em\textgreater filmde \textlessem\textgreater&#351;unu\textless/em\textgreater \textlessem\textgreaters&#246;yledi\textless/em\textgreater : &apos; &#231;ocuklu&#287;umdan \textlessem\textgreaterberi\textless/em\textgreater sa&#287;l&#305;&#287;&#305;ma pek \textlessem\textgreaterdikkat\textless/em\textgreater \textlessem\textgreatereden\textless/em\textgreater \textlessem\textgreaterbiri\textless/em\textgreater olmad&#305;m ve topraktan , solucana ve &#231;amurlu suya kadar \textlessem\textgreaterbir&#231;ok\textless/em\textgreater \textlessem\textgreater&#351;eyi\textless/em\textgreater a&#287;z&#305;ma soktum . &apos; \\
+sys1 & filmi anlatan filmde , &quot; Her zaman bir &#231;ocuk oldu&#287;um i&#231;in , sa&#287;l&#305;&#287;&#305;mla olduk&#231;a kareferlik yapt&#305;m ve a&#287;z&#305;mda , soil &apos; den gelen , sohbet ve &#231;amur suyu tatl&#305; bir &#351;ekilde her t&#252;rl&#252; &#351;ey anlatt&#305;m . \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table058}
+\end{table}</pre><table border="1">
+<tr> <th>  </th>
+  <th> Output </th> </tr><tr> <th> Ref </th>
+  <td> valilikten <em>yap&#305;lan</em> <em>a&#231;&#305;klamada</em> , Lice , Silvan ve Kulp &apos; <em>un</em> kuzeyindeki da&#287;l&#305;k ve ormanl&#305;k sahada faaliyet y&#252;r&#252;ten , <em>aralar&#305;nda</em> <em>&#252;st</em> d&#252;zey &#246;rg&#252;t y&#246;neticilerinin de <em>bulundu&#287;u</em> de&#287;erlendirilen ter&#246;ristler ve <em>i&#351;</em> birlik&#231;ilerinin etkisiz hale getirilmesi , <em>bunlar&#305;n</em> kulland&#305;&#287;&#305; s&#305;&#287;&#305;nak , bar&#305;nak ve depo alanlar&#305;n&#305;n tespiti ve malzemelerin <em>ele</em> ge&#231;irilmesi i&#231;in operasyon d&#252;zenlendi&#287;i belirtildi . </td> </tr><tr> <th> sys1 </th>
+  <td> y&#246;netim kurulunun yapt&#305;&#287;&#305; duyuruya g&#246;re , ter&#246;ristleri etkisiz hale getirmek amac&#305;yla d&#252;zenlenen bir operasyonda , da&#287;lar ve ormanl&#305;k arazilerde faaliyet g&#246;steren ve Lice , Silvan ve Kulp &apos; in kuzeyine yay&#305;lan ve birlikte daha y&#252;ksek y&#246;neticiler ve onlar&#305;n komplo sahiplerinin yer ald&#305;&#287;&#305; , s&#305;&#287;&#305;nma , s&#305;&#287;&#305;nak ve depolama alanlar&#305;n&#305;n tespit edildi&#287;i ve bu materyallere el kondu&#287;u d&#252;&#351;&#252;n&#252;l&#252;yor . </td> </tr>
+</table>
+ <br/><button onclick="showhide('059_latex')">Show/Hide LaTeX</button> <br/><pre id="059_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||c}
+ & Output \\ \hline \hline
+Ref & valilikten \textlessem\textgreateryap&#305;lan\textless/em\textgreater \textlessem\textgreatera&#231;&#305;klamada\textless/em\textgreater , Lice , Silvan ve Kulp &apos; \textlessem\textgreaterun\textless/em\textgreater kuzeyindeki da&#287;l&#305;k ve ormanl&#305;k sahada faaliyet y&#252;r&#252;ten , \textlessem\textgreateraralar&#305;nda\textless/em\textgreater \textlessem\textgreater&#252;st\textless/em\textgreater d&#252;zey &#246;rg&#252;t y&#246;neticilerinin de \textlessem\textgreaterbulundu&#287;u\textless/em\textgreater de&#287;erlendirilen ter&#246;ristler ve \textlessem\textgreateri&#351;\textless/em\textgreater birlik&#231;ilerinin etkisiz hale getirilmesi , \textlessem\textgreaterbunlar&#305;n\textless/em\textgreater kulland&#305;&#287;&#305; s&#305;&#287;&#305;nak , bar&#305;nak ve depo alanlar&#305;n&#305;n tespiti ve malzemelerin \textlessem\textgreaterele\textless/em\textgreater ge&#231;irilmesi i&#231;in operasyon d&#252;zenlendi&#287;i belirtildi . \\
+sys1 & y&#246;netim kurulunun yapt&#305;&#287;&#305; duyuruya g&#246;re , ter&#246;ristleri etkisiz hale getirmek amac&#305;yla d&#252;zenlenen bir operasyonda , da&#287;lar ve ormanl&#305;k arazilerde faaliyet g&#246;steren ve Lice , Silvan ve Kulp &apos; in kuzeyine yay&#305;lan ve birlikte daha y&#252;ksek y&#246;neticiler ve onlar&#305;n komplo sahiplerinin yer ald&#305;&#287;&#305; , s&#305;&#287;&#305;nma , s&#305;&#287;&#305;nak ve depolama alanlar&#305;n&#305;n tespit edildi&#287;i ve bu materyallere el kondu&#287;u d&#252;&#351;&#252;n&#252;l&#252;yor . \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table059}
+\end{table}</pre><table border="1">
+<tr> <th>  </th>
+  <th> Output </th> </tr><tr> <th> Ref </th>
+  <td> <em>soru&#351;turma</em> <em>kapsam&#305;nda</em> <em>hakk&#305;nda</em> g&#246;zalt&#305; <em>karar&#305;</em> <em>verilen</em> <em>ki&#351;ilerin</em> yakalanmas&#305;na <em>y&#246;nelik</em> <em>&#231;al&#305;&#351;malar</em> s&#252;rd&#252;r&#252;l&#252;yor . </td> </tr><tr> <th> sys1 </th>
+  <td> soru&#351;turman&#305;n kapsam&#305; dahilinde g&#246;zalt&#305; karar&#305;n&#305;n al&#305;nd&#305;&#287;&#305; ki&#351;ileri tutuklamaya ba&#351;lad&#305; . </td> </tr>
+</table>
+ <br/><button onclick="showhide('060_latex')">Show/Hide LaTeX</button> <br/><pre id="060_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||c}
+ & Output \\ \hline \hline
+Ref & \textlessem\textgreatersoru&#351;turma\textless/em\textgreater \textlessem\textgreaterkapsam&#305;nda\textless/em\textgreater \textlessem\textgreaterhakk&#305;nda\textless/em\textgreater g&#246;zalt&#305; \textlessem\textgreaterkarar&#305;\textless/em\textgreater \textlessem\textgreaterverilen\textless/em\textgreater \textlessem\textgreaterki&#351;ilerin\textless/em\textgreater yakalanmas&#305;na \textlessem\textgreatery&#246;nelik\textless/em\textgreater \textlessem\textgreater&#231;al&#305;&#351;malar\textless/em\textgreater s&#252;rd&#252;r&#252;l&#252;yor . \\
+sys1 & soru&#351;turman&#305;n kapsam&#305; dahilinde g&#246;zalt&#305; karar&#305;n&#305;n al&#305;nd&#305;&#287;&#305; ki&#351;ileri tutuklamaya ba&#351;lad&#305; . \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table060}
+\end{table}</pre><table border="1">
+<tr> <th>  </th>
+  <th> Output </th> </tr><tr> <th> Ref </th>
+  <td> <em>resmi</em> yukar&#305;da <em>yer</em> <em>alan</em> bu plaklar ( <em>resmi</em> <em>bana</em> <em>e</em> @-@ posta ile g&#246;nderdi , <em>kendisini</em> evine kadar <em>takip</em> etmedim ) oturma odas&#305;n&#305;n duvarlar&#305;n&#305; s&#252;sl&#252;yor . </td> </tr><tr> <th> sys1 </th>
+  <td> yukar&#305;da resim yapan bu kay&#305;tlar , kendimi evine g&#246;t&#252;rmedim , ya&#351;am odas&#305; duvarlar&#305;na do&#287;ru yola koymad&#305;m . </td> </tr>
+</table>
+ <br/><button onclick="showhide('061_latex')">Show/Hide LaTeX</button> <br/><pre id="061_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||c}
+ & Output \\ \hline \hline
+Ref & \textlessem\textgreaterresmi\textless/em\textgreater yukar&#305;da \textlessem\textgreateryer\textless/em\textgreater \textlessem\textgreateralan\textless/em\textgreater bu plaklar ( \textlessem\textgreaterresmi\textless/em\textgreater \textlessem\textgreaterbana\textless/em\textgreater \textlessem\textgreatere\textless/em\textgreater @-@ posta ile g&#246;nderdi , \textlessem\textgreaterkendisini\textless/em\textgreater evine kadar \textlessem\textgreatertakip\textless/em\textgreater etmedim ) oturma odas&#305;n&#305;n duvarlar&#305;n&#305; s&#252;sl&#252;yor . \\
+sys1 & yukar&#305;da resim yapan bu kay&#305;tlar , kendimi evine g&#246;t&#252;rmedim , ya&#351;am odas&#305; duvarlar&#305;na do&#287;ru yola koymad&#305;m . \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table061}
+\end{table}</pre><table border="1">
+<tr> <th>  </th>
+  <th> Output </th> </tr><tr> <th> Ref </th>
+  <td> <em>kendisi</em> <em>&#351;unlar&#305;</em> <em>s&#246;yledi</em> : &apos; bu , buradaki <em>ki&#351;iler</em> i&#231;in <em>ger&#231;ekten</em> bir kabus ve insanlar&#305;n bu <em>&#351;ekilde</em> ya&#351;amak zorunda kalmamas&#305; gerekti&#287;ini <em>d&#252;&#351;&#252;n&#252;yorum</em> . </td> </tr><tr> <th> sys1 </th>
+  <td> bakan , &quot; Bu , burada ya&#351;ayan insanlar i&#231;in mutlak bir kabus oldu ve insanlar&#305;n b&#246;yle ya&#351;amalar&#305; gerekti&#287;ini sanm&#305;yorum . </td> </tr>
+</table>
+ <br/><button onclick="showhide('062_latex')">Show/Hide LaTeX</button> <br/><pre id="062_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||c}
+ & Output \\ \hline \hline
+Ref & \textlessem\textgreaterkendisi\textless/em\textgreater \textlessem\textgreater&#351;unlar&#305;\textless/em\textgreater \textlessem\textgreaters&#246;yledi\textless/em\textgreater : &apos; bu , buradaki \textlessem\textgreaterki&#351;iler\textless/em\textgreater i&#231;in \textlessem\textgreaterger&#231;ekten\textless/em\textgreater bir kabus ve insanlar&#305;n bu \textlessem\textgreater&#351;ekilde\textless/em\textgreater ya&#351;amak zorunda kalmamas&#305; gerekti&#287;ini \textlessem\textgreaterd&#252;&#351;&#252;n&#252;yorum\textless/em\textgreater . \\
+sys1 & bakan , &quot; Bu , burada ya&#351;ayan insanlar i&#231;in mutlak bir kabus oldu ve insanlar&#305;n b&#246;yle ya&#351;amalar&#305; gerekti&#287;ini sanm&#305;yorum . \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table062}
+\end{table}</pre><a name="bucket7"/><h3> Examples for Bucket [100,1000) </h3><h4> Examples where all systems were good </h4><table border="1">
+<tr> <th>  </th>
+  <th> Output </th> </tr><tr> <th> Ref </th>
+  <td> <em>T&#252;rkiye</em> &apos; <em>nin</em> kendileri <em>i&#231;in</em> &#246;ncelikli 10 &#252;lkeden biri <em>oldu&#287;unu</em> belirten Shell <em>T&#252;rkiye</em> &#220;lke Ba&#351;kan&#305; Ahmet Erdem , <em>&quot;</em> <em>T&#252;rkiye</em> , Shell <em>i&#231;in</em> &#246;ncelikli 10 &#252;lkeden biri <em>&quot;</em> . </td> </tr><tr> <th> sys1 </th>
+  <td> <em>T&#252;rkiye</em> &apos; <em>nin</em> onlar <em>i&#231;in</em> &#246;ncelik olarak 10 &#252;lkeden biri <em>oldu&#287;unu</em> belirten <em>T&#252;rkiye</em> Cumhurba&#351;kan&#305; Ahmet Erdem , <em>&quot;</em> <em>T&#252;rkiye</em> , Shell <em>i&#231;in</em> &#246;ncelik ta&#351;&#305;yan 10 &#252;lkeden biri <em>&quot;</em> . dedi . </td> </tr>
+</table>
+ <br/><button onclick="showhide('063_latex')">Show/Hide LaTeX</button> <br/><pre id="063_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||c}
+ & Output \\ \hline \hline
+Ref & \textlessem\textgreaterT&#252;rkiye\textless/em\textgreater &apos; \textlessem\textgreaternin\textless/em\textgreater kendileri \textlessem\textgreateri&#231;in\textless/em\textgreater &#246;ncelikli 10 &#252;lkeden biri \textlessem\textgreateroldu&#287;unu\textless/em\textgreater belirten Shell \textlessem\textgreaterT&#252;rkiye\textless/em\textgreater &#220;lke Ba&#351;kan&#305; Ahmet Erdem , \textlessem\textgreater&quot;\textless/em\textgreater \textlessem\textgreaterT&#252;rkiye\textless/em\textgreater , Shell \textlessem\textgreateri&#231;in\textless/em\textgreater &#246;ncelikli 10 &#252;lkeden biri \textlessem\textgreater&quot;\textless/em\textgreater . \\
+sys1 & \textlessem\textgreaterT&#252;rkiye\textless/em\textgreater &apos; \textlessem\textgreaternin\textless/em\textgreater onlar \textlessem\textgreateri&#231;in\textless/em\textgreater &#246;ncelik olarak 10 &#252;lkeden biri \textlessem\textgreateroldu&#287;unu\textless/em\textgreater belirten \textlessem\textgreaterT&#252;rkiye\textless/em\textgreater Cumhurba&#351;kan&#305; Ahmet Erdem , \textlessem\textgreater&quot;\textless/em\textgreater \textlessem\textgreaterT&#252;rkiye\textless/em\textgreater , Shell \textlessem\textgreateri&#231;in\textless/em\textgreater &#246;ncelik ta&#351;&#305;yan 10 &#252;lkeden biri \textlessem\textgreater&quot;\textless/em\textgreater . dedi . \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table063}
+\end{table}</pre><table border="1">
+<tr> <th>  </th>
+  <th> Output </th> </tr><tr> <th> Ref </th>
+  <td> <em>&quot;</em> dolay&#305;s&#305;yla <em>bu</em> ter&#246;r &#246;rg&#252;t&#252;n&#252;n devletten temizlenmesi , <em>bu</em> d&#246;nemin <em>T&#252;rkiye</em> &apos; <em>de</em> kapan&#305;yor olmas&#305; <em>T&#252;rkiye</em> &apos; <em>nin</em> demokrasisini g&#252;&#231;lendirecektir <em>&quot;</em> <em>dedi</em> . </td> </tr><tr> <th> sys1 </th>
+  <td> bakan , <em>&quot;</em> &#214;nce , <em>bu</em> ter&#246;r &#246;rg&#252;t&#252;n&#252;n devletten temizlenmesi ve <em>T&#252;rkiye</em> &apos; <em>de</em> <em>bu</em> d&#246;nemin kapat&#305;lmas&#305; <em>T&#252;rkiye</em> &apos; <em>nin</em> demokrasisini g&#252;&#231;lendirecektir <em>&quot;</em> . <em>dedi</em> . </td> </tr>
+</table>
+ <br/><button onclick="showhide('064_latex')">Show/Hide LaTeX</button> <br/><pre id="064_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||c}
+ & Output \\ \hline \hline
+Ref & \textlessem\textgreater&quot;\textless/em\textgreater dolay&#305;s&#305;yla \textlessem\textgreaterbu\textless/em\textgreater ter&#246;r &#246;rg&#252;t&#252;n&#252;n devletten temizlenmesi , \textlessem\textgreaterbu\textless/em\textgreater d&#246;nemin \textlessem\textgreaterT&#252;rkiye\textless/em\textgreater &apos; \textlessem\textgreaterde\textless/em\textgreater kapan&#305;yor olmas&#305; \textlessem\textgreaterT&#252;rkiye\textless/em\textgreater &apos; \textlessem\textgreaternin\textless/em\textgreater demokrasisini g&#252;&#231;lendirecektir \textlessem\textgreater&quot;\textless/em\textgreater \textlessem\textgreaterdedi\textless/em\textgreater . \\
+sys1 & bakan , \textlessem\textgreater&quot;\textless/em\textgreater &#214;nce , \textlessem\textgreaterbu\textless/em\textgreater ter&#246;r &#246;rg&#252;t&#252;n&#252;n devletten temizlenmesi ve \textlessem\textgreaterT&#252;rkiye\textless/em\textgreater &apos; \textlessem\textgreaterde\textless/em\textgreater \textlessem\textgreaterbu\textless/em\textgreater d&#246;nemin kapat&#305;lmas&#305; \textlessem\textgreaterT&#252;rkiye\textless/em\textgreater &apos; \textlessem\textgreaternin\textless/em\textgreater demokrasisini g&#252;&#231;lendirecektir \textlessem\textgreater&quot;\textless/em\textgreater . \textlessem\textgreaterdedi\textless/em\textgreater . \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table064}
+\end{table}</pre><table border="1">
+<tr> <th>  </th>
+  <th> Output </th> </tr><tr> <th> Ref </th>
+  <td> Kore k&#246;kenli Amerikal&#305; <em>bir</em> sanat &#246;&#287;rencisi <em>olan</em> ve foto&#287;raflar hakk&#305;nda yazd&#305;&#287;&#305; tweet bolca payla&#351;&#305;lan Grace Sparapani , <em>bir</em> e <em>@-@</em> postada merce&#287;in <em>&quot;</em> <em>en</em> hafif ifadeyle ac&#305; ve rahats&#305;zl&#305;k verici <em>&quot;</em> <em>oldu&#287;unu</em> s&#246;yledi . </td> </tr><tr> <th> sys1 </th>
+  <td> <em>bir</em> e <em>@-@</em> postada , resimlerle ilgili ikizleri geni&#351; <em>bir</em> &#351;ekilde payla&#351;an Koreli Amerikal&#305; sanat &#246;&#287;rencisi <em>olan</em> grarapani , <em>&quot;</em> <em>en</em> az&#305;ndan s&#246;ylemekten aceleci ve rahats&#305;z <em>&quot;</em> <em>oldu&#287;unu</em> s&#246;yledi . </td> </tr>
+</table>
+ <br/><button onclick="showhide('065_latex')">Show/Hide LaTeX</button> <br/><pre id="065_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||c}
+ & Output \\ \hline \hline
+Ref & Kore k&#246;kenli Amerikal&#305; \textlessem\textgreaterbir\textless/em\textgreater sanat &#246;&#287;rencisi \textlessem\textgreaterolan\textless/em\textgreater ve foto&#287;raflar hakk&#305;nda yazd&#305;&#287;&#305; tweet bolca payla&#351;&#305;lan Grace Sparapani , \textlessem\textgreaterbir\textless/em\textgreater e \textlessem\textgreater@-@\textless/em\textgreater postada merce&#287;in \textlessem\textgreater&quot;\textless/em\textgreater \textlessem\textgreateren\textless/em\textgreater hafif ifadeyle ac&#305; ve rahats&#305;zl&#305;k verici \textlessem\textgreater&quot;\textless/em\textgreater \textlessem\textgreateroldu&#287;unu\textless/em\textgreater s&#246;yledi . \\
+sys1 & \textlessem\textgreaterbir\textless/em\textgreater e \textlessem\textgreater@-@\textless/em\textgreater postada , resimlerle ilgili ikizleri geni&#351; \textlessem\textgreaterbir\textless/em\textgreater &#351;ekilde payla&#351;an Koreli Amerikal&#305; sanat &#246;&#287;rencisi \textlessem\textgreaterolan\textless/em\textgreater grarapani , \textlessem\textgreater&quot;\textless/em\textgreater \textlessem\textgreateren\textless/em\textgreater az&#305;ndan s&#246;ylemekten aceleci ve rahats&#305;z \textlessem\textgreater&quot;\textless/em\textgreater \textlessem\textgreateroldu&#287;unu\textless/em\textgreater s&#246;yledi . \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table065}
+\end{table}</pre><table border="1">
+<tr> <th>  </th>
+  <th> Output </th> </tr><tr> <th> Ref </th>
+  <td> &#304;nsanlar&#305;n <em>&quot;</em> 30 dakika zaman ay&#305;rmas&#305; <em>&quot;</em> , <em>&quot;</em> kanepeden kalkmas&#305; <em>&quot;</em> ve <em>&quot;</em> <em>her</em> g&#252;n aktif olmas&#305;n&#305; <em>&quot;</em> te&#351;vik eden &#231;o&#287;u kamu sa&#287;l&#305;&#287;&#305; kampanyas&#305; , &#231;o&#287;u kamu sa&#287;l&#305;&#287;&#305; mesaj&#305;n&#305;n s&#305;k&#305;c&#305; olmas&#305; ve peri&#351;an g&#246;r&#252;nen ki&#351;iler taraf&#305;ndan iletilmesi nedeniyle g&#246;z ard&#305; edildi . </td> </tr><tr> <th> sys1 </th>
+  <td> insanlar&#305;n <em>&quot;</em> 30 &apos; u <em>&quot;</em> bulmak i&#231;in pek &#231;ok halk sa&#287;l&#305;&#287;&#305; kampanyas&#305; , <em>&quot;</em> koltuktan kalkmak <em>&quot;</em> ve <em>&quot;</em> <em>her</em> g&#252;n aktif olmak <em>&quot;</em> , halk&#305;n sa&#287;l&#305;k mesajlar&#305;n&#305;n b&#252;y&#252;k k&#305;sm&#305; bordrolu ve sefalete u&#287;rayan insanlar taraf&#305;ndan teslim edildi&#287;i i&#231;in kazan&#231;lara d&#252;&#351;t&#252; . </td> </tr>
+</table>
+ <br/><button onclick="showhide('066_latex')">Show/Hide LaTeX</button> <br/><pre id="066_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||c}
+ & Output \\ \hline \hline
+Ref & &#304;nsanlar&#305;n \textlessem\textgreater&quot;\textless/em\textgreater 30 dakika zaman ay&#305;rmas&#305; \textlessem\textgreater&quot;\textless/em\textgreater , \textlessem\textgreater&quot;\textless/em\textgreater kanepeden kalkmas&#305; \textlessem\textgreater&quot;\textless/em\textgreater ve \textlessem\textgreater&quot;\textless/em\textgreater \textlessem\textgreaterher\textless/em\textgreater g&#252;n aktif olmas&#305;n&#305; \textlessem\textgreater&quot;\textless/em\textgreater te&#351;vik eden &#231;o&#287;u kamu sa&#287;l&#305;&#287;&#305; kampanyas&#305; , &#231;o&#287;u kamu sa&#287;l&#305;&#287;&#305; mesaj&#305;n&#305;n s&#305;k&#305;c&#305; olmas&#305; ve peri&#351;an g&#246;r&#252;nen ki&#351;iler taraf&#305;ndan iletilmesi nedeniyle g&#246;z ard&#305; edildi . \\
+sys1 & insanlar&#305;n \textlessem\textgreater&quot;\textless/em\textgreater 30 &apos; u \textlessem\textgreater&quot;\textless/em\textgreater bulmak i&#231;in pek &#231;ok halk sa&#287;l&#305;&#287;&#305; kampanyas&#305; , \textlessem\textgreater&quot;\textless/em\textgreater koltuktan kalkmak \textlessem\textgreater&quot;\textless/em\textgreater ve \textlessem\textgreater&quot;\textless/em\textgreater \textlessem\textgreaterher\textless/em\textgreater g&#252;n aktif olmak \textlessem\textgreater&quot;\textless/em\textgreater , halk&#305;n sa&#287;l&#305;k mesajlar&#305;n&#305;n b&#252;y&#252;k k&#305;sm&#305; bordrolu ve sefalete u&#287;rayan insanlar taraf&#305;ndan teslim edildi&#287;i i&#231;in kazan&#231;lara d&#252;&#351;t&#252; . \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table066}
+\end{table}</pre><table border="1">
+<tr> <th>  </th>
+  <th> Output </th> </tr><tr> <th> Ref </th>
+  <td> AKP &apos; <em>nin</em> getirdi&#287;i <em>T&#252;rkiye</em> Varl&#305;k Fonu kanun teklifini sozcu.com.tr &apos; ye de&#287;erlendiren CHP Milletvekili ve Plan ve B&#252;t&#231;e Komisyonu &#220;yesi Utku &#199;ak&#305;r&#246;zer , <em>&quot;</em> Kamuya ait varl&#305;klardan , emek&#231;inin , &#231;al&#305;&#351;anlardan al&#305;nacak zorunluk emeklilik kesintilerinin , i&#351;sizler <em>i&#231;in</em> toplanan i&#351;sizlik fonundan olu&#351;acak <em>bu</em> yap&#305;n&#305;n , Anayasal denetim mekanizmalar&#305; d&#305;&#351;&#305;nda tutulmas&#305;na kesinlikle kar&#351;&#305;y&#305;z <em>&quot;</em> <em>dedi</em> . </td> </tr><tr> <th> sys1 </th>
+  <td> AKP &apos; <em>nin</em> sozcu.com.tr &apos; a getirdi&#287;i <em>T&#252;rkiye</em> Sa&#287;l&#305;k Fonu ile ilgili yasa tasar&#305;s&#305;n&#305; de&#287;erlendiren CHP Ba&#351;kan Yard&#305;mc&#305;s&#305; ve Planlama B&#252;t&#231;e B&#252;t&#231;e Komitesi &#252;yesi Utku &#199;ak&#305;r&#246;zer , <em>&quot;</em> Kamu mallar&#305;ndan olu&#351;acak olan <em>bu</em> yap&#305; , laboratuvar ve &#231;al&#305;&#351;anlardan zorunlu emekli ayl&#305;klar&#305; ve i&#351;sizlik fonlar&#305;ndan , i&#351;sizler <em>i&#231;in</em> tahsil edilebilmek i&#231;in gereken zorunlu emekli ayl&#305;klar&#305; d&#252;zenlemeye kesinlikle kar&#351;&#305;y&#305;z <em>&quot;</em> . <em>dedi</em> . </td> </tr>
+</table>
+ <br/><button onclick="showhide('067_latex')">Show/Hide LaTeX</button> <br/><pre id="067_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||c}
+ & Output \\ \hline \hline
+Ref & AKP &apos; \textlessem\textgreaternin\textless/em\textgreater getirdi&#287;i \textlessem\textgreaterT&#252;rkiye\textless/em\textgreater Varl&#305;k Fonu kanun teklifini sozcu.com.tr &apos; ye de&#287;erlendiren CHP Milletvekili ve Plan ve B&#252;t&#231;e Komisyonu &#220;yesi Utku &#199;ak&#305;r&#246;zer , \textlessem\textgreater&quot;\textless/em\textgreater Kamuya ait varl&#305;klardan , emek&#231;inin , &#231;al&#305;&#351;anlardan al&#305;nacak zorunluk emeklilik kesintilerinin , i&#351;sizler \textlessem\textgreateri&#231;in\textless/em\textgreater toplanan i&#351;sizlik fonundan olu&#351;acak \textlessem\textgreaterbu\textless/em\textgreater yap&#305;n&#305;n , Anayasal denetim mekanizmalar&#305; d&#305;&#351;&#305;nda tutulmas&#305;na kesinlikle kar&#351;&#305;y&#305;z \textlessem\textgreater&quot;\textless/em\textgreater \textlessem\textgreaterdedi\textless/em\textgreater . \\
+sys1 & AKP &apos; \textlessem\textgreaternin\textless/em\textgreater sozcu.com.tr &apos; a getirdi&#287;i \textlessem\textgreaterT&#252;rkiye\textless/em\textgreater Sa&#287;l&#305;k Fonu ile ilgili yasa tasar&#305;s&#305;n&#305; de&#287;erlendiren CHP Ba&#351;kan Yard&#305;mc&#305;s&#305; ve Planlama B&#252;t&#231;e B&#252;t&#231;e Komitesi &#252;yesi Utku &#199;ak&#305;r&#246;zer , \textlessem\textgreater&quot;\textless/em\textgreater Kamu mallar&#305;ndan olu&#351;acak olan \textlessem\textgreaterbu\textless/em\textgreater yap&#305; , laboratuvar ve &#231;al&#305;&#351;anlardan zorunlu emekli ayl&#305;klar&#305; ve i&#351;sizlik fonlar&#305;ndan , i&#351;sizler \textlessem\textgreateri&#231;in\textless/em\textgreater tahsil edilebilmek i&#231;in gereken zorunlu emekli ayl&#305;klar&#305; d&#252;zenlemeye kesinlikle kar&#351;&#305;y&#305;z \textlessem\textgreater&quot;\textless/em\textgreater . \textlessem\textgreaterdedi\textless/em\textgreater . \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table067}
+\end{table}</pre><h4> Examples where all systems were bad </h4><table border="1">
+<tr> <th>  </th>
+  <th> Output </th> </tr><tr> <th> Ref </th>
+  <td> komik <em>bir</em> potansiyeli var <em>(</em> asla sonlanmayan s&#305;&#231;raman&#305;n yaratt&#305;&#287;&#305; &#231;izgi film benzeri titreme <em>gibi</em> <em>)</em> <em>ancak</em> temelde <em>bir</em> araya getirdi&#287;i iki spor <em>olan</em> jimnastik ve dal&#305;&#351;&#305;n zarafetini <em>de</em> yans&#305;t&#305;yor . </td> </tr><tr> <th> sys1 </th>
+  <td> bu komik potansiyele -kamu asla bitmeyen beygirinin - yan&#305; s&#305;ra jimnastik ve dalg&#305;&#231;lar&#305;n pen&#231;esi- sahip . bu iki spor , asl&#305;nda birle&#351;tirdi&#287;i iki spor . </td> </tr>
+</table>
+ <br/><button onclick="showhide('068_latex')">Show/Hide LaTeX</button> <br/><pre id="068_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||c}
+ & Output \\ \hline \hline
+Ref & komik \textlessem\textgreaterbir\textless/em\textgreater potansiyeli var \textlessem\textgreater(\textless/em\textgreater asla sonlanmayan s&#305;&#231;raman&#305;n yaratt&#305;&#287;&#305; &#231;izgi film benzeri titreme \textlessem\textgreatergibi\textless/em\textgreater \textlessem\textgreater)\textless/em\textgreater \textlessem\textgreaterancak\textless/em\textgreater temelde \textlessem\textgreaterbir\textless/em\textgreater araya getirdi&#287;i iki spor \textlessem\textgreaterolan\textless/em\textgreater jimnastik ve dal&#305;&#351;&#305;n zarafetini \textlessem\textgreaterde\textless/em\textgreater yans&#305;t&#305;yor . \\
+sys1 & bu komik potansiyele -kamu asla bitmeyen beygirinin - yan&#305; s&#305;ra jimnastik ve dalg&#305;&#231;lar&#305;n pen&#231;esi- sahip . bu iki spor , asl&#305;nda birle&#351;tirdi&#287;i iki spor . \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table068}
+\end{table}</pre><table border="1">
+<tr> <th>  </th>
+  <th> Output </th> </tr><tr> <th> Ref </th>
+  <td> Louisiana Valisi John Bel Edwards , devlet yetkililerinin s&#252;rekli <em>olarak</em> yerel yetkililer <em>ile</em> temasta <em>oldu&#287;unu</em> ve durumdan etkilenen mahallelere deste&#287;in yolda <em>oldu&#287;unu</em> <em>ifade</em> <em>etti</em> . </td> </tr><tr> <th> sys1 </th>
+  <td> Louisiana Gov. John Belwards , devlet yetkililerinin yerel yetkililerle s&#252;rekli temas halinde olduklar&#305;n&#305; ve bu durumdan etkilenen parmakl&#305;klar i&#231;in yard&#305;m&#305;n &#231;oktan ba&#351;lad&#305;&#287;&#305;n&#305; s&#246;yledi . </td> </tr>
+</table>
+ <br/><button onclick="showhide('069_latex')">Show/Hide LaTeX</button> <br/><pre id="069_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||c}
+ & Output \\ \hline \hline
+Ref & Louisiana Valisi John Bel Edwards , devlet yetkililerinin s&#252;rekli \textlessem\textgreaterolarak\textless/em\textgreater yerel yetkililer \textlessem\textgreaterile\textless/em\textgreater temasta \textlessem\textgreateroldu&#287;unu\textless/em\textgreater ve durumdan etkilenen mahallelere deste&#287;in yolda \textlessem\textgreateroldu&#287;unu\textless/em\textgreater \textlessem\textgreaterifade\textless/em\textgreater \textlessem\textgreateretti\textless/em\textgreater . \\
+sys1 & Louisiana Gov. John Belwards , devlet yetkililerinin yerel yetkililerle s&#252;rekli temas halinde olduklar&#305;n&#305; ve bu durumdan etkilenen parmakl&#305;klar i&#231;in yard&#305;m&#305;n &#231;oktan ba&#351;lad&#305;&#287;&#305;n&#305; s&#246;yledi . \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table069}
+\end{table}</pre><table border="1">
+<tr> <th>  </th>
+  <th> Output </th> </tr><tr> <th> Ref </th>
+  <td> <em>ancak</em> kurban&#305;n erkek karde&#351;i , ona zarar vermek isteyebilecek biri olabilece&#287;ini d&#252;&#351;&#252;nmedi&#287;ini belirterek &#351;&#246;yle <em>dedi</em> <em>:</em> <em>&quot;</em> sonunda onun <em>i&#231;in</em> i&#351;ler iyi gidiyordu <em>&quot;</em> . </td> </tr><tr> <th> sys1 </th>
+  <td> fakat kurban&#305;n karde&#351;i , kendisine zarar vermek isteyen kimseyi d&#252;&#351;&#252;nemeyece&#287;ini s&#246;yl&#252;yor . </td> </tr>
+</table>
+ <br/><button onclick="showhide('070_latex')">Show/Hide LaTeX</button> <br/><pre id="070_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||c}
+ & Output \\ \hline \hline
+Ref & \textlessem\textgreaterancak\textless/em\textgreater kurban&#305;n erkek karde&#351;i , ona zarar vermek isteyebilecek biri olabilece&#287;ini d&#252;&#351;&#252;nmedi&#287;ini belirterek &#351;&#246;yle \textlessem\textgreaterdedi\textless/em\textgreater \textlessem\textgreater:\textless/em\textgreater \textlessem\textgreater&quot;\textless/em\textgreater sonunda onun \textlessem\textgreateri&#231;in\textless/em\textgreater i&#351;ler iyi gidiyordu \textlessem\textgreater&quot;\textless/em\textgreater . \\
+sys1 & fakat kurban&#305;n karde&#351;i , kendisine zarar vermek isteyen kimseyi d&#252;&#351;&#252;nemeyece&#287;ini s&#246;yl&#252;yor . \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table070}
+\end{table}</pre><table border="1">
+<tr> <th>  </th>
+  <th> Output </th> </tr><tr> <th> Ref </th>
+  <td> CBC <em>daha</em> <em>sonra</em> MacDonald &apos; <em>&#305;n</em> yorumlar&#305; <em>ile</em> ilgili &#351;ikayetlerini ileten 90 &apos; <em>&#305;n</em> &#252;zerinde Twitter kullan&#305;c&#305;s&#305;na <em>bu</em> &#246;zr&#252; kopyalay&#305;p yap&#305;&#351;t&#305;rd&#305; </td> </tr><tr> <th> sys1 </th>
+  <td> ard&#305;ndan CBC , MacDonald &apos; un yorumlar&#305;ndan &#351;ikayet eden 90 &apos; dan fazla Twitter kullan&#305;c&#305;ya &#246;z&#252;r dilediler ve &#246;z&#252;r dilediler . </td> </tr>
+</table>
+ <br/><button onclick="showhide('071_latex')">Show/Hide LaTeX</button> <br/><pre id="071_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||c}
+ & Output \\ \hline \hline
+Ref & CBC \textlessem\textgreaterdaha\textless/em\textgreater \textlessem\textgreatersonra\textless/em\textgreater MacDonald &apos; \textlessem\textgreater&#305;n\textless/em\textgreater yorumlar&#305; \textlessem\textgreaterile\textless/em\textgreater ilgili &#351;ikayetlerini ileten 90 &apos; \textlessem\textgreater&#305;n\textless/em\textgreater &#252;zerinde Twitter kullan&#305;c&#305;s&#305;na \textlessem\textgreaterbu\textless/em\textgreater &#246;zr&#252; kopyalay&#305;p yap&#305;&#351;t&#305;rd&#305; \\
+sys1 & ard&#305;ndan CBC , MacDonald &apos; un yorumlar&#305;ndan &#351;ikayet eden 90 &apos; dan fazla Twitter kullan&#305;c&#305;ya &#246;z&#252;r dilediler ve &#246;z&#252;r dilediler . \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table071}
+\end{table}</pre><table border="1">
+<tr> <th>  </th>
+  <th> Output </th> </tr><tr> <th> Ref </th>
+  <td> 15 Temmuz s&#252;reci <em>T&#252;rkiye</em> ekonomisinin ne <em>kadar</em> sa&#287;lam dinamiklere sahip <em>oldu&#287;unu</em> toplumun <em>da</em> demokrasiyi ne <em>kadar</em> i&#231;selle&#351;tirdi&#287;ini g&#246;sterdi . </td> </tr><tr> <th> sys1 </th>
+  <td> 15 Temmuz s&#252;reci , T&#252;rk ekonomisinin g&#252;&#231;l&#252; dinamiklerini ve toplumun demokrasiyi ne seviyeye getirdi&#287;ini g&#246;sterdi . </td> </tr>
+</table>
+ <br/><button onclick="showhide('072_latex')">Show/Hide LaTeX</button> <br/><pre id="072_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||c}
+ & Output \\ \hline \hline
+Ref & 15 Temmuz s&#252;reci \textlessem\textgreaterT&#252;rkiye\textless/em\textgreater ekonomisinin ne \textlessem\textgreaterkadar\textless/em\textgreater sa&#287;lam dinamiklere sahip \textlessem\textgreateroldu&#287;unu\textless/em\textgreater toplumun \textlessem\textgreaterda\textless/em\textgreater demokrasiyi ne \textlessem\textgreaterkadar\textless/em\textgreater i&#231;selle&#351;tirdi&#287;ini g&#246;sterdi . \\
+sys1 & 15 Temmuz s&#252;reci , T&#252;rk ekonomisinin g&#252;&#231;l&#252; dinamiklerini ve toplumun demokrasiyi ne seviyeye getirdi&#287;ini g&#246;sterdi . \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table072}
+\end{table}</pre><a name="bucket8"/><h3> Examples for Bucket >=1000 </h3><h4> Examples where all systems were good </h4><table border="1">
+<tr> <th>  </th>
+  <th> Output </th> </tr><tr> <th> Ref </th>
+  <td> savc&#305;l&#305;&#287;&#305;n ba&#351;vurusunu inceleyen n&#246;bet&#231;i Sulh Ceza Hakimli&#287;i <em>,</em> Hakan &#351;&#252;k&#252;r <em>ve</em> babas&#305; Selmet &#351;&#252;k&#252;r <em>&apos;</em> &#252;n ta&#351;&#305;nmazlar&#305;na <em>,</em> kara ula&#351;&#305;m ara&#231;lar&#305;na <em>,</em> banka veya di&#287;er mali kurumlardaki hesaplar&#305;na <em>,</em> ger&#231;ek veya t&#252;zel ki&#351;iler nezdinde ki her t&#252;rl&#252; hak <em>ve</em> alacaklar&#305;na <em>,</em> uhdelerinde bulunan k&#305;ymetli evraklara <em>,</em> &#351;irketlerdeki ortakl&#305;k paylar&#305;na <em>,</em> kiral&#305;k kasa mevcutlar&#305;na <em>ve</em> di&#287;er mal varl&#305;&#287;&#305; de&#287;erlerine el konulmas&#305;na karar verdi <em>.</em> </td> </tr><tr> <th> sys1 </th>
+  <td> savc&#305;l&#305;k <em>,</em> Vacasyon Bar&#305;&#351; Mahkemesi <em>&apos;</em> nin ba&#351;vurusunu inceleyen bir karar <em>,</em> Hakan &#350;&#252;k&#252;r <em>ve</em> babas&#305; Selmet &#350;&#252;k&#252;r &apos; in gayr&#305;menkul <em>,</em> kara ula&#351;&#305;m ara&#231;lar&#305; <em>,</em> banka <em>ve</em> di&#287;er finans kurumlar&#305;n&#305;n hesaplar&#305; <em>,</em> ger&#231;ek <em>ve</em> yasal taraflarda b&#252;t&#252;n haklar ve elde edilen gelirler <em>,</em> &#351;irketlerin sorumluluklar&#305; <em>,</em> ortakl&#305;klar&#305; , geri kalan &#351;irketler ve di&#287;er varl&#305;klara sahip olduklar&#305; dengeler ve di&#287;er varl&#305;klara el konmas&#305;yla ilgili bir karar verdi <em>.</em> </td> </tr>
+</table>
+ <br/><button onclick="showhide('073_latex')">Show/Hide LaTeX</button> <br/><pre id="073_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||c}
+ & Output \\ \hline \hline
+Ref & savc&#305;l&#305;&#287;&#305;n ba&#351;vurusunu inceleyen n&#246;bet&#231;i Sulh Ceza Hakimli&#287;i \textlessem\textgreater,\textless/em\textgreater Hakan &#351;&#252;k&#252;r \textlessem\textgreaterve\textless/em\textgreater babas&#305; Selmet &#351;&#252;k&#252;r \textlessem\textgreater&apos;\textless/em\textgreater &#252;n ta&#351;&#305;nmazlar&#305;na \textlessem\textgreater,\textless/em\textgreater kara ula&#351;&#305;m ara&#231;lar&#305;na \textlessem\textgreater,\textless/em\textgreater banka veya di&#287;er mali kurumlardaki hesaplar&#305;na \textlessem\textgreater,\textless/em\textgreater ger&#231;ek veya t&#252;zel ki&#351;iler nezdinde ki her t&#252;rl&#252; hak \textlessem\textgreaterve\textless/em\textgreater alacaklar&#305;na \textlessem\textgreater,\textless/em\textgreater uhdelerinde bulunan k&#305;ymetli evraklara \textlessem\textgreater,\textless/em\textgreater &#351;irketlerdeki ortakl&#305;k paylar&#305;na \textlessem\textgreater,\textless/em\textgreater kiral&#305;k kasa mevcutlar&#305;na \textlessem\textgreaterve\textless/em\textgreater di&#287;er mal varl&#305;&#287;&#305; de&#287;erlerine el konulmas&#305;na karar verdi \textlessem\textgreater.\textless/em\textgreater \\
+sys1 & savc&#305;l&#305;k \textlessem\textgreater,\textless/em\textgreater Vacasyon Bar&#305;&#351; Mahkemesi \textlessem\textgreater&apos;\textless/em\textgreater nin ba&#351;vurusunu inceleyen bir karar \textlessem\textgreater,\textless/em\textgreater Hakan &#350;&#252;k&#252;r \textlessem\textgreaterve\textless/em\textgreater babas&#305; Selmet &#350;&#252;k&#252;r &apos; in gayr&#305;menkul \textlessem\textgreater,\textless/em\textgreater kara ula&#351;&#305;m ara&#231;lar&#305; \textlessem\textgreater,\textless/em\textgreater banka \textlessem\textgreaterve\textless/em\textgreater di&#287;er finans kurumlar&#305;n&#305;n hesaplar&#305; \textlessem\textgreater,\textless/em\textgreater ger&#231;ek \textlessem\textgreaterve\textless/em\textgreater yasal taraflarda b&#252;t&#252;n haklar ve elde edilen gelirler \textlessem\textgreater,\textless/em\textgreater &#351;irketlerin sorumluluklar&#305; \textlessem\textgreater,\textless/em\textgreater ortakl&#305;klar&#305; , geri kalan &#351;irketler ve di&#287;er varl&#305;klara sahip olduklar&#305; dengeler ve di&#287;er varl&#305;klara el konmas&#305;yla ilgili bir karar verdi \textlessem\textgreater.\textless/em\textgreater \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table073}
+\end{table}</pre><table border="1">
+<tr> <th>  </th>
+  <th> Output </th> </tr><tr> <th> Ref </th>
+  <td> valilikten yap&#305;lan a&#231;&#305;klamada <em>,</em> Lice <em>,</em> Silvan <em>ve</em> Kulp <em>&apos;</em> un kuzeyindeki da&#287;l&#305;k <em>ve</em> ormanl&#305;k sahada faaliyet y&#252;r&#252;ten <em>,</em> aralar&#305;nda &#252;st d&#252;zey &#246;rg&#252;t y&#246;neticilerinin de bulundu&#287;u de&#287;erlendirilen ter&#246;ristler <em>ve</em> i&#351; birlik&#231;ilerinin etkisiz hale getirilmesi <em>,</em> bunlar&#305;n kulland&#305;&#287;&#305; s&#305;&#287;&#305;nak <em>,</em> bar&#305;nak <em>ve</em> depo alanlar&#305;n&#305;n tespiti <em>ve</em> malzemelerin ele ge&#231;irilmesi i&#231;in operasyon d&#252;zenlendi&#287;i belirtildi <em>.</em> </td> </tr><tr> <th> sys1 </th>
+  <td> y&#246;netim kurulunun yapt&#305;&#287;&#305; duyuruya g&#246;re <em>,</em> ter&#246;ristleri etkisiz hale getirmek amac&#305;yla d&#252;zenlenen bir operasyonda <em>,</em> da&#287;lar <em>ve</em> ormanl&#305;k arazilerde faaliyet g&#246;steren <em>ve</em> Lice <em>,</em> Silvan <em>ve</em> Kulp <em>&apos;</em> in kuzeyine yay&#305;lan <em>ve</em> birlikte daha y&#252;ksek y&#246;neticiler <em>ve</em> onlar&#305;n komplo sahiplerinin yer ald&#305;&#287;&#305; <em>,</em> s&#305;&#287;&#305;nma <em>,</em> s&#305;&#287;&#305;nak ve depolama alanlar&#305;n&#305;n tespit edildi&#287;i ve bu materyallere el kondu&#287;u d&#252;&#351;&#252;n&#252;l&#252;yor <em>.</em> </td> </tr>
+</table>
+ <br/><button onclick="showhide('074_latex')">Show/Hide LaTeX</button> <br/><pre id="074_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||c}
+ & Output \\ \hline \hline
+Ref & valilikten yap&#305;lan a&#231;&#305;klamada \textlessem\textgreater,\textless/em\textgreater Lice \textlessem\textgreater,\textless/em\textgreater Silvan \textlessem\textgreaterve\textless/em\textgreater Kulp \textlessem\textgreater&apos;\textless/em\textgreater un kuzeyindeki da&#287;l&#305;k \textlessem\textgreaterve\textless/em\textgreater ormanl&#305;k sahada faaliyet y&#252;r&#252;ten \textlessem\textgreater,\textless/em\textgreater aralar&#305;nda &#252;st d&#252;zey &#246;rg&#252;t y&#246;neticilerinin de bulundu&#287;u de&#287;erlendirilen ter&#246;ristler \textlessem\textgreaterve\textless/em\textgreater i&#351; birlik&#231;ilerinin etkisiz hale getirilmesi \textlessem\textgreater,\textless/em\textgreater bunlar&#305;n kulland&#305;&#287;&#305; s&#305;&#287;&#305;nak \textlessem\textgreater,\textless/em\textgreater bar&#305;nak \textlessem\textgreaterve\textless/em\textgreater depo alanlar&#305;n&#305;n tespiti \textlessem\textgreaterve\textless/em\textgreater malzemelerin ele ge&#231;irilmesi i&#231;in operasyon d&#252;zenlendi&#287;i belirtildi \textlessem\textgreater.\textless/em\textgreater \\
+sys1 & y&#246;netim kurulunun yapt&#305;&#287;&#305; duyuruya g&#246;re \textlessem\textgreater,\textless/em\textgreater ter&#246;ristleri etkisiz hale getirmek amac&#305;yla d&#252;zenlenen bir operasyonda \textlessem\textgreater,\textless/em\textgreater da&#287;lar \textlessem\textgreaterve\textless/em\textgreater ormanl&#305;k arazilerde faaliyet g&#246;steren \textlessem\textgreaterve\textless/em\textgreater Lice \textlessem\textgreater,\textless/em\textgreater Silvan \textlessem\textgreaterve\textless/em\textgreater Kulp \textlessem\textgreater&apos;\textless/em\textgreater in kuzeyine yay&#305;lan \textlessem\textgreaterve\textless/em\textgreater birlikte daha y&#252;ksek y&#246;neticiler \textlessem\textgreaterve\textless/em\textgreater onlar&#305;n komplo sahiplerinin yer ald&#305;&#287;&#305; \textlessem\textgreater,\textless/em\textgreater s&#305;&#287;&#305;nma \textlessem\textgreater,\textless/em\textgreater s&#305;&#287;&#305;nak ve depolama alanlar&#305;n&#305;n tespit edildi&#287;i ve bu materyallere el kondu&#287;u d&#252;&#351;&#252;n&#252;l&#252;yor \textlessem\textgreater.\textless/em\textgreater \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table074}
+\end{table}</pre><table border="1">
+<tr> <th>  </th>
+  <th> Output </th> </tr><tr> <th> Ref </th>
+  <td> Temmuz 2016 <em>&apos;</em> da &#246;nceki ay ile kar&#351;&#305;la&#351;t&#305;r&#305;ld&#305;&#287;&#305;nda <em>,</em> a&#351;a&#287;&#305;daki t&#252;ketici &#252;r&#252;n&#252; gruplar&#305;nda fiyat art&#305;&#351;&#305; g&#246;zlemlendi : g&#305;da <em>ve</em> alkols&#252;z i&#231;ecekler ( % 1,7 ) <em>,</em> ula&#351;&#305;m ( % 1,8 ) <em>,</em> e&#287;lence <em>ve</em> k&#252;lt&#252;r ( % 6,3 ) <em>,</em> restoranlar <em>ve</em> oteller ( % 1,2 ) <em>,</em> muhtelif mal <em>ve</em> hizmetler ( % 0,3 ) <em>.</em> </td> </tr><tr> <th> sys1 </th>
+  <td> Temmuz 2016 <em>&apos;</em> da <em>,</em> bir &#246;nceki aya k&#305;yasla <em>,</em> g&#305;da <em>ve</em> alkols&#252;z i&#231;ecekler ( % 1,7 ) <em>,</em> ula&#351;&#305;m ( % 1,8 ) <em>,</em> e&#287;lence <em>ve</em> k&#252;lt&#252;r ( % 6,3 ) <em>,</em> restoranlar <em>ve</em> oteller ( % 1,2 ) , Miscellane mallar <em>ve</em> hizmetler ( % 0,3 ) gibi sonraki t&#252;ketici &#252;r&#252;nlerinin fiyatlar&#305;nda bir art&#305;&#351; ya&#351;and&#305; <em>.</em> </td> </tr>
+</table>
+ <br/><button onclick="showhide('075_latex')">Show/Hide LaTeX</button> <br/><pre id="075_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||c}
+ & Output \\ \hline \hline
+Ref & Temmuz 2016 \textlessem\textgreater&apos;\textless/em\textgreater da &#246;nceki ay ile kar&#351;&#305;la&#351;t&#305;r&#305;ld&#305;&#287;&#305;nda \textlessem\textgreater,\textless/em\textgreater a&#351;a&#287;&#305;daki t&#252;ketici &#252;r&#252;n&#252; gruplar&#305;nda fiyat art&#305;&#351;&#305; g&#246;zlemlendi : g&#305;da \textlessem\textgreaterve\textless/em\textgreater alkols&#252;z i&#231;ecekler ( % 1,7 ) \textlessem\textgreater,\textless/em\textgreater ula&#351;&#305;m ( % 1,8 ) \textlessem\textgreater,\textless/em\textgreater e&#287;lence \textlessem\textgreaterve\textless/em\textgreater k&#252;lt&#252;r ( % 6,3 ) \textlessem\textgreater,\textless/em\textgreater restoranlar \textlessem\textgreaterve\textless/em\textgreater oteller ( % 1,2 ) \textlessem\textgreater,\textless/em\textgreater muhtelif mal \textlessem\textgreaterve\textless/em\textgreater hizmetler ( % 0,3 ) \textlessem\textgreater.\textless/em\textgreater \\
+sys1 & Temmuz 2016 \textlessem\textgreater&apos;\textless/em\textgreater da \textlessem\textgreater,\textless/em\textgreater bir &#246;nceki aya k&#305;yasla \textlessem\textgreater,\textless/em\textgreater g&#305;da \textlessem\textgreaterve\textless/em\textgreater alkols&#252;z i&#231;ecekler ( % 1,7 ) \textlessem\textgreater,\textless/em\textgreater ula&#351;&#305;m ( % 1,8 ) \textlessem\textgreater,\textless/em\textgreater e&#287;lence \textlessem\textgreaterve\textless/em\textgreater k&#252;lt&#252;r ( % 6,3 ) \textlessem\textgreater,\textless/em\textgreater restoranlar \textlessem\textgreaterve\textless/em\textgreater oteller ( % 1,2 ) , Miscellane mallar \textlessem\textgreaterve\textless/em\textgreater hizmetler ( % 0,3 ) gibi sonraki t&#252;ketici &#252;r&#252;nlerinin fiyatlar&#305;nda bir art&#305;&#351; ya&#351;and&#305; \textlessem\textgreater.\textless/em\textgreater \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table075}
+\end{table}</pre><table border="1">
+<tr> <th>  </th>
+  <th> Output </th> </tr><tr> <th> Ref </th>
+  <td> ula&#351;t&#305;rma Denizcilik <em>ve</em> Haberle&#351;me Bakanl&#305;&#287;&#305; Alt Yap&#305; Yat&#305;r&#305;mlar&#305; Genel M&#252;d&#252;rl&#252;&#287;&#252; taraf&#305;ndan 8 Eyl&#252;l tarihinde ihaleye &#231;&#305;kar&#305;lacak olan Rize Havaliman&#305; projesi i&#231;in ilk etapta deniz dolgusu <em>,</em> pist <em>,</em> apron <em>,</em> taksirut <em>,</em> &#231;evreyolu <em>,</em> emniyet tel &#214;rg&#252;s&#252; <em>,</em> mendirek <em>,</em> Pat sahalar&#305; <em>ve</em> &#231;evre ayd&#305;nlatma i&#351;leri yap&#305;lacak <em>.</em> </td> </tr><tr> <th> sys1 </th>
+  <td> &#304;lk ad&#305;mda <em>,</em> deniz embriyatifi <em>,</em> pi&#351;irme <em>,</em> taksi yolu <em>,</em> taksitli bir yol <em>,</em> g&#252;venlik &#231;itleri <em>,</em> &#231;&#305;lg&#305;nl&#305;k <em>ve</em> &#231;evre &#305;&#351;&#305;kland&#305;rma &#231;al&#305;&#351;malar&#305; <em>,</em> 8 Eyl&#252;l &apos; de Ula&#351;t&#305;rma , Deniz <em>ve</em> Haberle&#351;me Bakanl&#305;&#287;&#305; Genel M&#252;d&#252;rl&#252;&#287;&#252; taraf&#305;ndan hizmete girecek olan Rize Havaalan&#305; projesi i&#231;in yap&#305;lacak <em>.</em> </td> </tr>
+</table>
+ <br/><button onclick="showhide('076_latex')">Show/Hide LaTeX</button> <br/><pre id="076_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||c}
+ & Output \\ \hline \hline
+Ref & ula&#351;t&#305;rma Denizcilik \textlessem\textgreaterve\textless/em\textgreater Haberle&#351;me Bakanl&#305;&#287;&#305; Alt Yap&#305; Yat&#305;r&#305;mlar&#305; Genel M&#252;d&#252;rl&#252;&#287;&#252; taraf&#305;ndan 8 Eyl&#252;l tarihinde ihaleye &#231;&#305;kar&#305;lacak olan Rize Havaliman&#305; projesi i&#231;in ilk etapta deniz dolgusu \textlessem\textgreater,\textless/em\textgreater pist \textlessem\textgreater,\textless/em\textgreater apron \textlessem\textgreater,\textless/em\textgreater taksirut \textlessem\textgreater,\textless/em\textgreater &#231;evreyolu \textlessem\textgreater,\textless/em\textgreater emniyet tel &#214;rg&#252;s&#252; \textlessem\textgreater,\textless/em\textgreater mendirek \textlessem\textgreater,\textless/em\textgreater Pat sahalar&#305; \textlessem\textgreaterve\textless/em\textgreater &#231;evre ayd&#305;nlatma i&#351;leri yap&#305;lacak \textlessem\textgreater.\textless/em\textgreater \\
+sys1 & &#304;lk ad&#305;mda \textlessem\textgreater,\textless/em\textgreater deniz embriyatifi \textlessem\textgreater,\textless/em\textgreater pi&#351;irme \textlessem\textgreater,\textless/em\textgreater taksi yolu \textlessem\textgreater,\textless/em\textgreater taksitli bir yol \textlessem\textgreater,\textless/em\textgreater g&#252;venlik &#231;itleri \textlessem\textgreater,\textless/em\textgreater &#231;&#305;lg&#305;nl&#305;k \textlessem\textgreaterve\textless/em\textgreater &#231;evre &#305;&#351;&#305;kland&#305;rma &#231;al&#305;&#351;malar&#305; \textlessem\textgreater,\textless/em\textgreater 8 Eyl&#252;l &apos; de Ula&#351;t&#305;rma , Deniz \textlessem\textgreaterve\textless/em\textgreater Haberle&#351;me Bakanl&#305;&#287;&#305; Genel M&#252;d&#252;rl&#252;&#287;&#252; taraf&#305;ndan hizmete girecek olan Rize Havaalan&#305; projesi i&#231;in yap&#305;lacak \textlessem\textgreater.\textless/em\textgreater \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table076}
+\end{table}</pre><table border="1">
+<tr> <th>  </th>
+  <th> Output </th> </tr><tr> <th> Ref </th>
+  <td> &#304;stanbul Emniyet M&#252;d&#252;r&#252; Dr. Mustafa &#199;al&#305;&#351;kan koordinesinde kent genelinde ak&#351;am saatlerinde ba&#351;lat&#305;lan asayi&#351; uygulamas&#305;na <em>,</em> narkotik su&#231;larla m&#252;cadele <em>,</em> mali su&#231;larla m&#252;cadele <em>,</em> ter&#246;rle m&#252;cadele <em>,</em> ka&#231;ak&#231;&#305;l&#305;k <em>ve</em> organize su&#231;larla m&#252;cadele <em>,</em> &#246;zel harekat <em>,</em> &#231;evik kuvvet <em>ve</em> trafik ekiplerinin de aralar&#305;nda oldu&#287;u &#231;ok say&#305;da polis kat&#305;l&#305;yor <em>.</em> </td> </tr><tr> <th> sys1 </th>
+  <td> &#304;stanbul Emniyet Genel M&#252;d&#252;r&#252; Dr. Mustafa &#199;al&#305;&#351;kan &apos; &#305;n ak&#351;am saatlerinde ba&#351;layan operasyonda <em>,</em> kentin d&#246;rt bir yan&#305;nda saatlerce s&#252;ren uyum i&#231;inde ba&#351;lat&#305;lan kamu d&#252;zeni <em>,</em> uyu&#351;turucu su&#231;lar&#305;na kar&#351;&#305; m&#252;cadele <em>,</em> mali su&#231;lar <em>,</em> ter&#246;r <em>,</em> ka&#231;ak&#231;&#305;l&#305;k <em>ve</em> &#246;zel operasyonlar <em>,</em> isyan <em>ve</em> trafik polisi de dahil olmak &#252;zere organize su&#231;la m&#252;cadele de dahil olmak &#252;zere pek &#231;ok polis te&#351;kilat&#305; da yer al&#305;yor <em>.</em> </td> </tr>
+</table>
+ <br/><button onclick="showhide('077_latex')">Show/Hide LaTeX</button> <br/><pre id="077_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||c}
+ & Output \\ \hline \hline
+Ref & &#304;stanbul Emniyet M&#252;d&#252;r&#252; Dr. Mustafa &#199;al&#305;&#351;kan koordinesinde kent genelinde ak&#351;am saatlerinde ba&#351;lat&#305;lan asayi&#351; uygulamas&#305;na \textlessem\textgreater,\textless/em\textgreater narkotik su&#231;larla m&#252;cadele \textlessem\textgreater,\textless/em\textgreater mali su&#231;larla m&#252;cadele \textlessem\textgreater,\textless/em\textgreater ter&#246;rle m&#252;cadele \textlessem\textgreater,\textless/em\textgreater ka&#231;ak&#231;&#305;l&#305;k \textlessem\textgreaterve\textless/em\textgreater organize su&#231;larla m&#252;cadele \textlessem\textgreater,\textless/em\textgreater &#246;zel harekat \textlessem\textgreater,\textless/em\textgreater &#231;evik kuvvet \textlessem\textgreaterve\textless/em\textgreater trafik ekiplerinin de aralar&#305;nda oldu&#287;u &#231;ok say&#305;da polis kat&#305;l&#305;yor \textlessem\textgreater.\textless/em\textgreater \\
+sys1 & &#304;stanbul Emniyet Genel M&#252;d&#252;r&#252; Dr. Mustafa &#199;al&#305;&#351;kan &apos; &#305;n ak&#351;am saatlerinde ba&#351;layan operasyonda \textlessem\textgreater,\textless/em\textgreater kentin d&#246;rt bir yan&#305;nda saatlerce s&#252;ren uyum i&#231;inde ba&#351;lat&#305;lan kamu d&#252;zeni \textlessem\textgreater,\textless/em\textgreater uyu&#351;turucu su&#231;lar&#305;na kar&#351;&#305; m&#252;cadele \textlessem\textgreater,\textless/em\textgreater mali su&#231;lar \textlessem\textgreater,\textless/em\textgreater ter&#246;r \textlessem\textgreater,\textless/em\textgreater ka&#231;ak&#231;&#305;l&#305;k \textlessem\textgreaterve\textless/em\textgreater &#246;zel operasyonlar \textlessem\textgreater,\textless/em\textgreater isyan \textlessem\textgreaterve\textless/em\textgreater trafik polisi de dahil olmak &#252;zere organize su&#231;la m&#252;cadele de dahil olmak &#252;zere pek &#231;ok polis te&#351;kilat&#305; da yer al&#305;yor \textlessem\textgreater.\textless/em\textgreater \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table077}
+\end{table}</pre><h4> Examples where all systems were bad </h4><table border="1">
+<tr> <th>  </th>
+  <th> Output </th> </tr><tr> <th> Ref </th>
+  <td> kongre Paneli <em>,</em> Askeri Yetkililerin <em>,</em> I&#350;&#304;D &#304;stihbarat&#305;n&#305; tahrif Etti&#287;ini S&#246;yledi </td> </tr><tr> <th> sys1 </th>
+  <td> profesyonel Panel : askeri Yetkililer &#304;stihbarat&#305; bozdular </td> </tr>
+</table>
+ <br/><button onclick="showhide('078_latex')">Show/Hide LaTeX</button> <br/><pre id="078_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||c}
+ & Output \\ \hline \hline
+Ref & kongre Paneli \textlessem\textgreater,\textless/em\textgreater Askeri Yetkililerin \textlessem\textgreater,\textless/em\textgreater I&#350;&#304;D &#304;stihbarat&#305;n&#305; tahrif Etti&#287;ini S&#246;yledi \\
+sys1 & profesyonel Panel : askeri Yetkililer &#304;stihbarat&#305; bozdular \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table078}
+\end{table}</pre><table border="1">
+<tr> <th>  </th>
+  <th> Output </th> </tr><tr> <th> Ref </th>
+  <td> <em>&apos;</em> SA&#286;LI&#286;INIZ B&#304;Z&#304;M &#304;&#199;&#304;N &#214;NEML&#304; <em>&apos;</em> </td> </tr><tr> <th> sys1 </th>
+  <td> &quot;YOUR sa&#287;l&#305;k kurulu&#351;u ABD &quot; i&#231;in &#246;nemli </td> </tr>
+</table>
+ <br/><button onclick="showhide('079_latex')">Show/Hide LaTeX</button> <br/><pre id="079_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||c}
+ & Output \\ \hline \hline
+Ref & \textlessem\textgreater&apos;\textless/em\textgreater SA&#286;LI&#286;INIZ B&#304;Z&#304;M &#304;&#199;&#304;N &#214;NEML&#304; \textlessem\textgreater&apos;\textless/em\textgreater \\
+sys1 & &quot;YOUR sa&#287;l&#305;k kurulu&#351;u ABD &quot; i&#231;in &#246;nemli \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table079}
+\end{table}</pre><table border="1">
+<tr> <th>  </th>
+  <th> Output </th> </tr><tr> <th> Ref </th>
+  <td> Maganda aile <em>,</em> tahliye &#246;ncesinde Saltash <em>,</em> Cornwall sosyal konutunu tahrip etti </td> </tr><tr> <th> sys1 </th>
+  <td> yoba ailesi Salta&#351; &apos; &#305; ve Cornwall meclis meclisi evini tahliye etti </td> </tr>
+</table>
+ <br/><button onclick="showhide('080_latex')">Show/Hide LaTeX</button> <br/><pre id="080_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||c}
+ & Output \\ \hline \hline
+Ref & Maganda aile \textlessem\textgreater,\textless/em\textgreater tahliye &#246;ncesinde Saltash \textlessem\textgreater,\textless/em\textgreater Cornwall sosyal konutunu tahrip etti \\
+sys1 & yoba ailesi Salta&#351; &apos; &#305; ve Cornwall meclis meclisi evini tahliye etti \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table080}
+\end{table}</pre><table border="1">
+<tr> <th>  </th>
+  <th> Output </th> </tr><tr> <th> Ref </th>
+  <td> So&#287;ukken k&#305;rm&#305;z&#305; <em>,</em> s&#305;cakken beyaz &#305;&#351;&#305;k sa&#231;acaklar </td> </tr><tr> <th> sys1 </th>
+  <td> so&#287;uk ve beyaz olarak s&#305;cak olduklar&#305; zaman k&#305;rm&#305;z&#305; renklere yol a&#231;acaklar . </td> </tr>
+</table>
+ <br/><button onclick="showhide('081_latex')">Show/Hide LaTeX</button> <br/><pre id="081_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||c}
+ & Output \\ \hline \hline
+Ref & So&#287;ukken k&#305;rm&#305;z&#305; \textlessem\textgreater,\textless/em\textgreater s&#305;cakken beyaz &#305;&#351;&#305;k sa&#231;acaklar \\
+sys1 & so&#287;uk ve beyaz olarak s&#305;cak olduklar&#305; zaman k&#305;rm&#305;z&#305; renklere yol a&#231;acaklar . \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table081}
+\end{table}</pre><table border="1">
+<tr> <th>  </th>
+  <th> Output </th> </tr><tr> <th> Ref </th>
+  <td> az e&#287;itimli <em>,</em> eski futbolcu Erdo&#287;an </td> </tr><tr> <th> sys1 </th>
+  <td> k&#246;t&#252; e&#287;itimli ve eski futbolcu Erdo&#287;an </td> </tr>
+</table>
+ <br/><button onclick="showhide('082_latex')">Show/Hide LaTeX</button> <br/><pre id="082_latex" style="display:none">\begin{table}[t]
+  \centering
+  \begin{tabular}{c||c}
+ & Output \\ \hline \hline
+Ref & az e&#287;itimli \textlessem\textgreater,\textless/em\textgreater eski futbolcu Erdo&#287;an \\
+sys1 & k&#246;t&#252; e&#287;itimli ve eski futbolcu Erdo&#287;an \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:table082}
+\end{table}</pre> 
+</body>
+</html>

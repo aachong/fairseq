@@ -1,0 +1,13 @@
+BLEU = 41.88, 77.9/52.0/34.0/22.4 (BP=1.000, ratio=1.023, hyp_len=28004, ref_len=27367)
+BLEU = 39.58, 75.0/48.8/31.9/21.0 (BP=1.000, ratio=1.037, hyp_len=30254, ref_len=29169)
+BLEU = 42.10, 77.1/51.6/34.4/23.0 (BP=1.000, ratio=1.032, hyp_len=61749, ref_len=59861)
+BLEU = 39.17, 73.2/47.9/31.7/21.2 (BP=1.000, ratio=1.045, hyp_len=37388, ref_len=35784)
+BLEU = 31.10, 70.4/40.3/23.5/14.0 (BP=1.000, ratio=1.002, hyp_len=40658, ref_len=40575)
+添加reset-optimizer的结果
+
+checkpoint is ./examples/transformer_enzh/bash/../checkpoints/r3f/checkpoint_last.pt
+BLEU = 40.08, 77.0/50.4/32.1/20.7 (BP=1.000, ratio=1.015, hyp_len=27376, ref_len=26969)
+BLEU = 37.32, 73.9/46.7/29.6/19.0 (BP=1.000, ratio=1.022, hyp_len=29449, ref_len=28824)
+BLEU = 40.36, 76.1/49.9/32.7/21.4 (BP=1.000, ratio=1.018, hyp_len=60096, ref_len=59056)
+BLEU = 37.18, 72.1/46.0/29.6/19.5 (BP=1.000, ratio=1.023, hyp_len=36146, ref_len=35342)
+BLEU = 29.21, 69.2/38.8/22.1/12.9 (BP=0.988, ratio=0.988, hyp_len=39676, ref_len=40163)
